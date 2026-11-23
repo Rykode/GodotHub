@@ -199,12 +199,12 @@ class _RunningProjectsChipState extends ConsumerState<RunningProjectsChip> {
                   children: [
                     Text(
                       context.tr.common.running,
-                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: tokens.muted),
+                      style: TextStyle(fontSize: TbFontSize.xs, fontWeight: FontWeight.w600, color: tokens.muted),
                     ),
                     const SizedBox(height: 2),
                     Text(
                       runningProjectsDescription(_running.length, context.tr),
-                      style: TextStyle(fontSize: 10, color: tokens.muted.withValues(alpha: 0.5)),
+                      style: TextStyle(fontSize: TbFontSize.x3s, color: tokens.muted.withValues(alpha: 0.5)),
                     ),
                   ],
                 ),
@@ -258,7 +258,7 @@ class _RunningProjectsChipState extends ConsumerState<RunningProjectsChip> {
               Text(
                 '${_running.length}',
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: TbFontSize.sm,
                   fontWeight: FontWeight.w600,
                   fontFeatures: const [FontFeature.tabularFigures()],
                   color: hovered ? tokens.ink : tokens.muted,
@@ -330,13 +330,13 @@ class _RunningProjectRowState extends State<_RunningProjectRow> {
                               project.name,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
-                              style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: tokens.ink),
+                              style: TextStyle(fontSize: TbFontSize.xs, fontWeight: FontWeight.w500, color: tokens.ink),
                             ),
                             Text(
                               subtitle,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
-                              style: TextStyle(fontSize: 10, fontFamily: 'monospace', color: tokens.muted.withValues(alpha: 0.6)),
+                              style: TextStyle(fontSize: TbFontSize.x3s, fontFamily: 'monospace', color: tokens.muted.withValues(alpha: 0.6)),
                             ),
                           ],
                         ),

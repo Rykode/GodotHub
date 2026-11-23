@@ -301,14 +301,14 @@ void main() {
       await pumpShell(tester, shellSettings());
       AppSignals.emit(toggleCommandPaletteSignal);
       await settle(tester);
-      expect(find.text('New Project'), findsOneWidget);
+      expect(find.text('New project'), findsOneWidget);
       await tester.sendKeyEvent(LogicalKeyboardKey.escape);
       await settle(tester);
       AppSignals.emit(setTabSignal, 'news');
       await settle(tester);
       AppSignals.emit(toggleCommandPaletteSignal);
       await settle(tester);
-      expect(find.text('New Project'), findsNothing);
+      expect(find.text('New project'), findsNothing);
     });
 
     testWidgets('workspace create request validates the name and creates with copied settings', (tester) async {
@@ -331,7 +331,7 @@ void main() {
       expect(find.byType(CreateWorkspaceModal), findsOneWidget);
       expect(find.text('Copy settings from Main'), findsOneWidget);
 
-      await tester.tap(find.text('Create Workspace').last);
+      await tester.tap(find.text('Create workspace').last);
       await settle(tester);
       expect(find.text('Give the workspace a name.'), findsOneWidget);
 
@@ -341,7 +341,7 @@ void main() {
 
       await tester.enterText(find.descendant(of: find.byType(CreateWorkspaceModal), matching: find.byType(TextField)), ' Jam ');
       await settle(tester);
-      await tester.tap(find.text('Create Workspace').last);
+      await tester.tap(find.text('Create workspace').last);
       await settle(tester);
       expect(createdName, 'Jam');
       expect(copiedFrom, 'w1');

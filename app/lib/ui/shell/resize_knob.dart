@@ -48,7 +48,7 @@ class GhResizeKnob extends StatelessWidget {
           width: theme.space(1),
           height: theme.space(1),
           color: dotColor,
-          borderRadius: BorderRadius.circular(9999),
+          borderRadius: BorderRadius.circular(999),
           child: null,
         ),
       );
@@ -63,7 +63,7 @@ class GhResizeKnob extends StatelessWidget {
         height: theme.space(10),
         alignment: Alignment.center,
         color: dragging ? theme.accent : theme.raised,
-        borderRadius: BorderRadius.circular(9999),
+        borderRadius: BorderRadius.circular(999),
         border: Border.all(color: dragging ? theme.accent : (hovered ? theme.accentDim : theme.line)),
         boxShadow: GhShadows.md(dragging ? theme.accent.withValues(alpha: 0.3) : theme.base),
         child: Column(mainAxisSize: MainAxisSize.min, children: dots),
@@ -81,7 +81,7 @@ class GhResizeKnob extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: theme.space(2), vertical: theme.space(1)),
         decoration: BoxDecoration(
           color: theme.raised,
-          borderRadius: BorderRadius.circular(theme.radiusTag),
+          borderRadius: BorderRadius.circular(theme.radiusMd),
           border: Border.all(color: theme.line),
           boxShadow: GhShadows.md(theme.base),
         ),

@@ -329,21 +329,6 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
       clipBehavior: Clip.antiAlias,
       child: Stack(
         children: [
-          Positioned(
-            left: 0,
-            right: 0,
-            top: 0,
-            height: 1,
-            child: IgnorePointer(
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [theme.accent.withValues(alpha: 0), theme.accent.withValues(alpha: 0.6), theme.accent.withValues(alpha: 0)],
-                  ),
-                ),
-              ),
-            ),
-          ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: theme.space(6), vertical: theme.space(7)),
             child: Row(
@@ -432,36 +417,32 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
         label: td('dashboard_stat_projects'),
         icon: GhIcons.folder,
         value: '${projects.length}',
-        animate: projects.length,
-        gradient: const [Color(0xFF7AA0FF), Color(0xFF4F7CFF)],
+        animate: projects.length,
         onPressed: () => AppSignals.emit(setTabSignal, 'projects'),
       ),
       DashKpiCard(
         label: td('dashboard_stat_total_time'),
         hint: td('dashboard_stat_total_time_hint'),
         icon: GhIcons.clock,
-        value: formatDuration(totalProjectMs(projects)),
-        gradient: const [Color(0xFFA78BFA), Color(0xFF8B5CF6)],
+        value: formatDuration(totalProjectMs(projects)),
         delay: 40,
       ),
       DashKpiCard(
         label: td('dashboard_insights_current_streak'),
         icon: GhIcons.rocket,
-        value: td('dashboard_insights_days', count: insights?.currentStreakDays ?? 0),
-        gradient: const [Color(0xFF4ADE80), Color(0xFF2FBF71)],
+        value: td('dashboard_insights_days', count: insights?.currentStreakDays ?? 0),
         delay: 80,
       ),
       DashKpiCard(
         label: td('dashboard_insights_this_month'),
-        icon: GhIcons.arrowUpDown,
+        icon: GhIcons.history,
         value: formatDuration((insights?.thisMonthSeconds.toInt() ?? 0) * 1000),
         sub: delta == null
             ? null
             : delta >= 0
             ? td('dashboard_insights_delta_up', args: {'pct': delta})
             : td('dashboard_insights_delta_down', args: {'pct': delta.abs()}),
-        subDown: delta != null && delta < 0,
-        gradient: const [Color(0xFFFBBF24), Color(0xFFF0B132)],
+        subDown: delta != null && delta < 0,
         delay: 120,
       ),
     ];
@@ -766,7 +747,7 @@ class _TopByTime extends StatelessWidget {
                                       child: DecoratedBox(
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(999),
-                                          gradient: LinearGradient(colors: [theme.accentDim, theme.accentBright]),
+                                          color: theme.accent,
                                         ),
                                       ),
                                     ),

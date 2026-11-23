@@ -528,7 +528,7 @@ class _CheckForUpdatesModalState extends ConsumerState<CheckForUpdatesModal> {
   }
 
   Widget _previewSwitcher(GhTheme theme) {
-    final radius = BorderRadius.circular(theme.radiusTag);
+    final radius = BorderRadius.circular(theme.radiusMd);
     return Wrap(
       crossAxisAlignment: WrapCrossAlignment.center,
       spacing: theme.space(1.5),
@@ -680,8 +680,8 @@ class _CheckForUpdatesModalState extends ConsumerState<CheckForUpdatesModal> {
       height: theme.space(11),
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.12),
-        borderRadius: BorderRadius.circular(theme.radiusTile),
+        color: color.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(theme.radiusBtn),
         border: Border.all(color: color.withValues(alpha: 0.25)),
       ),
       child: spin ? GhSpinning(child: glyph) : glyph,
@@ -722,7 +722,7 @@ class _CheckForUpdatesModalState extends ConsumerState<CheckForUpdatesModal> {
       padding: EdgeInsets.symmetric(horizontal: theme.space(2.5), vertical: theme.space(1)),
       decoration: BoxDecoration(
         color: strong ? theme.accent.withValues(alpha: 0.15) : theme.overlay,
-        borderRadius: BorderRadius.circular(theme.radiusTag),
+        borderRadius: BorderRadius.circular(theme.radiusMd),
         border: Border.all(color: strong ? theme.accent.withValues(alpha: 0.35) : theme.line),
       ),
       child: Text(
@@ -865,7 +865,7 @@ class _CheckForUpdatesModalState extends ConsumerState<CheckForUpdatesModal> {
         padding: EdgeInsets.symmetric(horizontal: theme.space(2.5), vertical: theme.space(1.25)),
         decoration: BoxDecoration(
           color: theme.raised,
-          borderRadius: BorderRadius.circular(theme.radiusTag),
+          borderRadius: BorderRadius.circular(theme.radiusMd),
           border: Border.all(color: theme.line),
         ),
         child: Row(

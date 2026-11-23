@@ -260,7 +260,7 @@ class _InstallAssetModalState extends ConsumerState<InstallAssetModal> {
               Container(
                 width: theme.space(8),
                 height: theme.space(8),
-                decoration: BoxDecoration(color: theme.mint.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(theme.radiusTile)),
+                decoration: BoxDecoration(color: theme.mint.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(theme.radiusBtn)),
                 alignment: Alignment.center,
                 child: GhIcon(GhIcons.download, size: theme.space(4), color: theme.mint),
               ),
@@ -352,7 +352,7 @@ class _InstallAssetModalState extends ConsumerState<InstallAssetModal> {
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 color: selected ? theme.accent.withValues(alpha: 0.2) : theme.raised,
-                borderRadius: BorderRadius.circular(theme.radiusTile),
+                borderRadius: BorderRadius.circular(theme.radiusBtn),
                 border: Border.all(color: selected ? theme.accentDim.withValues(alpha: 0.4) : theme.outline.withValues(alpha: 0.5)),
               ),
               child: GhIcon(
@@ -430,7 +430,7 @@ class _InstallAssetModalState extends ConsumerState<InstallAssetModal> {
     return GhModalShell(
       icon: iconUrl != null && iconUrl.isNotEmpty
           ? ClipRRect(
-              borderRadius: BorderRadius.circular(theme.radiusTile),
+              borderRadius: BorderRadius.circular(theme.radiusBtn),
               child: Image.network(
                 iconUrl,
                 frameBuilder: ghFadeInFrameBuilder,
@@ -509,7 +509,7 @@ class _InstallAssetModalState extends ConsumerState<InstallAssetModal> {
                 child: Container(
                   padding: EdgeInsets.all(theme.space(2.5)),
                   decoration: BoxDecoration(
-                    color: theme.accent.withValues(alpha: 0.08),
+                    color: theme.accent.withValues(alpha: 0.1),
                     borderRadius: radius,
                     border: Border.all(color: theme.accentDim.withValues(alpha: 0.4)),
                   ),

@@ -245,7 +245,7 @@ class _VaultViewState extends ConsumerState<VaultView> {
             key: ValueKey(tag),
             builder: (context) {
               final active = _activeTags.contains(tag);
-              final radius = BorderRadius.circular(theme.radiusTag);
+              final radius = BorderRadius.circular(theme.radiusMd);
               return GhPressable(
                 onPressed: () => _toggleTag(tag),
                 toggled: active,
@@ -548,7 +548,7 @@ class _VaultItemCardState extends State<VaultItemCard> {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         color: theme.raised,
-                        borderRadius: BorderRadius.circular(theme.radiusTile),
+                        borderRadius: BorderRadius.circular(theme.radiusBtn),
                         border: Border.all(color: theme.outline.withValues(alpha: 0.5)),
                       ),
                       child: GhIcon(GhIcons.briefcase, size: theme.space(4), color: theme.muted),

@@ -214,7 +214,7 @@ class _GhOverlayScrollAreaState extends State<GhOverlayScrollArea> {
                     width: _thumbWidth,
                     height: _thumbHeight,
                     color: thumbColor,
-                    borderRadius: BorderRadius.circular(9999),
+                    borderRadius: BorderRadius.circular(999),
                     boxShadow: _dragging ? GhShadows.md(theme.accent.withValues(alpha: 0.4)) : const [],
                     child: null,
                   ),
@@ -280,7 +280,7 @@ class _ScrollTopButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = GhTheme.of(context);
-    final radius = BorderRadius.circular(9999);
+    final radius = BorderRadius.circular(999);
     return GhPressable(
       onPressed: onPressed,
       borderRadius: radius,

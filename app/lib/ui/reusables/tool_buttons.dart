@@ -94,7 +94,7 @@ class GhImportButtonState extends State<GhImportButton> {
         states: states,
         padding: EdgeInsets.symmetric(horizontal: theme.space(6)),
         borderRadius: hasOptions
-            ? BorderRadiusDirectional.horizontal(start: Radius.circular(theme.radiusDropdownBtn), end: const Radius.circular(4))
+            ? BorderRadiusDirectional.horizontal(start: Radius.circular(theme.radiusDropdown), end: const Radius.circular(4))
             : BorderRadius.circular(theme.radiusItem),
         child: Text(tr.import),
       ),

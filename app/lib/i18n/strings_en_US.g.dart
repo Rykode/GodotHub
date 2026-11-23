@@ -102,11 +102,11 @@ class Translations$common$en_US {
 
 	// Translations
 
-	/// en-US: 'New Project'
-	String get new_project => 'New Project';
+	/// en-US: 'New project'
+	String get new_project => 'New project';
 
-	/// en-US: 'Import Project'
-	String get import_project => 'Import Project';
+	/// en-US: 'Import project'
+	String get import_project => 'Import project';
 
 	/// en-US: 'Search'
 	String get search => 'Search';
@@ -123,8 +123,8 @@ class Translations$common$en_US {
 	/// en-US: 'Close'
 	String get close => 'Close';
 
-	/// en-US: 'Loading...'
-	String get loading => 'Loading...';
+	/// en-US: 'Loading…'
+	String get loading => 'Loading…';
 
 	/// en-US: 'Retry'
 	String get retry => 'Retry';
@@ -138,14 +138,14 @@ class Translations$common$en_US {
 	/// en-US: 'Scroll to top'
 	String get scroll_to_top => 'Scroll to top';
 
-	/// en-US: 'Quick Commands'
-	String get quick_commands => 'Quick Commands';
+	/// en-US: 'Quick commands'
+	String get quick_commands => 'Quick commands';
 
 	/// en-US: 'Minimize'
 	String get minimize => 'Minimize';
 
-	/// en-US: 'Close Sidebar'
-	String get close_sidebar => 'Close Sidebar';
+	/// en-US: 'Close sidebar'
+	String get close_sidebar => 'Close sidebar';
 
 	/// en-US: 'Star on GitHub'
 	String get star_on_github => 'Star on GitHub';
@@ -225,11 +225,11 @@ class Translations$common$en_US {
 	/// en-US: 'Syncing…'
 	String get syncing => 'Syncing…';
 
-	/// en-US: 'Edit Changelog Entry'
-	String get edit_entry => 'Edit Changelog Entry';
+	/// en-US: 'Edit changelog entry'
+	String get edit_entry => 'Edit changelog entry';
 
-	/// en-US: 'New Changelog Entry'
-	String get new_entry => 'New Changelog Entry';
+	/// en-US: 'New changelog entry'
+	String get new_entry => 'New changelog entry';
 
 	/// en-US: 'Checking for updates…'
 	String get checking_updates => 'Checking for updates…';
@@ -246,11 +246,11 @@ class Translations$common$en_US {
 	/// en-US: 'Restart to Apply Update'
 	String get restart_to_apply_update => 'Restart to Apply Update';
 
-	/// en-US: 'Restart Now'
-	String get restart_now => 'Restart Now';
+	/// en-US: 'Restart now'
+	String get restart_now => 'Restart now';
 
-	/// en-US: 'Update downloaded!'
-	String get update_downloaded => 'Update downloaded!';
+	/// en-US: 'Update downloaded'
+	String get update_downloaded => 'Update downloaded';
 
 	/// en-US: 'Restart GodotHub to apply the update.'
 	String get restart_to_apply => 'Restart GodotHub to apply the update.';
@@ -273,17 +273,17 @@ class Translations$common$en_US {
 	/// en-US: 'Saving…'
 	String get saving => 'Saving…';
 
-	/// en-US: 'Save Changes'
-	String get save_changes => 'Save Changes';
+	/// en-US: 'Save changes'
+	String get save_changes => 'Save changes';
 
-	/// en-US: 'Add Entry'
-	String get add_entry => 'Add Entry';
+	/// en-US: 'Add entry'
+	String get add_entry => 'Add entry';
 
 	/// en-US: 'Scan'
 	String get scan_for_projects => 'Scan';
 
-	/// en-US: 'Create Workspace'
-	String get create_workspace => 'Create Workspace';
+	/// en-US: 'Create workspace'
+	String get create_workspace => 'Create workspace';
 
 	/// en-US: 'Report a Bug'
 	String get report_a_bug => 'Report a Bug';
@@ -306,8 +306,8 @@ class Translations$common$en_US {
 	/// en-US: 'Log (personal details removed)'
 	String get bug_report_log => 'Log (personal details removed)';
 
-	/// en-US: 'Report Bug'
-	String get report_bug => 'Report Bug';
+	/// en-US: 'Report bug'
+	String get report_bug => 'Report bug';
 
 	/// en-US: 'Something went wrong'
 	String get app_error_title => 'Something went wrong';
@@ -348,8 +348,8 @@ class Translations$common$en_US {
 	/// en-US: 'Default Downloads will go to "{{path}}"'
 	String get default_downloads_go_to => 'Default Downloads will go to "{{path}}"';
 
-	/// en-US: 'Open Terminal'
-	String get open_terminal => 'Open Terminal';
+	/// en-US: 'Open terminal'
+	String get open_terminal => 'Open terminal';
 
 	/// en-US: 'Downloading {{version}}'
 	String get downloading_version => 'Downloading {{version}}';
@@ -363,8 +363,8 @@ class Translations$common$en_US {
 	/// en-US: 'Scan for Engines'
 	String get scan_for_engines => 'Scan for Engines';
 
-	/// en-US: 'Import Version'
-	String get import_version => 'Import Version';
+	/// en-US: 'Import version'
+	String get import_version => 'Import version';
 
 	/// en-US: 'Sync Templates from Directory'
 	String get sync_templates_from_directory => 'Sync Templates from Directory';
@@ -405,14 +405,14 @@ class Translations$common$en_US {
 	/// en-US: 'Finishing…'
 	String get finishing => 'Finishing…';
 
-	/// en-US: 'Get Started'
-	String get get_started => 'Get Started';
+	/// en-US: 'Get started'
+	String get get_started => 'Get started';
 
 	/// en-US: 'Scanning…'
 	String get scanning => 'Scanning…';
 
-	/// en-US: 'Scan Now'
-	String get scan_now => 'Scan Now';
+	/// en-US: 'Scan now'
+	String get scan_now => 'Scan now';
 
 	/// en-US: 'Scan complete'
 	String get scan_complete => 'Scan complete';
@@ -426,8 +426,8 @@ class Translations$common$en_US {
 	/// en-US: 'All'
 	String get all => 'All';
 
-	/// en-US: 'No Filter'
-	String get no_filter => 'No Filter';
+	/// en-US: 'No filter'
+	String get no_filter => 'No filter';
 
 	/// en-US: 'This cannot be undone.'
 	String get cannot_undo => 'This cannot be undone.';
@@ -444,14 +444,14 @@ class Translations$common$en_US {
 	/// en-US: 'Play the game without opening editor'
 	String get play_project_tooltip => 'Play the game without opening editor';
 
-	/// en-US: 'No Version Selected'
-	String get no_version_selected => 'No Version Selected';
+	/// en-US: 'No version selected'
+	String get no_version_selected => 'No version selected';
 
 	/// en-US: 'Open with Console'
 	String get open_with_console => 'Open with Console';
 
-	/// en-US: 'Open Folder'
-	String get open_folder => 'Open Folder';
+	/// en-US: 'Open folder'
+	String get open_folder => 'Open folder';
 
 	/// en-US: 'Open in IDE'
 	String get open_in_ide => 'Open in IDE';
@@ -462,8 +462,8 @@ class Translations$common$en_US {
 	/// en-US: 'None'
 	String get none => 'None';
 
-	/// en-US: 'Project Size'
-	String get project_size => 'Project Size';
+	/// en-US: 'Project size'
+	String get project_size => 'Project size';
 
 	/// en-US: 'Scanning project files…'
 	String get project_size_scanning => 'Scanning project files…';
@@ -471,8 +471,8 @@ class Translations$common$en_US {
 	/// en-US: 'No files found'
 	String get project_size_empty => 'No files found';
 
-	/// en-US: 'Launch Arguments'
-	String get launch_arguments => 'Launch Arguments';
+	/// en-US: 'Launch arguments'
+	String get launch_arguments => 'Launch arguments';
 
 	/// en-US: 'Save as Template'
 	String get save_as_template => 'Save as Template';
@@ -588,8 +588,8 @@ class Translations$common$en_US {
 	/// en-US: 'No category'
 	String get no_category_label => 'No category';
 
-	/// en-US: 'Godot Version'
-	String get godot_version_label => 'Godot Version';
+	/// en-US: 'Godot version'
+	String get godot_version_label => 'Godot version';
 
 	/// en-US: 'No engine installed yet, grab one from the Versions tab first.'
 	String get no_engine_warning => 'No engine installed yet, grab one from the Versions tab first.';
@@ -657,8 +657,8 @@ class Translations$common$en_US {
 	/// en-US: 'Done'
 	String get create_project_done => 'Done';
 
-	/// en-US: 'Create Project'
-	String get create_project_btn => 'Create Project';
+	/// en-US: 'Create project'
+	String get create_project_btn => 'Create project';
 
 	/// en-US: 'Creating…'
 	String get creating => 'Creating…';
@@ -666,8 +666,8 @@ class Translations$common$en_US {
 	/// en-US: 'Give the project a name and a folder to create it in.'
 	String get create_project_error => 'Give the project a name and a folder to create it in.';
 
-	/// en-US: 'New Workspace'
-	String get create_workspace_title => 'New Workspace';
+	/// en-US: 'New workspace'
+	String get create_workspace_title => 'New workspace';
 
 	/// en-US: 'Name'
 	String get workspace_name_label => 'Name';
@@ -678,8 +678,8 @@ class Translations$common$en_US {
 	/// en-US: 'Give the workspace a name.'
 	String get workspace_name_required_error => 'Give the workspace a name.';
 
-	/// en-US: 'Edit Workspace'
-	String get edit_workspace_title => 'Edit Workspace';
+	/// en-US: 'Edit workspace'
+	String get edit_workspace_title => 'Edit workspace';
 
 	/// en-US: 'You can't delete your only workspace'
 	String get cant_delete_only_workspace => 'You can\'t delete your only workspace';
@@ -852,17 +852,17 @@ class Translations$common$en_US {
 	/// en-US: 'Clone & Import from Repository'
 	String get clone_import_repo => 'Clone & Import from Repository';
 
-	/// en-US: 'Manage Categories'
-	String get manage_categories => 'Manage Categories';
+	/// en-US: 'Manage categories'
+	String get manage_categories => 'Manage categories';
 
-	/// en-US: 'Hide Category'
-	String get hide_category => 'Hide Category';
+	/// en-US: 'Hide category'
+	String get hide_category => 'Hide category';
 
 	/// en-US: '"{{name}}" hidden. Restore it from Hidden Categories.'
 	String get category_hidden_toast => '"{{name}}" hidden. Restore it from Hidden Categories.';
 
-	/// en-US: 'Hidden Categories'
-	String get hidden_categories => 'Hidden Categories';
+	/// en-US: 'Hidden categories'
+	String get hidden_categories => 'Hidden categories';
 
 	/// en-US: 'Those categories and their projects stay out of the way. Unhide one to bring it back.'
 	String get hidden_categories_hint => 'Those categories and their projects stay out of the way. Unhide one to bring it back.';
@@ -876,8 +876,8 @@ class Translations$common$en_US {
 	/// en-US: 'Unhide {{name}}'
 	String get unhide_category_aria => 'Unhide {{name}}';
 
-	/// en-US: 'Search projects...'
-	String get search_projects_placeholder => 'Search projects...';
+	/// en-US: 'Search projects…'
+	String get search_projects_placeholder => 'Search projects…';
 
 	/// en-US: 'Clear search'
 	String get clear_search => 'Clear search';
@@ -969,14 +969,14 @@ class Translations$common$en_US {
 	/// en-US: 'Give the entry a version.'
 	String get changelog_error_no_version => 'Give the entry a version.';
 
-	/// en-US: 'Known Issues'
-	String get changelog_known_issues => 'Known Issues';
+	/// en-US: 'Known issues'
+	String get changelog_known_issues => 'Known issues';
 
 	/// en-US: 'No known issues for this version.'
 	String get changelog_known_issues_none => 'No known issues for this version.';
 
-	/// en-US: 'Describe the known issue...'
-	String get changelog_known_issue_placeholder => 'Describe the known issue...';
+	/// en-US: 'Describe the known issue…'
+	String get changelog_known_issue_placeholder => 'Describe the known issue…';
 
 	/// en-US: 'Remove known issue'
 	String get changelog_remove_known_issue_aria => 'Remove known issue';
@@ -999,8 +999,8 @@ class Translations$common$en_US {
 	/// en-US: 'Generate draft'
 	String get changelog_draft_generate => 'Generate draft';
 
-	/// en-US: 'Use Draft'
-	String get changelog_draft_use => 'Use Draft';
+	/// en-US: 'Use draft'
+	String get changelog_draft_use => 'Use draft';
 
 	/// en-US: '{{count}} commit(s)'
 	String get changelog_draft_commits => '{{count}} commit(s)';
@@ -1020,8 +1020,8 @@ class Translations$common$en_US {
 	/// en-US: '"{{name}}" will be permanently removed.'
 	String get template_delete_desc => '"{{name}}" will be permanently removed.';
 
-	/// en-US: 'Local Templates'
-	String get templates_tab_local => 'Local Templates';
+	/// en-US: 'Local templates'
+	String get templates_tab_local => 'Local templates';
 
 	/// en-US: 'Asset Library'
 	String get templates_tab_asset => 'Asset Library';
@@ -1050,8 +1050,8 @@ class Translations$common$en_US {
 	/// en-US: 'Install'
 	String get asset_install => 'Install';
 
-	/// en-US: 'Install Inside'
-	String get asset_install_inside => 'Install Inside';
+	/// en-US: 'Install inside'
+	String get asset_install_inside => 'Install inside';
 
 	/// en-US: 'Installing…'
 	String get asset_installing => 'Installing…';
@@ -1113,8 +1113,8 @@ class Translations$common$en_US {
 	/// en-US: 'Lowest rated'
 	String get asset_store_rating_low => 'Lowest rated';
 
-	/// en-US: 'Download Outside'
-	String get asset_download_outside => 'Download Outside';
+	/// en-US: 'Download outside'
+	String get asset_download_outside => 'Download outside';
 
 	/// en-US: 'Downloaded'
 	String get asset_downloaded => 'Downloaded';
@@ -1275,8 +1275,8 @@ class Translations$common$en_US {
 	/// en-US: 'Move to Trash'
 	String get project_delete_confirm => 'Move to Trash';
 
-	/// en-US: 'Template Name'
-	String get project_template_name_label => 'Template Name';
+	/// en-US: 'Template name'
+	String get project_template_name_label => 'Template name';
 
 	/// en-US: 'Description'
 	String get project_template_desc_label => 'Description';
@@ -1284,8 +1284,8 @@ class Translations$common$en_US {
 	/// en-US: 'What's in this template?'
 	String get project_template_desc_placeholder => 'What\'s in this template?';
 
-	/// en-US: 'Save Template'
-	String get project_save_template_btn => 'Save Template';
+	/// en-US: 'Save template'
+	String get project_save_template_btn => 'Save template';
 
 	/// en-US: 'Template saved.'
 	String get template_saved_toast => 'Template saved.';
@@ -1353,32 +1353,32 @@ class Translations$common$en_US {
 	/// en-US: 'More actions'
 	String get project_more_aria => 'More actions';
 
-	/// en-US: 'Project Card'
-	String get customize_card_section => 'Project Card';
+	/// en-US: 'Project card'
+	String get customize_card_section => 'Project card';
 
-	/// en-US: 'Show Project Size'
-	String get customize_card_show_size => 'Show Project Size';
+	/// en-US: 'Show project size'
+	String get customize_card_show_size => 'Show project size';
 
-	/// en-US: 'Show Time Tracked'
-	String get customize_card_show_time => 'Show Time Tracked';
+	/// en-US: 'Show time tracked'
+	String get customize_card_show_time => 'Show time tracked';
 
-	/// en-US: 'Show Session Timer'
-	String get customize_card_show_session_timer => 'Show Session Timer';
+	/// en-US: 'Show session timer'
+	String get customize_card_show_session_timer => 'Show session timer';
 
-	/// en-US: 'Blur Project Directory'
-	String get customize_card_blur_path => 'Blur Project Directory';
+	/// en-US: 'Blur project directory'
+	String get customize_card_blur_path => 'Blur project directory';
 
-	/// en-US: 'Show Project Directory'
-	String get customize_card_show_path => 'Show Project Directory';
+	/// en-US: 'Show project directory'
+	String get customize_card_show_path => 'Show project directory';
 
-	/// en-US: 'Show Tags'
-	String get customize_card_show_tags => 'Show Tags';
+	/// en-US: 'Show tags'
+	String get customize_card_show_tags => 'Show tags';
 
-	/// en-US: 'Show Last Opened'
-	String get customize_card_show_last_opened => 'Show Last Opened';
+	/// en-US: 'Show last opened'
+	String get customize_card_show_last_opened => 'Show last opened';
 
-	/// en-US: 'Show Play Button'
-	String get customize_card_show_play => 'Show Play Button';
+	/// en-US: 'Show play button'
+	String get customize_card_show_play => 'Show play button';
 
 	/// en-US: 'Show Open with Console'
 	String get customize_card_show_console => 'Show Open with Console';
@@ -1386,11 +1386,11 @@ class Translations$common$en_US {
 	/// en-US: 'Remove from Library'
 	String get project_card_remove_library => 'Remove from Library';
 
-	/// en-US: 'Delete Files'
-	String get project_card_delete_files => 'Delete Files';
+	/// en-US: 'Delete files'
+	String get project_card_delete_files => 'Delete files';
 
-	/// en-US: 'Manage Tags'
-	String get manage_tags => 'Manage Tags';
+	/// en-US: 'Manage tags'
+	String get manage_tags => 'Manage tags';
 
 	/// en-US: 'New tag name…'
 	String get tag_input_placeholder => 'New tag name…';
@@ -1443,17 +1443,17 @@ class Translations$common$en_US {
 	/// en-US: 'Auto-collected · included in the report'
 	String get bug_report_diagnostics_hint => 'Auto-collected · included in the report';
 
-	/// en-US: 'Copied!'
-	String get bug_report_copied => 'Copied!';
+	/// en-US: 'Copied'
+	String get bug_report_copied => 'Copied';
 
-	/// en-US: 'Copy Report'
-	String get bug_report_copy_log => 'Copy Report';
+	/// en-US: 'Copy report'
+	String get bug_report_copy_log => 'Copy report';
 
-	/// en-US: 'Download Report'
-	String get bug_report_download_log => 'Download Report';
+	/// en-US: 'Download report'
+	String get bug_report_download_log => 'Download report';
 
-	/// en-US: 'Create GitHub Issue'
-	String get bug_report_open_github => 'Create GitHub Issue';
+	/// en-US: 'Create GitHub issue'
+	String get bug_report_open_github => 'Create GitHub issue';
 
 	/// en-US: 'Check for Updates'
 	String get check_updates_title_modal => 'Check for Updates';
@@ -1464,8 +1464,8 @@ class Translations$common$en_US {
 	/// en-US: 'Would you like to download and install it now?'
 	String get check_updates_ask_download => 'Would you like to download and install it now?';
 
-	/// en-US: 'Release Notes'
-	String get check_updates_release_notes => 'Release Notes';
+	/// en-US: 'Release notes'
+	String get check_updates_release_notes => 'Release notes';
 
 	/// en-US: 'Update check failed'
 	String get check_updates_failed => 'Update check failed';
@@ -1482,11 +1482,11 @@ class Translations$common$en_US {
 	/// en-US: 'Your saved GitHub token was rejected. It may have expired or been revoked. Test it in Settings and replace it if needed.'
 	String get check_updates_rate_limited_token_hint => 'Your saved GitHub token was rejected. It may have expired or been revoked. Test it in Settings and replace it if needed.';
 
-	/// en-US: 'Add GitHub Token'
-	String get check_updates_add_token => 'Add GitHub Token';
+	/// en-US: 'Add GitHub token'
+	String get check_updates_add_token => 'Add GitHub token';
 
-	/// en-US: 'Open Token Settings'
-	String get check_updates_open_token_settings => 'Open Token Settings';
+	/// en-US: 'Open token settings'
+	String get check_updates_open_token_settings => 'Open token settings';
 
 	/// en-US: 'Manual update required'
 	String get check_updates_portable_title => 'Manual update required';
@@ -1542,8 +1542,8 @@ class Translations$common$en_US {
 	/// en-US: 'Signature verified'
 	String get check_updates_signature_verified => 'Signature verified';
 
-	/// en-US: 'Clone Repository'
-	String get clone_repo_title => 'Clone Repository';
+	/// en-US: 'Clone repository'
+	String get clone_repo_title => 'Clone repository';
 
 	/// en-US: 'Repository URL'
 	String get clone_repo_url_label => 'Repository URL';
@@ -1560,20 +1560,20 @@ class Translations$common$en_US {
 	/// en-US: 'Open it right after importing'
 	String get clone_repo_open_after => 'Open it right after importing';
 
-	/// en-US: 'Browse Your Repos'
-	String get clone_repo_browse_repos => 'Browse Your Repos';
+	/// en-US: 'Browse your repos'
+	String get clone_repo_browse_repos => 'Browse your repos';
 
-	/// en-US: 'Paste URL Manually'
-	String get clone_repo_url_manual => 'Paste URL Manually';
+	/// en-US: 'Paste URL manually'
+	String get clone_repo_url_manual => 'Paste URL manually';
 
-	/// en-US: 'Search your repositories...'
-	String get clone_repo_search_repos => 'Search your repositories...';
+	/// en-US: 'Search your repositories…'
+	String get clone_repo_search_repos => 'Search your repositories…';
 
 	/// en-US: 'No repositories match your search.'
 	String get clone_repo_no_repos_found => 'No repositories match your search.';
 
-	/// en-US: 'Loading repositories...'
-	String get clone_repo_loading_repos => 'Loading repositories...';
+	/// en-US: 'Loading repositories…'
+	String get clone_repo_loading_repos => 'Loading repositories…';
 
 	/// en-US: 'Failed to load repositories.'
 	String get clone_repo_load_error => 'Failed to load repositories.';
@@ -1617,8 +1617,8 @@ class Translations$common$en_US {
 	/// en-US: '{{count}} recent tasks'
 	String get task_tray_only_recent_other => '{{count}} recent tasks';
 
-	/// en-US: 'Task Tray'
-	String get task_tray_aria => 'Task Tray';
+	/// en-US: 'Task tray'
+	String get task_tray_aria => 'Task tray';
 
 	/// en-US: 'Completed auto-dismiss'
 	String get task_tray_auto_dismiss => 'Completed auto-dismiss';
@@ -1629,8 +1629,8 @@ class Translations$common$en_US {
 	/// en-US: 'Error'
 	String get task_error_status => 'Error';
 
-	/// en-US: 'Command Palette'
-	String get command_palette_title => 'Command Palette';
+	/// en-US: 'Command palette'
+	String get command_palette_title => 'Command palette';
 
 	/// en-US: 'Search commands, projects, engines, settings…'
 	String get command_palette_placeholder => 'Search commands, projects, engines, settings…';
@@ -1647,26 +1647,26 @@ class Translations$common$en_US {
 	/// en-US: 'ghp_xxxxxxxxxxxxxxxxxxxx'
 	String get setting_token_placeholder => 'ghp_xxxxxxxxxxxxxxxxxxxx';
 
-	/// en-US: 'Scan Project Folders'
-	String get setting_project_scan_dirs => 'Scan Project Folders';
+	/// en-US: 'Scan project folders'
+	String get setting_project_scan_dirs => 'Scan project folders';
 
-	/// en-US: 'Scan Version Folders'
-	String get setting_version_scan_dirs => 'Scan Version Folders';
+	/// en-US: 'Scan version folders'
+	String get setting_version_scan_dirs => 'Scan version folders';
 
-	/// en-US: 'Default Project Location Setting'
-	String get setting_default_project_location => 'Default Project Location Setting';
+	/// en-US: 'Default project location setting'
+	String get setting_default_project_location => 'Default project location setting';
 
-	/// en-US: 'Download Versions Location Setting'
-	String get setting_download_dir => 'Download Versions Location Setting';
+	/// en-US: 'Download versions location setting'
+	String get setting_download_dir => 'Download versions location setting';
 
-	/// en-US: 'Scan Depth'
-	String get setting_scan_depth => 'Scan Depth';
+	/// en-US: 'Scan depth'
+	String get setting_scan_depth => 'Scan depth';
 
-	/// en-US: 'Project Icon Search Depth'
-	String get setting_icon_scan_depth => 'Project Icon Search Depth';
+	/// en-US: 'Project icon search depth'
+	String get setting_icon_scan_depth => 'Project icon search depth';
 
-	/// en-US: 'Simultaneous Downloads'
-	String get setting_download_concurrency => 'Simultaneous Downloads';
+	/// en-US: 'Simultaneous downloads'
+	String get setting_download_concurrency => 'Simultaneous downloads';
 
 	/// en-US: 'Close on Project Open'
 	String get setting_close_on_project_open => 'Close on Project Open';
@@ -1674,101 +1674,101 @@ class Translations$common$en_US {
 	/// en-US: 'Minimize to System Tray'
 	String get setting_minimize_to_tray => 'Minimize to System Tray';
 
-	/// en-US: 'Reopen After Godot Closes'
-	String get setting_reopen_after_godot_closes => 'Reopen After Godot Closes';
+	/// en-US: 'Reopen after Godot closes'
+	String get setting_reopen_after_godot_closes => 'Reopen after Godot closes';
 
 	/// en-US: 'Auto-scan on Startup'
 	String get setting_auto_scan_on_startup => 'Auto-scan on Startup';
 
-	/// en-US: 'Use Workspaces'
-	String get setting_workspaces_enabled => 'Use Workspaces';
+	/// en-US: 'Use workspaces'
+	String get setting_workspaces_enabled => 'Use workspaces';
 
-	/// en-US: 'Directory Naming Convention'
-	String get setting_directory_naming_convention => 'Directory Naming Convention';
+	/// en-US: 'Directory naming convention'
+	String get setting_directory_naming_convention => 'Directory naming convention';
 
 	/// en-US: 'Initialize Git for New Projects'
 	String get setting_git_init_new_projects => 'Initialize Git for New Projects';
 
-	/// en-US: 'Tooltip Delay'
-	String get setting_tooltip_delay => 'Tooltip Delay';
+	/// en-US: 'Tooltip delay'
+	String get setting_tooltip_delay => 'Tooltip delay';
 
-	/// en-US: 'Command Palette Shortcut'
-	String get setting_command_palette_keybind => 'Command Palette Shortcut';
+	/// en-US: 'Command palette shortcut'
+	String get setting_command_palette_keybind => 'Command palette shortcut';
 
-	/// en-US: 'Tray Recent Projects'
-	String get setting_tray_recent_projects_count => 'Tray Recent Projects';
+	/// en-US: 'Tray recent projects'
+	String get setting_tray_recent_projects_count => 'Tray recent projects';
 
-	/// en-US: 'Time Format'
-	String get setting_last_opened_time_format => 'Time Format';
+	/// en-US: 'Time format'
+	String get setting_last_opened_time_format => 'Time format';
 
-	/// en-US: 'Date Format'
-	String get setting_last_opened_date_format => 'Date Format';
+	/// en-US: 'Date format'
+	String get setting_last_opened_date_format => 'Date format';
 
-	/// en-US: 'Theme Mode'
-	String get setting_theme_mode => 'Theme Mode';
+	/// en-US: 'Theme mode'
+	String get setting_theme_mode => 'Theme mode';
 
-	/// en-US: 'Accent Color'
-	String get setting_accent_color => 'Accent Color';
+	/// en-US: 'Accent color'
+	String get setting_accent_color => 'Accent color';
 
-	/// en-US: 'Background Color'
-	String get setting_background_color => 'Background Color';
+	/// en-US: 'Background color'
+	String get setting_background_color => 'Background color';
 
-	/// en-US: 'Corner Radius'
-	String get setting_corner_radius => 'Corner Radius';
+	/// en-US: 'Corner radius'
+	String get setting_corner_radius => 'Corner radius';
 
-	/// en-US: 'UI Density'
-	String get setting_ui_density => 'UI Density';
+	/// en-US: 'UI density'
+	String get setting_ui_density => 'UI density';
 
-	/// en-US: 'Text Size'
-	String get setting_font_scale => 'Text Size';
+	/// en-US: 'Text size'
+	String get setting_font_scale => 'Text size';
 
-	/// en-US: 'Animation Intensity'
-	String get setting_animation_intensity => 'Animation Intensity';
+	/// en-US: 'Animation intensity'
+	String get setting_animation_intensity => 'Animation intensity';
 
-	/// en-US: 'View Entrance Animation'
-	String get setting_view_entrance => 'View Entrance Animation';
+	/// en-US: 'View entrance animation'
+	String get setting_view_entrance => 'View entrance animation';
 
 	/// en-US: 'Custom CSS'
 	String get setting_custom_css => 'Custom CSS';
 
-	/// en-US: 'Project Icon Opacity'
-	String get setting_project_icon_opacity => 'Project Icon Opacity';
+	/// en-US: 'Project icon opacity'
+	String get setting_project_icon_opacity => 'Project icon opacity';
 
-	/// en-US: 'Show Scrollbar'
-	String get setting_show_scrollbars => 'Show Scrollbar';
+	/// en-US: 'Show scrollbar'
+	String get setting_show_scrollbars => 'Show scrollbar';
 
-	/// en-US: 'Setup Wizard'
-	String get setting_setup_wizard => 'Setup Wizard';
+	/// en-US: 'Setup wizard'
+	String get setting_setup_wizard => 'Setup wizard';
 
-	/// en-US: 'Reset Settings'
-	String get setting_reset_settings => 'Reset Settings';
+	/// en-US: 'Reset settings'
+	String get setting_reset_settings => 'Reset settings';
 
-	/// en-US: 'Delete App Data'
-	String get setting_delete_app_data => 'Delete App Data';
+	/// en-US: 'Delete app data'
+	String get setting_delete_app_data => 'Delete app data';
 
 	/// en-US: 'Check for Updates'
 	String get setting_check_updates => 'Check for Updates';
 
-	/// en-US: 'Show Support Button'
-	String get setting_show_support_button => 'Show Support Button';
+	/// en-US: 'Show support button'
+	String get setting_show_support_button => 'Show support button';
 
-	/// en-US: 'Show Star Button'
-	String get setting_show_star_button => 'Show Star Button';
+	/// en-US: 'Show star button'
+	String get setting_show_star_button => 'Show star button';
 
 	/// en-US: 'Discord Rich Presence'
 	String get setting_discord_rpc_enabled => 'Discord Rich Presence';
 
-	/// en-US: 'Discord Application ID'
-	String get setting_discord_app_id => 'Discord Application ID';
+	/// en-US: 'Discord application ID'
+	String get setting_discord_app_id => 'Discord application ID';
 
-	/// en-US: 'Discord Show Project Names'
-	String get setting_discord_rpc_show_projects => 'Discord Show Project Names';
+	/// en-US: 'Discord show project names'
+	String get setting_discord_rpc_show_projects => 'Discord show project names';
 
-	/// en-US: 'Discord Excluded Projects'
-	String get setting_discord_rpc_excluded_projects => 'Discord Excluded Projects';
+	/// en-US: 'Discord excluded projects'
+	String get setting_discord_rpc_excluded_projects => 'Discord excluded projects';
 
-	/// en-US: 'Discord Custom Presence'
-	String get setting_discord_rpc_project_presences => 'Discord Custom Presence';
+	/// en-US: 'Discord custom presence'
+	String get setting_discord_rpc_project_presences => 'Discord custom presence';
 
 	/// en-US: '{{name}} (active)'
 	String get active_workspace => '{{name}} (active)';
@@ -1785,8 +1785,8 @@ class Translations$common$en_US {
 	/// en-US: 'Recent'
 	String get recent_section => 'Recent';
 
-	/// en-US: 'Installed Versions'
-	String get installed_versions_section => 'Installed Versions';
+	/// en-US: 'Installed versions'
+	String get installed_versions_section => 'Installed versions';
 
 	/// en-US: 'Settings → {{tab}}'
 	String get settings_label => 'Settings → {{tab}}';
@@ -1830,11 +1830,11 @@ class Translations$common$en_US {
 	/// en-US: 'Scanner found {{count}} projects that you previously removed from the library. Would you like to re-add them?'
 	String get found_dismissed_desc_other => 'Scanner found {{count}} projects that you previously removed from the library. Would you like to re-add them?';
 
-	/// en-US: 'Re-add All'
-	String get readd_all => 'Re-add All';
+	/// en-US: 'Re-add all'
+	String get readd_all => 'Re-add all';
 
-	/// en-US: 'Skip All'
-	String get skip_all => 'Skip All';
+	/// en-US: 'Skip all'
+	String get skip_all => 'Skip all';
 
 	/// en-US: 'Project already open'
 	String get project_already_open_title => 'Project already open';
@@ -1854,8 +1854,8 @@ class Translations$common$en_US {
 	/// en-US: '"{{name}}" is already in your templates. Install a duplicate anyway?'
 	String get asset_duplicate_desc => '"{{name}}" is already in your templates. Install a duplicate anyway?';
 
-	/// en-US: 'Empty Category'
-	String get empty_category => 'Empty Category';
+	/// en-US: 'Empty category'
+	String get empty_category => 'Empty category';
 
 	/// en-US: 'Release to drop'
 	String get release_to_drop => 'Release to drop';
@@ -1878,8 +1878,8 @@ class Translations$common$en_US {
 	/// en-US: 'Language'
 	String get bug_report_language => 'Language';
 
-	/// en-US: 'CPU Cores'
-	String get bug_report_cpu_cores => 'CPU Cores';
+	/// en-US: 'CPU cores'
+	String get bug_report_cpu_cores => 'CPU cores';
 
 	/// en-US: 'RAM'
 	String get bug_report_ram => 'RAM';
@@ -1890,11 +1890,11 @@ class Translations$common$en_US {
 	/// en-US: 'GPU'
 	String get bug_report_gpu => 'GPU';
 
-	/// en-US: 'User Agent'
-	String get bug_report_user_agent => 'User Agent';
+	/// en-US: 'User agent'
+	String get bug_report_user_agent => 'User agent';
 
-	/// en-US: 'Recent Errors'
-	String get bug_report_recent_errors => 'Recent Errors';
+	/// en-US: 'Recent errors'
+	String get bug_report_recent_errors => 'Recent errors';
 
 	/// en-US: 'none captured'
 	String get bug_report_none_captured => 'none captured';
@@ -1935,8 +1935,8 @@ class Translations$common$en_US {
 	/// en-US: 'Closed'
 	String get contributor_pr_closed => 'Closed';
 
-	/// en-US: 'Loading PRs...'
-	String get contributor_pr_loading => 'Loading PRs...';
+	/// en-US: 'Loading PRs…'
+	String get contributor_pr_loading => 'Loading PRs…';
 
 	/// en-US: '(one) {${count} pull request} (other) {${count} pull requests}'
 	String contributor_pr_count({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count,
@@ -2301,8 +2301,8 @@ class Translations$common$en_US {
 	/// en-US: 'Save to Vault'
 	String get vault_save_title => 'Save to Vault';
 
-	/// en-US: 'Source Projects'
-	String get vault_source_project_label => 'Source Projects';
+	/// en-US: 'Source projects'
+	String get vault_source_project_label => 'Source projects';
 
 	/// en-US: 'Source {{index}}'
 	String get vault_source_n => 'Source {{index}}';
@@ -2349,8 +2349,8 @@ class Translations$common$en_US {
 	/// en-US: 'Edit item'
 	String get vault_edit_action => 'Edit item';
 
-	/// en-US: 'Edit Item'
-	String get vault_edit_title => 'Edit Item';
+	/// en-US: 'Edit item'
+	String get vault_edit_title => 'Edit item';
 
 	/// en-US: 'Item updated'
 	String get vault_item_updated_toast => 'Item updated';
@@ -2370,11 +2370,11 @@ class Translations$common$en_US {
 	/// en-US: 'Add from Vault'
 	String get vault_add_title => 'Add from Vault';
 
-	/// en-US: 'Target Project'
-	String get vault_target_project_label => 'Target Project';
+	/// en-US: 'Target project'
+	String get vault_target_project_label => 'Target project';
 
-	/// en-US: 'Target Projects'
-	String get vault_target_projects_label => 'Target Projects';
+	/// en-US: 'Target projects'
+	String get vault_target_projects_label => 'Target projects';
 
 	/// en-US: 'Adding…'
 	String get vault_adding => 'Adding…';
@@ -2885,8 +2885,8 @@ class Translations$common$en_US {
 	/// en-US: 'Show files'
 	String get asset_files_load => 'Show files';
 
-	/// en-US: 'Downloading and reading the archive...'
-	String get asset_files_loading => 'Downloading and reading the archive...';
+	/// en-US: 'Downloading and reading the archive…'
+	String get asset_files_loading => 'Downloading and reading the archive…';
 
 	/// en-US: 'Couldn't read the files'
 	String get asset_files_error => 'Couldn\'t read the files';
@@ -2903,8 +2903,8 @@ class Translations$common$en_US {
 	/// en-US: 'Install into {{count}}'
 	String get asset_install_into_many => 'Install into {{count}}';
 
-	/// en-US: 'Installing {{done}} of {{total}}...'
-	String get asset_installing_progress => 'Installing {{done}} of {{total}}...';
+	/// en-US: 'Installing {{done}} of {{total}}…'
+	String get asset_installing_progress => 'Installing {{done}} of {{total}}…';
 
 	/// en-US: '{{count}} installs failed. They're still selected so you can try again.'
 	String get asset_install_some_failed => '{{count}} installs failed. They\'re still selected so you can try again.';
@@ -3038,11 +3038,11 @@ class Translations$dashboard$en_US {
 	/// en-US: 'Current time'
 	String get dashboard_clock_aria => 'Current time';
 
-	/// en-US: 'New Project'
-	String get dashboard_new_project => 'New Project';
+	/// en-US: 'New project'
+	String get dashboard_new_project => 'New project';
 
-	/// en-US: 'Import Project'
-	String get dashboard_import_project => 'Import Project';
+	/// en-US: 'Import project'
+	String get dashboard_import_project => 'Import project';
 
 	/// en-US: 'Scan for Projects'
 	String get dashboard_scan_projects => 'Scan for Projects';
@@ -3056,14 +3056,14 @@ class Translations$dashboard$en_US {
 	/// en-US: 'Engines'
 	String get dashboard_stat_engines => 'Engines';
 
-	/// en-US: 'Total Time'
-	String get dashboard_stat_total_time => 'Total Time';
+	/// en-US: 'Total time'
+	String get dashboard_stat_total_time => 'Total time';
 
 	/// en-US: 'Time spent on projects'
 	String get dashboard_stat_total_time_hint => 'Time spent on projects';
 
-	/// en-US: 'Recently Opened'
-	String get dashboard_recent => 'Recently Opened';
+	/// en-US: 'Recently opened'
+	String get dashboard_recent => 'Recently opened';
 
 	/// en-US: 'Nothing opened yet. Open a project to see it here.'
 	String get dashboard_recent_empty => 'Nothing opened yet. Open a project to see it here.';
@@ -3074,14 +3074,14 @@ class Translations$dashboard$en_US {
 	/// en-US: 'No pinned projects yet. Pin a project to keep it handy.'
 	String get dashboard_pinned_empty => 'No pinned projects yet. Pin a project to keep it handy.';
 
-	/// en-US: 'Installed Engines'
-	String get dashboard_engines => 'Installed Engines';
+	/// en-US: 'Installed engines'
+	String get dashboard_engines => 'Installed engines';
 
 	/// en-US: 'No engines installed yet.'
 	String get dashboard_engines_empty => 'No engines installed yet.';
 
-	/// en-US: 'Running Now'
-	String get dashboard_running => 'Running Now';
+	/// en-US: 'Running now'
+	String get dashboard_running => 'Running now';
 
 	/// en-US: 'Nothing is running right now.'
 	String get dashboard_running_empty => 'Nothing is running right now.';
@@ -3089,26 +3089,26 @@ class Translations$dashboard$en_US {
 	/// en-US: 'Opened {{time}}'
 	String get dashboard_opened_at => 'Opened {{time}}';
 
-	/// en-US: 'Daily Activity'
-	String get dashboard_daily => 'Daily Activity';
+	/// en-US: 'Daily activity'
+	String get dashboard_daily => 'Daily activity';
 
 	/// en-US: 'No daily activity yet.'
 	String get dashboard_daily_empty => 'No daily activity yet.';
 
-	/// en-US: 'Weekly Activity'
-	String get dashboard_weekly => 'Weekly Activity';
+	/// en-US: 'Weekly activity'
+	String get dashboard_weekly => 'Weekly activity';
 
 	/// en-US: 'No weekly activity yet.'
 	String get dashboard_weekly_empty => 'No weekly activity yet.';
 
-	/// en-US: 'Monthly Activity'
-	String get dashboard_monthly => 'Monthly Activity';
+	/// en-US: 'Monthly activity'
+	String get dashboard_monthly => 'Monthly activity';
 
 	/// en-US: 'No monthly activity yet.'
 	String get dashboard_monthly_empty => 'No monthly activity yet.';
 
-	/// en-US: 'Yearly Activity'
-	String get dashboard_yearly => 'Yearly Activity';
+	/// en-US: 'Yearly activity'
+	String get dashboard_yearly => 'Yearly activity';
 
 	/// en-US: 'No yearly activity yet.'
 	String get dashboard_yearly_empty => 'No yearly activity yet.';
@@ -3152,8 +3152,8 @@ class Translations$dashboard$en_US {
 	/// en-US: '{{pct}}% less than last month'
 	String get dashboard_insights_delta_down => '{{pct}}% less than last month';
 
-	/// en-US: 'Git Overview'
-	String get dashboard_git => 'Git Overview';
+	/// en-US: 'Git overview'
+	String get dashboard_git => 'Git overview';
 
 	/// en-US: 'No git repositories detected.'
 	String get dashboard_git_empty => 'No git repositories detected.';
@@ -3176,8 +3176,8 @@ class Translations$dashboard$en_US {
 	/// en-US: 'On {{branch}}'
 	String get dashboard_git_branch => 'On {{branch}}';
 
-	/// en-US: 'Storage Usage'
-	String get dashboard_storage => 'Storage Usage';
+	/// en-US: 'Storage usage'
+	String get dashboard_storage => 'Storage usage';
 
 	/// en-US: 'No projects to measure.'
 	String get dashboard_storage_empty => 'No projects to measure.';
@@ -3479,11 +3479,11 @@ class Translations$git$en_US {
 	/// en-US: 'Working tree clean.'
 	String get working_tree_clean => 'Working tree clean.';
 
-	/// en-US: 'Staged Changes'
-	String get staged_changes => 'Staged Changes';
+	/// en-US: 'Staged changes'
+	String get staged_changes => 'Staged changes';
 
-	/// en-US: 'Unstage All Changes'
-	String get unstage_all_changes => 'Unstage All Changes';
+	/// en-US: 'Unstage all changes'
+	String get unstage_all_changes => 'Unstage all changes';
 
 	/// en-US: 'Commits'
 	String get commits_title => 'Commits';
@@ -3500,11 +3500,11 @@ class Translations$git$en_US {
 	/// en-US: 'No commits found.'
 	String get no_commits_found => 'No commits found.';
 
-	/// en-US: 'Stage All'
-	String get stage_all => 'Stage All';
+	/// en-US: 'Stage all'
+	String get stage_all => 'Stage all';
 
-	/// en-US: 'Discard All'
-	String get discard_all => 'Discard All';
+	/// en-US: 'Discard all'
+	String get discard_all => 'Discard all';
 
 	/// en-US: 'Connected accounts'
 	String get auth_connected_accounts => 'Connected accounts';
@@ -3872,8 +3872,8 @@ class Translations$onboarding$en_US {
 	/// en-US: 'Step {{current}} of {{total}}'
 	String get step_of => 'Step {{current}} of {{total}}';
 
-	/// en-US: 'Dive In'
-	String get dive_in => 'Dive In';
+	/// en-US: 'Get started'
+	String get dive_in => 'Get started';
 
 	/// en-US: 'Workspace'
 	String get workspace_step => 'Workspace';
@@ -4025,26 +4025,26 @@ class Translations$settings$en_US {
 	/// en-US: 'Projects'
 	String get behavior_projects_title => 'Projects';
 
-	/// en-US: 'File Watchers'
-	String get file_watchers_title => 'File Watchers';
+	/// en-US: 'File watchers'
+	String get file_watchers_title => 'File watchers';
 
-	/// en-US: 'Last Opened Display'
-	String get last_opened_title => 'Last Opened Display';
+	/// en-US: 'Last opened display'
+	String get last_opened_title => 'Last opened display';
 
-	/// en-US: 'GitHub API Token'
-	String get github_token_title => 'GitHub API Token';
+	/// en-US: 'GitHub API token'
+	String get github_token_title => 'GitHub API token';
 
-	/// en-US: 'Titlebar Buttons'
-	String get titlebar_buttons => 'Titlebar Buttons';
+	/// en-US: 'Titlebar buttons'
+	String get titlebar_buttons => 'Titlebar buttons';
 
-	/// en-US: 'Setup Wizard'
-	String get setup_wizard => 'Setup Wizard';
+	/// en-US: 'Setup wizard'
+	String get setup_wizard => 'Setup wizard';
 
-	/// en-US: 'Run Setup Wizard Again'
-	String get setup_wizard_again => 'Run Setup Wizard Again';
+	/// en-US: 'Run setup wizard again'
+	String get setup_wizard_again => 'Run setup wizard again';
 
-	/// en-US: 'Restart App'
-	String get restart_app => 'Restart App';
+	/// en-US: 'Restart app'
+	String get restart_app => 'Restart app';
 
 	/// en-US: 'Restart GodotHub?'
 	String get restart_app_confirm_title => 'Restart GodotHub?';
@@ -4052,11 +4052,11 @@ class Translations$settings$en_US {
 	/// en-US: 'The app will close and reopen automatically. Unsaved in-progress operations may be interrupted.'
 	String get restart_app_confirm_desc => 'The app will close and reopen automatically. Unsaved in-progress operations may be interrupted.';
 
-	/// en-US: 'Reset Settings'
-	String get reset_settings => 'Reset Settings';
+	/// en-US: 'Reset settings'
+	String get reset_settings => 'Reset settings';
 
-	/// en-US: 'Delete App Data'
-	String get delete_app_data => 'Delete App Data';
+	/// en-US: 'Delete app data'
+	String get delete_app_data => 'Delete app data';
 
 	/// en-US: 'New project default'
 	String get new_project_default => 'New project default';
@@ -4283,11 +4283,11 @@ class Translations$settings$en_US {
 	/// en-US: 'Reset appearance to default'
 	String get reset_appearance => 'Reset appearance to default';
 
-	/// en-US: 'Delete All'
-	String get delete_all => 'Delete All';
+	/// en-US: 'Delete all'
+	String get delete_all => 'Delete all';
 
-	/// en-US: 'Open Setup'
-	String get open_setup => 'Open Setup';
+	/// en-US: 'Open setup'
+	String get open_setup => 'Open setup';
 
 	/// en-US: 'Reset colors to default'
 	String get reset_colors => 'Reset colors to default';
@@ -4415,8 +4415,8 @@ class Translations$settings$en_US {
 	/// en-US: 'This permanently deletes all time tracking history, session records, and per-project totals. This cannot be undone.'
 	String get clear_stats_confirm_desc => 'This permanently deletes all time tracking history, session records, and per-project totals. This cannot be undone.';
 
-	/// en-US: 'Clear All'
-	String get clear_stats_confirm_btn => 'Clear All';
+	/// en-US: 'Clear all'
+	String get clear_stats_confirm_btn => 'Clear all';
 
 	/// en-US: 'Time data cleared.'
 	String get stats_cleared => 'Time data cleared.';
@@ -4424,20 +4424,20 @@ class Translations$settings$en_US {
 	/// en-US: 'Backup settings'
 	String get settings_backup_title => 'Backup settings';
 
-	/// en-US: 'Export Settings'
-	String get export_settings_btn => 'Export Settings';
+	/// en-US: 'Export settings'
+	String get export_settings_btn => 'Export settings';
 
-	/// en-US: 'Import Settings'
-	String get import_settings_btn => 'Import Settings';
+	/// en-US: 'Import settings'
+	String get import_settings_btn => 'Import settings';
 
 	/// en-US: 'Backup workspace'
 	String get workspace_backup_title => 'Backup workspace';
 
-	/// en-US: 'Export Workspace'
-	String get workspace_backup_export_btn => 'Export Workspace';
+	/// en-US: 'Export workspace'
+	String get workspace_backup_export_btn => 'Export workspace';
 
-	/// en-US: 'Restore Workspace'
-	String get workspace_backup_restore_btn => 'Restore Workspace';
+	/// en-US: 'Restore workspace'
+	String get workspace_backup_restore_btn => 'Restore workspace';
 
 	/// en-US: 'Workspace backup exported.'
 	String get workspace_backup_exported => 'Workspace backup exported.';
@@ -4448,11 +4448,11 @@ class Translations$settings$en_US {
 	/// en-US: 'Backup everything (all workspaces)'
 	String get app_backup_title => 'Backup everything (all workspaces)';
 
-	/// en-US: 'Export Everything'
-	String get app_backup_export_btn => 'Export Everything';
+	/// en-US: 'Export everything'
+	String get app_backup_export_btn => 'Export everything';
 
-	/// en-US: 'Restore Everything'
-	String get app_backup_restore_btn => 'Restore Everything';
+	/// en-US: 'Restore everything'
+	String get app_backup_restore_btn => 'Restore everything';
 
 	/// en-US: 'Full app backup exported.'
 	String get app_backup_exported => 'Full app backup exported.';
@@ -4481,8 +4481,8 @@ class Translations$settings$en_US {
 	/// en-US: 'Lost your local data? Enter your gist URL or ID to restore from any machine.'
 	String get sync_manual_hint => 'Lost your local data? Enter your gist URL or ID to restore from any machine.';
 
-	/// en-US: 'https://gist.github.com/... or gist ID'
-	String get sync_manual_placeholder => 'https://gist.github.com/... or gist ID';
+	/// en-US: 'https://gist.github.com/… or gist ID'
+	String get sync_manual_placeholder => 'https://gist.github.com/… or gist ID';
 
 	/// en-US: 'Restore'
 	String get sync_manual_pull_btn => 'Restore';
@@ -4577,8 +4577,8 @@ class Translations$settings$en_US {
 	/// en-US: 'Apply & Restart'
 	String get restore_modal_apply_btn => 'Apply & Restart';
 
-	/// en-US: 'Backup Restored'
-	String get restore_modal_done_title => 'Backup Restored';
+	/// en-US: 'Backup restored'
+	String get restore_modal_done_title => 'Backup restored';
 
 	/// en-US: 'Click the button below to restart and apply all changes.'
 	String get restore_modal_done_hint => 'Click the button below to restart and apply all changes.';
@@ -4610,8 +4610,8 @@ class Translations$settings$en_US {
 	/// en-US: 'Create a token at github.com/settings/tokens. You only need to check the repo scope if you want private repo access, otherwise leave all scopes unchecked. No sensitive permissions required.'
 	String get token_help_desc => 'Create a token at github.com/settings/tokens. You only need to check the repo scope if you want private repo access, otherwise leave all scopes unchecked. No sensitive permissions required.';
 
-	/// en-US: 'Discord Application ID'
-	String get discord_app_id_label => 'Discord Application ID';
+	/// en-US: 'Discord application ID'
+	String get discord_app_id_label => 'Discord application ID';
 
 	/// en-US: 'Leave empty to use the built-in default'
 	String get discord_app_id_placeholder => 'Leave empty to use the built-in default';
@@ -4688,8 +4688,8 @@ class Translations$settings$en_US {
 	/// en-US: 'Built with'
 	String get credits_built_with => 'Built with';
 
-	/// en-US: 'Open Source Licenses'
-	String get credits_licenses => 'Open Source Licenses';
+	/// en-US: 'Open source licenses'
+	String get credits_licenses => 'Open source licenses';
 
 	/// en-US: 'Contributors'
 	String get credits_contributors => 'Contributors';
@@ -4709,8 +4709,8 @@ class Translations$settings$en_US {
 	/// en-US: 'Colored window buttons'
 	String get colored_titlebar_buttons_label => 'Colored window buttons';
 
-	/// en-US: 'Project Next Steps'
-	String get project_todos_label => 'Project Next Steps';
+	/// en-US: 'Project next steps'
+	String get project_todos_label => 'Project next steps';
 
 	/// en-US: 'Use mise for Godot versions'
 	String get mise_label => 'Use mise for Godot versions';
@@ -4763,8 +4763,8 @@ class Translations$settings$en_US {
 	/// en-US: 'Install'
 	String get cli_tool_install => 'Install';
 
-	/// en-US: 'Installing...'
-	String get cli_tool_installing => 'Installing...';
+	/// en-US: 'Installing…'
+	String get cli_tool_installing => 'Installing…';
 
 	/// en-US: 'Installed. Open a new terminal, then run: godothub'
 	String get cli_tool_installed_msg => 'Installed. Open a new terminal, then run: godothub';
@@ -4949,8 +4949,8 @@ class Translations$todos$en_US {
 	/// en-US: 'Could not save the changes.'
 	String get save_changes_failed => 'Could not save the changes.';
 
-	/// en-US: 'Loading tasks...'
-	String get loading_tasks => 'Loading tasks...';
+	/// en-US: 'Loading tasks…'
+	String get loading_tasks => 'Loading tasks…';
 
 	/// en-US: 'Could not load tasks'
 	String get load_tasks_failed => 'Could not load tasks';
@@ -5063,8 +5063,8 @@ class Translations$todos$en_US {
 	/// en-US: 'E.g.: Create main menu'
 	String get title_placeholder => 'E.g.: Create main menu';
 
-	/// en-US: 'Add more details about what needs to be done...'
-	String get description_placeholder => 'Add more details about what needs to be done...';
+	/// en-US: 'Add more details about what needs to be done…'
+	String get description_placeholder => 'Add more details about what needs to be done…';
 
 	/// en-US: 'No due date'
 	String get no_due_date => 'No due date';
@@ -5306,8 +5306,8 @@ class Translations$versions$en_US {
 	/// en-US: 'Rename'
 	String get rename => 'Rename';
 
-	/// en-US: 'Open Editor'
-	String get open_editor => 'Open Editor';
+	/// en-US: 'Open editor'
+	String get open_editor => 'Open editor';
 
 	/// en-US: 'Open Editor with Console'
 	String get open_editor_with_console => 'Open Editor with Console';
@@ -5315,8 +5315,8 @@ class Translations$versions$en_US {
 	/// en-US: 'More editor launch options'
 	String get more_editor_launch_options => 'More editor launch options';
 
-	/// en-US: 'Open Install Folder'
-	String get open_install_folder => 'Open Install Folder';
+	/// en-US: 'Open install folder'
+	String get open_install_folder => 'Open install folder';
 
 	/// en-US: 'Type'
 	String get type => 'Type';
@@ -5381,8 +5381,8 @@ class Translations$versions$en_US {
 	/// en-US: 'GitHub'
 	String get source_github => 'GitHub';
 
-	/// en-US: 'Godot Archive'
-	String get source_archive => 'Godot Archive';
+	/// en-US: 'Godot archive'
+	String get source_archive => 'Godot archive';
 
 	/// en-US: 'mise'
 	String get source_mise => 'mise';
@@ -5396,17 +5396,17 @@ class Translations$versions$en_US {
 	/// en-US: 'Oldest'
 	String get sort_version_oldest => 'Oldest';
 
-	/// en-US: 'Recently Installed'
-	String get sort_version_recently_installed => 'Recently Installed';
+	/// en-US: 'Recently installed'
+	String get sort_version_recently_installed => 'Recently installed';
 
-	/// en-US: 'Oldest Installed'
-	String get sort_version_oldest_installed => 'Oldest Installed';
+	/// en-US: 'Oldest installed'
+	String get sort_version_oldest_installed => 'Oldest installed';
 
 	/// en-US: 'Set as Current'
 	String get set_as_current => 'Set as Current';
 
-	/// en-US: 'Unset Current'
-	String get unset_current => 'Unset Current';
+	/// en-US: 'Unset current'
+	String get unset_current => 'Unset current';
 
 	/// en-US: 'Version Set as Current'
 	String get current_set_title => 'Version Set as Current';
@@ -5426,8 +5426,8 @@ class Translations$versions$en_US {
 	/// en-US: 'Copy folder path'
 	String get current_copy_dir => 'Copy folder path';
 
-	/// en-US: 'Open Alias Folder'
-	String get current_open_folder => 'Open Alias Folder';
+	/// en-US: 'Open alias folder'
+	String get current_open_folder => 'Open alias folder';
 
 	/// en-US: 'Add the folder above to your PATH to run "Godot" from any terminal, script, or tool. The alias always follows the current version, so pinning another version or uninstalling this one updates it automatically.'
 	String get current_path_hint => 'Add the folder above to your PATH to run "Godot" from any terminal, script, or tool. The alias always follows the current version, so pinning another version or uninstalling this one updates it automatically.';
@@ -5441,8 +5441,8 @@ class Translations$versions$en_US {
 	/// en-US: 'Aliases'
 	String get aliases_manage => 'Aliases';
 
-	/// en-US: 'Version Aliases'
-	String get aliases_title => 'Version Aliases';
+	/// en-US: 'Version aliases'
+	String get aliases_title => 'Version aliases';
 
 	/// en-US: 'No aliases yet. Pick a version above, give the command a name, and it will appear in the aliases folder.'
 	String get aliases_empty => 'No aliases yet. Pick a version above, give the command a name, and it will appear in the aliases folder.';
@@ -5453,11 +5453,11 @@ class Translations$versions$en_US {
 	/// en-US: 'Add the aliases folder to your PATH to run these names from any terminal or tool. The "Godot" command from the current version pin lives in the same folder.'
 	String get aliases_path_hint => 'Add the aliases folder to your PATH to run these names from any terminal or tool. The "Godot" command from the current version pin lives in the same folder.';
 
-	/// en-US: 'Create Alias'
-	String get alias_create => 'Create Alias';
+	/// en-US: 'Create alias'
+	String get alias_create => 'Create alias';
 
-	/// en-US: 'Add Alias'
-	String get alias_add => 'Add Alias';
+	/// en-US: 'Add alias'
+	String get alias_add => 'Add alias';
 
 	/// en-US: 'Alias name'
 	String get alias_name_label => 'Alias name';
@@ -5474,14 +5474,14 @@ class Translations$versions$en_US {
 	/// en-US: 'Mono builds load GodotSharp from the folder next to the executable, so on Windows the alias is created as a launcher script instead of a link.'
 	String get alias_mono_script_note => 'Mono builds load GodotSharp from the folder next to the executable, so on Windows the alias is created as a launcher script instead of a link.';
 
-	/// en-US: '(one) {Create Alias} (other) {Create ${count} Aliases}'
+	/// en-US: '(one) {Create alias} (other) {Create ${count} Aliases}'
 	String alias_create_all({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count,
-		one: 'Create Alias',
+		one: 'Create alias',
 		other: 'Create ${count} Aliases',
 	);
 
-	/// en-US: 'Create Alias'
-	String get alias_create_all_one => 'Create Alias';
+	/// en-US: 'Create alias'
+	String get alias_create_all_one => 'Create alias';
 
 	/// en-US: 'Create {{count}} Aliases'
 	String get alias_create_all_other => 'Create {{count}} Aliases';
@@ -5684,11 +5684,11 @@ class Translations$versions$en_US {
 	/// en-US: 'Web with Extensions'
 	String get export_templates_web_extensions => 'Web with Extensions';
 
-	/// en-US: 'Web Single-Threaded'
-	String get export_templates_web_single_threaded => 'Web Single-Threaded';
+	/// en-US: 'Web single-threaded'
+	String get export_templates_web_single_threaded => 'Web single-threaded';
 
-	/// en-US: 'Web with Extensions Single-Threaded'
-	String get export_templates_web_extensions_single_threaded => 'Web with Extensions Single-Threaded';
+	/// en-US: 'Web with extensions single-threaded'
+	String get export_templates_web_extensions_single_threaded => 'Web with extensions single-threaded';
 
 	/// en-US: 'Refresh available templates'
 	String get export_templates_refresh => 'Refresh available templates';
@@ -5783,8 +5783,8 @@ class Translations$common$project_doctor$en_US {
 
 	// Translations
 
-	/// en-US: 'Project Doctor'
-	String get title => 'Project Doctor';
+	/// en-US: 'Project doctor'
+	String get title => 'Project doctor';
 
 	/// en-US: 'Checking this project…'
 	String get scanning => 'Checking this project…';
@@ -6251,11 +6251,11 @@ class Translations$common$project_doctor$en_US {
 	/// en-US: 'Platform Tools (adb)'
 	String get sdk_part_platform_tools => 'Platform Tools (adb)';
 
-	/// en-US: 'Build Tools'
-	String get sdk_part_build_tools => 'Build Tools';
+	/// en-US: 'Build tools'
+	String get sdk_part_build_tools => 'Build tools';
 
-	/// en-US: 'Command-line Tools'
-	String get sdk_part_cmdline_tools => 'Command-line Tools';
+	/// en-US: 'Command-line tools'
+	String get sdk_part_cmdline_tools => 'Command-line tools';
 
 	/// en-US: 'Android SDK found'
 	String get android_sdk_ready_title => 'Android SDK found';
@@ -6583,21 +6583,21 @@ extension on Translations {
 			'changelog.fixed' => 'Fixed',
 			'changelog.improved' => 'Improved',
 			'changelog.changelog_load_failed' => 'Couldn\'t load the changelog',
-			'common.new_project' => 'New Project',
-			'common.import_project' => 'Import Project',
+			'common.new_project' => 'New project',
+			'common.import_project' => 'Import project',
 			'common.search' => 'Search',
 			'common.cancel' => 'Cancel',
 			'common.save' => 'Save',
 			'common.delete' => 'Delete',
 			'common.close' => 'Close',
-			'common.loading' => 'Loading...',
+			'common.loading' => 'Loading…',
 			'common.retry' => 'Retry',
 			'common.stop' => 'Stop',
 			'common.refresh' => 'Refresh',
 			'common.scroll_to_top' => 'Scroll to top',
-			'common.quick_commands' => 'Quick Commands',
+			'common.quick_commands' => 'Quick commands',
 			'common.minimize' => 'Minimize',
-			'common.close_sidebar' => 'Close Sidebar',
+			'common.close_sidebar' => 'Close sidebar',
 			'common.star_on_github' => 'Star on GitHub',
 			'common.support_dev' => 'Support the Development on Patreon. You can toggle this off in Settings',
 			'common.support' => 'Support',
@@ -6623,15 +6623,15 @@ extension on Translations {
 			'common.clone_import' => 'Clone & Import',
 			'common.import' => 'Import',
 			'common.syncing' => 'Syncing…',
-			'common.edit_entry' => 'Edit Changelog Entry',
-			'common.new_entry' => 'New Changelog Entry',
+			'common.edit_entry' => 'Edit changelog entry',
+			'common.new_entry' => 'New changelog entry',
 			'common.checking_updates' => 'Checking for updates…',
 			'common.up_to_date' => 'Up to date',
 			'common.downloading_update' => 'Downloading…',
 			'common.install_update' => 'Install',
 			'common.restart_to_apply_update' => 'Restart to Apply Update',
-			'common.restart_now' => 'Restart Now',
-			'common.update_downloaded' => 'Update downloaded!',
+			'common.restart_now' => 'Restart now',
+			'common.update_downloaded' => 'Update downloaded',
 			'common.restart_to_apply' => 'Restart GodotHub to apply the update.',
 			'common.update_applied_desc' => 'The update has been downloaded and will be applied the next time you restart GodotHub. Please close and reopen the app to finish the update.',
 			'common.is_latest' => 'v{{version}} is the latest version.',
@@ -6639,10 +6639,10 @@ extension on Translations {
 			'common.expand_sidebar' => 'Expand sidebar',
 			'common.collapse_sidebar' => 'Collapse sidebar',
 			'common.saving' => 'Saving…',
-			'common.save_changes' => 'Save Changes',
-			'common.add_entry' => 'Add Entry',
+			'common.save_changes' => 'Save changes',
+			'common.add_entry' => 'Add entry',
 			'common.scan_for_projects' => 'Scan',
-			'common.create_workspace' => 'Create Workspace',
+			'common.create_workspace' => 'Create workspace',
 			'common.report_a_bug' => 'Report a Bug',
 			'common.high_contrast_active' => 'Windows high contrast is on, so GodotHub uses the colors of your contrast theme. Your own theme comes back when you turn high contrast off.',
 			'common.crash_notice_title' => 'GodotHub closed unexpectedly',
@@ -6650,7 +6650,7 @@ extension on Translations {
 			'common.crash_notice_rolled_back' => 'The update did not start, so GodotHub went back to {{previous}}, the version you had before.',
 			'common.crash_notice_log' => 'What happened is saved in a log on this computer. A bug report includes it, and you can read everything before you send it.',
 			'common.bug_report_log' => 'Log (personal details removed)',
-			'common.report_bug' => 'Report Bug',
+			'common.report_bug' => 'Report bug',
 			'common.app_error_title' => 'Something went wrong',
 			'common.app_error_desc' => 'GodotHub hit an unexpected error and couldn\'t render. Details below, check the console (right-click → Inspect) for the full stack trace.',
 			'common.reload' => 'Reload',
@@ -6664,12 +6664,12 @@ extension on Translations {
 			'common.add_folder' => 'Add folder',
 			'common.default_folder' => 'Default',
 			'common.default_downloads_go_to' => 'Default Downloads will go to "{{path}}"',
-			'common.open_terminal' => 'Open Terminal',
+			'common.open_terminal' => 'Open terminal',
 			'common.downloading_version' => 'Downloading {{version}}',
 			'common.downloading_asset' => 'Downloading {{title}}',
 			'common.asset_download_failed' => 'Template download failed',
 			'common.scan_for_engines' => 'Scan for Engines',
-			'common.import_version' => 'Import Version',
+			'common.import_version' => 'Import version',
 			'common.sync_templates_from_directory' => 'Sync Templates from Directory',
 			'common.section_navigation' => 'Navigation',
 			'common.section_projects' => 'Projects',
@@ -6683,29 +6683,29 @@ extension on Translations {
 			'common.skip_setup' => 'Skip setup',
 			'common.back' => 'Back',
 			'common.finishing' => 'Finishing…',
-			'common.get_started' => 'Get Started',
+			'common.get_started' => 'Get started',
 			'common.scanning' => 'Scanning…',
-			'common.scan_now' => 'Scan Now',
+			'common.scan_now' => 'Scan now',
 			'common.scan_complete' => 'Scan complete',
 			'common.scan_failed' => 'Scan failed',
 			'common.uncategorized' => 'Uncategorized',
 			'common.all' => 'All',
-			'common.no_filter' => 'No Filter',
+			'common.no_filter' => 'No filter',
 			'common.cannot_undo' => 'This cannot be undone.',
 			'common.deleting' => 'Deleting…',
 			'common.open_project' => 'Open',
 			'common.play_project' => 'Play',
 			'common.play_project_tooltip' => 'Play the game without opening editor',
-			'common.no_version_selected' => 'No Version Selected',
+			'common.no_version_selected' => 'No version selected',
 			'common.open_with_console' => 'Open with Console',
-			'common.open_folder' => 'Open Folder',
+			'common.open_folder' => 'Open folder',
 			'common.open_in_ide' => 'Open in IDE',
 			'common.category' => 'Category',
 			'common.none' => 'None',
-			'common.project_size' => 'Project Size',
+			'common.project_size' => 'Project size',
 			'common.project_size_scanning' => 'Scanning project files…',
 			'common.project_size_empty' => 'No files found',
-			'common.launch_arguments' => 'Launch Arguments',
+			'common.launch_arguments' => 'Launch arguments',
 			'common.save_as_template' => 'Save as Template',
 			'common.git' => 'Git',
 			'common.add' => 'Add',
@@ -6742,7 +6742,7 @@ extension on Translations {
 			'common.template_optional' => 'Template (optional)',
 			'common.category_optional' => 'Category (optional)',
 			'common.no_category_label' => 'No category',
-			'common.godot_version_label' => 'Godot Version',
+			'common.godot_version_label' => 'Godot version',
 			'common.no_engine_warning' => 'No engine installed yet, grab one from the Versions tab first.',
 			'common.change_icon' => 'Change',
 			'common.choose_icon' => 'Choose',
@@ -6765,14 +6765,14 @@ extension on Translations {
 			'common.creating_remote_repo' => 'Creating remote repository…',
 			'common.remote_repo_created_title' => 'Remote repository created',
 			'common.create_project_done' => 'Done',
-			'common.create_project_btn' => 'Create Project',
+			'common.create_project_btn' => 'Create project',
 			'common.creating' => 'Creating…',
 			'common.create_project_error' => 'Give the project a name and a folder to create it in.',
-			'common.create_workspace_title' => 'New Workspace',
+			'common.create_workspace_title' => 'New workspace',
 			'common.workspace_name_label' => 'Name',
 			'common.workspace_name_placeholder' => 'Work, Personal, Game Jam…',
 			'common.workspace_name_required_error' => 'Give the workspace a name.',
-			'common.edit_workspace_title' => 'Edit Workspace',
+			'common.edit_workspace_title' => 'Edit workspace',
 			'common.cant_delete_only_workspace' => 'You can\'t delete your only workspace',
 			'common.delete_workspace_title' => 'Delete workspace?',
 			'common.delete_workspace_desc' => '"{{name}}" and everything scoped to it (its settings, projects, and categories) will be removed. Project files on disk are never touched. Installed Godot versions are shared and stay untouched.',
@@ -6829,15 +6829,15 @@ extension on Translations {
 			'common.no_projects_match' => 'No projects match',
 			'common.more_import_options' => 'More import options',
 			'common.clone_import_repo' => 'Clone & Import from Repository',
-			'common.manage_categories' => 'Manage Categories',
-			'common.hide_category' => 'Hide Category',
+			'common.manage_categories' => 'Manage categories',
+			'common.hide_category' => 'Hide category',
 			'common.category_hidden_toast' => '"{{name}}" hidden. Restore it from Hidden Categories.',
-			'common.hidden_categories' => 'Hidden Categories',
+			'common.hidden_categories' => 'Hidden categories',
 			'common.hidden_categories_hint' => 'Those categories and their projects stay out of the way. Unhide one to bring it back.',
 			'common.hidden_category_projects' => '{{count}} project(s)',
 			'common.unhide' => 'Unhide',
 			'common.unhide_category_aria' => 'Unhide {{name}}',
-			'common.search_projects_placeholder' => 'Search projects...',
+			'common.search_projects_placeholder' => 'Search projects…',
 			'common.clear_search' => 'Clear search',
 			'common.search_filter_title' => 'Filter projects by',
 			'common.search_slash_hint' => 'Type / to filter by name, tags, categories and more',
@@ -6868,9 +6868,9 @@ extension on Translations {
 			'common.changelog_remove_line_aria' => 'Remove line',
 			'common.changelog_placeholder_note' => 'Added drag-and-drop project reordering',
 			'common.changelog_error_no_version' => 'Give the entry a version.',
-			'common.changelog_known_issues' => 'Known Issues',
+			'common.changelog_known_issues' => 'Known issues',
 			'common.changelog_known_issues_none' => 'No known issues for this version.',
-			'common.changelog_known_issue_placeholder' => 'Describe the known issue...',
+			'common.changelog_known_issue_placeholder' => 'Describe the known issue…',
 			'common.changelog_remove_known_issue_aria' => 'Remove known issue',
 			'common.changelog_add_known_issue' => 'Add known issue',
 			'common.changelog_generate_from_git' => 'Generate from Git',
@@ -6878,14 +6878,14 @@ extension on Translations {
 			'common.changelog_draft_from' => 'From',
 			'common.changelog_draft_to' => 'To',
 			'common.changelog_draft_generate' => 'Generate draft',
-			'common.changelog_draft_use' => 'Use Draft',
+			'common.changelog_draft_use' => 'Use draft',
 			'common.changelog_draft_commits' => '{{count}} commit(s)',
 			'common.changelog_draft_include' => 'Include in draft',
 			'common.changelog_draft_none' => 'No commits found in this range.',
 			'common.template_search_placeholder' => 'Search templates…',
 			'common.template_delete_title' => 'Delete Template?',
 			'common.template_delete_desc' => '"{{name}}" will be permanently removed.',
-			'common.templates_tab_local' => 'Local Templates',
+			'common.templates_tab_local' => 'Local templates',
 			'common.templates_tab_asset' => 'Asset Library',
 			'common.asset_search_placeholder' => 'Search assets…',
 			'common.asset_all_versions' => 'All versions',
@@ -6895,7 +6895,7 @@ extension on Translations {
 			'common.asset_by_author' => 'by {{author}}',
 			'common.asset_open_page' => 'Open in browser',
 			'common.asset_install' => 'Install',
-			'common.asset_install_inside' => 'Install Inside',
+			'common.asset_install_inside' => 'Install inside',
 			'common.asset_installing' => 'Installing…',
 			'common.asset_installed' => 'Installed',
 			'common.asset_prev_page' => 'Previous page',
@@ -6915,7 +6915,7 @@ extension on Translations {
 			'common.asset_store_updated_old' => 'Oldest updated',
 			'common.asset_store_rating_high' => 'Top rated',
 			'common.asset_store_rating_low' => 'Lowest rated',
-			'common.asset_download_outside' => 'Download Outside',
+			'common.asset_download_outside' => 'Download outside',
 			'common.asset_downloaded' => 'Downloaded',
 			'common.asset_downloaded_to' => 'Downloaded to',
 			'common.asset_download_error' => 'Couldn\'t download the asset. Check your connection and try again.',
@@ -6969,10 +6969,10 @@ extension on Translations {
 			'common.project_delete_title' => 'Move to Trash?',
 			'common.project_delete_desc' => '"{{name}}" and everything inside it will be moved to your system\'s Trash / Recycle Bin. You can restore it later if needed.',
 			'common.project_delete_confirm' => 'Move to Trash',
-			'common.project_template_name_label' => 'Template Name',
+			'common.project_template_name_label' => 'Template name',
 			'common.project_template_desc_label' => 'Description',
 			'common.project_template_desc_placeholder' => 'What\'s in this template?',
-			'common.project_save_template_btn' => 'Save Template',
+			'common.project_save_template_btn' => 'Save template',
 			'common.template_saved_toast' => 'Template saved.',
 			'common.project_select_aria' => 'Select project',
 			'common.project_deselect_aria' => 'Deselect project',
@@ -6995,19 +6995,19 @@ extension on Translations {
 			'common.time_week_total' => '{{total}} this week',
 			'common.time_weekly_empty' => 'No tracked time in the last 7 days.',
 			'common.project_more_aria' => 'More actions',
-			'common.customize_card_section' => 'Project Card',
-			'common.customize_card_show_size' => 'Show Project Size',
-			'common.customize_card_show_time' => 'Show Time Tracked',
-			'common.customize_card_show_session_timer' => 'Show Session Timer',
-			'common.customize_card_blur_path' => 'Blur Project Directory',
-			'common.customize_card_show_path' => 'Show Project Directory',
-			'common.customize_card_show_tags' => 'Show Tags',
-			'common.customize_card_show_last_opened' => 'Show Last Opened',
-			'common.customize_card_show_play' => 'Show Play Button',
+			'common.customize_card_section' => 'Project card',
+			'common.customize_card_show_size' => 'Show project size',
+			'common.customize_card_show_time' => 'Show time tracked',
+			'common.customize_card_show_session_timer' => 'Show session timer',
+			'common.customize_card_blur_path' => 'Blur project directory',
+			'common.customize_card_show_path' => 'Show project directory',
+			'common.customize_card_show_tags' => 'Show tags',
+			'common.customize_card_show_last_opened' => 'Show last opened',
+			'common.customize_card_show_play' => 'Show play button',
 			'common.customize_card_show_console' => 'Show Open with Console',
 			'common.project_card_remove_library' => 'Remove from Library',
-			'common.project_card_delete_files' => 'Delete Files',
-			'common.manage_tags' => 'Manage Tags',
+			'common.project_card_delete_files' => 'Delete files',
+			'common.manage_tags' => 'Manage tags',
 			'common.tag_input_placeholder' => 'New tag name…',
 			'common.tag_already_exists' => 'A tag with this name already exists.',
 			'common.tag_rename_hint' => 'Click to rename',
@@ -7024,21 +7024,21 @@ extension on Translations {
 			'common.bug_report_describe_placeholder' => 'What were you doing when the bug appeared? Add steps to reproduce and what you expected vs. what actually happened.',
 			'common.bug_report_diagnostics_label' => 'Diagnostic info',
 			'common.bug_report_diagnostics_hint' => 'Auto-collected · included in the report',
-			'common.bug_report_copied' => 'Copied!',
-			'common.bug_report_copy_log' => 'Copy Report',
-			'common.bug_report_download_log' => 'Download Report',
-			'common.bug_report_open_github' => 'Create GitHub Issue',
+			'common.bug_report_copied' => 'Copied',
+			'common.bug_report_copy_log' => 'Copy report',
+			'common.bug_report_download_log' => 'Download report',
+			'common.bug_report_open_github' => 'Create GitHub issue',
 			'common.check_updates_title_modal' => 'Check for Updates',
 			'common.check_updates_version_available' => 'Version {{version}} available',
 			'common.check_updates_ask_download' => 'Would you like to download and install it now?',
-			'common.check_updates_release_notes' => 'Release Notes',
+			'common.check_updates_release_notes' => 'Release notes',
 			'common.check_updates_failed' => 'Update check failed',
 			'common.check_updates_rate_limited' => 'GitHub rate limit reached',
 			'common.check_updates_token_rejected' => 'GitHub token rejected',
 			'common.check_updates_rate_limited_hint' => 'GitHub only allows 60 anonymous requests per hour, shared with everyone on your network. Adding a personal access token in Settings raises this to 5,000 per hour and is also used for fetching Godot versions.',
 			'common.check_updates_rate_limited_token_hint' => 'Your saved GitHub token was rejected. It may have expired or been revoked. Test it in Settings and replace it if needed.',
-			'common.check_updates_add_token' => 'Add GitHub Token',
-			'common.check_updates_open_token_settings' => 'Open Token Settings',
+			'common.check_updates_add_token' => 'Add GitHub token',
+			'common.check_updates_open_token_settings' => 'Open token settings',
 			'common.check_updates_portable_title' => 'Manual update required',
 			'common.check_updates_portable_desc' => 'Portable installs cannot auto-update. Download the latest version from GitHub and replace the existing files.',
 			'common.check_updates_download_from_github' => 'Download from GitHub',
@@ -7057,17 +7057,17 @@ extension on Translations {
 			'common.check_updates_from_host' => 'From {{host}}',
 			'common.check_updates_download_summary' => 'Downloaded {{size}} in {{time}}',
 			'common.check_updates_signature_verified' => 'Signature verified',
-			'common.clone_repo_title' => 'Clone Repository',
+			'common.clone_repo_title' => 'Clone repository',
 			'common.clone_repo_url_label' => 'Repository URL',
 			'common.clone_repo_url_placeholder' => 'https://github.com/user/my-game.git',
 			'common.clone_repo_error_url' => 'Please enter a repository URL.',
 			'common.clone_repo_error_location' => 'Please choose where to clone the repository.',
 			'common.clone_repo_open_after' => 'Open it right after importing',
-			'common.clone_repo_browse_repos' => 'Browse Your Repos',
-			'common.clone_repo_url_manual' => 'Paste URL Manually',
-			'common.clone_repo_search_repos' => 'Search your repositories...',
+			'common.clone_repo_browse_repos' => 'Browse your repos',
+			'common.clone_repo_url_manual' => 'Paste URL manually',
+			'common.clone_repo_search_repos' => 'Search your repositories…',
 			'common.clone_repo_no_repos_found' => 'No repositories match your search.',
-			'common.clone_repo_loading_repos' => 'Loading repositories...',
+			'common.clone_repo_loading_repos' => 'Loading repositories…',
 			'common.clone_repo_load_error' => 'Failed to load repositories.',
 			'common.clone_repo_select' => 'Select',
 			'common.clone_repo_no_account' => 'No GitHub or GitLab account connected. Use a URL to clone instead.',
@@ -7081,65 +7081,65 @@ extension on Translations {
 			'common.task_tray_only_recent' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count, one: '${count} recent task', other: '${count} recent tasks', ), 
 			'common.task_tray_only_recent_one' => '{{count}} recent task',
 			'common.task_tray_only_recent_other' => '{{count}} recent tasks',
-			'common.task_tray_aria' => 'Task Tray',
+			'common.task_tray_aria' => 'Task tray',
 			'common.task_tray_auto_dismiss' => 'Completed auto-dismiss',
 			'common.task_tray_dismiss' => 'Dismiss {{count}}',
 			_ => null,
 		} ?? switch (path) {
 			'common.task_error_status' => 'Error',
-			'common.command_palette_title' => 'Command Palette',
+			'common.command_palette_title' => 'Command palette',
 			'common.command_palette_placeholder' => 'Search commands, projects, engines, settings…',
 			'common.command_palette_no_results' => 'No results match',
 			'common.command_palette_navigate' => 'Navigate',
 			'common.command_palette_escape' => 'Esc',
 			'common.setting_token_placeholder' => 'ghp_xxxxxxxxxxxxxxxxxxxx',
-			'common.setting_project_scan_dirs' => 'Scan Project Folders',
-			'common.setting_version_scan_dirs' => 'Scan Version Folders',
-			'common.setting_default_project_location' => 'Default Project Location Setting',
-			'common.setting_download_dir' => 'Download Versions Location Setting',
-			'common.setting_scan_depth' => 'Scan Depth',
-			'common.setting_icon_scan_depth' => 'Project Icon Search Depth',
-			'common.setting_download_concurrency' => 'Simultaneous Downloads',
+			'common.setting_project_scan_dirs' => 'Scan project folders',
+			'common.setting_version_scan_dirs' => 'Scan version folders',
+			'common.setting_default_project_location' => 'Default project location setting',
+			'common.setting_download_dir' => 'Download versions location setting',
+			'common.setting_scan_depth' => 'Scan depth',
+			'common.setting_icon_scan_depth' => 'Project icon search depth',
+			'common.setting_download_concurrency' => 'Simultaneous downloads',
 			'common.setting_close_on_project_open' => 'Close on Project Open',
 			'common.setting_minimize_to_tray' => 'Minimize to System Tray',
-			'common.setting_reopen_after_godot_closes' => 'Reopen After Godot Closes',
+			'common.setting_reopen_after_godot_closes' => 'Reopen after Godot closes',
 			'common.setting_auto_scan_on_startup' => 'Auto-scan on Startup',
-			'common.setting_workspaces_enabled' => 'Use Workspaces',
-			'common.setting_directory_naming_convention' => 'Directory Naming Convention',
+			'common.setting_workspaces_enabled' => 'Use workspaces',
+			'common.setting_directory_naming_convention' => 'Directory naming convention',
 			'common.setting_git_init_new_projects' => 'Initialize Git for New Projects',
-			'common.setting_tooltip_delay' => 'Tooltip Delay',
-			'common.setting_command_palette_keybind' => 'Command Palette Shortcut',
-			'common.setting_tray_recent_projects_count' => 'Tray Recent Projects',
-			'common.setting_last_opened_time_format' => 'Time Format',
-			'common.setting_last_opened_date_format' => 'Date Format',
-			'common.setting_theme_mode' => 'Theme Mode',
-			'common.setting_accent_color' => 'Accent Color',
-			'common.setting_background_color' => 'Background Color',
-			'common.setting_corner_radius' => 'Corner Radius',
-			'common.setting_ui_density' => 'UI Density',
-			'common.setting_font_scale' => 'Text Size',
-			'common.setting_animation_intensity' => 'Animation Intensity',
-			'common.setting_view_entrance' => 'View Entrance Animation',
+			'common.setting_tooltip_delay' => 'Tooltip delay',
+			'common.setting_command_palette_keybind' => 'Command palette shortcut',
+			'common.setting_tray_recent_projects_count' => 'Tray recent projects',
+			'common.setting_last_opened_time_format' => 'Time format',
+			'common.setting_last_opened_date_format' => 'Date format',
+			'common.setting_theme_mode' => 'Theme mode',
+			'common.setting_accent_color' => 'Accent color',
+			'common.setting_background_color' => 'Background color',
+			'common.setting_corner_radius' => 'Corner radius',
+			'common.setting_ui_density' => 'UI density',
+			'common.setting_font_scale' => 'Text size',
+			'common.setting_animation_intensity' => 'Animation intensity',
+			'common.setting_view_entrance' => 'View entrance animation',
 			'common.setting_custom_css' => 'Custom CSS',
-			'common.setting_project_icon_opacity' => 'Project Icon Opacity',
-			'common.setting_show_scrollbars' => 'Show Scrollbar',
-			'common.setting_setup_wizard' => 'Setup Wizard',
-			'common.setting_reset_settings' => 'Reset Settings',
-			'common.setting_delete_app_data' => 'Delete App Data',
+			'common.setting_project_icon_opacity' => 'Project icon opacity',
+			'common.setting_show_scrollbars' => 'Show scrollbar',
+			'common.setting_setup_wizard' => 'Setup wizard',
+			'common.setting_reset_settings' => 'Reset settings',
+			'common.setting_delete_app_data' => 'Delete app data',
 			'common.setting_check_updates' => 'Check for Updates',
-			'common.setting_show_support_button' => 'Show Support Button',
-			'common.setting_show_star_button' => 'Show Star Button',
+			'common.setting_show_support_button' => 'Show support button',
+			'common.setting_show_star_button' => 'Show star button',
 			'common.setting_discord_rpc_enabled' => 'Discord Rich Presence',
-			'common.setting_discord_app_id' => 'Discord Application ID',
-			'common.setting_discord_rpc_show_projects' => 'Discord Show Project Names',
-			'common.setting_discord_rpc_excluded_projects' => 'Discord Excluded Projects',
-			'common.setting_discord_rpc_project_presences' => 'Discord Custom Presence',
+			'common.setting_discord_app_id' => 'Discord application ID',
+			'common.setting_discord_rpc_show_projects' => 'Discord show project names',
+			'common.setting_discord_rpc_excluded_projects' => 'Discord excluded projects',
+			'common.setting_discord_rpc_project_presences' => 'Discord custom presence',
 			'common.active_workspace' => '{{name}} (active)',
 			'common.current_workspace' => 'Current workspace',
 			'common.switch_workspace' => 'Switch workspace',
 			'common.opened_recently' => 'Opened {{label}}',
 			'common.recent_section' => 'Recent',
-			'common.installed_versions_section' => 'Installed Versions',
+			'common.installed_versions_section' => 'Installed versions',
 			'common.settings_label' => 'Settings → {{tab}}',
 			'common.remove_category_aria' => 'Remove {{name}}',
 			'common.git_remove_remote' => 'Remove remote',
@@ -7152,15 +7152,15 @@ extension on Translations {
 			'common.found_dismissed_desc' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count, one: 'Scanner found 1 project that you previously removed from the library. Would you like to re-add it?', other: 'Scanner found ${count} projects that you previously removed from the library. Would you like to re-add them?', ), 
 			'common.found_dismissed_desc_one' => 'Scanner found 1 project that you previously removed from the library. Would you like to re-add it?',
 			'common.found_dismissed_desc_other' => 'Scanner found {{count}} projects that you previously removed from the library. Would you like to re-add them?',
-			'common.readd_all' => 'Re-add All',
-			'common.skip_all' => 'Skip All',
+			'common.readd_all' => 'Re-add all',
+			'common.skip_all' => 'Skip all',
 			'common.project_already_open_title' => 'Project already open',
 			'common.project_already_open_desc' => '{{name}} is already running. Opening it again launches a second editor instance. Open anyway?',
 			'common.project_open_anyway' => 'Open anyway',
 			'common.git_sidebar' => 'Git sidebar',
 			'common.asset_duplicate_title' => 'Template already installed',
 			'common.asset_duplicate_desc' => '"{{name}}" is already in your templates. Install a duplicate anyway?',
-			'common.empty_category' => 'Empty Category',
+			'common.empty_category' => 'Empty category',
 			'common.release_to_drop' => 'Release to drop',
 			'common.bug_report_system' => 'System',
 			'common.bug_report_version' => 'Version',
@@ -7168,12 +7168,12 @@ extension on Translations {
 			'common.bug_report_os' => 'OS',
 			'common.bug_report_platform' => 'Platform',
 			'common.bug_report_language' => 'Language',
-			'common.bug_report_cpu_cores' => 'CPU Cores',
+			'common.bug_report_cpu_cores' => 'CPU cores',
 			'common.bug_report_ram' => 'RAM',
 			'common.bug_report_screen' => 'Screen',
 			'common.bug_report_gpu' => 'GPU',
-			'common.bug_report_user_agent' => 'User Agent',
-			'common.bug_report_recent_errors' => 'Recent Errors',
+			'common.bug_report_user_agent' => 'User agent',
+			'common.bug_report_recent_errors' => 'Recent errors',
 			'common.bug_report_none_captured' => 'none captured',
 			'common.bug_report_description' => 'Description',
 			'common.bug_report_no_description' => 'No description provided',
@@ -7187,7 +7187,7 @@ extension on Translations {
 			'common.contributor_pr_merged' => 'Merged',
 			'common.contributor_pr_open' => 'Open',
 			'common.contributor_pr_closed' => 'Closed',
-			'common.contributor_pr_loading' => 'Loading PRs...',
+			'common.contributor_pr_loading' => 'Loading PRs…',
 			'common.contributor_pr_count' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count, one: '${count} pull request', other: '${count} pull requests', ), 
 			'common.contributor_pr_count_one' => '{{count}} pull request',
 			'common.contributor_pr_count_other' => '{{count}} pull requests',
@@ -7243,7 +7243,7 @@ extension on Translations {
 			'common.downloading_export_templates' => 'Downloading export templates for {{tag}}',
 			'common.export_templates_verifying' => 'Verifying download…',
 			'common.export_templates_extracting' => 'Installing templates…',
-			'common.project_doctor.title' => 'Project Doctor',
+			'common.project_doctor.title' => 'Project doctor',
 			'common.project_doctor.scanning' => 'Checking this project…',
 			'common.project_doctor.scan_failed' => 'Could not check this project',
 			'common.project_doctor.run_again' => 'Run checks again',
@@ -7396,8 +7396,8 @@ extension on Translations {
 			'common.project_doctor.android_sdk_incomplete_description' => 'The SDK at {{path}} is missing the parts listed below. Install them with Android Studio\'s SDK Manager or sdkmanager.',
 			'common.project_doctor.sdk_part_sdk_folder' => 'The SDK folder does not exist',
 			'common.project_doctor.sdk_part_platform_tools' => 'Platform Tools (adb)',
-			'common.project_doctor.sdk_part_build_tools' => 'Build Tools',
-			'common.project_doctor.sdk_part_cmdline_tools' => 'Command-line Tools',
+			'common.project_doctor.sdk_part_build_tools' => 'Build tools',
+			'common.project_doctor.sdk_part_cmdline_tools' => 'Command-line tools',
 			'common.project_doctor.android_sdk_ready_title' => 'Android SDK found',
 			'common.project_doctor.android_sdk_ready_description' => 'Using the SDK at {{path}}.',
 			'common.project_doctor.android_jdk_missing_title' => 'Java JDK not found',
@@ -7526,7 +7526,7 @@ extension on Translations {
 			'common.vault_no_match' => 'No items match your search.',
 			'common.vault_save_btn' => 'Save to Vault',
 			'common.vault_save_title' => 'Save to Vault',
-			'common.vault_source_project_label' => 'Source Projects',
+			'common.vault_source_project_label' => 'Source projects',
 			'common.vault_source_n' => 'Source {{index}}',
 			'common.vault_add_source' => 'Add another project',
 			'common.vault_remove_source' => 'Remove source',
@@ -7542,15 +7542,15 @@ extension on Translations {
 			'common.vault_tag_input_placeholder' => 'Add a tag…',
 			'common.vault_saved_toast' => 'Saved to Vault',
 			'common.vault_edit_action' => 'Edit item',
-			'common.vault_edit_title' => 'Edit Item',
+			'common.vault_edit_title' => 'Edit item',
 			'common.vault_item_updated_toast' => 'Item updated',
 			'common.vault_delete_action' => 'Delete {{name}}',
 			'common.vault_delete_title' => 'Delete Item?',
 			'common.vault_delete_desc' => '"{{name}}" will be permanently removed from your vault.',
 			'common.vault_add_btn' => 'Add to Project',
 			'common.vault_add_title' => 'Add from Vault',
-			'common.vault_target_project_label' => 'Target Project',
-			'common.vault_target_projects_label' => 'Target Projects',
+			'common.vault_target_project_label' => 'Target project',
+			'common.vault_target_projects_label' => 'Target projects',
 			'common.vault_adding' => 'Adding…',
 			'common.vault_overwrite_btn' => 'Overwrite files',
 			'common.vault_conflict_desc' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count, one: '${count} file already exists in the project. Overwrite it?', other: '${count} files already exist in the project. Overwrite them?', ), 
@@ -7739,13 +7739,13 @@ extension on Translations {
 			'common.asset_files_intro' => 'This downloads the archive once ({{size}}) and reuses it if you install.',
 			'common.asset_files_intro_unknown' => 'This downloads the archive once and reuses it if you install.',
 			'common.asset_files_load' => 'Show files',
-			'common.asset_files_loading' => 'Downloading and reading the archive...',
+			'common.asset_files_loading' => 'Downloading and reading the archive…',
 			'common.asset_files_error' => 'Couldn\'t read the files',
 			'common.asset_files_paid' => 'Files can\'t be previewed for paid assets. Open the store page to get it.',
 			'common.asset_files_summary' => '{{files}} files, {{size}}',
 			'common.asset_files_truncated' => 'Showing the first {{count}} entries.',
 			'common.asset_install_into_many' => 'Install into {{count}}',
-			'common.asset_installing_progress' => 'Installing {{done}} of {{total}}...',
+			'common.asset_installing_progress' => 'Installing {{done}} of {{total}}…',
 			'common.asset_install_some_failed' => '{{count}} installs failed. They\'re still selected so you can try again.',
 			'common.asset_install_target_done' => 'Installed',
 			'common.asset_install_select_all' => 'Select all',
@@ -7787,30 +7787,30 @@ extension on Translations {
 			'dashboard.dashboard_rename_reset' => 'Use system name',
 			'dashboard.dashboard_name_placeholder' => 'Your name',
 			'dashboard.dashboard_clock_aria' => 'Current time',
-			'dashboard.dashboard_new_project' => 'New Project',
-			'dashboard.dashboard_import_project' => 'Import Project',
+			'dashboard.dashboard_new_project' => 'New project',
+			'dashboard.dashboard_import_project' => 'Import project',
 			'dashboard.dashboard_scan_projects' => 'Scan for Projects',
 			'dashboard.dashboard_stat_projects' => 'Projects',
 			'dashboard.dashboard_stat_templates' => 'Templates',
 			'dashboard.dashboard_stat_engines' => 'Engines',
-			'dashboard.dashboard_stat_total_time' => 'Total Time',
+			'dashboard.dashboard_stat_total_time' => 'Total time',
 			'dashboard.dashboard_stat_total_time_hint' => 'Time spent on projects',
-			'dashboard.dashboard_recent' => 'Recently Opened',
+			'dashboard.dashboard_recent' => 'Recently opened',
 			'dashboard.dashboard_recent_empty' => 'Nothing opened yet. Open a project to see it here.',
 			'dashboard.dashboard_pinned' => 'Pinned',
 			'dashboard.dashboard_pinned_empty' => 'No pinned projects yet. Pin a project to keep it handy.',
-			'dashboard.dashboard_engines' => 'Installed Engines',
+			'dashboard.dashboard_engines' => 'Installed engines',
 			'dashboard.dashboard_engines_empty' => 'No engines installed yet.',
-			'dashboard.dashboard_running' => 'Running Now',
+			'dashboard.dashboard_running' => 'Running now',
 			'dashboard.dashboard_running_empty' => 'Nothing is running right now.',
 			'dashboard.dashboard_opened_at' => 'Opened {{time}}',
-			'dashboard.dashboard_daily' => 'Daily Activity',
+			'dashboard.dashboard_daily' => 'Daily activity',
 			'dashboard.dashboard_daily_empty' => 'No daily activity yet.',
-			'dashboard.dashboard_weekly' => 'Weekly Activity',
+			'dashboard.dashboard_weekly' => 'Weekly activity',
 			'dashboard.dashboard_weekly_empty' => 'No weekly activity yet.',
-			'dashboard.dashboard_monthly' => 'Monthly Activity',
+			'dashboard.dashboard_monthly' => 'Monthly activity',
 			'dashboard.dashboard_monthly_empty' => 'No monthly activity yet.',
-			'dashboard.dashboard_yearly' => 'Yearly Activity',
+			'dashboard.dashboard_yearly' => 'Yearly activity',
 			'dashboard.dashboard_yearly_empty' => 'No yearly activity yet.',
 			'dashboard.dashboard_activity_cycle' => 'Switch to {{next}}',
 			'dashboard.dashboard_weekly_aria' => '{{label}} of tracked time',
@@ -7825,14 +7825,14 @@ extension on Translations {
 			'dashboard.dashboard_insights_this_month' => 'This month',
 			'dashboard.dashboard_insights_delta_up' => '{{pct}}% more than last month',
 			'dashboard.dashboard_insights_delta_down' => '{{pct}}% less than last month',
-			'dashboard.dashboard_git' => 'Git Overview',
+			'dashboard.dashboard_git' => 'Git overview',
 			'dashboard.dashboard_git_empty' => 'No git repositories detected.',
 			'dashboard.dashboard_git_clean' => 'All clean',
 			'dashboard.dashboard_git_dirty' => '{{count}} with uncommitted changes',
 			'dashboard.dashboard_git_dirty_plural' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count, one: '1 with uncommitted changes', other: '${count} with uncommitted changes', ), 
 			'dashboard.dashboard_git_dirty_one' => '1 with uncommitted changes',
 			'dashboard.dashboard_git_branch' => 'On {{branch}}',
-			'dashboard.dashboard_storage' => 'Storage Usage',
+			'dashboard.dashboard_storage' => 'Storage usage',
 			'dashboard.dashboard_storage_empty' => 'No projects to measure.',
 			'dashboard.dashboard_storage_loading' => 'Measuring…',
 			'dashboard.dashboard_storage_total' => '{{size}} total',
@@ -7930,15 +7930,15 @@ extension on Translations {
 			'git.abort_merge' => 'Abort merge',
 			'git.merge_in_progress' => 'Merge in progress',
 			'git.working_tree_clean' => 'Working tree clean.',
-			'git.staged_changes' => 'Staged Changes',
-			'git.unstage_all_changes' => 'Unstage All Changes',
+			'git.staged_changes' => 'Staged changes',
+			'git.unstage_all_changes' => 'Unstage all changes',
 			'git.commits_title' => 'Commits',
 			'git.stage_file' => 'Stage file',
 			'git.discard_file' => 'Discard file',
 			'git.unstage_file' => 'Unstage file',
 			'git.no_commits_found' => 'No commits found.',
-			'git.stage_all' => 'Stage All',
-			'git.discard_all' => 'Discard All',
+			'git.stage_all' => 'Stage all',
+			'git.discard_all' => 'Discard all',
 			'git.auth_connected_accounts' => 'Connected accounts',
 			'git.auth_connect_hint' => 'Connect to your desired git host to begin, or use SSH without connecting anything.',
 			'git.worktrees_title' => 'Worktrees',
@@ -8052,7 +8052,7 @@ extension on Translations {
 			'onboarding.setup_desc' => 'Pick a starting point. Anything you leave out is hidden and never loads, so GodotHub stays quick. You can change this anytime in Settings, under Behavior.',
 			'onboarding.preview_heading' => 'Preview',
 			'onboarding.step_of' => 'Step {{current}} of {{total}}',
-			'onboarding.dive_in' => 'Dive In',
+			'onboarding.dive_in' => 'Get started',
 			'onboarding.workspace_step' => 'Workspace',
 			'onboarding.first_workspace_title' => 'Create your first workspace',
 			'onboarding.first_workspace_desc' => 'A workspace holds your projects, categories, and settings. Give this one a name and a look that feels like yours, you can add more later.',
@@ -8100,17 +8100,17 @@ extension on Translations {
 			'settings.git_pat_remove' => 'Remove token',
 			'settings.storage_title' => 'Storage & Auto-scan',
 			'settings.behavior_projects_title' => 'Projects',
-			'settings.file_watchers_title' => 'File Watchers',
-			'settings.last_opened_title' => 'Last Opened Display',
-			'settings.github_token_title' => 'GitHub API Token',
-			'settings.titlebar_buttons' => 'Titlebar Buttons',
-			'settings.setup_wizard' => 'Setup Wizard',
-			'settings.setup_wizard_again' => 'Run Setup Wizard Again',
-			'settings.restart_app' => 'Restart App',
+			'settings.file_watchers_title' => 'File watchers',
+			'settings.last_opened_title' => 'Last opened display',
+			'settings.github_token_title' => 'GitHub API token',
+			'settings.titlebar_buttons' => 'Titlebar buttons',
+			'settings.setup_wizard' => 'Setup wizard',
+			'settings.setup_wizard_again' => 'Run setup wizard again',
+			'settings.restart_app' => 'Restart app',
 			'settings.restart_app_confirm_title' => 'Restart GodotHub?',
 			'settings.restart_app_confirm_desc' => 'The app will close and reopen automatically. Unsaved in-progress operations may be interrupted.',
-			'settings.reset_settings' => 'Reset Settings',
-			'settings.delete_app_data' => 'Delete App Data',
+			'settings.reset_settings' => 'Reset settings',
+			'settings.delete_app_data' => 'Delete app data',
 			'settings.new_project_default' => 'New project default',
 			_ => null,
 		} ?? switch (path) {
@@ -8188,8 +8188,8 @@ extension on Translations {
 			'settings.clear' => 'Clear',
 			'settings.reset_to_default' => 'Reset to default',
 			'settings.reset_appearance' => 'Reset appearance to default',
-			'settings.delete_all' => 'Delete All',
-			'settings.open_setup' => 'Open Setup',
+			'settings.delete_all' => 'Delete all',
+			'settings.open_setup' => 'Open setup',
 			'settings.reset_colors' => 'Reset colors to default',
 			'settings.folders_deep' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count, one: '${count} folder deep', other: '${count} folders deep', ), 
 			'settings.folders_deep_one' => '{{count}} folder deep',
@@ -8231,19 +8231,19 @@ extension on Translations {
 			'settings.stats_exported' => 'Time stats exported.',
 			'settings.clear_stats_confirm_title' => 'Clear all time data?',
 			'settings.clear_stats_confirm_desc' => 'This permanently deletes all time tracking history, session records, and per-project totals. This cannot be undone.',
-			'settings.clear_stats_confirm_btn' => 'Clear All',
+			'settings.clear_stats_confirm_btn' => 'Clear all',
 			'settings.stats_cleared' => 'Time data cleared.',
 			'settings.settings_backup_title' => 'Backup settings',
-			'settings.export_settings_btn' => 'Export Settings',
-			'settings.import_settings_btn' => 'Import Settings',
+			'settings.export_settings_btn' => 'Export settings',
+			'settings.import_settings_btn' => 'Import settings',
 			'settings.workspace_backup_title' => 'Backup workspace',
-			'settings.workspace_backup_export_btn' => 'Export Workspace',
-			'settings.workspace_backup_restore_btn' => 'Restore Workspace',
+			'settings.workspace_backup_export_btn' => 'Export workspace',
+			'settings.workspace_backup_restore_btn' => 'Restore workspace',
 			'settings.workspace_backup_exported' => 'Workspace backup exported.',
 			'settings.workspace_backup_imported' => 'Workspace restored.',
 			'settings.app_backup_title' => 'Backup everything (all workspaces)',
-			'settings.app_backup_export_btn' => 'Export Everything',
-			'settings.app_backup_restore_btn' => 'Restore Everything',
+			'settings.app_backup_export_btn' => 'Export everything',
+			'settings.app_backup_restore_btn' => 'Restore everything',
 			'settings.app_backup_exported' => 'Full app backup exported.',
 			'settings.app_backup_imported' => 'All workspaces restored.',
 			'settings.sync_title' => 'Cloud sync (GitHub gist)',
@@ -8253,7 +8253,7 @@ extension on Translations {
 			'settings.sync_open_gist' => 'Open gist',
 			'settings.sync_last_pushed' => 'Last pushed: {{time}}',
 			'settings.sync_manual_hint' => 'Lost your local data? Enter your gist URL or ID to restore from any machine.',
-			'settings.sync_manual_placeholder' => 'https://gist.github.com/... or gist ID',
+			'settings.sync_manual_placeholder' => 'https://gist.github.com/… or gist ID',
 			'settings.sync_manual_pull_btn' => 'Restore',
 			'settings.restore_modal_title' => 'Restore from Cloud',
 			'settings.restore_modal_fetching' => 'Fetching backup from GitHub…',
@@ -8280,7 +8280,7 @@ extension on Translations {
 			'settings.restore_modal_workspace_list' => 'Workspaces',
 			'settings.restore_modal_warning' => 'This will overwrite your current settings and workspace data. You\'ll need to restart the app to apply changes.',
 			'settings.restore_modal_apply_btn' => 'Apply & Restart',
-			'settings.restore_modal_done_title' => 'Backup Restored',
+			'settings.restore_modal_done_title' => 'Backup restored',
 			'settings.restore_modal_done_hint' => 'Click the button below to restart and apply all changes.',
 			'settings.settings_exported' => 'Settings exported.',
 			'settings.settings_imported' => 'Settings imported.',
@@ -8290,7 +8290,7 @@ extension on Translations {
 			'settings.raised_contrast_label' => 'Raised surface contrast',
 			'settings.raised_contrast_value' => '{{value}}%',
 			'settings.token_help_desc' => 'Create a token at github.com/settings/tokens. You only need to check the repo scope if you want private repo access, otherwise leave all scopes unchecked. No sensitive permissions required.',
-			'settings.discord_app_id_label' => 'Discord Application ID',
+			'settings.discord_app_id_label' => 'Discord application ID',
 			'settings.discord_app_id_placeholder' => 'Leave empty to use the built-in default',
 			'settings.discord_app_id_desc' => 'Create an application in the Discord Developer Portal and paste its Application ID here to use your own instead of GodotHub\'s built-in one. The activity shows under that application\'s name.',
 			'settings.discord_developer_portal' => 'Discord Developer Portal',
@@ -8316,14 +8316,14 @@ extension on Translations {
 			'settings.credits' => 'Credits',
 			'settings.credits_developer' => 'Created by',
 			'settings.credits_built_with' => 'Built with',
-			'settings.credits_licenses' => 'Open Source Licenses',
+			'settings.credits_licenses' => 'Open source licenses',
 			'settings.credits_contributors' => 'Contributors',
 			'settings.experimental' => 'Experimental',
 			'settings.customize_view_label' => 'Customize View button',
 			'settings.fixed_sidebar_resize_knob_label' => 'Fixed sidebar resize knob',
 			'settings.desktop_notifications_label' => 'Desktop notifications',
 			'settings.colored_titlebar_buttons_label' => 'Colored window buttons',
-			'settings.project_todos_label' => 'Project Next Steps',
+			'settings.project_todos_label' => 'Project next steps',
 			'settings.mise_label' => 'Use mise for Godot versions',
 			'settings.mise_detected' => 'Detected mise {{version}}',
 			'settings.mise_not_found' => 'mise was not found on your PATH, so this stays off until you install it.',
@@ -8341,7 +8341,7 @@ extension on Translations {
 			'settings.onyx_check_again' => 'Check again',
 			'settings.cli_tool_title' => 'Command-line tool',
 			'settings.cli_tool_install' => 'Install',
-			'settings.cli_tool_installing' => 'Installing...',
+			'settings.cli_tool_installing' => 'Installing…',
 			'settings.cli_tool_installed_msg' => 'Installed. Open a new terminal, then run: godothub',
 			'settings.cli_tool_uninstalled_msg' => 'Removed. The godothub command is no longer on your PATH.',
 			'settings.git_auth_step_copy' => 'Copy your code',
@@ -8397,7 +8397,7 @@ extension on Translations {
 			'todos.new_task' => 'New task',
 			'todos.hide_next_steps' => 'Hide next steps',
 			'todos.save_changes_failed' => 'Could not save the changes.',
-			'todos.loading_tasks' => 'Loading tasks...',
+			'todos.loading_tasks' => 'Loading tasks…',
 			'todos.load_tasks_failed' => 'Could not load tasks',
 			'todos.data_unchanged' => 'Your data was not modified.',
 			'todos.empty_title' => 'No tasks yet',
@@ -8435,7 +8435,7 @@ extension on Translations {
 			'todos.edit_task' => 'Edit task',
 			'todos.title' => 'Title',
 			'todos.title_placeholder' => 'E.g.: Create main menu',
-			'todos.description_placeholder' => 'Add more details about what needs to be done...',
+			'todos.description_placeholder' => 'Add more details about what needs to be done…',
 			'todos.no_due_date' => 'No due date',
 			'todos.remove_due_date' => 'Remove due date',
 			'todos.past_due_date' => 'This due date has passed',
@@ -8507,10 +8507,10 @@ extension on Translations {
 			'versions.stable' => 'Stable',
 			'versions.unstable' => 'Unstable',
 			'versions.rename' => 'Rename',
-			'versions.open_editor' => 'Open Editor',
+			'versions.open_editor' => 'Open editor',
 			'versions.open_editor_with_console' => 'Open Editor with Console',
 			'versions.more_editor_launch_options' => 'More editor launch options',
-			'versions.open_install_folder' => 'Open Install Folder',
+			'versions.open_install_folder' => 'Open install folder',
 			'versions.type' => 'Type',
 			'versions.channel' => 'Channel',
 			'versions.fetch_error' => 'Couldn\'t fetch available versions.',
@@ -8531,39 +8531,39 @@ extension on Translations {
 			'versions.original_name' => 'Original',
 			'versions.source' => 'Source',
 			'versions.source_github' => 'GitHub',
-			'versions.source_archive' => 'Godot Archive',
+			'versions.source_archive' => 'Godot archive',
 			'versions.source_mise' => 'mise',
 			'versions.switch_to_archive' => 'Switch to Godot Archive',
 			'versions.sort_version_latest' => 'Latest',
 			'versions.sort_version_oldest' => 'Oldest',
-			'versions.sort_version_recently_installed' => 'Recently Installed',
-			'versions.sort_version_oldest_installed' => 'Oldest Installed',
+			'versions.sort_version_recently_installed' => 'Recently installed',
+			'versions.sort_version_oldest_installed' => 'Oldest installed',
 			'versions.set_as_current' => 'Set as Current',
-			'versions.unset_current' => 'Unset Current',
+			'versions.unset_current' => 'Unset current',
 			'versions.current_set_title' => 'Version Set as Current',
 			'versions.current_dir_label' => 'Folder',
 			'versions.current_copy' => 'Copy',
 			'versions.current_copied' => 'Copied',
 			'versions.current_copy_alias' => 'Copy alias path',
 			'versions.current_copy_dir' => 'Copy folder path',
-			'versions.current_open_folder' => 'Open Alias Folder',
+			'versions.current_open_folder' => 'Open alias folder',
 			'versions.current_path_hint' => 'Add the folder above to your PATH to run "Godot" from any terminal, script, or tool. The alias always follows the current version, so pinning another version or uninstalling this one updates it automatically.',
 			'versions.current_shim_note' => 'Windows symlinks need Developer Mode or admin rights, so a launcher script was created instead. It behaves the same from the command line.',
 			'versions.mono_short' => 'mono',
 			'versions.aliases_manage' => 'Aliases',
-			'versions.aliases_title' => 'Version Aliases',
+			'versions.aliases_title' => 'Version aliases',
 			'versions.aliases_empty' => 'No aliases yet. Pick a version above, give the command a name, and it will appear in the aliases folder.',
 			'versions.aliases_no_versions' => 'Install a Godot version first to create an alias.',
 			'versions.aliases_path_hint' => 'Add the aliases folder to your PATH to run these names from any terminal or tool. The "Godot" command from the current version pin lives in the same folder.',
-			'versions.alias_create' => 'Create Alias',
-			'versions.alias_add' => 'Add Alias',
+			'versions.alias_create' => 'Create alias',
+			'versions.alias_add' => 'Add alias',
 			'versions.alias_name_label' => 'Alias name',
 			'versions.alias_name_placeholder' => 'godot-mono',
 			'versions.alias_copy_path' => 'Copy alias path',
 			'versions.alias_shim_badge' => 'script',
 			'versions.alias_mono_script_note' => 'Mono builds load GodotSharp from the folder next to the executable, so on Windows the alias is created as a launcher script instead of a link.',
-			'versions.alias_create_all' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count, one: 'Create Alias', other: 'Create ${count} Aliases', ), 
-			'versions.alias_create_all_one' => 'Create Alias',
+			'versions.alias_create_all' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count, one: 'Create alias', other: 'Create ${count} Aliases', ), 
+			'versions.alias_create_all_one' => 'Create alias',
 			'versions.alias_create_all_other' => 'Create {{count}} Aliases',
 			'versions.aliases_batch_created' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count, one: '1 alias created', other: '${count} aliases created', ), 
 			'versions.aliases_batch_created_one' => '1 alias created',
@@ -8628,8 +8628,8 @@ extension on Translations {
 			'versions.export_templates_web_extensions' => 'Web with Extensions',
 			_ => null,
 		} ?? switch (path) {
-			'versions.export_templates_web_single_threaded' => 'Web Single-Threaded',
-			'versions.export_templates_web_extensions_single_threaded' => 'Web with Extensions Single-Threaded',
+			'versions.export_templates_web_single_threaded' => 'Web single-threaded',
+			'versions.export_templates_web_extensions_single_threaded' => 'Web with extensions single-threaded',
 			'versions.export_templates_refresh' => 'Refresh available templates',
 			'versions.download_failed_title' => 'Download failed',
 			'versions.download_failed_asset_label' => 'File',

@@ -76,7 +76,7 @@ class _GhColorSwatchPickerState extends State<GhColorSwatchPicker> {
         border: Border.all(color: states.active ? theme.accentDim : theme.outline.withValues(alpha: 0.5)),
         child: Row(
           children: [
-            _Swatch(color: widget.value, size: theme.space(8), radius: theme.radiusTile),
+            _Swatch(color: widget.value, size: theme.space(8), radius: theme.radiusBtn),
             SizedBox(width: theme.space(3)),
             Expanded(
               child: Text(

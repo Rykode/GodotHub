@@ -55,7 +55,7 @@ class StepShell extends StatelessWidget {
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: theme.accent.withValues(alpha: 0.1),
-                  borderRadius: BorderRadius.circular(theme.radiusTile),
+                  borderRadius: BorderRadius.circular(theme.radiusBtn),
                   border: Border.all(color: theme.accentDim.withValues(alpha: 0.3)),
                 ),
                 child: GhIcon(icon, size: theme.space(5), color: theme.accentBright),
@@ -444,7 +444,7 @@ class PathSuggestionChips extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = GhTheme.of(context);
-    final radius = BorderRadius.circular(theme.radiusTag);
+    final radius = BorderRadius.circular(theme.radiusMd);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       spacing: theme.space(1.5),
@@ -687,7 +687,7 @@ class _FinishCelebrationState extends State<FinishCelebration> with SingleTicker
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                   color: theme.accent.withValues(alpha: 0.15),
-                                  borderRadius: BorderRadius.circular(theme.radiusTag),
+                                  borderRadius: BorderRadius.circular(theme.radiusMd),
                                 ),
                                 child: Text(
                                   projectInitial(tiles[i].name),
@@ -1038,7 +1038,7 @@ class _MorphOverlayState extends State<_MorphOverlay> with TickerProviderStateMi
                   child: Transform.scale(
                     scale: scale,
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(widget.theme.radiusTile * (1 - grow)),
+                      borderRadius: BorderRadius.circular(widget.theme.radiusBtn * (1 - grow)),
                       child: FittedBox(
                         fit: BoxFit.fill,
                         child: SizedBox(width: widget.rect.width, height: widget.rect.height, child: widget.clone(1 - _inner.value)),

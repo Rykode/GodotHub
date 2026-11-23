@@ -310,7 +310,7 @@ class _TagManagerModalState extends State<TagManagerModal> {
     return Container(
       key: ValueKey('$tag-$index'),
       decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.12),
+        color: color.withValues(alpha: 0.1),
         borderRadius: radius,
         border: Border.all(color: color.withValues(alpha: 0.35)),
       ),

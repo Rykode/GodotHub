@@ -271,7 +271,7 @@ class _IntegrationsSettingsState extends ConsumerState<IntegrationsSettings> {
     padding: EdgeInsets.symmetric(horizontal: theme.space(1.5), vertical: theme.space(0.5)),
     decoration: BoxDecoration(
       color: theme.mint.withValues(alpha: 0.15),
-      borderRadius: BorderRadius.circular(theme.radiusTag),
+      borderRadius: BorderRadius.circular(theme.radiusMd),
       border: Border.all(color: theme.mint.withValues(alpha: 0.3)),
     ),
     child: Text(
@@ -540,7 +540,7 @@ class _IntegrationsSettingsState extends ConsumerState<IntegrationsSettings> {
                       padding: EdgeInsets.only(top: theme.space(1.5)),
                       child: GhPressable(
                         onPressed: () => OpenerApi.openUrl(syncUrl).catchError(_toastError),
-                        borderRadius: BorderRadius.circular(theme.radiusTag),
+                        borderRadius: BorderRadius.circular(theme.radiusMd),
                         builder: (context, states) => Row(
                           mainAxisSize: MainAxisSize.min,
                           spacing: theme.space(1.5),

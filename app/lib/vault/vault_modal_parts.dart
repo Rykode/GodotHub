@@ -117,7 +117,7 @@ class VaultTagChip extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: theme.space(large ? 2 : 1.5), vertical: theme.space(0.5)),
       decoration: BoxDecoration(
         color: theme.raised,
-        borderRadius: BorderRadius.circular(theme.radiusTag),
+        borderRadius: BorderRadius.circular(theme.radiusMd),
         border: Border.all(color: theme.outline.withValues(alpha: 0.5)),
       ),
       child: Text(

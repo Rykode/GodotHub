@@ -163,7 +163,7 @@ class _GhTooltipState extends State<GhTooltip> {
       padding: EdgeInsets.symmetric(horizontal: theme.space(3), vertical: theme.space(1.5)),
       decoration: BoxDecoration(
         color: theme.raised,
-        borderRadius: BorderRadius.circular(theme.radiusTag),
+        borderRadius: BorderRadius.circular(theme.radiusMd),
         border: Border.all(color: theme.line),
         boxShadow: GhShadows.md(theme.base),
       ),

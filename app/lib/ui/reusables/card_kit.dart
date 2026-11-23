@@ -44,7 +44,7 @@ class GhBadge extends StatelessWidget {
     Widget badge = DecoratedBox(
       decoration: BoxDecoration(
         color: colors.bg,
-        borderRadius: BorderRadius.circular(theme.radiusTag),
+        borderRadius: BorderRadius.circular(theme.radiusMd),
         border: Border.all(color: colors.border),
       ),
       child: Padding(
@@ -247,7 +247,7 @@ class GhCardMedia extends StatelessWidget {
                   clipBehavior: Clip.antiAlias,
                   decoration: BoxDecoration(
                     color: theme.surface.withValues(alpha: 0.9),
-                    borderRadius: BorderRadius.circular(theme.radiusTile),
+                    borderRadius: BorderRadius.circular(theme.radiusBtn),
                     border: Border.all(color: theme.outline.withValues(alpha: 0.6)),
                   ),
                   child: Stack(
@@ -419,8 +419,8 @@ class GhCardSkeleton extends StatelessWidget {
                     Row(
                       spacing: theme.space(1.5),
                       children: [
-                        GhSkeleton(width: theme.space(14), height: theme.space(4.5), radius: theme.radiusTag),
-                        GhSkeleton(width: theme.space(10), height: theme.space(4.5), radius: theme.radiusTag),
+                        GhSkeleton(width: theme.space(14), height: theme.space(4.5), radius: theme.radiusMd),
+                        GhSkeleton(width: theme.space(10), height: theme.space(4.5), radius: theme.radiusMd),
                       ],
                     ),
                   ],

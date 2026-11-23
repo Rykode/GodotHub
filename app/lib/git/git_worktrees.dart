@@ -221,7 +221,7 @@ class _GitWorktreesState extends State<GitWorktrees> {
           if (current)
             Container(
               padding: EdgeInsets.symmetric(horizontal: theme.space(1.5), vertical: theme.space(1)),
-              decoration: BoxDecoration(color: theme.accent.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(theme.radiusTag)),
+              decoration: BoxDecoration(color: theme.accent.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(theme.radiusMd)),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 spacing: theme.space(1),

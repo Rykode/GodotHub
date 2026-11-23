@@ -107,7 +107,7 @@ class _Row extends StatelessWidget {
           Container(
             width: 28,
             height: 28,
-            decoration: BoxDecoration(color: theme.accent.withValues(alpha: 0.18), borderRadius: BorderRadius.circular(theme.radiusTile)),
+            decoration: BoxDecoration(color: theme.accent.withValues(alpha: 0.18), borderRadius: BorderRadius.circular(theme.radiusBtn)),
             alignment: Alignment.center,
             child: GhIcon(GhIcons.folder, size: 12, color: theme.accentBright),
           ),
@@ -233,7 +233,7 @@ class _RevealDemoState extends State<_RevealDemo> {
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           color: theme.accent.withValues(alpha: 0.12 + i * 0.05),
-                          borderRadius: BorderRadius.circular(theme.radiusTile),
+                          borderRadius: BorderRadius.circular(theme.radiusBtn),
                         ),
                         child: GhIcon(GhIcons.star, size: 18, color: theme.accentBright),
                       ),

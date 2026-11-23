@@ -101,7 +101,7 @@ class ProjectTodoList extends StatelessWidget {
   Widget _statusControl(GhTheme theme, ProjectTodo todo) {
     final style = todoStatusStyle(theme, todo.status);
     final label = todoStatusLabel(todo.status);
-    final radius = BorderRadius.circular(theme.radiusTag);
+    final radius = BorderRadius.circular(theme.radiusMd);
     return GhDropdown(
       align: GhSide.right,
       compact: true,
@@ -304,7 +304,7 @@ class ProjectTodoList extends StatelessWidget {
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 color: theme.raised,
-                borderRadius: BorderRadius.circular(theme.radiusTag),
+                borderRadius: BorderRadius.circular(theme.radiusMd),
                 border: Border.all(color: theme.outline.withValues(alpha: 0.5)),
               ),
               child: Text(

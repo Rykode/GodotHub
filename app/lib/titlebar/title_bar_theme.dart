@@ -232,3 +232,13 @@ class TitleBarIconButton extends StatelessWidget {
     );
   }
 }
+
+/// Font sizes for the title bar and tray, taken from the app-wide [GhTextSize] scale.
+abstract final class TbFontSize {
+  static final double x4s = GhTextSize.x4s.rem * 16;
+  static final double x3s = GhTextSize.x3s.rem * 16;
+  static final double x2s = GhTextSize.x2s.rem * 16;
+  static final double xs = GhTextSize.xs.rem * 16;
+  static final double sm = GhTextSize.sm.rem * 16;
+  static final double lg = GhTextSize.lg.rem * 16;
+}

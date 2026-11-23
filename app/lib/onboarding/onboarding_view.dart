@@ -259,7 +259,7 @@ class _OnboardingViewState extends ConsumerState<OnboardingView> with SingleTick
                     padding: EdgeInsets.symmetric(horizontal: theme.space(2), vertical: theme.space(0.5)),
                     decoration: BoxDecoration(
                       color: theme.accent.withValues(alpha: 0.15),
-                      borderRadius: BorderRadius.circular(theme.radiusTag),
+                      borderRadius: BorderRadius.circular(theme.radiusMd),
                     ),
                     child: Text(
                       _to('setup').toUpperCase(),
@@ -1068,7 +1068,7 @@ class _StepButton extends StatelessWidget {
           color: active ? theme.overlay : (hover ? theme.overlay.withValues(alpha: 0.6) : Colors.transparent),
           borderRadius: radius,
           border: Border.all(color: active ? theme.outline.withValues(alpha: 0.5) : Colors.transparent),
-          boxShadow: active ? [BoxShadow(color: Colors.black.withValues(alpha: 0.1), blurRadius: 6, offset: const Offset(0, 4))] : null,
+          boxShadow: active ? GhShadows.md(Colors.black.withValues(alpha: 0.1)) : null,
           child: Row(
             spacing: theme.space(2.5),
             children: [
@@ -1078,7 +1078,7 @@ class _StepButton extends StatelessWidget {
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: done ? theme.accent : (active ? theme.accent.withValues(alpha: 0.15) : theme.overlay),
-                  borderRadius: BorderRadius.circular(theme.radiusTag),
+                  borderRadius: BorderRadius.circular(theme.radiusMd),
                 ),
                 child: done
                     ? GhIcon(GhIcons.check, size: theme.space(3), color: Colors.white)
@@ -1220,7 +1220,7 @@ class _TemplateSuggestion extends StatelessWidget {
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: theme.accent.withValues(alpha: 0.15),
-                  borderRadius: BorderRadius.circular(theme.radiusTag),
+                  borderRadius: BorderRadius.circular(theme.radiusMd),
                 ),
                 child: GhIcon(GhIcons.copy, size: theme.space(3), color: theme.accentBright),
               ),

@@ -40,8 +40,8 @@ class ProjectMissingNotice extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(theme.space(compact ? 2 : 2.5)),
         decoration: BoxDecoration(
-          color: theme.amber.withValues(alpha: 0.08),
-          borderRadius: BorderRadius.circular(theme.radiusTile),
+          color: theme.amber.withValues(alpha: 0.1),
+          borderRadius: BorderRadius.circular(theme.radiusBtn),
           border: Border.all(color: theme.amber.withValues(alpha: 0.3)),
         ),
         child: LayoutBuilder(

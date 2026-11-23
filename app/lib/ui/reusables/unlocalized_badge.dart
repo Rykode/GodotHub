@@ -32,7 +32,7 @@ class GhUnlocalizedBadge extends StatelessWidget {
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: theme.amber.withValues(alpha: 0.15),
-        borderRadius: BorderRadius.circular(theme.radiusTag),
+        borderRadius: BorderRadius.circular(theme.radiusMd),
         border: Border.all(color: theme.amber.withValues(alpha: 0.4)),
       ),
       child: Text(

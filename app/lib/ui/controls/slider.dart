@@ -357,7 +357,7 @@ class _GhSliderState extends State<GhSlider> {
                 child: GhPressable(
                   onPressed: resetEnabled ? () => widget.onChanged!(widget.defaultValue!) : null,
                   semanticLabel: widget.resetLabel ?? context.tr.settings.reset_to_default,
-                  borderRadius: BorderRadius.circular(9999),
+                  borderRadius: BorderRadius.circular(999),
                   disabledOpacity: null,
                   disabledCursor: SystemMouseCursors.click,
                   builder: (context, states) {
@@ -368,7 +368,7 @@ class _GhSliderState extends State<GhSlider> {
                       height: resetSize,
                       alignment: Alignment.center,
                       color: canReset ? (hover ? theme.overlay : theme.raised) : transparent,
-                      borderRadius: BorderRadius.circular(9999),
+                      borderRadius: BorderRadius.circular(999),
                       border: Border.all(
                         color: canReset
                             ? (hover ? theme.accentDim.withValues(alpha: 0.7) : theme.outline.withValues(alpha: 0.5))
@@ -407,7 +407,7 @@ class _GhSliderState extends State<GhSlider> {
             decoration: BoxDecoration(
               color: theme.raised,
               border: Border.all(color: theme.outline.withValues(alpha: 0.5)),
-              borderRadius: BorderRadius.circular(theme.radiusTag),
+              borderRadius: BorderRadius.circular(theme.radiusMd),
             ),
             child: DefaultTextStyle.merge(
               style: theme

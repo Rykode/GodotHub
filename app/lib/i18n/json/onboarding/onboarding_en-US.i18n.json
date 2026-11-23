@@ -40,7 +40,7 @@
   "setup_desc": "Pick a starting point. Anything you leave out is hidden and never loads, so GodotHub stays quick. You can change this anytime in Settings, under Behavior.",
   "preview_heading": "Preview",
   "step_of": "Step {{current}} of {{total}}",
-  "dive_in": "Dive In",
+  "dive_in": "Get started",
   "workspace_step": "Workspace",
   "first_workspace_title": "Create your first workspace",
   "first_workspace_desc": "A workspace holds your projects, categories, and settings. Give this one a name and a look that feels like yours, you can add more later.",

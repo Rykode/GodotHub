@@ -132,7 +132,7 @@ void main() {
       if (md != null) {
         final t = GhTheme.defaults().copyWith(cornerRadius: md);
         expect(
-          [t.radiusSm, t.radiusMd, t.radiusLg, t.radiusXl, t.radiusTag, t.radiusBtn, t.radiusDropdownBtn, t.radiusDropdown, t.radiusItem, t.radiusTile, t.radiusMenu, t.radiusCard, t.radiusModal],
+          [t.radiusSm, t.radiusMd, t.radiusLg, t.radiusXl, t.radiusMd, t.radiusBtn, t.radiusDropdown, t.radiusDropdown, t.radiusItem, t.radiusBtn, t.radiusCard, t.radiusCard, t.radiusModal],
           [for (final key in radiusScale.keys) expected[key]],
         );
       }

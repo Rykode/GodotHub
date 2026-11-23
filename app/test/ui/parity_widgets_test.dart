@@ -85,7 +85,7 @@ void main() {
   });
 
   group('LanguageFlag', () {
-    testWidgets('renders the flag svg, the globe for System and nothing for unknown codes', (tester) async {
+    testWidgets('renders the flag svg, the system icon for System and nothing for unknown codes', (tester) async {
       await tester.pumpWidget(
         _host(
           const Row(
@@ -102,7 +102,7 @@ void main() {
       expect(find.byKey(const ValueKey('language-flag-JP')), findsOneWidget);
       expect(find.byType(SvgPicture), findsOneWidget);
       expect(tester.getSize(find.byKey(const ValueKey('language-flag-JP'))), const Size(16, 16));
-      expect(find.text('\u{1F310}'), findsOneWidget);
+      expect(find.byType(GhIcon), findsOneWidget);
       expect(find.text('XX'), findsNothing);
     });
   });

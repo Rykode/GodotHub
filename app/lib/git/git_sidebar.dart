@@ -778,10 +778,10 @@ class _GitSidebarState extends ConsumerState<GitSidebar> {
         ),
         GhPressable(
           onPressed: () => _disconnect(provider),
-          borderRadius: BorderRadius.circular(theme.radiusTag),
+          borderRadius: BorderRadius.circular(theme.radiusMd),
           builder: (context, states) => GhAnimatedBox(
             color: states.active ? theme.danger.withValues(alpha: 0.1) : theme.danger.withValues(alpha: 0),
-            borderRadius: BorderRadius.circular(theme.radiusTag),
+            borderRadius: BorderRadius.circular(theme.radiusMd),
             padding: EdgeInsets.symmetric(horizontal: theme.space(2), vertical: theme.space(1)),
             child: Text(
               ghTr('git_disconnect'),
@@ -861,10 +861,10 @@ class _GitSidebarState extends ConsumerState<GitSidebar> {
       onPressed: onPressed,
       disabledOpacity: 0.4,
       disabledCursor: SystemMouseCursors.wait,
-      borderRadius: BorderRadius.circular(theme.radiusTag),
+      borderRadius: BorderRadius.circular(theme.radiusMd),
       builder: (context, states) => GhAnimatedBox(
         color: color.withValues(alpha: states.active ? 0.2 : 0.1),
-        borderRadius: BorderRadius.circular(theme.radiusTag),
+        borderRadius: BorderRadius.circular(theme.radiusMd),
         padding: EdgeInsets.symmetric(horizontal: theme.space(1.5), vertical: theme.space(1)),
         alignment: Alignment.center,
         child: Text(
@@ -1008,7 +1008,20 @@ class _GitSidebarState extends ConsumerState<GitSidebar> {
                           style: theme.text(size: GhTextSize.x3s, weight: GhWeight.semibold, color: idleHover ? theme.ink : foreground),
                         ),
                       )
-                    : GhIcon(icon, size: theme.space(3.5), color: idleHover ? theme.ink : foreground),
+                    : Row(
+                        mainAxisSize: MainAxisSize.min,
+                        spacing: theme.space(1),
+                        children: [
+                          GhIcon(icon, size: theme.space(3.5), color: idleHover ? theme.ink : foreground),
+                          ExcludeSemantics(
+                            child: Text(
+                              _g(key.name),
+                              maxLines: 1,
+                              style: theme.text(size: GhTextSize.x3s, weight: GhWeight.semibold, color: idleHover ? theme.ink : foreground),
+                            ),
+                          ),
+                        ],
+                      ),
             };
             return Stack(
               clipBehavior: Clip.none,
@@ -1018,7 +1031,7 @@ class _GitSidebarState extends ConsumerState<GitSidebar> {
                   color: idleHover ? theme.raised : background,
                   borderRadius: BorderRadius.circular(theme.radiusItem),
                   border: Border.all(color: theme.outline.withValues(alpha: 0.5)),
-                  boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.1), blurRadius: 6, offset: const Offset(0, 4))],
+                  boxShadow: GhShadows.md(Colors.black.withValues(alpha: 0.1)),
                   alignment: Alignment.center,
                   child: glyph,
                 ),
@@ -1037,7 +1050,7 @@ class _GitSidebarState extends ConsumerState<GitSidebar> {
                           color: key == _Remote.push ? theme.mint : theme.danger,
                           borderRadius: BorderRadius.circular(theme.space(2)),
                           border: Border.all(color: theme.raised, width: 2),
-                          boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.3), blurRadius: 6, offset: const Offset(0, 4))],
+                          boxShadow: GhShadows.md(Colors.black.withValues(alpha: 0.3)),
                         ),
                         child: Text(
                           pending > 99 ? '99+' : '$pending',
@@ -1176,9 +1189,9 @@ class _GitSidebarState extends ConsumerState<GitSidebar> {
             padding: EdgeInsets.all(theme.space(1.5)),
             decoration: BoxDecoration(
               color: theme.overlay,
-              borderRadius: BorderRadius.circular(theme.radiusMenu),
+              borderRadius: BorderRadius.circular(theme.radiusCard),
               border: Border.all(color: theme.outline.withValues(alpha: 0.5)),
-              boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.1), blurRadius: 6, offset: const Offset(0, 4))],
+              boxShadow: GhShadows.md(Colors.black.withValues(alpha: 0.1)),
             ),
             child: GhScrollView(
               child: Column(
@@ -1210,7 +1223,7 @@ class _GitSidebarState extends ConsumerState<GitSidebar> {
     final behind = _aheadBehind?.behind.toInt() ?? 0;
     Widget chip(String text, Color color) => Container(
       padding: EdgeInsets.symmetric(horizontal: theme.space(1), vertical: theme.space(0.5)),
-      decoration: BoxDecoration(color: color.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(theme.radiusTag)),
+      decoration: BoxDecoration(color: color.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(theme.radiusMd)),
       child: Text(
         text,
         style: theme.text(size: GhTextSize.x4s, weight: GhWeight.semibold, mono: true, color: color),
@@ -1902,7 +1915,7 @@ class ProviderBadge extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: theme.space(1.5), vertical: theme.space(0.5)),
       decoration: BoxDecoration(
         color: color.withValues(alpha: label == 'GitHub' ? 0.1 : 0.15),
-        borderRadius: BorderRadius.circular(theme.radiusTag),
+        borderRadius: BorderRadius.circular(theme.radiusMd),
       ),
       child: Text(
         label,

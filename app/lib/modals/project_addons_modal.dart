@@ -94,7 +94,7 @@ class _ProjectAddonsModalState extends State<ProjectAddonsModal> {
     padding: EdgeInsets.symmetric(horizontal: theme.space(2)),
     decoration: BoxDecoration(
       color: color?.withValues(alpha: 0.1),
-      borderRadius: BorderRadius.circular(theme.radiusTag),
+      borderRadius: BorderRadius.circular(theme.radiusMd),
       border: Border.all(color: color?.withValues(alpha: 0.4) ?? theme.line),
     ),
     child: Center(

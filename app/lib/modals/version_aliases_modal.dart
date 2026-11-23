@@ -164,7 +164,7 @@ class _VersionAliasesModalState extends State<VersionAliasesModal> {
     padding: EdgeInsets.symmetric(horizontal: theme.space(1.5), vertical: theme.space(0.5)),
     decoration: BoxDecoration(
       color: Colors.black.withValues(alpha: 0.15),
-      borderRadius: BorderRadius.circular(theme.radiusTag),
+      borderRadius: BorderRadius.circular(theme.radiusMd),
       border: Border.all(color: theme.outline.withValues(alpha: 0.4)),
     ),
     child: Text(
@@ -257,13 +257,13 @@ class _VersionAliasesModalState extends State<VersionAliasesModal> {
                             key: ValueKey(v.tag),
                             onPressed: () => setState(() => _tag = v.tag),
                             checked: _tag == v.tag,
-                            borderRadius: BorderRadius.circular(theme.radiusTag),
+                            borderRadius: BorderRadius.circular(theme.radiusMd),
                             builder: (context, states) {
                               final active = _tag == v.tag;
                               final color = active ? theme.accentBright : (states.active ? theme.ink : theme.muted);
                               return GhAnimatedBox(
                                 color: active ? theme.accent.withValues(alpha: 0.15) : (states.active ? theme.raised : theme.overlay),
-                                borderRadius: BorderRadius.circular(theme.radiusTag),
+                                borderRadius: BorderRadius.circular(theme.radiusMd),
                                 border: Border.all(
                                   color: active ? theme.accentDim.withValues(alpha: 0.5) : theme.outline.withValues(alpha: 0.5),
                                 ),
@@ -434,7 +434,7 @@ class _VersionAliasesModalState extends State<VersionAliasesModal> {
                                           padding: EdgeInsets.symmetric(horizontal: theme.space(1.5), vertical: theme.space(0.5)),
                                           decoration: BoxDecoration(
                                             color: theme.amber.withValues(alpha: 0.1),
-                                            borderRadius: BorderRadius.circular(theme.radiusTag),
+                                            borderRadius: BorderRadius.circular(theme.radiusMd),
                                             border: Border.all(color: theme.amber.withValues(alpha: 0.3)),
                                           ),
                                           child: Text(

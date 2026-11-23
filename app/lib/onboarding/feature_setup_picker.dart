@@ -106,7 +106,7 @@ class _FeatureSetupPickerState extends State<FeatureSetupPicker> {
                           width: theme.space(8),
                           height: theme.space(8),
                           alignment: Alignment.center,
-                          decoration: BoxDecoration(color: theme.overlay, borderRadius: BorderRadius.circular(theme.radiusTile)),
+                          decoration: BoxDecoration(color: theme.overlay, borderRadius: BorderRadius.circular(theme.radiusBtn)),
                           child: GhIcon(GhIcons.pencil, size: theme.space(3.5), color: theme.muted),
                         ),
                         Expanded(
@@ -228,7 +228,7 @@ class _FeatureSetupPickerState extends State<FeatureSetupPicker> {
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           color: theme.accent.withValues(alpha: 0.15),
-                          borderRadius: BorderRadius.circular(theme.radiusTag),
+                          borderRadius: BorderRadius.circular(theme.radiusMd),
                         ),
                         child: GhIcon(core.icon, size: theme.space(3), color: theme.accentBright),
                       ),
@@ -240,7 +240,7 @@ class _FeatureSetupPickerState extends State<FeatureSetupPicker> {
                         decoration: included.contains(feature)
                             ? BoxDecoration(
                                 color: theme.overlay,
-                                borderRadius: BorderRadius.circular(theme.radiusTag),
+                                borderRadius: BorderRadius.circular(theme.radiusMd),
                                 border: Border.all(color: theme.outline.withValues(alpha: 0.5)),
                               )
                             : null,
@@ -320,7 +320,7 @@ class _FeatureRow extends StatelessWidget {
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: checked ? theme.accent.withValues(alpha: 0.1) : theme.overlay,
-              borderRadius: BorderRadius.circular(theme.radiusTile),
+              borderRadius: BorderRadius.circular(theme.radiusBtn),
             ),
             child: GhIcon(icon, size: theme.space(3.5), color: checked ? theme.accentBright : theme.muted),
           ),

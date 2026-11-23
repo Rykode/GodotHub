@@ -138,3 +138,9 @@ abstract final class GhScrollbar {
   static const size = 8.0;
   static const border = 2.0;
 }
+
+/// Backdrop colours behind overlays, so every modal dims the app by the same amount.
+abstract final class GhScrims {
+  static const Color modal = Color(0xB3000000);
+  static const Color panel = Color(0x4D000000);
+}

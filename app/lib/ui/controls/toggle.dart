@@ -29,7 +29,7 @@ class GhToggle extends StatelessWidget {
     final width = theme.space(12);
     final height = theme.space(7);
     final thumb = theme.space(5);
-    final radius = BorderRadius.circular(9999);
+    final radius = BorderRadius.circular(999);
     return GhPressable(
       onPressed: enabled ? () => onChanged!(!checked) : null,
       focusNode: focusNode,

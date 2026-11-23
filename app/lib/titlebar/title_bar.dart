@@ -170,7 +170,7 @@ class _Wordmark extends StatelessWidget {
   Widget build(BuildContext context) {
     final tokens = TitleBarTokens.of(context);
     TextStyle style(bool hovered) => TextStyle(
-      fontSize: 18,
+      fontSize: TbFontSize.lg,
       height: 1,
       fontWeight: FontWeight.w900,
       letterSpacing: -0.45,
@@ -242,7 +242,7 @@ class _ChangelogButton extends StatelessWidget {
             const SizedBox(width: 6),
             Text(
               context.tr.nav.changelog,
-              style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: tokens.accentBright),
+              style: TextStyle(fontSize: TbFontSize.xs, fontWeight: FontWeight.w600, color: tokens.accentBright),
             ),
           ],
         ),
@@ -279,7 +279,7 @@ class _SupportButton extends StatelessWidget {
             const SizedBox(width: 6),
             Text(
               context.tr.common.support,
-              style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: hovered ? tokens.danger : tokens.muted),
+              style: TextStyle(fontSize: TbFontSize.xs, fontWeight: FontWeight.w600, color: hovered ? tokens.danger : tokens.muted),
             ),
           ],
         ),

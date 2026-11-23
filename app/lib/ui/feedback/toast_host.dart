@@ -21,7 +21,7 @@ class GhToastCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = GhTheme.of(context);
     final open = (1 - collapse).clamp(0.0, 1.0);
-    final radius = BorderRadius.circular(theme.radiusMenu);
+    final radius = BorderRadius.circular(theme.radiusCard);
     final (icon, color) = switch (toast.type) {
       GhToastType.success => (GhIcons.checkCircle, theme.mint),
       GhToastType.error => (GhIcons.alertTriangle, theme.danger),
@@ -93,7 +93,7 @@ class _ToastActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = GhTheme.of(context);
-    final radius = BorderRadius.circular(theme.radiusTag);
+    final radius = BorderRadius.circular(theme.radiusMd);
     return GhPressable(
       onPressed: onPressed,
       focusStyle: GhFocusStyle.outline,

@@ -203,7 +203,7 @@ class _ProfileCard extends StatelessWidget {
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
                               color: theme.accent.withValues(alpha: 0.15),
-                              borderRadius: BorderRadius.circular(theme.radiusTag),
+                              borderRadius: BorderRadius.circular(theme.radiusMd),
                             ),
                             child: GhIcon(core.icon, size: icon, color: theme.accentBright),
                           ),
@@ -216,7 +216,7 @@ class _ProfileCard extends StatelessWidget {
                                 ? BoxDecoration(
                                     color: theme.overlay,
                                     border: Border.all(color: theme.outline.withValues(alpha: 0.5)),
-                                    borderRadius: BorderRadius.circular(theme.radiusTag),
+                                    borderRadius: BorderRadius.circular(theme.radiusMd),
                                   )
                                 : null,
                             child: GhIcon(
@@ -283,7 +283,7 @@ class _CustomCard extends StatelessWidget {
                       width: theme.space(8),
                       height: theme.space(8),
                       alignment: Alignment.center,
-                      decoration: BoxDecoration(color: theme.overlay, borderRadius: BorderRadius.circular(theme.radiusTile)),
+                      decoration: BoxDecoration(color: theme.overlay, borderRadius: BorderRadius.circular(theme.radiusBtn)),
                       child: GhIcon(GhIcons.pencil, size: theme.space(3.5), color: theme.muted),
                     ),
                     SizedBox(width: theme.space(3)),
@@ -386,7 +386,7 @@ class _RadioDot extends StatelessWidget {
         duration: GhDurations.color,
         alignment: Alignment.center,
         color: active ? theme.accent : theme.accent.withValues(alpha: 0),
-        borderRadius: BorderRadius.circular(9999),
+        borderRadius: BorderRadius.circular(999),
         border: Border.all(color: active ? theme.accent : theme.outline.withValues(alpha: 0.6)),
         child: active ? GhIcon(GhIcons.check, size: theme.space(2.5), color: Colors.white) : null,
       ),
@@ -421,7 +421,7 @@ class _FeatureRow extends StatelessWidget {
             duration: GhDurations.color,
             alignment: Alignment.center,
             color: checked ? theme.accent.withValues(alpha: 0.1) : theme.overlay,
-            borderRadius: BorderRadius.circular(theme.radiusTile),
+            borderRadius: BorderRadius.circular(theme.radiusBtn),
             child: GhAnimatedIcon(icon, color: checked ? theme.accentBright : theme.muted, size: theme.space(3.5)),
           ),
           SizedBox(width: theme.space(3)),

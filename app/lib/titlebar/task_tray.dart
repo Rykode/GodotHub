@@ -96,10 +96,10 @@ class _TaskTrayState extends ConsumerState<TaskTray> {
                       children: [
                         Text(
                           context.tr.common.task_tray_title,
-                          style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: tokens.muted),
+                          style: TextStyle(fontSize: TbFontSize.xs, fontWeight: FontWeight.w600, color: tokens.muted),
                         ),
                         const SizedBox(height: 2),
-                        Text(_subtitle(context, tasks, count), style: TextStyle(fontSize: 10, color: tokens.muted.withValues(alpha: 0.5))),
+                        Text(_subtitle(context, tasks, count), style: TextStyle(fontSize: TbFontSize.x3s, color: tokens.muted.withValues(alpha: 0.5))),
                       ],
                     ),
                   ),
@@ -128,7 +128,7 @@ class _TaskTrayState extends ConsumerState<TaskTray> {
                           Expanded(
                             child: Text(
                               context.tr.common.task_tray_auto_dismiss,
-                              style: TextStyle(fontSize: 9, color: tokens.muted.withValues(alpha: 0.4)),
+                              style: TextStyle(fontSize: TbFontSize.x4s, color: tokens.muted.withValues(alpha: 0.4)),
                             ),
                           ),
                           if (dismissible > 0)
@@ -149,7 +149,7 @@ class _TaskTrayState extends ConsumerState<TaskTray> {
                                     Text(
                                       context.tr.common.task_tray_dismiss.args({'count': dismissible}),
                                       style: TextStyle(
-                                        fontSize: 10,
+                                        fontSize: TbFontSize.x3s,
                                         fontWeight: FontWeight.w500,
                                         color: hovered ? tokens.ink : tokens.muted,
                                       ),
@@ -177,7 +177,7 @@ class _TaskTrayState extends ConsumerState<TaskTray> {
             height: 32,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: hovered ? tokens.ink.withValues(alpha: 0.08) : Colors.transparent,
+              color: hovered ? tokens.ink.withValues(alpha: 0.1) : Colors.transparent,
               borderRadius: BorderRadius.circular(tokens.itemRadius),
             ),
             child: Stack(
@@ -195,7 +195,7 @@ class _TaskTrayState extends ConsumerState<TaskTray> {
                       decoration: BoxDecoration(color: tokens.amber, shape: BoxShape.circle),
                       child: Text(
                         count > 9 ? '9+' : '$count',
-                        style: const TextStyle(fontSize: 9, fontWeight: FontWeight.w700, height: 1, color: Colors.white),
+                        style: TextStyle(fontSize: TbFontSize.x4s, fontWeight: FontWeight.w700, height: 1, color: Colors.white),
                       ),
                     ),
                   ),
@@ -224,7 +224,7 @@ class _TaskTrayEmpty extends StatelessWidget {
           Text(
             context.tr.common.no_tasks_running,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: tokens.muted),
+            style: TextStyle(fontSize: TbFontSize.xs, fontWeight: FontWeight.w500, color: tokens.muted),
           ),
         ],
       ),
@@ -314,7 +314,7 @@ class _TaskItem extends ConsumerWidget {
                         task.label,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: tokens.ink),
+                        style: TextStyle(fontSize: TbFontSize.xs, fontWeight: FontWeight.w500, color: tokens.ink),
                       ),
                     ),
                     const SizedBox(width: 8),
@@ -385,7 +385,7 @@ class _TaskItem extends ConsumerWidget {
                       description,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(fontSize: 11, color: tokens.muted),
+                      style: TextStyle(fontSize: TbFontSize.x2s, color: tokens.muted),
                     ),
                   ),
                 if (error != null && error.isNotEmpty)
@@ -395,7 +395,7 @@ class _TaskItem extends ConsumerWidget {
                       error,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(fontSize: 11, color: tokens.danger),
+                      style: TextStyle(fontSize: TbFontSize.x2s, color: tokens.danger),
                     ),
                   ),
                 if (fraction != null)
@@ -463,7 +463,7 @@ class _StatusBadge extends StatelessWidget {
           Text(
             label,
             style: TextStyle(
-              fontSize: 9,
+              fontSize: TbFontSize.x4s,
               fontWeight: FontWeight.w500,
               color: status == TaskStatus.queued ? color.withValues(alpha: 0.7) : color,
             ),

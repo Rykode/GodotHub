@@ -60,7 +60,7 @@ class GhCover extends StatelessWidget {
       ),
       child: Align(
         alignment: const Alignment(0.75, 0.2),
-        child: GhIcon(fallbackIcon, size: theme.space(20), color: Colors.white.withValues(alpha: 0.14)),
+        child: GhIcon(fallbackIcon, size: theme.space(20), color: Colors.white.withValues(alpha: 0.15)),
       ),
     );
 
@@ -141,7 +141,7 @@ class GhGlassChip extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.black.withValues(alpha: 0.6),
         borderRadius: BorderRadius.circular(999),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.16)),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.15)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

@@ -190,7 +190,7 @@ class _AppearanceSettingsState extends ConsumerState<AppearanceSettings> {
                                 ],
                               ),
                               LookGhostButton(
-                                icon: GhIcons.heart,
+                                icon: GhIcons.history,
                                 label: lts('reset'),
                                 semanticLabel: lts('reset_colors'),
                                 onPressed: () => _update(withThemeColorsReset(settings)),
@@ -221,7 +221,7 @@ class _AppearanceSettingsState extends ConsumerState<AppearanceSettings> {
                         label: lts('raised_contrast_label'),
                         display: Text(
                           lts('raised_contrast_value', args: {'value': settings.raisedContrast}),
-                          style: theme.text(size: GhTextSize.xs, weight: GhWeight.medium, color: theme.ink),
+                          style: lookValueStyle(theme, mono: true),
                         ),
                         value: settings.raisedContrast.toDouble(),
                         min: 0,

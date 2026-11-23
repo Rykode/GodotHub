@@ -1505,7 +1505,7 @@ class _NewPillButtonState extends State<_NewPillButton> {
         widget.onPressed();
       },
       semanticLabel: widget.semanticLabel,
-      borderRadius: BorderRadius.circular(9999),
+      borderRadius: BorderRadius.circular(999),
       builder: (context, states) {
         final hover = states.active;
         return GhAnimatedBox(
@@ -1513,7 +1513,7 @@ class _NewPillButtonState extends State<_NewPillButton> {
           constraints: BoxConstraints(minWidth: theme.space(9)),
           padding: EdgeInsetsDirectional.only(start: theme.space(2)),
           color: hover ? theme.accentBright : theme.accent,
-          borderRadius: BorderRadius.circular(9999),
+          borderRadius: BorderRadius.circular(999),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [

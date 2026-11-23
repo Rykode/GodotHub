@@ -237,7 +237,7 @@ class _ProjectTileState extends ConsumerState<ProjectTile> {
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: theme.raised,
-        borderRadius: BorderRadius.circular(theme.radiusTile),
+        borderRadius: BorderRadius.circular(theme.radiusBtn),
         border: Border.all(color: theme.outline.withValues(alpha: 0.4)),
       ),
       child: icon != null
@@ -302,7 +302,7 @@ class _ProjectTileState extends ConsumerState<ProjectTile> {
       if (gitPending)
         Container(
           padding: EdgeInsets.symmetric(horizontal: theme.space(2), vertical: theme.space(1)),
-          decoration: BoxDecoration(color: theme.raised, borderRadius: BorderRadius.circular(theme.radiusTag)),
+          decoration: BoxDecoration(color: theme.raised, borderRadius: BorderRadius.circular(theme.radiusMd)),
           child: GhSpinning(
             child: GhIcon(GhIcons.spinner, size: theme.space(3), color: theme.muted),
           ),
@@ -751,7 +751,7 @@ class _ProjectTileState extends ConsumerState<ProjectTile> {
       message: tr.running,
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: theme.space(2), vertical: theme.space(0.5)),
-        decoration: BoxDecoration(color: theme.accent.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(theme.radiusTag)),
+        decoration: BoxDecoration(color: theme.accent.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(theme.radiusMd)),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           spacing: theme.space(1.5),
@@ -824,7 +824,7 @@ class _ProjectTileState extends ConsumerState<ProjectTile> {
   Widget _gitButton(BuildContext context, GhTheme theme, GitStatus status) {
     final tr = context.tr.common;
     final dirty = status.hasUncommitted;
-    final radius = BorderRadius.circular(theme.radiusTag);
+    final radius = BorderRadius.circular(theme.radiusMd);
     final branch = status.branch ?? '';
     return GhPressable(
       onPressed: widget.preview ? null : widget.callbacks.onShowGitSidebar,
@@ -955,7 +955,7 @@ class _ProjectTileState extends ConsumerState<ProjectTile> {
   Widget _tagChip(BuildContext context, GhTheme theme, String tag) {
     final color = colorFromHex(tagColor(tag));
     final active = widget.activeTag == tag;
-    final radius = BorderRadius.circular(theme.radiusTag);
+    final radius = BorderRadius.circular(theme.radiusMd);
     final cb = widget.callbacks;
     return GhPressable(
       onPressed: widget.preview
@@ -1003,7 +1003,7 @@ class _ProjectTileState extends ConsumerState<ProjectTile> {
   }
 
   Widget _smallChip(BuildContext context, GhTheme theme, {required String label, required String semanticLabel, VoidCallback? onPressed}) {
-    final radius = BorderRadius.circular(theme.radiusTag);
+    final radius = BorderRadius.circular(theme.radiusMd);
     return GhPressable(
       onPressed: onPressed,
       disabledOpacity: null,
@@ -1097,7 +1097,7 @@ class _ProjectTileState extends ConsumerState<ProjectTile> {
             final inline = unavailable || version == null ? theme.amber : (states.active ? theme.ink : theme.muted);
             return GhAnimatedBox(
               color: states.active ? theme.raised : theme.raised.withValues(alpha: 0),
-              borderRadius: BorderRadius.circular(theme.radiusTag),
+              borderRadius: BorderRadius.circular(theme.radiusMd),
               padding: EdgeInsets.symmetric(horizontal: theme.space(1), vertical: theme.space(0.5)),
               child: Row(
                 mainAxisSize: MainAxisSize.min,

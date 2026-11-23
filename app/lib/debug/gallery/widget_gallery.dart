@@ -252,11 +252,11 @@ class _Controls extends StatelessWidget {
     final backgrounds = mode == GhThemeMode.light ? bgPresetsLight : bgPresetsDark;
     Widget chip(String label, bool selected, VoidCallback onTap) => GhPressable(
       onPressed: onTap,
-      borderRadius: BorderRadius.circular(t.radiusTag),
+      borderRadius: BorderRadius.circular(t.radiusMd),
       builder: (context, states) => GhAnimatedBox(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         color: selected ? t.accent : (states.hovered ? t.raised : t.surface),
-        borderRadius: BorderRadius.circular(t.radiusTag),
+        borderRadius: BorderRadius.circular(t.radiusMd),
         child: Text(
           label,
           style: t.text(size: GhTextSize.x2s, weight: GhWeight.medium, color: selected ? Colors.white : t.muted),

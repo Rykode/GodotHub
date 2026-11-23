@@ -494,7 +494,7 @@ class TemplateCard extends StatelessWidget {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: theme.raised,
-                    borderRadius: BorderRadius.circular(theme.radiusTile),
+                    borderRadius: BorderRadius.circular(theme.radiusBtn),
                     border: Border.all(color: theme.outline.withValues(alpha: 0.5)),
                   ),
                   child: GhIcon(GhIcons.copy, size: theme.space(4), color: theme.muted),

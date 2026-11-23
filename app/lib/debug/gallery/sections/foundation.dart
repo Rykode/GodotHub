@@ -77,7 +77,7 @@ class _TagChip extends StatelessWidget {
     final color = colorFromHex(tagColor(tag));
     return Container(
       padding: EdgeInsets.symmetric(horizontal: theme.space(1.5), vertical: theme.space(0.5)),
-      decoration: BoxDecoration(color: colorFromHex('${tagColor(tag)}18'), borderRadius: BorderRadius.circular(theme.radiusTag)),
+      decoration: BoxDecoration(color: colorFromHex('${tagColor(tag)}18'), borderRadius: BorderRadius.circular(theme.radiusMd)),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -160,12 +160,12 @@ class _RadiiShadows extends StatelessWidget {
       'md': theme.radiusMd,
       'lg': theme.radiusLg,
       'xl': theme.radiusXl,
-      'tag': theme.radiusTag,
+      'tag': theme.radiusMd,
       'btn': theme.radiusBtn,
       'dropdown': theme.radiusDropdown,
       'item': theme.radiusItem,
-      'tile': theme.radiusTile,
-      'menu': theme.radiusMenu,
+      'tile': theme.radiusBtn,
+      'menu': theme.radiusCard,
       'card': theme.radiusCard,
       'modal': theme.radiusModal,
     };

@@ -240,10 +240,10 @@ class _ProjectTodoModalState extends State<ProjectTodoModal> {
               for (final option in options)
                 GhPressable(
                   onPressed: () => onSelected(option),
-                  borderRadius: BorderRadius.circular(theme.radiusDropdownBtn),
+                  borderRadius: BorderRadius.circular(theme.radiusDropdown),
                   builder: (context, states) => GhAnimatedBox(
                     color: states.active ? theme.overlay : theme.overlay.withValues(alpha: 0),
-                    borderRadius: BorderRadius.circular(theme.radiusDropdownBtn),
+                    borderRadius: BorderRadius.circular(theme.radiusDropdown),
                     padding: EdgeInsets.symmetric(horizontal: theme.space(2.5), vertical: theme.space(1.5)),
                     child: Text(
                       option,

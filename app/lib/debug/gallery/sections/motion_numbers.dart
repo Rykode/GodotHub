@@ -239,7 +239,7 @@ class _Frame extends StatelessWidget {
       decoration: BoxDecoration(
         color: theme.raised,
         border: Border.all(color: theme.outline),
-        borderRadius: BorderRadius.circular(theme.radiusTile),
+        borderRadius: BorderRadius.circular(theme.radiusBtn),
       ),
       child: Align(
         alignment: alignment,
@@ -412,7 +412,7 @@ class _EaseCardState extends State<_EaseCard> with SingleTickerProviderStateMixi
           decoration: BoxDecoration(
             color: theme.raised,
             border: Border.all(color: theme.outline),
-            borderRadius: BorderRadius.circular(theme.radiusTile),
+            borderRadius: BorderRadius.circular(theme.radiusBtn),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

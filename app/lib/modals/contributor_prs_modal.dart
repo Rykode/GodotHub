@@ -230,7 +230,7 @@ class _ContributorPrsModalState extends State<ContributorPrsModal> {
         GestureDetector(
           behavior: HitTestBehavior.opaque,
           onTap: widget.onClose,
-          child: const ColoredBox(color: Color(0xB3000000)),
+          child: const ColoredBox(color: GhScrims.modal),
         ),
         Center(
           child: Padding(

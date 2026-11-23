@@ -188,7 +188,7 @@ class _InstalledVersionCardState extends State<InstalledVersionCard> {
       onPressed: _openTemplatesDialog,
       semanticLabel: semanticLabel,
       excludeChildSemantics: true,
-      borderRadius: BorderRadius.circular(theme.radiusTag),
+      borderRadius: BorderRadius.circular(theme.radiusMd),
       builder: (context, states) =>
           GhBadge(label: label, icon: icon, tone: states.active ? (hoverTone ?? tone) : tone, maxWidth: theme.space(72)),
     ),

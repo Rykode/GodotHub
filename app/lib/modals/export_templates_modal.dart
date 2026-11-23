@@ -420,7 +420,7 @@ class _ExportTemplatesModalState extends State<ExportTemplatesModal> {
                           padding: EdgeInsets.symmetric(horizontal: theme.space(2), vertical: theme.space(0.5)),
                           decoration: BoxDecoration(
                             color: theme.mint.withValues(alpha: 0.1),
-                            borderRadius: BorderRadius.circular(theme.radiusTag),
+                            borderRadius: BorderRadius.circular(theme.radiusMd),
                             border: Border.all(color: theme.mint.withValues(alpha: 0.3)),
                           ),
                           child: Text(
@@ -614,7 +614,7 @@ class _ExportTemplatesModalState extends State<ExportTemplatesModal> {
               key: const ValueKey('export-templates-summary'),
               padding: EdgeInsets.symmetric(horizontal: theme.space(3.5), vertical: theme.space(2.5)),
               decoration: BoxDecoration(
-                color: chosen.isEmpty ? theme.base.withValues(alpha: 0.5) : theme.accent.withValues(alpha: 0.08),
+                color: chosen.isEmpty ? theme.base.withValues(alpha: 0.5) : theme.accent.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(theme.radiusItem),
                 border: Border.all(color: chosen.isEmpty ? theme.line : theme.accentDim.withValues(alpha: 0.4)),
               ),

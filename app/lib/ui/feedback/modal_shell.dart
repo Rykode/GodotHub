@@ -280,7 +280,7 @@ class _GhModalShellState extends State<GhModalShell> {
                 GestureDetector(
                   behavior: HitTestBehavior.opaque,
                   onTap: _close,
-                  child: const ColoredBox(color: Color(0xB3000000)),
+                  child: const ColoredBox(color: GhScrims.modal),
                 ),
                 Padding(
                   padding: EdgeInsets.all(pad),

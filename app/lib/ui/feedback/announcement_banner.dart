@@ -169,7 +169,7 @@ class GhAnnouncementCard extends StatelessWidget {
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: theme.danger.withValues(alpha: 0.1),
-              borderRadius: BorderRadius.circular(theme.radiusTile),
+              borderRadius: BorderRadius.circular(theme.radiusBtn),
               border: Border.all(color: theme.danger.withValues(alpha: 0.3)),
             ),
             child: GhIcon(GhIcons.heart, size: theme.space(4), color: theme.danger),

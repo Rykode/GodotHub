@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math' as math;
 
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
@@ -271,7 +270,7 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                 Expanded(
                   child: ClipRRect(
                     borderRadius: widget.connected
-                        ? BorderRadiusDirectional.only(topStart: Radius.circular(theme.radiusTag))
+                        ? BorderRadiusDirectional.only(topStart: Radius.circular(theme.radiusMd))
                         : BorderRadius.circular(theme.radiusCard),
                     child: ColoredBox(
                       color: theme.raised,
@@ -281,7 +280,6 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                           _CategoryHeader(
                             icon: activeIcon,
                             label: settingsCategoryLabel(cat),
-                            iconOpacity: settings.projectIconOpacity / 100,
                           ),
                           Expanded(
                             child: GhOverlayScrollArea(
@@ -398,7 +396,7 @@ class _VersionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = GhTheme.of(context);
-    final radius = BorderRadius.circular(9999);
+    final radius = BorderRadius.circular(999);
     return GhPressable(
       onPressed: onPressed,
       borderRadius: radius,
@@ -423,16 +421,14 @@ class _VersionButton extends StatelessWidget {
 }
 
 class _CategoryHeader extends StatelessWidget {
-  const _CategoryHeader({required this.icon, required this.label, required this.iconOpacity});
+  const _CategoryHeader({required this.icon, required this.label});
 
   final FaIconData? icon;
   final String label;
-  final double iconOpacity;
 
   @override
   Widget build(BuildContext context) {
     final theme = GhTheme.of(context);
-    final rtl = Directionality.of(context) == TextDirection.rtl;
     final glyph = icon;
     return Container(
       padding: EdgeInsets.fromLTRB(theme.space(5), theme.space(4), theme.space(5), theme.space(3)),
@@ -442,27 +438,7 @@ class _CategoryHeader extends StatelessWidget {
       child: Row(
         spacing: theme.space(1.5),
         children: [
-          if (glyph != null)
-            ExcludeSemantics(
-              child: SizedBox.square(
-                dimension: theme.space(12),
-                child: ClipRect(
-                  child: ShaderMask(
-                    blendMode: BlendMode.dstIn,
-                    shaderCallback: (bounds) => LinearGradient(
-                      begin: rtl ? Alignment.centerRight : Alignment.centerLeft,
-                      end: rtl ? Alignment.centerLeft : Alignment.centerRight,
-                      colors: const [Colors.black, Colors.black, Colors.transparent],
-                      stops: const [0, 0.35, 0.9],
-                    ).createShader(bounds),
-                    child: Opacity(
-                      opacity: math.max(0, math.min(1, iconOpacity)),
-                      child: GhIcon(glyph, size: 48, color: theme.accentBright),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+          if (glyph != null) ExcludeSemantics(child: GhIcon(glyph, size: theme.space(5), color: theme.accentBright)),
           Flexible(
             child: Text(
               label.toUpperCase(),

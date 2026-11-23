@@ -731,7 +731,7 @@ class _Kbd extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: theme.space(1.5), vertical: theme.space(0.5)),
       decoration: BoxDecoration(
         color: theme.raised,
-        borderRadius: BorderRadius.circular(theme.radiusTag),
+        borderRadius: BorderRadius.circular(theme.radiusMd),
         border: Border.all(color: theme.outline.withValues(alpha: 0.5)),
       ),
       child: Text(
@@ -759,7 +759,7 @@ class _CountBadge extends StatelessWidget {
       height: size,
       padding: EdgeInsets.symmetric(horizontal: theme.space(small ? 1 : 1.5)),
       alignment: Alignment.center,
-      decoration: BoxDecoration(color: theme.accent, borderRadius: BorderRadius.circular(9999)),
+      decoration: BoxDecoration(color: theme.accent, borderRadius: BorderRadius.circular(999)),
       child: Text(
         ghSidebarBadgeLabel(count),
         maxLines: 1,
@@ -782,7 +782,7 @@ class _NewBadge extends StatelessWidget {
     final theme = GhTheme.of(context);
     return Container(
       padding: EdgeInsets.symmetric(horizontal: theme.space(1.5), vertical: theme.space(0.5)),
-      decoration: BoxDecoration(color: theme.accent, borderRadius: BorderRadius.circular(theme.radiusTag)),
+      decoration: BoxDecoration(color: theme.accent, borderRadius: BorderRadius.circular(theme.radiusMd)),
       child: Text(
         label,
         maxLines: 1,

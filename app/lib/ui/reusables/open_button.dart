@@ -60,14 +60,14 @@ class _GhOpenButtonState extends State<GhOpenButton> {
     final theme = GhTheme.of(context);
     final tr = context.tr.common;
     final compact = widget.size == GhOpenButtonSize.compact;
-    final height = theme.space(compact ? 9 : 12);
+    final height = theme.space(compact ? 9 : 10);
     final shadow = GhShadows.md(Colors.black.withValues(alpha: 0.1));
     final textStyle = compact
         ? theme.text(size: GhTextSize.xs, weight: GhWeight.semibold)
-        : theme.text(weight: GhWeight.semibold).copyWith(fontSize: theme.rem(1.0625));
+        : theme.text(size: GhTextSize.sm, weight: GhWeight.semibold);
     final disabled = widget.disabled;
     final mainRadius = BorderRadiusDirectional.horizontal(
-      start: Radius.circular(theme.radiusDropdownBtn),
+      start: Radius.circular(theme.radiusDropdown),
       end: const Radius.circular(4),
     ).resolve(Directionality.of(context));
     final tooltip = disabled ? widget.disabledReason : (_console ? tr.open_with_console : widget.label);

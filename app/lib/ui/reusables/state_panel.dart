@@ -83,7 +83,7 @@ class GhStatePanel extends StatelessWidget {
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: danger ? theme.danger.withValues(alpha: 0.1) : theme.raised,
-                      borderRadius: BorderRadius.circular(theme.radiusTile),
+                      borderRadius: BorderRadius.circular(theme.radiusBtn),
                       border: Border.all(color: danger ? theme.danger.withValues(alpha: 0.25) : theme.outline.withValues(alpha: 0.5)),
                     ),
                     child: glyph,

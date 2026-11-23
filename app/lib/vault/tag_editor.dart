@@ -102,7 +102,7 @@ class _VaultTagEditorState extends State<VaultTagEditor> {
                   padding: EdgeInsetsDirectional.fromSTEB(theme.space(2.5), theme.space(1), theme.space(1.5), theme.space(1)),
                   decoration: BoxDecoration(
                     color: theme.raised,
-                    borderRadius: BorderRadius.circular(theme.radiusTag),
+                    borderRadius: BorderRadius.circular(theme.radiusMd),
                     border: Border.all(color: theme.outline.withValues(alpha: 0.5)),
                   ),
                   child: Row(
@@ -116,10 +116,10 @@ class _VaultTagEditorState extends State<VaultTagEditor> {
                       GhPressable(
                         onPressed: () => widget.onChanged(widget.tags.where((x) => x != tag).toList()),
                         semanticLabel: ghTr('remove_tag'),
-                        borderRadius: BorderRadius.circular(theme.radiusTag),
+                        borderRadius: BorderRadius.circular(theme.radiusMd),
                         builder: (context, states) => GhAnimatedBox(
                           color: states.active ? theme.danger.withValues(alpha: 0.1) : theme.danger.withValues(alpha: 0),
-                          borderRadius: BorderRadius.circular(theme.radiusTag),
+                          borderRadius: BorderRadius.circular(theme.radiusMd),
                           padding: EdgeInsets.all(theme.space(0.5)),
                           child: GhIcon(
                             GhIcons.x,

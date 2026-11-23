@@ -173,7 +173,7 @@ class _CategoryManagerModalState extends State<CategoryManagerModal> {
                                 onPressed: toggle,
                                 expanded: open,
                                 semanticLabel: tr.color_label,
-                                borderRadius: BorderRadius.circular(9999),
+                                borderRadius: BorderRadius.circular(999),
                                 builder: (context, states) => AnimatedScale(
                                   scale: states.active ? 1.1 : 1,
                                   duration: GhDurations.interactive,
@@ -733,8 +733,8 @@ class _CategoryRowState extends State<_CategoryRow> {
                               tr.save,
                               widget.onSubmitEdit,
                               size: 4,
-                              color: const Color(0xFF22C55E),
-                              hoverBackground: const Color(0xFF22C55E).withValues(alpha: 0.1),
+                              color: theme.mint,
+                              hoverBackground: theme.mint.withValues(alpha: 0.1),
                             ),
                             _icon(theme, GhIcons.x, tr.cancel, widget.onCancelEdit, hoverBackground: theme.raised),
                           ],
@@ -898,10 +898,10 @@ class _CategoryRowState extends State<_CategoryRow> {
             GhPressable(
               onPressed: widget.busy ? null : () => widget.onRemoveFolder(folder),
               semanticLabel: tr.unassign_folder_aria.args({'folder': folder}),
-              borderRadius: BorderRadius.circular(6),
+              borderRadius: BorderRadius.circular(theme.radiusSm),
               builder: (context, states) => GhAnimatedBox(
                 color: states.active ? theme.danger.withValues(alpha: 0.1) : theme.danger.withValues(alpha: 0),
-                borderRadius: BorderRadius.circular(6),
+                borderRadius: BorderRadius.circular(theme.radiusSm),
                 padding: EdgeInsets.all(theme.space(1)),
                 child: GhIcon(GhIcons.x, size: theme.space(2.5), color: states.active ? theme.danger : theme.muted.withValues(alpha: 0.5)),
               ),

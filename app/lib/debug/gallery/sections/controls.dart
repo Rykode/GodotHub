@@ -300,7 +300,7 @@ class _SearchBarsState extends State<_SearchBars> {
                             decoration: BoxDecoration(
                               color: theme.overlay,
                               border: Border.all(color: theme.line),
-                              borderRadius: BorderRadius.circular(theme.radiusMenu),
+                              borderRadius: BorderRadius.circular(theme.radiusCard),
                             ),
                             child: Text(
                               'Suggestions for "$_query"',

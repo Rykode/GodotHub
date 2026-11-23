@@ -167,7 +167,7 @@ class _DashActivityPanelState extends State<DashActivityPanel> {
             for (var i = 0; i < _range.bars; i++)
               Expanded(
                 child: DecoratedBox(
-                  decoration: BoxDecoration(color: theme.raised, borderRadius: BorderRadius.circular(6)),
+                  decoration: BoxDecoration(color: theme.raised, borderRadius: BorderRadius.circular(theme.radiusSm)),
                 ),
               ),
           ],
@@ -195,7 +195,7 @@ class _DashActivityPanelState extends State<DashActivityPanel> {
         icon: GhIcons.stopwatch,
         label: td('dashboard_activity_peak'),
         value: total > 0 ? formatDuration(max * 1000) : '-',
-        tone: violet400,
+        tone: theme.accent,
       ),
       DashInsightChip(
         icon: GhIcons.star,
@@ -309,12 +309,8 @@ class _BarState extends State<_Bar> {
                         duration: GhMotion.of(context).css(GhDurations.interactive),
                         child: DecoratedBox(
                           decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.vertical(top: Radius.circular(6)),
-                            gradient: LinearGradient(
-                              begin: Alignment.bottomCenter,
-                              end: Alignment.topCenter,
-                              colors: [theme.accentDim, theme.accentBright],
-                            ),
+                            borderRadius: BorderRadius.vertical(top: Radius.circular(theme.radiusSm)),
+                            color: theme.accentBright,
                           ),
                         ),
                       ),

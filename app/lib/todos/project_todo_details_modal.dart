@@ -76,7 +76,7 @@ class _ProjectTodoDetailsModalState extends State<ProjectTodoDetailsModal> {
     padding: EdgeInsets.symmetric(horizontal: theme.space(3), vertical: theme.space(1.5)),
     decoration: BoxDecoration(
       color: background ?? theme.raised,
-      borderRadius: BorderRadius.circular(theme.radiusTag),
+      borderRadius: BorderRadius.circular(theme.radiusMd),
       border: Border.all(color: border ?? theme.outline.withValues(alpha: 0.5)),
     ),
     child: Text(
@@ -108,7 +108,7 @@ class _ProjectTodoDetailsModalState extends State<ProjectTodoDetailsModal> {
     padding: EdgeInsets.symmetric(horizontal: theme.space(mono ? 2 : 1.5), vertical: theme.space(0.5)),
     decoration: BoxDecoration(
       color: background,
-      borderRadius: BorderRadius.circular(theme.radiusTag),
+      borderRadius: BorderRadius.circular(theme.radiusMd),
       border: Border.all(color: border),
     ),
     child: Text(
@@ -430,7 +430,7 @@ class _ProjectTodoDetailsModalState extends State<ProjectTodoDetailsModal> {
                             padding: EdgeInsets.symmetric(horizontal: theme.space(2), vertical: theme.space(0.5)),
                             decoration: BoxDecoration(
                               color: theme.raised,
-                              borderRadius: BorderRadius.circular(theme.radiusTag),
+                              borderRadius: BorderRadius.circular(theme.radiusMd),
                               border: Border.all(color: theme.outline.withValues(alpha: 0.5)),
                             ),
                             child: Text(

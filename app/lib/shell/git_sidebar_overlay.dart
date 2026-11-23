@@ -155,7 +155,7 @@ class _GitSidebarOverlayState extends State<GitSidebarOverlay> {
               child: GestureDetector(
                 behavior: HitTestBehavior.opaque,
                 onTap: widget.onClose,
-                child: const ColoredBox(color: Color(0x4D000000)),
+                child: const ColoredBox(color: GhScrims.panel),
               ),
             ),
           ),

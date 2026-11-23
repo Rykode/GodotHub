@@ -414,7 +414,7 @@ class _IconOption extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = GhTheme.of(context);
-    final radius = BorderRadius.circular(theme.radiusTile);
+    final radius = BorderRadius.circular(theme.radiusBtn);
     return GhPressable(
       onPressed: onPressed,
       borderRadius: radius,
@@ -461,7 +461,7 @@ class _ColorOption extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = GhTheme.of(context);
     final motion = GhMotion.of(context);
-    final radius = BorderRadius.circular(9999);
+    final radius = BorderRadius.circular(999);
     return GhPressable(
       onPressed: onPressed,
       borderRadius: radius,

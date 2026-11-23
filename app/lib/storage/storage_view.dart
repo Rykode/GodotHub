@@ -226,7 +226,7 @@ class _StorageViewState extends ConsumerState<StorageView> {
       padding: EdgeInsets.symmetric(horizontal: theme.space(1.5), vertical: theme.space(0.5)),
       decoration: BoxDecoration(
         color: bg,
-        borderRadius: BorderRadius.circular(theme.radiusTag),
+        borderRadius: BorderRadius.circular(theme.radiusMd),
         border: Border.all(color: border),
       ),
       child: Text(

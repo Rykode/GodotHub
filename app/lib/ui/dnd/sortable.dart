@@ -584,7 +584,7 @@ class GhDndScopeState extends State<GhDndScope> with TickerProviderStateMixin {
             Expanded(
               child: Container(
                 height: feel.height,
-                decoration: BoxDecoration(color: theme.accentBright, borderRadius: BorderRadius.circular(9999)),
+                decoration: BoxDecoration(color: theme.accentBright, borderRadius: BorderRadius.circular(999)),
               ),
             ),
           ],
@@ -897,7 +897,7 @@ class GhDragLiftOverlay extends StatelessWidget {
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 color: theme.accentBright,
-                borderRadius: BorderRadius.circular(9999),
+                borderRadius: BorderRadius.circular(999),
                 boxShadow: GhShadows.md(Colors.black.withValues(alpha: 0.3)),
               ),
               child: Text(

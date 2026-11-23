@@ -153,13 +153,9 @@ class GhTheme extends ThemeExtension<GhTheme> {
   double get radiusMd => cornerRadius * 1.0;
   double get radiusLg => cornerRadius * 1.4;
   double get radiusXl => cornerRadius * 2.0;
-  double get radiusTag => cornerRadius * 1.0;
   double get radiusBtn => cornerRadius * 1.6;
-  double get radiusDropdownBtn => cornerRadius * 1.3;
   double get radiusDropdown => cornerRadius * 1.3;
   double get radiusItem => cornerRadius * 2.2;
-  double get radiusTile => cornerRadius * 1.6;
-  double get radiusMenu => cornerRadius * 2.4;
   double get radiusCard => cornerRadius * 2.4;
   double get radiusModal => cornerRadius * 3.0;
 

@@ -688,7 +688,7 @@ class _CommandPaletteState extends ConsumerState<CommandPalette> {
               onTap: widget.onClose,
               child: GhPresenceLayerView(
                 layer: GhPresenceSpecs.modalPanel,
-                child: const ColoredBox(color: Color(0x99000000)),
+                child: const ColoredBox(color: GhScrims.modal),
               ),
             ),
             Padding(

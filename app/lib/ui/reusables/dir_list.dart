@@ -158,7 +158,7 @@ class _GhDirListState extends State<GhDirList> {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: isDefault ? theme.accent.withValues(alpha: 0.15) : theme.overlay,
-                    borderRadius: BorderRadius.circular(theme.radiusTile),
+                    borderRadius: BorderRadius.circular(theme.radiusBtn),
                   ),
                   child: GhIcon(GhIcons.folder, size: theme.space(3.5), color: isDefault ? theme.accentBright : theme.muted),
                 ),
@@ -182,7 +182,7 @@ class _GhDirListState extends State<GhDirList> {
                     padding: EdgeInsets.symmetric(horizontal: theme.space(1.5), vertical: theme.space(0.5)),
                     decoration: BoxDecoration(
                       color: theme.accent.withValues(alpha: 0.15),
-                      borderRadius: BorderRadius.circular(theme.radiusTag),
+                      borderRadius: BorderRadius.circular(theme.radiusMd),
                     ),
                     child: Text(
                       ghTr('default_folder').toUpperCase(),
@@ -220,7 +220,7 @@ class _GhDirListState extends State<GhDirList> {
   }
 
   Widget _iconButton(GhTheme theme, FaIconData icon, String label, VoidCallback onPressed, {bool danger = false}) {
-    final radius = BorderRadius.circular(theme.radiusTag);
+    final radius = BorderRadius.circular(theme.radiusMd);
     return GhTooltip(
       message: label,
       child: GhPressable(

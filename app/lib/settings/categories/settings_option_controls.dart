@@ -144,7 +144,7 @@ class SettingsActionCard extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(theme.space(4)),
       decoration: BoxDecoration(
-        color: danger ? theme.danger.withValues(alpha: 0.04) : theme.overlay,
+        color: danger ? theme.danger.withValues(alpha: 0.05) : theme.overlay,
         borderRadius: BorderRadius.circular(theme.radiusItem),
         border: danger ? Border.all(color: theme.danger.withValues(alpha: 0.3)) : null,
       ),

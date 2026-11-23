@@ -645,7 +645,7 @@ class _ProjectConsoleWindowState extends ConsumerState<ProjectConsoleWindow> {
           color: theme.raised,
           borderRadius: BorderRadius.circular(theme.radiusXl),
           border: Border.all(color: theme.outline.withValues(alpha: 0.6)),
-          boxShadow: const [BoxShadow(color: Color(0x66000000), blurRadius: 50, offset: Offset(0, 25), spreadRadius: -12)],
+          boxShadow: GhShadows.xl2(Colors.black.withValues(alpha: 0.4)),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -676,7 +676,7 @@ class _ProjectConsoleWindowState extends ConsumerState<ProjectConsoleWindow> {
                         };
                         return Container(
                           padding: EdgeInsets.symmetric(horizontal: theme.space(2), vertical: theme.space(0.5)),
-                          decoration: BoxDecoration(color: background, borderRadius: BorderRadius.circular(theme.radiusTag)),
+                          decoration: BoxDecoration(color: background, borderRadius: BorderRadius.circular(theme.radiusMd)),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             spacing: theme.space(1.5),
@@ -912,7 +912,7 @@ class _ProjectConsoleWindowState extends ConsumerState<ProjectConsoleWindow> {
               color: theme.raised,
               borderRadius: BorderRadius.circular(theme.space(4.5)),
               border: Border.all(color: theme.outline.withValues(alpha: 0.6)),
-              boxShadow: const [BoxShadow(color: Color(0x66000000), blurRadius: 50, offset: Offset(0, 25), spreadRadius: -12)],
+              boxShadow: GhShadows.xl2(Colors.black.withValues(alpha: 0.4)),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,

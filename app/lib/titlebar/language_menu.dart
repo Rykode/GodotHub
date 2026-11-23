@@ -86,7 +86,7 @@ class _LanguageMenuState extends ConsumerState<LanguageMenu> {
                       padding: const EdgeInsets.fromLTRB(10, 6, 10, 4),
                       child: Text(
                         tr.common.language_label,
-                        style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600, color: tokens.muted.withValues(alpha: 0.5)),
+                        style: TextStyle(fontSize: TbFontSize.x3s, fontWeight: FontWeight.w600, color: tokens.muted.withValues(alpha: 0.5)),
                       ),
                     ),
                     for (final language in ghLanguages)
@@ -115,7 +115,7 @@ class _LanguageMenuState extends ConsumerState<LanguageMenu> {
         height: 32,
         color: tokens.muted,
         hoverColor: tokens.ink,
-        hoverBackground: tokens.ink.withValues(alpha: 0.08),
+        hoverBackground: tokens.ink.withValues(alpha: 0.1),
         tooltip: label,
         semanticLabel: label,
         expanded: _open,
@@ -174,7 +174,7 @@ class _LanguageRow extends StatelessWidget {
                         label,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(fontSize: 12, color: foreground),
+                        style: TextStyle(fontSize: TbFontSize.xs, color: foreground),
                       ),
                     ),
                     if (!language.isSystem) ...[const SizedBox(width: 6), LanguageStatusBadge(status: language.status, label: statusLabel)],
@@ -238,7 +238,7 @@ class LanguageFlag extends StatelessWidget {
         child: SizedBox(
           width: width,
           height: height,
-          child: const Center(child: Text('\u{1F310}', style: TextStyle(fontSize: 12, height: 1))),
+          child: Center(child: GhIcon(GhIcons.monitor, size: 12, color: TitleBarTokens.of(context).muted)),
         ),
       );
     }
@@ -250,7 +250,7 @@ class LanguageFlag extends StatelessWidget {
         height: height,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(3),
-          boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.1), spreadRadius: 1)],
+          boxShadow: GhShadows.ring(Colors.black.withValues(alpha: 0.1)),
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(3),
@@ -284,7 +284,7 @@ class LanguageStatusBadge extends StatelessWidget {
       ),
       child: Text(
         label,
-        style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600, color: foreground),
+        style: TextStyle(fontSize: TbFontSize.x3s, fontWeight: FontWeight.w600, color: foreground),
       ),
     );
   }

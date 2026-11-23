@@ -14,8 +14,18 @@
     {
       "category": "add",
       "text": "Remove, delete and uninstall dialogs for projects and Godot versions now have a \"Don't ask again\" checkbox that skips only that one dialog. Settings > Advanced lists the skipped dialogs so you can turn each one back on"
+    },
+    {
+      "category": "improve",
+      "text": "UI polish pass: the Dashboard stat cards and activity bars are now flat in your accent color instead of fixed blue, violet, green and amber gradients, the Versions \"Open\" button is smaller, the Git sidebar's Push, Pull and Fetch buttons show text labels, and the Appearance Reset button and the System language entry use proper icons instead of a heart and an emoji"
+    },
+    {
+      "category": "improve",
+      "text": "Consistent text across the app: labels and buttons now use sentence case (\"Save changes\" instead of \"Save Changes\"), loading and placeholder text uses \"…\" instead of \"...\", and the title bar and task tray follow the same text sizes as the rest of the app"
     }
   ],
-  "known_issues": [],
+  "known_issues": [
+    "Linux: Launching GodotHub in display scale other than 100% may cause the app to appear alot bigger than it should be. This is a known issue with Flutter and I would fixe as soon as it gets fixed upstream. (Tauri had AppImage issues and flutter has this.. ffs i am tired of making apps for linux 😭)"
+  ],
   "created_at": 1795388520
 }

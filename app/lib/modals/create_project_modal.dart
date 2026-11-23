@@ -358,7 +358,7 @@ class _CreateProjectModalState extends ConsumerState<CreateProjectModal> {
   Widget _iconTile(GhTheme theme, Translations$common$en_US tr) {
     final icon = _iconPreview;
     final size = theme.space(16);
-    final radius = BorderRadius.circular(theme.radiusTile);
+    final radius = BorderRadius.circular(theme.radiusBtn);
     return Column(
       spacing: theme.space(1),
       children: [
@@ -589,7 +589,7 @@ class _CreateProjectModalState extends ConsumerState<CreateProjectModal> {
                         padding: EdgeInsets.symmetric(horizontal: theme.space(1.5), vertical: theme.space(0.5)),
                         decoration: BoxDecoration(
                           color: theme.mint.withValues(alpha: 0.15),
-                          borderRadius: BorderRadius.circular(theme.radiusTag),
+                          borderRadius: BorderRadius.circular(theme.radiusMd),
                           border: Border.all(color: theme.mint.withValues(alpha: 0.25)),
                         ),
                         child: Text(

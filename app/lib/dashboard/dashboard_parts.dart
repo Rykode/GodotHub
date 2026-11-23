@@ -19,8 +19,6 @@ import '../ui/core/interaction.dart';
 
 String td(String key, {num? count, Map<String, Object?> args = const {}}) => ghTr('dashboard:$key', count: count, args: args);
 
-const violet400 = Color(0xFFA78BFA);
-
 class DashActivation extends InheritedWidget {
   const DashActivation({super.key, required this.epoch, required super.child});
 
@@ -219,7 +217,7 @@ class DashPanel extends StatelessWidget {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: theme.overlay,
-                    borderRadius: BorderRadius.circular(theme.radiusTile),
+                    borderRadius: BorderRadius.circular(theme.radiusBtn),
                     border: Border.all(color: theme.outline.withValues(alpha: 0.5)),
                   ),
                   child: GhIcon(icon, size: theme.space(3.5), color: theme.accentBright),
@@ -393,7 +391,7 @@ class _DashProjectAvatarState extends State<DashProjectAvatar> {
   Widget build(BuildContext context) {
     final theme = GhTheme.of(context);
     final size = theme.space(9);
-    final radius = BorderRadius.circular(theme.radiusTile);
+    final radius = BorderRadius.circular(theme.radiusBtn);
     final icon = _icon;
     if (icon != null && icon.isNotEmpty) {
       return Container(
@@ -421,9 +419,8 @@ class _DashProjectAvatarState extends State<DashProjectAvatar> {
       alignment: Alignment.center,
       decoration: BoxDecoration(
         borderRadius: radius,
-        gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [theme.accent, theme.accentDim]),
+        color: theme.accent,
         border: Border.all(color: theme.accentBright.withValues(alpha: 0.3)),
-        boxShadow: GhShadows.sm(theme.accent.withValues(alpha: 0.2)),
       ),
       child: Text(
         letter,
@@ -549,7 +546,6 @@ class DashKpiCard extends StatefulWidget {
     required this.label,
     required this.icon,
     required this.value,
-    required this.gradient,
     this.animate,
     this.hint,
     this.sub,
@@ -565,7 +561,6 @@ class DashKpiCard extends StatefulWidget {
   final int? animate;
   final String? sub;
   final bool subDown;
-  final List<Color> gradient;
   final VoidCallback? onPressed;
   final int delay;
 
@@ -602,7 +597,7 @@ class _DashKpiCardState extends State<DashKpiCard> {
               child: ExcludeSemantics(
                 child: Transform.rotate(
                   angle: 12 * math.pi / 180,
-                  child: GhIcon(widget.icon, size: theme.space(28), color: theme.ink.withValues(alpha: 0.045)),
+                  child: GhIcon(widget.icon, size: theme.space(28), color: theme.ink.withValues(alpha: 0.05)),
                 ),
               ),
             ),
@@ -636,7 +631,7 @@ class _DashKpiCardState extends State<DashKpiCard> {
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           color: theme.overlay,
-                          borderRadius: BorderRadius.circular(theme.radiusTile),
+                          borderRadius: BorderRadius.circular(theme.radiusBtn),
                           border: Border.all(color: theme.outline.withValues(alpha: 0.5)),
                         ),
                         child: GhIcon(widget.icon, size: theme.space(4), color: theme.accentBright),
@@ -658,7 +653,7 @@ class _DashKpiCardState extends State<DashKpiCard> {
                     height: theme.space(1),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(999),
-                      gradient: LinearGradient(colors: widget.gradient),
+                      color: theme.accent,
                     ),
                   ),
                 ),

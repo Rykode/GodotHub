@@ -149,7 +149,7 @@ class MiniAppWindow extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: theme.base,
-        borderRadius: BorderRadius.circular(theme.radiusTile),
+        borderRadius: BorderRadius.circular(theme.radiusBtn),
         border: Border.all(color: theme.outline.withValues(alpha: 0.5)),
       ),
       child: Opacity(
@@ -163,7 +163,7 @@ class MiniAppWindow extends StatelessWidget {
                 width: constraints.maxWidth * 0.42,
                 padding: EdgeInsets.all(theme.space(1)),
                 clipBehavior: Clip.antiAlias,
-                decoration: BoxDecoration(color: theme.raised, borderRadius: BorderRadius.circular(theme.radiusTag)),
+                decoration: BoxDecoration(color: theme.raised, borderRadius: BorderRadius.circular(theme.radiusMd)),
                 child: OverflowBox(
                   alignment: Alignment.topCenter,
                   maxHeight: double.infinity,
@@ -177,7 +177,7 @@ class MiniAppWindow extends StatelessWidget {
                           key: ValueKey('ws:${ws.icon}-${ws.name}'),
                           child: Container(
                             padding: EdgeInsets.symmetric(horizontal: theme.space(1), vertical: theme.space(0.5)),
-                            decoration: BoxDecoration(color: theme.overlay, borderRadius: BorderRadius.circular(theme.radiusTag)),
+                            decoration: BoxDecoration(color: theme.overlay, borderRadius: BorderRadius.circular(theme.radiusMd)),
                             child: Row(
                               spacing: theme.space(1),
                               children: [
@@ -254,7 +254,7 @@ class MiniAppWindow extends StatelessWidget {
                                       alignment: Alignment.center,
                                       decoration: BoxDecoration(
                                         color: theme.raised,
-                                        borderRadius: BorderRadius.circular(theme.radiusTag),
+                                        borderRadius: BorderRadius.circular(theme.radiusMd),
                                         border: Border.all(color: theme.outline.withValues(alpha: 0.4)),
                                       ),
                                       child: Text(
@@ -267,7 +267,7 @@ class MiniAppWindow extends StatelessWidget {
                                 for (var i = 0; i < 3; i++)
                                   GhDashedBox(
                                     color: theme.outline.withValues(alpha: 0.4),
-                                    radius: BorderRadius.circular(theme.radiusTag),
+                                    radius: BorderRadius.circular(theme.radiusMd),
                                     child: SizedBox.square(dimension: tile),
                                   ),
                             ],

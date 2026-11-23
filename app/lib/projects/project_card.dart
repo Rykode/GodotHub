@@ -860,13 +860,13 @@ class _ProjectCardState extends ConsumerState<ProjectCard> {
                 onPressed: widget.callbacks.onTogglePin,
                 semanticLabel: pinned ? tr.project_unpin_aria : tr.project_pin_aria,
                 toggled: pinned,
-                borderRadius: BorderRadius.circular(9999),
+                borderRadius: BorderRadius.circular(999),
                 builder: (context, states) => GhAnimatedBox(
                   width: theme.space(7),
                   height: theme.space(7),
                   alignment: Alignment.center,
                   color: pinned ? theme.accent : Colors.black.withValues(alpha: states.active ? 0.7 : 0.55),
-                  borderRadius: BorderRadius.circular(9999),
+                  borderRadius: BorderRadius.circular(999),
                   boxShadow: pinned ? GhShadows.md(Colors.black.withValues(alpha: 0.3)) : null,
                   child: GhIcon(
                     GhIcons.pin,
@@ -890,7 +890,7 @@ class _ProjectCardState extends ConsumerState<ProjectCard> {
                   if (ms <= 0) return const SizedBox.shrink();
                   return Container(
                     padding: EdgeInsets.symmetric(horizontal: theme.space(2), vertical: theme.space(1)),
-                    decoration: BoxDecoration(color: Colors.black.withValues(alpha: 0.7), borderRadius: BorderRadius.circular(9999)),
+                    decoration: BoxDecoration(color: Colors.black.withValues(alpha: 0.7), borderRadius: BorderRadius.circular(999)),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       spacing: theme.space(1.5),
@@ -985,7 +985,7 @@ class _ProjectCardState extends ConsumerState<ProjectCard> {
       padding: EdgeInsets.symmetric(horizontal: theme.space(1.5), vertical: theme.space(0.5)),
       decoration: BoxDecoration(
         color: overdue ? theme.danger.withValues(alpha: 0.1) : theme.raised,
-        borderRadius: BorderRadius.circular(theme.radiusTag),
+        borderRadius: BorderRadius.circular(theme.radiusMd),
         border: Border.all(color: overdue ? theme.danger.withValues(alpha: 0.3) : theme.outline.withValues(alpha: 0.5)),
       ),
       child: Text(
@@ -999,7 +999,7 @@ class _ProjectCardState extends ConsumerState<ProjectCard> {
 
   Widget _gitChip(BuildContext context, GhTheme theme, GitStatus status) {
     final dirty = status.hasUncommitted;
-    final radius = BorderRadius.circular(theme.radiusTag);
+    final radius = BorderRadius.circular(theme.radiusMd);
     return GhPressable(
       onPressed: widget.callbacks.onShowGitSidebar,
       semanticLabel: context.tr.common.git_sidebar,
@@ -1034,7 +1034,7 @@ class _ProjectCardState extends ConsumerState<ProjectCard> {
   }
 
   Widget _addTagReveal(BuildContext context, GhTheme theme, bool reveal) {
-    final radius = BorderRadius.circular(theme.radiusTag);
+    final radius = BorderRadius.circular(theme.radiusMd);
     return Padding(
       padding: EdgeInsetsDirectional.only(end: theme.space(1.5)),
       child: AnimatedOpacity(
@@ -1122,7 +1122,7 @@ class _ProjectCardState extends ConsumerState<ProjectCard> {
       padding: EdgeInsets.symmetric(horizontal: theme.space(1.5), vertical: theme.space(0.5)),
       decoration: BoxDecoration(
         color: error ? theme.danger.withValues(alpha: 0.1) : theme.accent.withValues(alpha: 0.1),
-        borderRadius: BorderRadius.circular(theme.radiusTag),
+        borderRadius: BorderRadius.circular(theme.radiusMd),
         border: Border.all(color: error ? theme.danger.withValues(alpha: 0.5) : theme.accent.withValues(alpha: 0.3)),
       ),
       child: _tagInput(
@@ -1159,7 +1159,7 @@ class _ProjectCardState extends ConsumerState<ProjectCard> {
   }
 
   Widget _dashedToggle(BuildContext context, GhTheme theme, String label, String semantic, VoidCallback onPressed) {
-    final radius = BorderRadius.circular(theme.radiusTag);
+    final radius = BorderRadius.circular(theme.radiusMd);
     return GhPressable(
       onPressed: onPressed,
       semanticLabel: semantic,
@@ -1205,7 +1205,7 @@ class _ProjectCardState extends ConsumerState<ProjectCard> {
           ),
           decoration: BoxDecoration(
             color: color.withAlpha(0x18),
-            borderRadius: BorderRadius.circular(theme.radiusTag),
+            borderRadius: BorderRadius.circular(theme.radiusMd),
             boxShadow: active ? [BoxShadow(color: theme.accentDim.withValues(alpha: 0.7), spreadRadius: 1)] : null,
           ),
           child: Row(
@@ -1269,7 +1269,7 @@ class _ProjectCardState extends ConsumerState<ProjectCard> {
     return GhPressable(
       onPressed: onPressed,
       semanticLabel: label,
-      borderRadius: BorderRadius.circular(9999),
+      borderRadius: BorderRadius.circular(999),
       builder: (context, states) => SizedBox.square(
         dimension: theme.space(3),
         child: Center(
@@ -1280,7 +1280,7 @@ class _ProjectCardState extends ConsumerState<ProjectCard> {
   }
 
   Widget _pathButton(BuildContext context, GhTheme theme, bool blur) {
-    final radius = BorderRadius.circular(theme.radiusTag);
+    final radius = BorderRadius.circular(theme.radiusMd);
     return GhPressable(
       onPressed: () => openProjectFolder(_project),
       borderRadius: radius,
@@ -1313,7 +1313,7 @@ class _ProjectCardState extends ConsumerState<ProjectCard> {
     if (_cover) {
       return GhAnimatedBox(
         color: hover ? theme.raised : Colors.black.withValues(alpha: 0.15),
-        borderRadius: BorderRadius.circular(theme.radiusTag),
+        borderRadius: BorderRadius.circular(theme.radiusMd),
         padding: EdgeInsets.symmetric(horizontal: theme.space(2.5), vertical: theme.space(2)),
         child: DefaultTextStyle.merge(
           style: theme.text(size: GhTextSize.x3s, mono: true, color: hover ? theme.ink : theme.muted),
@@ -1360,7 +1360,7 @@ class _ProjectCardState extends ConsumerState<ProjectCard> {
                 padding: EdgeInsets.symmetric(horizontal: theme.space(1.5), vertical: theme.space(0.5)),
                 decoration: BoxDecoration(
                   color: theme.accent.withValues(alpha: 0.1),
-                  borderRadius: BorderRadius.circular(theme.radiusTag),
+                  borderRadius: BorderRadius.circular(theme.radiusMd),
                   border: Border.all(color: theme.accentDim.withValues(alpha: 0.4)),
                 ),
                 child: Text(
@@ -1507,7 +1507,7 @@ class _ProjectCardState extends ConsumerState<ProjectCard> {
               padding: EdgeInsets.symmetric(horizontal: theme.space(4)),
               decoration: BoxDecoration(
                 color: theme.base.withValues(alpha: 0.5),
-                borderRadius: BorderRadiusDirectional.horizontal(start: Radius.circular(theme.radiusDropdownBtn))
+                borderRadius: BorderRadiusDirectional.horizontal(start: Radius.circular(theme.radiusDropdown))
                     .resolve(Directionality.of(context)),
               ),
               child: Row(

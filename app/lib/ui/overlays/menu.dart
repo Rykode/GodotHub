@@ -11,9 +11,6 @@ const double ghMenuViewportPad = 8;
 const double ghMenuGap = 8;
 
 abstract final class GhMenuColors {
-  static const red300 = Color(0xFFFFA2A2);
-  static const red400 = Color(0xFFFF6467);
-  static const red500 = Color(0xFFFB2C36);
   static const divider = Color(0x0FFFFFFF);
 }
 
@@ -131,7 +128,7 @@ class GhMenuSurface extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = GhTheme.of(context);
     final padding = EdgeInsets.all(theme.space(compact ? 2 : 2.5));
-    final radius = BorderRadius.circular(theme.radiusMenu);
+    final radius = BorderRadius.circular(theme.radiusCard);
     final decoration = BoxDecoration(
       color: theme.overlay,
       borderRadius: radius,
@@ -229,9 +226,9 @@ class _GhMenuButtonState extends State<GhMenuButton> {
     final Color foreground;
     final Color iconBox;
     if (item.danger) {
-      background = GhMenuColors.red500.withValues(alpha: hovered ? 0.1 : 0);
-      foreground = hovered ? GhMenuColors.red300 : GhMenuColors.red400;
-      iconBox = GhMenuColors.red500.withValues(alpha: 0.1);
+      background = theme.danger.withValues(alpha: hovered ? 0.1 : 0);
+      foreground = theme.danger;
+      iconBox = theme.danger.withValues(alpha: 0.1);
     } else if (item.active) {
       background = widget.activeStyle.background(theme);
       foreground = widget.activeStyle.foreground(theme);
@@ -281,7 +278,7 @@ class _GhMenuButtonState extends State<GhMenuButton> {
           padding: EdgeInsets.symmetric(horizontal: theme.space(1.5), vertical: theme.space(0.5)),
           decoration: BoxDecoration(
             color: item.active ? Colors.black.withValues(alpha: 0.15) : theme.accent.withValues(alpha: 0.1),
-            borderRadius: BorderRadius.circular(theme.radiusTag),
+            borderRadius: BorderRadius.circular(theme.radiusMd),
             border: Border.all(color: item.active ? Colors.black.withValues(alpha: 0.1) : theme.accentDim.withValues(alpha: 0.4)),
           ),
           child: Text(

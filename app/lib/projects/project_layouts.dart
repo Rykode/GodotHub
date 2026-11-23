@@ -854,7 +854,7 @@ class KanbanColumn extends StatelessWidget {
           duration: motion.css(GhDurations.color),
           clipBehavior: Clip.antiAlias,
           decoration: BoxDecoration(
-            color: target ? Color.alphaBlend(theme.accent.withValues(alpha: 0.06), theme.surface) : theme.surface,
+            color: target ? Color.alphaBlend(theme.accent.withValues(alpha: 0.05), theme.surface) : theme.surface,
             borderRadius: radius,
             border: Border.all(color: target ? theme.accent.withValues(alpha: 0.6) : theme.outline.withValues(alpha: 0.5)),
           ),
@@ -963,7 +963,7 @@ class KanbanColumn extends StatelessWidget {
             key: const ValueKey('kanban-append-slot'),
             height: theme.space(12),
             decoration: BoxDecoration(
-              color: theme.accent.withValues(alpha: 0.08),
+              color: theme.accent.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(theme.radiusItem),
               border: Border.all(color: theme.accent.withValues(alpha: 0.5)),
             ),
@@ -994,7 +994,7 @@ class KanbanColumn extends StatelessWidget {
           child: AnimatedContainer(
             duration: GhMotion.of(context).css(GhDurations.color),
             height: theme.space(compact ? 20 : 24),
-            decoration: BoxDecoration(color: over ? theme.accent.withValues(alpha: 0.08) : Colors.transparent, borderRadius: radius),
+            decoration: BoxDecoration(color: over ? theme.accent.withValues(alpha: 0.1) : Colors.transparent, borderRadius: radius),
             padding: EdgeInsets.symmetric(horizontal: theme.space(3)),
             alignment: Alignment.center,
             child: Column(
@@ -1043,7 +1043,7 @@ class _CountBadge extends StatelessWidget {
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: active ? theme.accent.withValues(alpha: 0.15) : theme.raised,
-        borderRadius: BorderRadius.circular(9999),
+        borderRadius: BorderRadius.circular(999),
       ),
       child: Text(
         '$count',

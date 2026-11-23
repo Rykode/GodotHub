@@ -1,10 +1,6 @@
 <p align="center">
-  <img src="assets/godothub-logo.png" alt="GodotHub logo" width="96" height="96">
-</p>
-
-<p align="center">
   <a href="https://ryko.is-a.dev/godothub">
-    <img width="800" height="340" alt="Frame 3" src="https://github.com/user-attachments/assets/09d83d02-2741-4507-8ba7-904c215af51e" />
+    <img width="800" height="340" alt="Frame 3" src="https://github.com/user-attachments/assets/ac216186-46da-43a9-95f0-6d104b2c51e8" />
   </a>
   <a href="https://patreon.com/TheRyko">
   <img width="800" height="140" alt="Frame 5" src="https://github.com/user-attachments/assets/c68e611c-1cad-4883-8406-4bc886144af6" />

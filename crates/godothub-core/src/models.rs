@@ -265,6 +265,10 @@ pub struct AppSettings {
     pub motion_click_ripple: bool,
     #[serde(default = "default_true")]
     pub motion_press_bounce: bool,
+    #[serde(default)]
+    pub show_splash_screen: bool,
+    #[serde(default)]
+    pub skipped_confirmations: Vec<String>,
     #[serde(default = "default_language")]
     pub language: String,
     #[serde(default = "default_os_decorations")]
@@ -562,7 +566,6 @@ pub struct ProjectTemplate {
     /// installed before this was recorded have no source.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub source_asset_id: Option<String>,
-    /// The asset's human-readable version at install time.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub source_asset_version: Option<String>,
     /// The asset's revision counter at install time; it increases with every
@@ -697,6 +700,8 @@ impl Default for AppSettings {
             motion_card_tilt: true,
             motion_click_ripple: true,
             motion_press_bounce: true,
+            show_splash_screen: false,
+            skipped_confirmations: vec![],
             language: default_language(),
             use_os_decorations: default_os_decorations(),
             dismissed_project_paths: vec![],

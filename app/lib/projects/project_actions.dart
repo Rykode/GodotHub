@@ -19,6 +19,7 @@ import '../src/rust/api/types.dart';
 import '../state/app_signals.dart';
 import '../state/shell_signals.dart';
 import '../ui/feedback/confirm_dialog.dart';
+import '../ui/feedback/confirm_removal.dart';
 import '../ui/feedback/modal_shell.dart';
 import '../ui/feedback/toast.dart';
 import '../ui/overlays/dropdown.dart';
@@ -47,6 +48,7 @@ class ProjectCallbacks {
     required this.onVersionChange,
     required this.onRemove,
     this.onDelete,
+    this.onRelocate,
     this.onCategoryChange,
     this.onDuplicate,
     this.onTagsSaved,
@@ -60,6 +62,7 @@ class ProjectCallbacks {
   final ValueChanged<String> onVersionChange;
   final VoidCallback onRemove;
   final VoidCallback? onDelete;
+  final VoidCallback? onRelocate;
   final ValueChanged<String>? onCategoryChange;
   final VoidCallback? onDuplicate;
   final ValueChanged<Project>? onTagsSaved;
@@ -75,6 +78,17 @@ void _noop() {}
 
 void _noopString(String _) {}
 
+Future<void> relocateProject(Project project, Future<void> Function() refresh) async {
+  final picked = await ProjectsApi.pickFolder();
+  if (picked == null) return;
+  try {
+    await ProjectsApi.update(project.id, ProjectUpdate(path: picked));
+    await refresh();
+  } catch (e) {
+    ghToasts.pushToast(GhToastType.error, '$e');
+  }
+}
+
 void openProjectFolder(Project project) =>
     ProjectsApi.openFolder(project.path).catchError((Object e) => ghToasts.pushToast(GhToastType.error, '$e'));
 
@@ -89,8 +103,9 @@ void playProject(Project project) => ProjectsApi.open(project.id, false).catchEr
 
 Future<void> confirmRemoveProject(BuildContext context, String displayName, VoidCallback onRemove) async {
   final tr = context.tr.common;
-  final ok = await showGhConfirmDialog(
+  final ok = await confirmRemoval(
     context,
+    RemovalConfirm.projectRemove,
     title: tr.project_remove_title,
     description: tr.project_remove_desc.args({'name': displayName}),
     confirmLabel: tr.bulk_remove,
@@ -100,8 +115,9 @@ Future<void> confirmRemoveProject(BuildContext context, String displayName, Void
 
 Future<void> confirmDeleteProject(BuildContext context, String displayName, VoidCallback onDelete) async {
   final tr = context.tr.common;
-  final ok = await showGhConfirmDialog(
+  final ok = await confirmRemoval(
     context,
+    RemovalConfirm.projectDelete,
     title: tr.project_delete_title,
     description: tr.project_delete_desc.args({'name': displayName}),
     confirmLabel: tr.project_delete_confirm,

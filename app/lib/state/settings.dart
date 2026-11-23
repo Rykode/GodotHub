@@ -76,6 +76,8 @@ const AppSettings defaultSettings = AppSettings(
   motionCardTilt: true,
   motionClickRipple: true,
   motionPressBounce: true,
+  showSplashScreen: false,
+  skippedConfirmations: [],
   language: 'en-US',
   useOsDecorations: false,
   dismissedProjectPaths: [],

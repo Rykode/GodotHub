@@ -7,10 +7,8 @@ import '../core/interaction.dart';
 import '../core/tooltip.dart';
 import 'state_panel.dart' show GhSkeleton;
 
-/// Semantic tone shared by badges, chips and status accents on cards.
 enum GhTone { accent, mint, amber, danger, muted }
 
-/// Background, foreground and border for a tinted surface in [tone].
 ({Color bg, Color fg, Color border}) ghToneColors(GhTheme theme, GhTone tone) => switch (tone) {
   GhTone.accent => (bg: theme.accent.withValues(alpha: 0.1), fg: theme.accentBright, border: theme.accentDim.withValues(alpha: 0.4)),
   GhTone.mint => (bg: theme.mint.withValues(alpha: 0.1), fg: theme.mint, border: theme.mint.withValues(alpha: 0.25)),
@@ -19,8 +17,6 @@ enum GhTone { accent, mint, amber, danger, muted }
   GhTone.muted => (bg: theme.raised, fg: theme.muted, border: theme.outline.withValues(alpha: 0.5)),
 };
 
-/// A small, non-interactive status pill: version state, support level,
-/// rating, source, category. Use [GhChoiceChip] for selectable chips.
 class GhBadge extends StatelessWidget {
   const GhBadge({
     super.key,
@@ -81,13 +77,6 @@ class GhBadge extends StatelessWidget {
   }
 }
 
-/// The shared card surface. Overlay at rest, raised with an accent-tinted
-/// border on hover or when anything inside has keyboard focus, accent border
-/// when [selected]. [builder] receives whether the card is highlighted so
-/// secondary affordances (open-page link, quick actions) can fade in.
-///
-/// With [onPressed] the whole card is one button with the standard focus
-/// ring; without it the card is a passive container for its own controls.
 class GhCard extends StatefulWidget {
   const GhCard({
     super.key,
@@ -103,8 +92,6 @@ class GhCard extends StatefulWidget {
 
   final Widget Function(BuildContext context, bool highlighted) builder;
 
-  /// Showcase cards (assets, templates, news) use the larger card radius and
-  /// rise a little when highlighted. The rise is off under Reduce Motion.
   final bool lift;
   final VoidCallback? onPressed;
   final bool selected;
@@ -112,8 +99,6 @@ class GhCard extends StatefulWidget {
   final String? tooltip;
   final EdgeInsetsGeometry? padding;
 
-  /// Optional status tone for the resting border, for example mint for the
-  /// pinned version or amber for an item that needs attention.
   final GhTone? tone;
 
   @override
@@ -194,9 +179,6 @@ class _GhCardState extends State<GhCard> {
   }
 }
 
-/// The media strip at the top of a card: a thumbnail image when one is
-/// available, otherwise a quiet icon on the raised surface. [overlay] is
-/// stacked on top (for example badges pinned to a corner).
 class GhCardMedia extends StatelessWidget {
   const GhCardMedia({
     super.key,
@@ -211,16 +193,11 @@ class GhCardMedia extends StatelessWidget {
   final String? imageUrl;
   final FaIconData fallbackIcon;
 
-  /// Height in spacing units.
   final double height;
   final List<Widget> overlay;
 
-  /// Fades the image toward the surface, for decorative low-resolution icons.
   final bool dim;
 
-  /// For small square icons (asset icons): the image sits in a centered tile
-  /// over a faint, cropped copy of itself instead of being stretched to cover
-  /// the whole strip.
   final bool tile;
 
   Widget _image(String url, BoxFit fit) => Image.network(
@@ -319,15 +296,6 @@ class GhCardMedia extends StatelessWidget {
   }
 }
 
-/// The text block of a card, in the shared order: title (lg, medium, up to
-/// two lines), a muted one-line meta row, a two-line muted description, then
-/// badges pinned to the bottom so they line up across an equal-height row.
-///
-/// Fill a card's column with it through [Expanded] when the card sits in a
-/// [GhCardGrid]. [trailing] sits beside the title (for a hover-revealed
-/// quick action); [leading] sits before it (for an icon tile on cards with no
-/// media strip). Every meta part is its own [Text] so long values ellipsize
-/// independently.
 class GhCardBody extends StatelessWidget {
   const GhCardBody({
     super.key,
@@ -349,7 +317,6 @@ class GhCardBody extends StatelessWidget {
   final Widget? leading;
   final Widget? trailing;
 
-  /// Wraps the title text, for example in a reveal animation.
   final Widget Function(Widget title)? titleWrapper;
 
   @override
@@ -411,17 +378,12 @@ class GhCardBody extends StatelessWidget {
   }
 }
 
-/// A loading placeholder shaped like a card: optional media strip, title and
-/// meta bars, two description lines, a badge row and a footer action. Use it
-/// with [GhCardGrid.fill] so the skeleton matches the real column count.
 class GhCardSkeleton extends StatelessWidget {
   const GhCardSkeleton({super.key, this.mediaHeight = 24, this.footer = true, this.showcase = false});
 
-  /// Media strip height in spacing units; null for cards without media.
   final double? mediaHeight;
   final bool footer;
 
-  /// Matches the larger corner radius of lifted showcase cards.
   final bool showcase;
 
   @override
@@ -480,9 +442,6 @@ class GhCardSkeleton extends StatelessWidget {
   }
 }
 
-/// A one-line notice above a card grid: a mint success message after an
-/// install, or a danger message for a partial failure (a page that didn't
-/// load while earlier results stay visible) with a retry [action].
 class GhCardNotice extends StatelessWidget {
   const GhCardNotice({super.key, required this.message, this.tone = GhTone.mint, this.icon, this.action});
 
@@ -525,9 +484,6 @@ class GhCardNotice extends StatelessWidget {
   }
 }
 
-/// The action row at the bottom of a card. [leading] holds secondary or
-/// informational content; [trailing] holds actions, with the primary action
-/// last so it always lands in the same corner.
 class GhCardFooter extends StatelessWidget {
   const GhCardFooter({super.key, this.leading = const [], this.trailing = const [], this.divided = false, this.fill = false});
 
@@ -535,8 +491,6 @@ class GhCardFooter extends StatelessWidget {
   final List<Widget> trailing;
   final bool divided;
 
-  /// Stretches the primary (last) action across the card, as showcase cards
-  /// do. Use with actions that can grow (a compact `GhOpenButton`).
   final bool fill;
 
   @override

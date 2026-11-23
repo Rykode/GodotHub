@@ -6003,7 +6003,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   AppSettings dco_decode_app_settings(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     final arr = raw as List<dynamic>;
-    if (arr.length != 96) throw Exception('unexpected arr length: expect 96 but see ${arr.length}');
+    if (arr.length != 98) throw Exception('unexpected arr length: expect 98 but see ${arr.length}');
     return AppSettings(
       schemaVersion: dco_decode_u_32(arr[0]),
       downloadDir: dco_decode_opt_String(arr[1]),
@@ -6066,41 +6066,43 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       motionCardTilt: dco_decode_bool(arr[58]),
       motionClickRipple: dco_decode_bool(arr[59]),
       motionPressBounce: dco_decode_bool(arr[60]),
-      language: dco_decode_String(arr[61]),
-      useOsDecorations: dco_decode_bool(arr[62]),
-      dismissedProjectPaths: dco_decode_list_String(arr[63]),
-      directoryNamingConvention: dco_decode_String(arr[64]),
-      themePreset: dco_decode_String(arr[65]),
-      gitInitNewProjects: dco_decode_bool(arr[66]),
-      openAfterImport: dco_decode_bool(arr[67]),
-      cardLayout: dco_decode_bool(arr[68]),
-      dashboardCustomName: dco_decode_opt_String(arr[69]),
-      defaultLandingTab: dco_decode_String(arr[70]),
-      dashboardSections: dco_decode_list_String(arr[71]),
-      dashboardSectionOrder: dco_decode_list_String(arr[72]),
-      dashboardSectionSpans: dco_decode_list_String(arr[73]),
-      dashboardTallSections: dco_decode_list_String(arr[74]),
-      dashboardCustomPresets: dco_decode_list_dashboard_custom_preset(arr[75]),
-      autoBackupIntervalMinutes: dco_decode_u_32(arr[76]),
-      cardShowSize: dco_decode_bool(arr[77]),
-      cardShowTime: dco_decode_bool(arr[78]),
-      cardBlurPath: dco_decode_bool(arr[79]),
-      cardShowPath: dco_decode_bool(arr[80]),
-      cardShowTags: dco_decode_bool(arr[81]),
-      cardShowLastOpened: dco_decode_bool(arr[82]),
-      cardShowPlay: dco_decode_bool(arr[83]),
-      cardShowConsole: dco_decode_bool(arr[84]),
-      cardShowSessionTimer: dco_decode_bool(arr[85]),
-      cardViewOverrides: dco_decode_Map_String_card_view_override_None(arr[86]),
-      customizeViewEnabled: dco_decode_bool(arr[87]),
-      fixedSidebarResizeKnob: dco_decode_bool(arr[88]),
-      desktopNotificationsEnabled: dco_decode_bool(arr[89]),
-      coloredTitlebarButtons: dco_decode_bool(arr[90]),
-      rtlLayout: dco_decode_bool(arr[91]),
-      projectTodosEnabled: dco_decode_bool(arr[92]),
-      useMise: dco_decode_bool(arr[93]),
-      onyxEnabled: dco_decode_bool(arr[94]),
-      disabledFeatures: dco_decode_list_String(arr[95]),
+      showSplashScreen: dco_decode_bool(arr[61]),
+      skippedConfirmations: dco_decode_list_String(arr[62]),
+      language: dco_decode_String(arr[63]),
+      useOsDecorations: dco_decode_bool(arr[64]),
+      dismissedProjectPaths: dco_decode_list_String(arr[65]),
+      directoryNamingConvention: dco_decode_String(arr[66]),
+      themePreset: dco_decode_String(arr[67]),
+      gitInitNewProjects: dco_decode_bool(arr[68]),
+      openAfterImport: dco_decode_bool(arr[69]),
+      cardLayout: dco_decode_bool(arr[70]),
+      dashboardCustomName: dco_decode_opt_String(arr[71]),
+      defaultLandingTab: dco_decode_String(arr[72]),
+      dashboardSections: dco_decode_list_String(arr[73]),
+      dashboardSectionOrder: dco_decode_list_String(arr[74]),
+      dashboardSectionSpans: dco_decode_list_String(arr[75]),
+      dashboardTallSections: dco_decode_list_String(arr[76]),
+      dashboardCustomPresets: dco_decode_list_dashboard_custom_preset(arr[77]),
+      autoBackupIntervalMinutes: dco_decode_u_32(arr[78]),
+      cardShowSize: dco_decode_bool(arr[79]),
+      cardShowTime: dco_decode_bool(arr[80]),
+      cardBlurPath: dco_decode_bool(arr[81]),
+      cardShowPath: dco_decode_bool(arr[82]),
+      cardShowTags: dco_decode_bool(arr[83]),
+      cardShowLastOpened: dco_decode_bool(arr[84]),
+      cardShowPlay: dco_decode_bool(arr[85]),
+      cardShowConsole: dco_decode_bool(arr[86]),
+      cardShowSessionTimer: dco_decode_bool(arr[87]),
+      cardViewOverrides: dco_decode_Map_String_card_view_override_None(arr[88]),
+      customizeViewEnabled: dco_decode_bool(arr[89]),
+      fixedSidebarResizeKnob: dco_decode_bool(arr[90]),
+      desktopNotificationsEnabled: dco_decode_bool(arr[91]),
+      coloredTitlebarButtons: dco_decode_bool(arr[92]),
+      rtlLayout: dco_decode_bool(arr[93]),
+      projectTodosEnabled: dco_decode_bool(arr[94]),
+      useMise: dco_decode_bool(arr[95]),
+      onyxEnabled: dco_decode_bool(arr[96]),
+      disabledFeatures: dco_decode_list_String(arr[97]),
     );
   }
 
@@ -8920,6 +8922,8 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
     var var_motionCardTilt = sse_decode_bool(deserializer);
     var var_motionClickRipple = sse_decode_bool(deserializer);
     var var_motionPressBounce = sse_decode_bool(deserializer);
+    var var_showSplashScreen = sse_decode_bool(deserializer);
+    var var_skippedConfirmations = sse_decode_list_String(deserializer);
     var var_language = sse_decode_String(deserializer);
     var var_useOsDecorations = sse_decode_bool(deserializer);
     var var_dismissedProjectPaths = sse_decode_list_String(deserializer);
@@ -9017,6 +9021,8 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       motionCardTilt: var_motionCardTilt,
       motionClickRipple: var_motionClickRipple,
       motionPressBounce: var_motionPressBounce,
+      showSplashScreen: var_showSplashScreen,
+      skippedConfirmations: var_skippedConfirmations,
       language: var_language,
       useOsDecorations: var_useOsDecorations,
       dismissedProjectPaths: var_dismissedProjectPaths,
@@ -12559,6 +12565,8 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
     sse_encode_bool(self.motionCardTilt, serializer);
     sse_encode_bool(self.motionClickRipple, serializer);
     sse_encode_bool(self.motionPressBounce, serializer);
+    sse_encode_bool(self.showSplashScreen, serializer);
+    sse_encode_list_String(self.skippedConfirmations, serializer);
     sse_encode_String(self.language, serializer);
     sse_encode_bool(self.useOsDecorations, serializer);
     sse_encode_list_String(self.dismissedProjectPaths, serializer);

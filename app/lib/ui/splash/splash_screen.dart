@@ -21,6 +21,7 @@ abstract final class GhSplashTiming {
   static const fontRem = 3.5;
   static const trackWidth = 160.0;
   static const trackHeight = 3.0;
+  static const hold = Duration(milliseconds: 1800);
   static const gap = 12.0;
 }
 

@@ -94,7 +94,7 @@ class _AppShellState extends ConsumerState<AppShell> {
   final bool _uiSwitchIntent = GhUiTransition.shouldOpenSettingsAfterSwitch();
   bool _introHandedOff = GhUiTransition.consumeShellIntroHandOff();
   bool _onboarding = false;
-  late bool _splashDone = !GhUiTransition.shouldShowSplash();
+  bool _splashDone = !GhUiTransition.shouldShowSplash();
   late String _requestedTab = _uiSwitchIntent ? 'settings' : 'projects';
   late final GhAnnouncementController _announcement = GhAnnouncementController(
     getItem: _prefs.getItem,
@@ -114,6 +114,7 @@ class _AppShellState extends ConsumerState<AppShell> {
   bool _bugReportOpen = false;
   bool _confirmingRestart = false;
   bool _applyingUpdate = false;
+  Timer? _splashTimer;
 
   UiPrefsStore get _prefs => widget.prefs ?? UiPrefsStore.instance;
 
@@ -162,6 +163,7 @@ class _AppShellState extends ConsumerState<AppShell> {
 
   @override
   void dispose() {
+    _splashTimer?.cancel();
     for (final subscription in _subscriptions) {
       subscription.cancel();
     }
@@ -645,9 +647,13 @@ class _AppShellState extends ConsumerState<AppShell> {
       );
     }
     if (!_splashDone) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted && !_splashDone) setState(() => _splashDone = true);
-      });
+      if (settings.showSplashScreen) {
+        _splashTimer ??= Timer(GhSplashTiming.hold, () {
+          if (mounted) setState(() => _splashDone = true);
+        });
+      } else {
+        _splashDone = true;
+      }
     }
     _resolveTab(settings);
     final workspaces = ref.watch(workspacesProvider);

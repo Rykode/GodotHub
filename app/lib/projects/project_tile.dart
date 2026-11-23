@@ -376,6 +376,7 @@ class _ProjectTileState extends ConsumerState<ProjectTile> {
           ProjectMissingNotice(
             compact: grid || compact,
             onRemove: preview ? null : () => confirmRemoveProject(context, displayName, cb.onRemove),
+            onRelocate: preview ? null : cb.onRelocate,
           ),
         _versionDropdown(context, theme, version, versionLabel, unavailable, unavailableHint),
         if (version == null && !project.missing)
@@ -526,7 +527,11 @@ class _ProjectTileState extends ConsumerState<ProjectTile> {
           if (badges.isNotEmpty)
             Wrap(crossAxisAlignment: WrapCrossAlignment.center, spacing: theme.space(1.5), runSpacing: theme.space(1.5), children: badges),
           if (project.missing)
-            ProjectMissingNotice(compact: true, onRemove: preview ? null : () => confirmRemoveProject(context, displayName, cb.onRemove)),
+            ProjectMissingNotice(
+              compact: true,
+              onRemove: preview ? null : () => confirmRemoveProject(context, displayName, cb.onRemove),
+              onRelocate: preview ? null : cb.onRelocate,
+            ),
           if (timeChildren.isNotEmpty)
             DefaultTextStyle.merge(
               style: theme.text(size: GhTextSize.x2s, color: theme.muted.withValues(alpha: 0.7)),

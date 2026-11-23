@@ -102,13 +102,9 @@ class NewsView extends ConsumerWidget {
         children: [
           LayoutBuilder(
             builder: (context, constraints) {
-              // The newest post gets a wide hero once the grid has room for
-              // three columns; below that it is just the first card.
               final columns = GhGridBreakpoints.reading.columnsFor(constraints.maxWidth, fontScale: theme.fontScale);
               final featured = items.length > 1 && columns >= 3;
               final rest = (featured ? items.skip(1) : items).toList();
-              // While more posts can be loaded, show only complete rows; the
-              // rest arrive with "Show more" instead of leaving a ragged row.
               final full = (rest.length ~/ columns) * columns;
               final shown = feed.hasMore && full > 0 ? rest.take(full) : rest;
               return Column(
@@ -191,10 +187,6 @@ class NewsView extends ConsumerWidget {
   }
 }
 
-/// One blog post as a showcase card: the article image full bleed (or a
-/// generated cover), the category as a glass chip, then author and date,
-/// a bold title, a three-line summary and a "Read" cue that slides on
-/// hover. The whole card opens the post.
 class NewsCard extends StatelessWidget {
   const NewsCard({super.key, required this.item});
 
@@ -231,8 +223,6 @@ class NewsCard extends StatelessWidget {
   }
 }
 
-/// The newest post across the full width on wide layouts: the image on one
-/// side, a large title and a longer summary on the other.
 class NewsFeaturedCard extends StatelessWidget {
   const NewsFeaturedCard({super.key, required this.item});
 

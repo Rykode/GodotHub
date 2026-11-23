@@ -2,10 +2,6 @@ import 'package:material_ui/material_ui.dart';
 
 import '../../design/design.dart';
 
-/// The toolbar above a browsable grid: one quiet surface holding the source
-/// switch, dropdown filters and quick toggles. [primary] sits on the first
-/// line and wraps as space runs out; [secondary] (quick toggles) follows
-/// after a divider; [trailing] (a result count) stays pinned to the end.
 class GhFilterBar extends StatelessWidget {
   const GhFilterBar({super.key, required this.primary, this.secondary = const [], this.trailing});
 

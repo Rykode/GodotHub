@@ -216,9 +216,6 @@ pub(crate) fn write_projects(app: &AppHandle, projects: &Vec<Project>) -> Result
     write_projects_to(&crate::workspace::active_workspace_dir(app), projects)
 }
 
-/// Registers a project folder into a workspace's registry without needing an
-/// `AppHandle`, so the CLI can add a project it opened by path. If a project
-/// with the same path is already registered, that one is returned unchanged.
 pub(crate) fn register_project_in_workspace(
     workspace_dir: &std::path::Path,
     project_path: &str,
@@ -280,14 +277,10 @@ pub(crate) fn update_projects(
         .map_err(|e| e.to_string())
 }
 
-/// Reports whether the project registry loaded cleanly, had to fall back to its
-/// backup, or is corrupt, so the UI can warn instead of showing an empty library.
 pub async fn get_projects_health(app: AppHandle) -> persist::LoadStatus {
     load_projects_from(&crate::workspace::active_workspace_dir(&app)).status
 }
 
-/// Restores the project registry from its `.bak` file after corruption. Returns
-/// the number of projects recovered.
 pub async fn restore_projects_from_backup(app: AppHandle) -> Result<usize, String> {
     let dir = crate::workspace::active_workspace_dir(&app);
     let backup = persist::backup_path(&projects_path(&dir));
@@ -614,11 +607,6 @@ pub(crate) fn list_projects_blocking(app: &AppHandle) -> Vec<Project> {
         p.time_today_seconds = today;
         p.time_week_seconds = week;
     }
-    eprintln!(
-        "[timing] list_projects total={}ms projects={}",
-        start.elapsed().as_millis(),
-        kept.len()
-    );
     kept
 }
 
@@ -649,11 +637,7 @@ fn running_project_ids(app: &AppHandle) -> std::collections::HashSet<String> {
         .unwrap_or_default()
 }
 
-/// Folds worktree checkouts of the same repository into one entry. Returns the
-/// `(from, into)` id pairs that were merged so the caller can move their stats.
 /// Missing projects are never folded: their repository cannot be inspected.
-/// Folds worktrees of the same repository into one entry. Returns
-/// `(folded id, folded path, kept id)` for each fold.
 fn fold_worktree_duplicates(
     projects: &mut Vec<Project>,
     running: &std::collections::HashSet<String>,
@@ -879,8 +863,6 @@ pub async fn create_project(
 
     projects.push(project.clone());
     write_projects(&app, &projects)?;
-    // Stamp the folder with its identity so a later rename keeps tracking and
-    // category.
     let _ = crate::project_identity::ensure_project_identity(
         &project.path,
         &project.id,
@@ -1443,7 +1425,6 @@ pub fn update_project(
     }
     let updated = project.clone();
     write_projects(&app, &projects)?;
-    // Keep the folder's marker in sync so a later rename restores the category.
     let _ = crate::project_identity::ensure_project_identity(
         &updated.path,
         &updated.id,
@@ -2716,7 +2697,6 @@ mod missing_project_tests {
         let listed = list_projects_blocking(&sb.app);
         assert!(listed.iter().all(|p| !p.missing));
 
-        // Unplug the drive: the whole root disappears.
         let unplugged = sb.root.join("drive-unplugged");
         fs::rename(&drive, &unplugged).unwrap();
         let listed = list_projects_blocking(&sb.app);
@@ -2726,11 +2706,9 @@ mod missing_project_tests {
         assert!(!listed.iter().find(|p| p.id == "present").unwrap().missing);
         assert_eq!(persisted_ids(&sb.app), vec!["present", "on_drive"]);
 
-        // A second refresh while still unplugged must not drop it either.
         list_projects_blocking(&sb.app);
         assert_eq!(persisted_ids(&sb.app), vec!["present", "on_drive"]);
 
-        // Reconnect.
         fs::rename(&unplugged, &drive).unwrap();
         let listed = list_projects_blocking(&sb.app);
         assert!(listed.iter().all(|p| !p.missing));

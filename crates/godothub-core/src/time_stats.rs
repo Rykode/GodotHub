@@ -31,7 +31,6 @@ pub struct SessionRecord {
     pub seconds: u64,
 }
 
-/// The combined history of a workspace, keyed by project id.
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct TimeStatsStore {
     #[serde(default)]
@@ -57,17 +56,13 @@ impl persist::Versioned for TimeStatsStore {
     }
 }
 
-/// The workspace file older versions kept every project's history in.
 const LEGACY_FILE: &str = "time_tracking.json";
-/// Changes waiting for their project folder, per workspace.
 const PENDING_FILE: &str = "time_tracking_pending.json";
-/// The history file inside a project's `.godothub` folder.
 const PROJECT_FILE: &str = "time_tracking.json";
 const SESSION_RETENTION_MS: u64 = 30 * 24 * 60 * 60 * 1000;
 const SESSION_LIMIT: usize = 200;
 const APPLIED_LIMIT: usize = 256;
 
-/// One project's history, stored in its folder.
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct ProjectTimeFile {
     #[serde(default)]
@@ -78,7 +73,6 @@ pub struct ProjectTimeFile {
     pub sessions: Vec<SessionRecord>,
     #[serde(default)]
     pub daily: BTreeMap<String, u64>,
-    /// Ids of the changes already applied, newest last.
     #[serde(default)]
     applied: Vec<String>,
 }
@@ -106,7 +100,6 @@ impl ProjectTimeFile {
         self.sessions.is_empty() && self.daily.is_empty()
     }
 
-    /// Applies a change once; a change seen before is ignored.
     fn apply(&mut self, change: &Change) {
         if self.applied.iter().any(|id| id == &change.id) {
             return;
@@ -134,8 +127,6 @@ impl ProjectTimeFile {
     }
 }
 
-/// A change to one project's history: added time, or a replacement when
-/// `replace` is set (clear, restore, import).
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 struct Change {
     id: String,
@@ -162,7 +153,6 @@ impl Change {
 struct PendingStore {
     #[serde(default)]
     schema_version: u32,
-    /// Set once the legacy workspace file has been copied into `changes`.
     #[serde(default)]
     legacy_imported: bool,
     #[serde(default)]
@@ -327,7 +317,6 @@ fn submit(app: &AppHandle, changes: Vec<Change>) {
     submit_in(&dir, &crate::projects::read_projects(app), changes);
 }
 
-/// One project's history: what its folder holds plus anything still queued.
 fn project_history(dir: &Path, root: Option<&Path>, project_id: &str) -> ProjectTimeFile {
     let mut file = match root {
         Some(root) => read_project_file(root, project_id),
@@ -406,7 +395,6 @@ pub fn write_stats(app: &AppHandle, store: &TimeStatsStore) {
     write_stats_to(&crate::workspace::active_workspace_dir(app), store);
 }
 
-/// Replaces the history of the given projects (project stats import).
 pub(crate) fn replace_project_stats(
     app: &AppHandle,
     entries: Vec<(String, Vec<SessionRecord>, BTreeMap<String, u64>)>,
@@ -502,8 +490,6 @@ pub fn last_active_ms(app: &AppHandle) -> u64 {
     .last_active_ms
 }
 
-/// The recorded time of the project in `root` with id `project_id`, used when
-/// a folder is added (again) to the library.
 pub fn total_seconds_for(app: &AppHandle, project_id: &str, root: &Path) -> u64 {
     let dir = crate::workspace::active_workspace_dir(app);
     project_history(&dir, Some(root).filter(|r| r.is_dir()), project_id).total_seconds()
@@ -983,7 +969,6 @@ mod storage_tests {
         persist::write_json(&sb.dir().join(LEGACY_FILE), &legacy).unwrap();
         let before = fs::read(sb.dir().join(LEGACY_FILE)).unwrap();
 
-        // Before any write, the combined view already includes the legacy data.
         assert_eq!(total(&read_stats(&sb.app), "here"), 300);
 
         flush_pending_in(&sb.dir(), &projects);
@@ -1036,7 +1021,6 @@ mod storage_tests {
         record_session(&sb.app, "game", hour_ago(), 30);
         assert!(!drive.exists(), "the folder is not recreated");
         assert_eq!(sb.pending().changes.len(), 1, "the session is kept");
-        // A refresh while unplugged skips the folder and keeps the queue.
         crate::projects::list_projects_blocking(&sb.app);
         assert_eq!(sb.pending().changes.len(), 1);
         assert!(!drive.exists());
@@ -1154,7 +1138,6 @@ mod storage_tests {
         assert_eq!(total(&read_stats(&sb.app), "game"), 300);
         assert_eq!(rt.block_on(get_time_insights(sb.app.clone())).total_seconds, 300);
 
-        // Added again, the folder's own file is the history: counted once.
         sb.register(&[("game", &game)]);
         record_session(&sb.app, "game", hour_ago(), 10);
         assert_eq!(total(&read_stats(&sb.app), "game"), 310);

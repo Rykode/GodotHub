@@ -1,4 +1,3 @@
-//! Release exports run separately from game/editor sessions and use the built-in console.
 use crate::models::{InstalledGodotVersion, Project};
 use crate::project_health::{setting, settings, strings, Setting};
 use serde::{Deserialize, Serialize};
@@ -749,7 +748,6 @@ pub fn open_export_artifact_folder(app: AppHandle, run_id: String) -> Result<(),
     crate::projects::open_project_folder_blocking(artifact_folder(app, run_id)?.to_string_lossy().into())
 }
 
-/// Hands the folder holding a finished export to Onyx for a Steam upload.
 pub fn open_export_in_onyx(app: AppHandle, run_id: String) -> Result<(), String> {
     crate::onyx::open_folder(&artifact_folder(app, run_id)?)
 }

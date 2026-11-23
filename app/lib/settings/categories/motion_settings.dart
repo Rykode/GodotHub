@@ -118,6 +118,7 @@ class MotionSettings extends ConsumerWidget {
           settings.animatedNumbers,
           (v) => copySettings(settings, animatedNumbers: v),
         ),
+        toggle('motion-splash-screen', 'show_splash_label', settings.showSplashScreen, (v) => copySettings(settings, showSplashScreen: v)),
       ],
     );
   }

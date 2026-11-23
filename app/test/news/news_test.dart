@@ -26,8 +26,6 @@ NewsItem item(int i) => NewsItem(
 
 final items = [for (var i = 0; i < 25; i++) item(i)];
 
-/// Runs [body] and returns layout errors raised by this screen's own widgets.
-/// The shared view header (not owned here) is reported separately.
 Future<List<String>> ownLayoutErrors(Future<void> Function() body) async {
   final errors = <String>[];
   final previous = FlutterError.onError;

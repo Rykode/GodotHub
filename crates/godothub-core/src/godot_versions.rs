@@ -183,8 +183,6 @@ fn tag_matches(release_tag: &str, requested: &str) -> bool {
         || actual.strip_suffix("-stable") == Some(wanted)
 }
 
-/// Download, extract and register a Godot build without a running app, writing
-/// into the same registry the GUI reads. Used by the CLI `install` subcommand.
 pub async fn install_version_headless(
     base: &Path,
     versions_dir: &Path,

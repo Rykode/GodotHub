@@ -9,8 +9,6 @@ pub struct CliToolStatus {
     pub bin_dir: String,
     pub shim_path: String,
     pub platform: String,
-    /// True after an install that changed PATH, so the UI can tell the user a
-    /// fresh terminal is needed.
     pub needs_new_terminal: bool,
 }
 
@@ -141,9 +139,6 @@ fn remove_bin_from_path(bin: &Path, _name: &str) -> Result<bool, String> {
     })
 }
 
-/// Read the user Path, let `edit` compute a replacement (None = no change),
-/// write it back preserving REG_EXPAND_SZ, and broadcast. Returns whether it
-/// changed.
 #[cfg(windows)]
 fn with_environment_key(edit: impl FnOnce(&str) -> Option<String>) -> Result<bool, String> {
     use winreg::enums::{HKEY_CURRENT_USER, KEY_READ, KEY_WRITE, REG_EXPAND_SZ};

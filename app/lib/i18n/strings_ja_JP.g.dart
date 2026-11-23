@@ -948,6 +948,8 @@ class _Translations$common$ja_JP extends Translations$common$en_US {
 	@override String get clone_repo_selected => '{{name}} を選択中';
 	@override String get clone_repo_select_hint => '一覧からクローンするリポジトリを選んでください。';
 	@override String get project_missing_badge => '利用不可';
+	@override String get project_missing_relocate => 'Set new location';
+	@override String get dont_ask_again => 'Don\'t ask again';
 	@override String get project_missing_title => 'プロジェクトフォルダを利用できません';
 	@override String get project_missing_desc => 'このパスの project.godot を読み取れません。ドライブやネットワーク共有に再接続して更新するか、ライブラリからプロジェクトを削除してください。';
 	@override String get project_missing_open_disabled => 'このプロジェクトを開くには、ドライブやネットワーク共有に再接続してください';
@@ -1542,6 +1544,17 @@ class _Translations$settings$ja_JP extends Translations$settings$en_US {
 	@override String get card_tilt_label => 'ホバー時にカードを傾ける';
 	@override String get click_ripple_label => 'クリック時の波紋';
 	@override String get press_bounce_label => '押下時のバウンド効果';
+	@override String get show_splash_label => 'Show splash screen on startup';
+	@override String get skipped_confirmations_label => 'Skipped confirmations';
+	@override String get skipped_confirmations_add => 'Add confirmation';
+	@override String get skipped_confirmations_remove => 'Ask again for this confirmation';
+	@override String get confirm_project_remove => 'Remove a project from the library';
+	@override String get confirm_project_delete => 'Delete a project';
+	@override String get confirm_project_bulk_remove => 'Remove several projects from the library';
+	@override String get confirm_project_bulk_delete => 'Delete several projects';
+	@override String get confirm_version_uninstall => 'Uninstall a Godot version';
+	@override String get confirm_export_templates_remove => 'Remove export templates';
+	@override String get confirm_export_templates_orphan_delete => 'Delete leftover export templates';
 	@override String get animation_intensity_label => 'アニメーションの強さ';
 	@override String get animation_full => 'フル';
 	@override String get animation_subtle => '控えめ';
@@ -3433,6 +3446,8 @@ extension on TranslationsJaJp {
 			'common.clone_repo_selected' => '{{name}} を選択中',
 			'common.clone_repo_select_hint' => '一覧からクローンするリポジトリを選んでください。',
 			'common.project_missing_badge' => '利用不可',
+			'common.project_missing_relocate' => 'Set new location',
+			'common.dont_ask_again' => 'Don\'t ask again',
 			'common.project_missing_title' => 'プロジェクトフォルダを利用できません',
 			'common.project_missing_desc' => 'このパスの project.godot を読み取れません。ドライブやネットワーク共有に再接続して更新するか、ライブラリからプロジェクトを削除してください。',
 			'common.project_missing_open_disabled' => 'このプロジェクトを開くには、ドライブやネットワーク共有に再接続してください',
@@ -3884,10 +3899,10 @@ extension on TranslationsJaJp {
 			'settings.reset_settings' => '設定をリセット',
 			'settings.delete_app_data' => 'アプリデータを削除',
 			'settings.new_project_default' => '新規プロジェクトの既定',
-			'settings.download_folder' => 'ダウンロードフォルダ',
-			'settings.system' => 'システム',
 			_ => null,
 		} ?? switch (path) {
+			'settings.download_folder' => 'ダウンロードフォルダ',
+			'settings.system' => 'システム',
 			'settings.k12h' => '12 時間制（2:30 PM）',
 			'settings.k24h' => '24 時間制（14:30）',
 			'settings.dd_mm_yyyy' => '日-月-年',
@@ -3972,6 +3987,17 @@ extension on TranslationsJaJp {
 			'settings.card_tilt_label' => 'ホバー時にカードを傾ける',
 			'settings.click_ripple_label' => 'クリック時の波紋',
 			'settings.press_bounce_label' => '押下時のバウンド効果',
+			'settings.show_splash_label' => 'Show splash screen on startup',
+			'settings.skipped_confirmations_label' => 'Skipped confirmations',
+			'settings.skipped_confirmations_add' => 'Add confirmation',
+			'settings.skipped_confirmations_remove' => 'Ask again for this confirmation',
+			'settings.confirm_project_remove' => 'Remove a project from the library',
+			'settings.confirm_project_delete' => 'Delete a project',
+			'settings.confirm_project_bulk_remove' => 'Remove several projects from the library',
+			'settings.confirm_project_bulk_delete' => 'Delete several projects',
+			'settings.confirm_version_uninstall' => 'Uninstall a Godot version',
+			'settings.confirm_export_templates_remove' => 'Remove export templates',
+			'settings.confirm_export_templates_orphan_delete' => 'Delete leftover export templates',
 			'settings.animation_intensity_label' => 'アニメーションの強さ',
 			'settings.animation_full' => 'フル',
 			'settings.animation_subtle' => '控えめ',
@@ -4387,6 +4413,8 @@ extension on TranslationsJaJp {
 			'versions.export_templates_category_other' => 'その他',
 			'versions.export_templates_web_standard' => 'Web',
 			'versions.export_templates_web_extensions' => 'Web（拡張機能あり）',
+			_ => null,
+		} ?? switch (path) {
 			'versions.export_templates_web_single_threaded' => 'Web（シングルスレッド）',
 			'versions.export_templates_web_extensions_single_threaded' => 'Web（拡張機能あり・シングルスレッド）',
 			'versions.export_templates_refresh' => '利用可能なテンプレートを再読み込み',
@@ -4400,8 +4428,6 @@ extension on TranslationsJaJp {
 			'versions.adding_custom_build' => 'カスタムビルドを追加中…',
 			'versions.download_failed_summary' => 'Godot {{tag}} をダウンロードできませんでした。',
 			'versions.download_failed_show_details' => 'エラーの詳細を表示',
-			_ => null,
-		} ?? switch (path) {
 			'versions.download_failed_hide_details' => 'エラーの詳細を非表示',
 			'versions.download_failed_report' => 'この問題を報告',
 			'versions.export_templates_select_none' => '選択を解除',

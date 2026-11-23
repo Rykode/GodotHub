@@ -349,9 +349,6 @@ fn cmd_versions(base: &Path, io: &mut Io) -> Result<i32, String> {
     Ok(0)
 }
 
-/// Decide whether an `open` argument is a folder path rather than a project
-/// name. Anything with a path separator, a leading `.`/`~`, or that already
-/// exists as a directory is treated as a path; bare words are names.
 fn looks_like_path(target: &str) -> bool {
     target.contains('/')
         || target.contains('\\')
@@ -483,8 +480,6 @@ fn open_unregistered(
     Ok(0)
 }
 
-/// Look up an installed version by tag, tolerating a bare `4.4.1` for
-/// `4.4.1-stable`, for the `--godot` flag.
 fn find_installed_version(base: &Path, tag: &str) -> Result<resolve::Engine, String> {
     let registry = crate::godot_versions::read_registry_at(base);
     let wanted = tag.trim();

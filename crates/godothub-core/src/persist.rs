@@ -145,16 +145,11 @@ pub fn ensure_dir(dir: &Path) -> AppResult<()> {
     Ok(())
 }
 
-/// Outcome of loading a persisted store, so callers can tell a genuinely empty
-/// store apart from a corrupt one and react (surface a warning, offer restore).
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
 #[serde(rename_all = "snake_case")]
 pub enum LoadStatus {
-    /// Neither the file nor its backup exist yet.
     Missing,
-    /// The primary file parsed cleanly.
     Ok,
-    /// The primary file was unusable; the value came from the `.bak` file.
     RecoveredFromBackup,
     /// Both the primary file and its backup failed to parse. The caller gets a
     /// default value and should surface this rather than treat it as empty.
@@ -202,8 +197,6 @@ fn finalize<T: DeserializeOwned + Versioned>(mut value: Value) -> Option<T> {
     serde_json::from_value(value).ok()
 }
 
-/// Loads a versioned store, recovering from the `.bak` file when the primary is
-/// corrupt and reporting exactly what happened via `LoadStatus`.
 pub fn load_json<T: DeserializeOwned + Default + Versioned>(path: &Path) -> Loaded<T> {
     match read_value(path) {
         Ok(Some(value)) => {
@@ -346,7 +339,6 @@ mod tests {
             },
         )
         .unwrap();
-        // Second write pushes the previous good value into the .bak file.
         write_json_with_backup(
             &path,
             &Counter {

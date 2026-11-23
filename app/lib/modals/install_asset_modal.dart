@@ -48,11 +48,9 @@ class _InstallAssetModalState extends ConsumerState<InstallAssetModal> {
   AssetInstallTarget _tab = AssetInstallTarget.project;
   List<ProjectTemplate> _templates = const [];
 
-  /// Selected targets in the current tab; installs run one after another.
   final Set<String> _selected = {};
   int _done = 0;
 
-  /// Per-target results of the last run, shown when any target failed.
   Map<String, String?> _results = const {};
   bool _installing = false;
   bool _detached = false;
@@ -136,9 +134,6 @@ class _InstallAssetModalState extends ConsumerState<InstallAssetModal> {
     }
   }
 
-  /// Installs into every selected target in turn. Each success is reported
-  /// as it lands; when any target fails the dialog stays open with a result
-  /// per target and only the failed ones still selected, ready to retry.
   Future<void> _install(List<_Row> targets) async {
     setState(() {
       _installing = true;

@@ -29,6 +29,7 @@ import 'package:godothub/state/news.dart';
 import 'package:godothub/state/shell_signals.dart';
 import 'package:godothub/titlebar/providers.dart';
 import 'package:godothub/ui/shell/sidebar.dart';
+import 'package:godothub/ui/splash/splash_screen.dart';
 
 import '../support/fake_git.dart';
 import '../support/fake_rust.dart';
@@ -92,6 +93,7 @@ Future<void> pumpShell(
   WidgetTester tester,
   AppSettings settings, {
   Size size = const Size(1400, 900),
+  Duration settle = const Duration(seconds: 3),
   Widget Function(Widget app)? wrap,
 }) async {
   tester.view.physicalSize = size;
@@ -114,7 +116,7 @@ Future<void> pumpShell(
   );
   await tester.pumpWidget(wrap == null ? app : wrap(app));
   await tester.pump();
-  await tester.pump(const Duration(seconds: 3));
+  await tester.pump(settle);
 }
 
 class _NoNews extends NewsBadgeNotifier {
@@ -211,6 +213,22 @@ void main() {
   });
 
   group('shell', () {
+    testWidgets('skips the splash by default', (tester) async {
+      fakeBackend();
+      await pumpShell(tester, shellSettings(), settle: const Duration(milliseconds: 1));
+      await tester.pump(const Duration(milliseconds: 1));
+      expect(find.byType(GhSplashScreen), findsNothing);
+    });
+
+    testWidgets('holds the splash for its timing when the setting is on, then removes it', (tester) async {
+      fakeBackend();
+      await pumpShell(tester, copySettings(shellSettings(), showSplashScreen: true), settle: const Duration(milliseconds: 500));
+      expect(find.byType(GhSplashScreen), findsOneWidget);
+      await tester.pump(GhSplashTiming.hold);
+      await tester.pump(const Duration(seconds: 2));
+      expect(find.byType(GhSplashScreen), findsNothing);
+    });
+
     testWidgets('opens the landing tab, navigates from the sidebar and announces the view', (tester) async {
       fakeBackend();
       await pumpShell(tester, shellSettings(landing: 'storage'));

@@ -9,7 +9,6 @@ use std::path::{Path, PathBuf};
 #[cfg(debug_assertions)]
 use uuid::Uuid;
 
-/// Every file in `changelog/` joined into one JSON array by `build.rs`.
 const EMBEDDED_CHANGELOG: &str = include_str!(concat!(env!("OUT_DIR"), "/changelog.json"));
 
 /// Development builds read and edit the files in the repository directly, so
@@ -19,7 +18,6 @@ fn changelog_dir() -> PathBuf {
     PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../changelog")
 }
 
-/// The tag a version is filed under: `v1.4.6` for `v1.4.6 - v1.4.7`.
 #[cfg(debug_assertions)]
 fn version_tag(version: &str) -> &str {
     version.trim().split(' ').next().unwrap_or_default()

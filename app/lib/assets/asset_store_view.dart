@@ -43,12 +43,9 @@ const assetStoreSortKeys = [
   AssetSortKey.ratingLow,
 ];
 
-/// Signal that switches a mounted Asset Store view to a section
-/// (detail: `'templates'` or `'addons'`).
 const assetStoreSectionSignal = 'app:asset-store-section';
 const _templatesAction = 'asset-store:templates';
 
-/// Opens the Asset Store on its Templates section, from anywhere.
 void openAssetStoreTemplates() {
   setPendingAction(_templatesAction);
   AppSignals.emit(setTabSignal, 'asset-store');
@@ -120,8 +117,6 @@ class _AssetStoreViewState extends ConsumerState<AssetStoreView> {
     super.dispose();
   }
 
-  /// Local templates, so the template library can mark and hide the ones
-  /// already installed.
   void _loadTemplates() {
     TemplatesApi.list().then((list) {
       if (mounted) setState(() => _templates = list);
@@ -304,7 +299,6 @@ class _AssetStoreViewState extends ConsumerState<AssetStoreView> {
                     (value: _StoreSection.templates.name, label: ghTr('asset_section_templates'), icon: GhIcons.copy),
                   ],
                 );
-                // Narrow windows stack the section switch under the search box.
                 if (constraints.maxWidth < theme.space(110)) {
                   return Column(crossAxisAlignment: CrossAxisAlignment.start, spacing: theme.space(2), children: [search, tabs]);
                 }
@@ -322,7 +316,6 @@ class _AssetStoreViewState extends ConsumerState<AssetStoreView> {
         if (!templates)
           Padding(
             padding: EdgeInsetsDirectional.only(
-              // The same edges as the card grid below.
               start: scrollInsets.start + theme.space(connected ? 3 : 2),
               end: scrollInsets.end + theme.space(5),
               bottom: theme.space(1),

@@ -9684,6 +9684,8 @@ const _: fn() = || {
         let _: bool = AppSettings.motion_card_tilt;
         let _: bool = AppSettings.motion_click_ripple;
         let _: bool = AppSettings.motion_press_bounce;
+        let _: bool = AppSettings.show_splash_screen;
+        let _: Vec<String> = AppSettings.skipped_confirmations;
         let _: String = AppSettings.language;
         let _: bool = AppSettings.use_os_decorations;
         let _: Vec<String> = AppSettings.dismissed_project_paths;
@@ -10908,6 +10910,8 @@ impl SseDecode for crate::api::types::AppSettings {
         let mut var_motionCardTilt = <bool>::sse_decode(deserializer);
         let mut var_motionClickRipple = <bool>::sse_decode(deserializer);
         let mut var_motionPressBounce = <bool>::sse_decode(deserializer);
+        let mut var_showSplashScreen = <bool>::sse_decode(deserializer);
+        let mut var_skippedConfirmations = <Vec<String>>::sse_decode(deserializer);
         let mut var_language = <String>::sse_decode(deserializer);
         let mut var_useOsDecorations = <bool>::sse_decode(deserializer);
         let mut var_dismissedProjectPaths = <Vec<String>>::sse_decode(deserializer);
@@ -11009,6 +11013,8 @@ impl SseDecode for crate::api::types::AppSettings {
             motion_card_tilt: var_motionCardTilt,
             motion_click_ripple: var_motionClickRipple,
             motion_press_bounce: var_motionPressBounce,
+            show_splash_screen: var_showSplashScreen,
+            skipped_confirmations: var_skippedConfirmations,
             language: var_language,
             use_os_decorations: var_useOsDecorations,
             dismissed_project_paths: var_dismissedProjectPaths,
@@ -15913,6 +15919,8 @@ impl flutter_rust_bridge::IntoDart for FrbWrapper<crate::api::types::AppSettings
             self.0.motion_card_tilt.into_into_dart().into_dart(),
             self.0.motion_click_ripple.into_into_dart().into_dart(),
             self.0.motion_press_bounce.into_into_dart().into_dart(),
+            self.0.show_splash_screen.into_into_dart().into_dart(),
+            self.0.skipped_confirmations.into_into_dart().into_dart(),
             self.0.language.into_into_dart().into_dart(),
             self.0.use_os_decorations.into_into_dart().into_dart(),
             self.0.dismissed_project_paths.into_into_dart().into_dart(),
@@ -19448,6 +19456,8 @@ impl SseEncode for crate::api::types::AppSettings {
         <bool>::sse_encode(self.motion_card_tilt, serializer);
         <bool>::sse_encode(self.motion_click_ripple, serializer);
         <bool>::sse_encode(self.motion_press_bounce, serializer);
+        <bool>::sse_encode(self.show_splash_screen, serializer);
+        <Vec<String>>::sse_encode(self.skipped_confirmations, serializer);
         <String>::sse_encode(self.language, serializer);
         <bool>::sse_encode(self.use_os_decorations, serializer);
         <Vec<String>>::sse_encode(self.dismissed_project_paths, serializer);

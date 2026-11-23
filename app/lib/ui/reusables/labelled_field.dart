@@ -5,9 +5,6 @@ import '../controls/text_input.dart';
 import '../core/i18n.dart';
 import 'modal_kit.dart';
 
-/// What a [GhLabelledField] tells the input inside it, so the input picks up
-/// its accessible label, the error or hint it is described by, and its
-/// invalid styling without each form wiring that by hand.
 class GhFieldScope extends InheritedWidget {
   const GhFieldScope({super.key, required this.label, this.describedBy, this.invalid = false, required super.child});
 
@@ -22,13 +19,6 @@ class GhFieldScope extends InheritedWidget {
       label != oldWidget.label || describedBy != oldWidget.describedBy || invalid != oldWidget.invalid;
 }
 
-/// One form field: label, input, then either the error or the hint below it.
-///
-/// The error replaces the hint while present and is announced as a live
-/// region. A [GhFieldInput] or [GhPathField] placed in [child] is labelled by
-/// [label], described by the error or hint, and shows the invalid border
-/// automatically. Mark a field [optional] (the usual case for non-essential
-/// fields) or [required]; never both.
 class GhLabelledField extends StatelessWidget {
   const GhLabelledField({
     super.key,
@@ -49,10 +39,8 @@ class GhLabelledField extends StatelessWidget {
   final bool optional;
   final bool required;
 
-  /// Shown at the end of the label row, for a counter or a small link.
   final Widget? trailing;
 
-  /// Indents the label and messages to line up with the input's text.
   final bool inset;
 
   @override
@@ -100,7 +88,6 @@ class GhLabelledField extends StatelessWidget {
   }
 }
 
-/// The hint or error line under a field.
 class GhFieldMessage extends StatelessWidget {
   const GhFieldMessage(this.text, {super.key, this.error = false, this.inset = true});
 
@@ -138,9 +125,6 @@ class GhFieldMessage extends StatelessWidget {
   }
 }
 
-/// The standard form text input: base background, outline border that turns
-/// danger when invalid and accent-dim on focus. Inside a [GhLabelledField] it
-/// takes its label, description and invalid state from the field.
 class GhFieldInput extends StatelessWidget {
   const GhFieldInput({
     super.key,
@@ -173,7 +157,6 @@ class GhFieldInput extends StatelessWidget {
   final FocusOnKeyEventCallback? onKeyEvent;
   final VoidCallback? onBlur;
 
-  /// Overrides the invalid state from the surrounding [GhLabelledField].
   final bool? invalid;
   final bool mono;
   final bool enabled;

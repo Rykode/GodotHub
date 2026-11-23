@@ -26,7 +26,6 @@ const creditsBuiltWith = 'Flutter + Rust';
 class CreditsSettings extends ConsumerWidget {
   const CreditsSettings({super.key, this.builtWithTooltip});
 
-  /// What hovering "Built with" shows. Defaults to the versions this build was made with.
   final String? builtWithTooltip;
 
   void _openContributor(BuildContext context, Contributor contributor) {

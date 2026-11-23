@@ -148,7 +148,6 @@ void main() {
       expect(controller.text, isEmpty);
       expect(find.text('Add folder'), findsNothing);
 
-      // A pick from the native dialog is trusted as is and does not submit.
       await tester.tap(find.byKey(const ValueKey('path-browse')));
       await tester.pumpAndSettle();
       expect(committed.last, '/picked/by/dialog');

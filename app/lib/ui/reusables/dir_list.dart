@@ -8,11 +8,6 @@ import '../core/interaction.dart';
 import '../core/tooltip.dart';
 import 'path_field.dart';
 
-/// A list of folders (scan folders, download folders) or a single folder.
-///
-/// Folders are added with a [GhPathField]: type or paste a path and press
-/// Enter or Add folder, or choose Browse. In [single] mode the field edits the
-/// one folder in place and saves on Enter, Apply or Browse.
 class GhDirList extends StatefulWidget {
   const GhDirList({
     super.key,
@@ -49,7 +44,6 @@ class _GhDirListState extends State<GhDirList> {
   @override
   void didUpdateWidget(GhDirList oldWidget) {
     super.didUpdateWidget(oldWidget);
-    // Keep the single folder field in step with the saved value.
     final current = widget.dirs.firstOrNull ?? '';
     if (widget.single && current != (oldWidget.dirs.firstOrNull ?? '') && _add.text != current) _add.text = current;
   }
@@ -88,7 +82,6 @@ class _GhDirListState extends State<GhDirList> {
   void _toggleDefault(String dir) => onSetDefault?.call(defaultDir == dir ? null : dir);
 
   Widget _field(GhTheme theme, {String? hint}) => GhPathField(
-    // Re-created when the saved folder changes so Apply tracks the new value.
     key: single ? ValueKey('dir-single:${dirs.firstOrNull ?? ''}') : null,
     controller: _add,
     kind: GhPathKind.folder,

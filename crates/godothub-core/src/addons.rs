@@ -363,8 +363,6 @@ mod tests {
     }
 }
 
-/// One asset installed into one project, from the install records GodotHub
-/// keeps when it installs an addon (`addon_sources.json`).
 #[derive(Serialize, Clone, Debug)]
 pub struct AssetInstallation {
     pub asset_id: String,
@@ -375,8 +373,6 @@ pub struct AssetInstallation {
     pub revision: Option<u64>,
 }
 
-/// Every recorded install across the library. Projects whose folder is
-/// unavailable and addon folders the user deleted are left out.
 pub fn list_asset_installations(app: &AppHandle) -> Vec<AssetInstallation> {
     let Some(path) = sources_path(app) else {
         return vec![];

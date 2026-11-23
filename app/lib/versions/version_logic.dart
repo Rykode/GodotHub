@@ -203,8 +203,6 @@ List<(String, List<AvailableRow>)> groupAvailable(List<GodotRelease> available, 
 bool isAvailableInstalled(List<InstalledGodotVersion> installed, String tag, bool mono) =>
     installed.any((v) => (versionCore(v.tag) == versionCore(tag) || versionCore(v.version) == versionCore(tag)) && v.isMono == mono);
 
-/// Whether [tag] is on the stable channel, by the same rule the available
-/// list filters on.
 bool isStableTag(String tag) => tag.toLowerCase().contains('stable');
 
 List<int> _numericCore(String tag) => [for (final part in versionCore(tag).split('-').first.split('.')) int.tryParse(part) ?? 0];
@@ -217,10 +215,6 @@ int _compareNumeric(List<int> a, List<int> b) {
   return 0;
 }
 
-/// The newest stable patch release in the same minor line as [version]
-/// (same build type) that is not installed yet, or null. Only stable,
-/// non-custom installs get an update hint: unstable builds move between
-/// channels and custom builds have no upstream release.
 String? newerStableRelease(InstalledGodotVersion version, List<GodotRelease> available, List<InstalledGodotVersion> installed) {
   if (version.managedBy == 'custom' || !isStableTag(version.tag)) return null;
   final group = minorGroup(version.tag);

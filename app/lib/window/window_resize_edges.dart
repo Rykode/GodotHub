@@ -12,7 +12,6 @@ import '../titlebar/window_controls.dart';
 class WindowResizeEdges extends StatelessWidget {
   const WindowResizeEdges({super.key, required this.enabled, required this.window, required this.child});
 
-  /// Whether the window draws its own frame; false leaves [child] untouched.
   final bool enabled;
   final TitleBarWindow window;
   final Widget child;

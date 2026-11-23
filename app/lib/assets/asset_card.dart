@@ -17,7 +17,6 @@ double? parseAssetRating(String raw) {
 /// the Asset Library on a five-point scale (4.2); show each the way it reads.
 String formatAssetRating(double rating) => rating > 5 ? '${rating.round()}%' : rating.toStringAsFixed(1);
 
-/// Badge tone for an Asset Library support level.
 GhTone assetSupportTone(String level) => switch (level) {
   'official' => GhTone.mint,
   'featured' => GhTone.accent,
@@ -25,12 +24,6 @@ GhTone assetSupportTone(String level) => switch (level) {
   _ => GhTone.muted,
 };
 
-/// One Asset Store or Asset Library result as a showcase card: a cover
-/// (the Store's thumbnail full bleed, or an Asset Library icon over its own
-/// blurred colors) with glass chips for source, rating, installs and updates
-/// and quick actions (save, not interested, open page) that appear on hover
-/// or focus; then the title, author, description, detail badges, and the
-/// install actions in the footer. The whole card opens the details.
 class AssetCard extends StatelessWidget {
   const AssetCard({
     super.key,
@@ -49,20 +42,16 @@ class AssetCard extends StatelessWidget {
   final AssetLibraryAsset asset;
   final VoidCallback? onOpenPage;
 
-  /// Footer actions, primary action last.
   final List<Widget>? actions;
   final bool showSource;
 
-  /// Opens the detail dialog; the whole card becomes the button.
   final VoidCallback? onOpenDetails;
   final bool favorite;
   final VoidCallback? onToggleFavorite;
 
-  /// Names of the projects GodotHub installed this asset into.
   final List<String> installedIn;
   final bool updateAvailable;
 
-  /// "Not interested": hides the asset from results.
   final VoidCallback? onHide;
 
   @override

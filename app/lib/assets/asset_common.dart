@@ -13,7 +13,6 @@ const assetPageSize = 12;
 /// rows on wide screens looked broken.
 int assetPageSizeFor(int columns) => columns <= 0 ? assetPageSize : columns * math.max(2, (assetPageSize / columns).ceil());
 
-/// Web pages for the two sources, offered when a search fails.
 const assetLibrarySiteUrl = 'https://godotengine.org/asset-library/asset';
 const assetStoreSiteUrl = 'https://store.godotengine.org/';
 

@@ -65,13 +65,10 @@ class AssetLibraryBrowser extends ConsumerStatefulWidget {
     this.onClearQuery,
   });
 
-  /// Asset ids local templates were installed from, for "Hide installed".
   final Set<String> installedTemplateIds;
 
   final String query;
 
-  /// Clears the parent's search box; offered with the version filter when
-  /// nothing matches.
   final VoidCallback? onClearQuery;
   final ValueChanged<({bool loading, int total})>? onStatsChange;
   final List<String> installedTemplateNames;
@@ -87,11 +84,8 @@ class _AssetLibraryBrowserState extends ConsumerState<AssetLibraryBrowser> {
   bool _loading = true;
   String? _error;
 
-  /// A follow-up page (neighbour probe, gather or page change) failed while
-  /// the current results stay visible.
   bool _partialError = false;
 
-  /// The page a failed page change was heading to, retried by the notice.
   int? _retryPage;
   String _version = '';
   AssetSortKey _sort = AssetSortKey.relevance;
@@ -157,12 +151,9 @@ class _AssetLibraryBrowserState extends ConsumerState<AssetLibraryBrowser> {
     if (callback != null) WidgetsBinding.instance.addPostFrameCallback((_) => callback(stats));
   }
 
-  /// Page size matched to the column count, set from the first layout.
   int _pageSize = assetPageSize;
   bool _sized = false;
 
-  /// Requests pages that fill whole rows. Measured from the grid's width
-  /// before the first search, and again when a resize changes the columns.
   Widget _sizedTo(BoxConstraints constraints, Widget child) {
     final theme = GhTheme.of(context);
     final size = assetPageSizeFor(GhGridBreakpoints.cards.columnsFor(constraints.maxWidth, fontScale: theme.fontScale));

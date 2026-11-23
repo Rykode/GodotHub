@@ -22,9 +22,6 @@ import '../ui/reusables/state_panel.dart';
 import 'asset_card.dart';
 import 'asset_common.dart';
 
-/// Opens the detail dialog for [asset]. [primaryLabel] and [onPrimary] are
-/// the caller's main action (install into a project, install as template);
-/// the dialog closes before running it.
 Future<void> showAssetDetails(
   BuildContext context,
   AssetLibraryAsset asset, {
@@ -47,9 +44,6 @@ Future<void> showAssetDetails(
   ),
 );
 
-/// Everything about one asset without leaving the app: screenshots,
-/// description, version facts and links, which of your projects have it (with
-/// updates), the archive's files before installing, and Store release notes.
 class AssetDetailModal extends ConsumerStatefulWidget {
   const AssetDetailModal({
     super.key,
@@ -68,7 +62,6 @@ class AssetDetailModal extends ConsumerStatefulWidget {
   final bool primaryDone;
   final VoidCallback onClose;
 
-  /// Test seams; default to the Rust API.
   final Future<AssetInfo> Function(String assetId)? loadInfo;
   final Future<AssetFileListing> Function(String assetId)? loadFiles;
 
@@ -640,8 +633,6 @@ class _AssetDetailModalState extends ConsumerState<AssetDetailModal> {
   );
 }
 
-/// The assets the user marked "Not interested", with a way to show each
-/// one again. Hiding is never a dead end.
 class HiddenAssetsModal extends ConsumerWidget {
   const HiddenAssetsModal({super.key, required this.onClose});
 

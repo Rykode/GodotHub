@@ -159,7 +159,6 @@ Future<void> openModal(
   await settle(tester);
 }
 
-/// A real folder for forms that check their location exists before submitting.
 late Directory games;
 
 String inGames(String name) => '${games.path}${games.path.contains(r'\') && !games.path.contains('/') ? r'\' : '/'}$name';
@@ -199,7 +198,6 @@ void main() {
       await settle(tester);
       expect(sent, isNull);
       expect(find.text(error), findsOneWidget);
-      // A typed destination clears the error and is used as is.
       await tester.enterText(find.byType(TextField).last, dir.path);
       await settle(tester, 2);
       expect(find.text(error), findsNothing);
@@ -600,7 +598,6 @@ void main() {
       expect(tester.widget<TextField>(location).readOnly, isFalse);
       await tester.enterText(find.byType(TextField).first, 'Space Game');
 
-      // A folder that does not exist is flagged on Enter and blocks creating.
       await tester.enterText(location, '${games.path}${Platform.pathSeparator}missing');
       await tester.testTextInput.receiveAction(TextInputAction.done);
       await settle(tester, 2);
@@ -610,7 +607,6 @@ void main() {
       expect(created, isEmpty);
       expect(find.text(ghTr('path_error_folder_not_found')), findsOneWidget);
 
-      // A pasted path with quotes is cleaned up and confirmed with Enter.
       await tester.enterText(location, '"${games.path}"');
       await settle(tester, 2);
       expect(find.text(ghTr('path_error_folder_not_found')), findsNothing);
@@ -619,7 +615,6 @@ void main() {
       expect(tester.widget<TextField>(location).controller!.text, games.path);
       expect(find.text(ghTr('create_project_path_preview', args: {'path': inGames('Space Game')})), findsOneWidget);
 
-      // Browse still fills the field.
       await tester.tap(
         find.descendant(of: find.byKey(const ValueKey('create-project-location')), matching: find.byKey(const ValueKey('path-browse'))),
       );

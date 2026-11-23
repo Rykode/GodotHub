@@ -14,6 +14,7 @@ import '../ui/core/i18n.dart';
 import '../ui/core/interaction.dart';
 import '../ui/core/tooltip.dart';
 import '../ui/feedback/confirm_dialog.dart';
+import '../ui/feedback/confirm_removal.dart';
 import '../ui/feedback/modal_shell.dart';
 import '../ui/feedback/toast.dart';
 import '../ui/overlays/menu.dart';
@@ -23,17 +24,8 @@ import 'version_logic.dart';
 
 String _tv(String key, {num? count, Map<String, Object?> args = const {}}) => ghTr('versions:$key', count: count, args: args);
 
-/// Below this width (in spacing units) the card stacks the launch button
-/// under the details instead of beside them.
 const double installedCardStackBelow = 120;
 
-/// One installed Godot version.
-///
-/// Anatomy: the name (custom name or tag) with an inline rename button, the
-/// original tag under a custom name, then a row of state badges (current,
-/// channel, .NET, custom build, mise, update available, export templates).
-/// The split Open button is the one primary action; everything else lives in
-/// its menu. The pinned current version gets a mint resting border.
 class InstalledVersionCard extends StatefulWidget {
   const InstalledVersionCard({
     super.key,
@@ -73,7 +65,6 @@ class InstalledVersionCard extends StatefulWidget {
   final Future<void> Function()? onTemplatesChanged;
   final ValueChanged<String>? onOpenFolder;
 
-  /// A newer stable patch release in the same minor line, when one exists.
   final String? updateTag;
 
   @override
@@ -143,8 +134,9 @@ class _InstalledVersionCardState extends State<InstalledVersionCard> {
   }
 
   Future<void> _confirmUninstall() async {
-    final ok = await showGhConfirmDialog(
+    final ok = await confirmRemoval(
       context,
+      RemovalConfirm.versionUninstall,
       title: ghTr('version_uninstall_title'),
       description: _v.managedBy == 'mise'
           ? _tv('mise_uninstall_desc', args: {'tag': _v.tag})
@@ -169,8 +161,9 @@ class _InstalledVersionCardState extends State<InstalledVersionCard> {
   );
 
   Future<void> _confirmRemoveTemplates() async {
-    final ok = await showGhConfirmDialog(
+    final ok = await confirmRemoval(
       context,
+      RemovalConfirm.exportTemplatesRemove,
       title: _tv('export_templates_remove_title'),
       description: _tv('export_templates_remove_desc', args: {'tag': _v.tag}),
       confirmLabel: _tv('export_templates_remove_confirm'),
@@ -181,7 +174,6 @@ class _InstalledVersionCardState extends State<InstalledVersionCard> {
 
   bool get _templatesBusy => widget.templateDownload != null || (widget.templates?.downloading ?? false);
 
-  /// A badge that opens the export templates dialog when pressed.
   Widget _pressableBadge(
     GhTheme theme, {
     required String label,

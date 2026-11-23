@@ -218,6 +218,8 @@ pub struct _AppSettings {
     pub motion_card_tilt: bool,
     pub motion_click_ripple: bool,
     pub motion_press_bounce: bool,
+    pub show_splash_screen: bool,
+    pub skipped_confirmations: Vec<String>,
     pub language: String,
     pub use_os_decorations: bool,
     pub dismissed_project_paths: Vec<String>,

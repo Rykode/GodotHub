@@ -354,7 +354,11 @@ class _ProjectCardState extends ConsumerState<ProjectCard> {
     final canOpen = versionInstalled && !project.missing;
     final missingNotice = [
       if (project.missing)
-        ProjectMissingNotice(compact: _cover, onRemove: () => confirmRemoveProject(context, displayName, widget.callbacks.onRemove)),
+        ProjectMissingNotice(
+          compact: _cover,
+          onRemove: () => confirmRemoveProject(context, displayName, widget.callbacks.onRemove),
+          onRelocate: widget.callbacks.onRelocate,
+        ),
     ];
     final cb = widget.callbacks;
     final lastOpened = formatLastOpened(
@@ -695,9 +699,6 @@ class _ProjectCardState extends ConsumerState<ProjectCard> {
     );
   }
 
-  // Cover: the project icon is the card's cover art. It fills a full-height
-  // square on the start edge, and the cover itself is the play surface, the
-  // pin, and the live session stamp.
   Widget _coverLayout(
     BuildContext context,
     GhTheme theme, {

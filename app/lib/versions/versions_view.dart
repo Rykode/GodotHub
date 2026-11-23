@@ -27,6 +27,7 @@ import '../ui/core/interaction.dart';
 import '../ui/core/tooltip.dart';
 import '../ui/core/ui_settings.dart' show GhSide;
 import '../ui/feedback/confirm_dialog.dart';
+import '../ui/feedback/confirm_removal.dart';
 import '../ui/feedback/modal_shell.dart';
 import '../ui/feedback/toast.dart';
 import '../ui/overlays/dropdown.dart';
@@ -178,8 +179,9 @@ class _VersionsViewState extends ConsumerState<VersionsView> {
   }
 
   Future<void> _deleteOrphan(ExportTemplatesOrphan orphan) async {
-    final ok = await showGhConfirmDialog(
+    final ok = await confirmRemoval(
       context,
+      RemovalConfirm.exportTemplatesOrphanDelete,
       title: _tv('export_templates_orphan_delete_title'),
       description: _tv('export_templates_orphan_delete_desc', args: {'folder': orphan.folder}),
       confirmLabel: _tv('export_templates_orphan_delete'),

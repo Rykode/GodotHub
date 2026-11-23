@@ -45,8 +45,6 @@ const _manualKinds = {
   'remove_registration',
 };
 
-/// Engine binding problems that Versions can resolve; their rows carry a
-/// "Manage engine versions" shortcut next to the fix.
 const doctorVersionCodes = {'version_unbound', 'version_missing', 'version_executable_missing'};
 
 /// Findings "Fix all" applies: an error or warning whose action needs no

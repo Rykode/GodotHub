@@ -1266,6 +1266,8 @@
   "clone_repo_selected": "Selected {{name}}",
   "clone_repo_select_hint": "Select a repository from the list to clone it.",
   "project_missing_badge": "Unavailable",
+  "project_missing_relocate": "Set new location",
+  "dont_ask_again": "Don't ask again",
   "project_missing_title": "Project folder unavailable",
   "project_missing_desc": "GodotHub can't read project.godot at this path. Reconnect the drive or network share and refresh, or remove the project from the library.",
   "project_missing_open_disabled": "Reconnect the drive or share to open this project",

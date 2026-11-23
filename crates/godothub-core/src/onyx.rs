@@ -1,6 +1,3 @@
-//! Onyx (github.com/Rykode/OnyxSteamworks) uploads game builds to Steamworks.
-//! GodotHub finds an installed copy, checks it is current, and hands it an export
-//! folder with `onyx --open <folder>`; Onyx then shows the matching project's Build page.
 use serde::{Deserialize, Serialize};
 use std::path::{Path, PathBuf};
 use std::sync::{Mutex, OnceLock};
@@ -15,13 +12,11 @@ const LATEST_CACHE_TTL: Duration = Duration::from_secs(60 * 60);
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct OnyxStatus {
-    /// Onyx is built for Windows and Linux only.
     pub supported: bool,
     pub path: Option<String>,
     /// From `onyx --version`. Releases older than the GodotHub hand-off have no
     /// `--version`, so a found binary without a version is too old to use.
     pub version: Option<String>,
-    /// The newest release on GitHub, or `None` when it could not be checked.
     pub latest: Option<String>,
     pub up_to_date: bool,
     pub releases_url: String,
@@ -66,7 +61,6 @@ fn command(bin: &Path) -> std::process::Command {
     cmd
 }
 
-/// Parses `onyx 1.2.0` into `1.2.0`.
 fn parse_version_output(text: &str) -> Option<String> {
     let line = text.lines().map(str::trim).find(|l| !l.is_empty())?;
     let version = line.split_whitespace().last()?;
@@ -154,8 +148,6 @@ pub async fn onyx_status() -> OnyxStatus {
     OnyxStatus { supported: true, path, version, latest, up_to_date, releases_url }
 }
 
-/// Starts Onyx on `folder`. Onyx opens the project whose content folder holds it, or
-/// offers to create one.
 pub fn open_folder(folder: &Path) -> Result<(), String> {
     if !cfg!(any(target_os = "windows", target_os = "linux")) {
         return Err("Onyx is not available for macOS.".into());

@@ -86,6 +86,8 @@ const baseSettings = AppSettings(
   motionCardTilt: false,
   motionClickRipple: false,
   motionPressBounce: false,
+  showSplashScreen: false,
+  skippedConfirmations: [],
   language: 'en-US',
   useOsDecorations: false,
   dismissedProjectPaths: [],

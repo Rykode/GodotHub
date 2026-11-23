@@ -87,7 +87,6 @@ class _CreateWorktreeModalState extends State<CreateWorktreeModal> {
     }
   }
 
-  /// Browse picks the parent folder; the worktree folder name is kept.
   Future<String?> _pickParent() async {
     if (mounted) setState(() => _error = null);
     final parent = await (widget.pickFolder ?? ProjectsApi.pickFolder)();

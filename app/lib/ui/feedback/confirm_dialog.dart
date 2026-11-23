@@ -1,6 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 
 import '../../design/design.dart';
+import '../controls/checkbox.dart';
 import '../core/button.dart';
 import '../core/bidi.dart';
 import 'modal_shell.dart';
@@ -21,6 +22,7 @@ class GhConfirmDialog extends StatefulWidget {
     required this.onCancel,
     this.isMenuOpen,
     this.staticPreview = false,
+    this.onDontAskAgainChanged,
   });
 
   final String title;
@@ -34,6 +36,8 @@ class GhConfirmDialog extends StatefulWidget {
   final bool Function()? isMenuOpen;
   final bool staticPreview;
 
+  final ValueChanged<bool>? onDontAskAgainChanged;
+
   @override
   State<GhConfirmDialog> createState() => _GhConfirmDialogState();
 }
@@ -41,6 +45,7 @@ class GhConfirmDialog extends StatefulWidget {
 class _GhConfirmDialogState extends State<GhConfirmDialog> {
   final FocusNode _cancelNode = FocusNode(debugLabel: 'GhConfirmDialog cancel');
   final FocusNode _confirmNode = FocusNode(debugLabel: 'GhConfirmDialog confirm');
+  bool _dontAskAgain = false;
 
   @override
   void dispose() {
@@ -89,9 +94,25 @@ class _GhConfirmDialogState extends State<GhConfirmDialog> {
       ],
       child: Padding(
         padding: EdgeInsets.fromLTRB(theme.space(6), 0, theme.space(6), theme.space(4)),
-        child: widget.descriptionContent != null
-            ? DefaultTextStyle(style: descriptionStyle, child: widget.descriptionContent!)
-            : ghPlaintext(widget.description ?? '', Text(widget.description ?? '', style: descriptionStyle)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: theme.space(4),
+          children: [
+            widget.descriptionContent != null
+                ? DefaultTextStyle(style: descriptionStyle, child: widget.descriptionContent!)
+                : ghPlaintext(widget.description ?? '', Text(widget.description ?? '', style: descriptionStyle)),
+            if (widget.onDontAskAgainChanged != null)
+              GhCheckbox(
+                checked: _dontAskAgain,
+                label: context.tr.common.dont_ask_again,
+                child: Text(context.tr.common.dont_ask_again, style: theme.text(size: GhTextSize.sm, color: theme.muted)),
+                onChanged: (value) {
+                  setState(() => _dontAskAgain = value);
+                  widget.onDontAskAgainChanged!(value);
+                },
+              ),
+          ],
+        ),
       ),
     );
   }
@@ -105,6 +126,7 @@ Future<bool> showGhConfirmDialog(
   required String confirmLabel,
   String? cancelLabel,
   GhConfirmVariant variant = GhConfirmVariant.normal,
+  ValueChanged<bool>? onDontAskAgainChanged,
 }) async {
   final result = await showGhModal<bool>(
     context,
@@ -115,6 +137,7 @@ Future<bool> showGhConfirmDialog(
       confirmLabel: confirmLabel,
       cancelLabel: cancelLabel,
       variant: variant,
+      onDontAskAgainChanged: onDontAskAgainChanged,
       onConfirm: () => Navigator.of(context).pop(true),
       onCancel: () => Navigator.of(context).pop(false),
     ),

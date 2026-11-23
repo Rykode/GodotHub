@@ -181,6 +181,8 @@ class AppSettings {
   final bool motionCardTilt;
   final bool motionClickRipple;
   final bool motionPressBounce;
+  final bool showSplashScreen;
+  final List<String> skippedConfirmations;
   final String language;
   final bool useOsDecorations;
   final List<String> dismissedProjectPaths;
@@ -279,6 +281,8 @@ class AppSettings {
     required this.motionCardTilt,
     required this.motionClickRipple,
     required this.motionPressBounce,
+    required this.showSplashScreen,
+    required this.skippedConfirmations,
     required this.language,
     required this.useOsDecorations,
     required this.dismissedProjectPaths,
@@ -379,6 +383,8 @@ class AppSettings {
       motionCardTilt.hashCode ^
       motionClickRipple.hashCode ^
       motionPressBounce.hashCode ^
+      showSplashScreen.hashCode ^
+      skippedConfirmations.hashCode ^
       language.hashCode ^
       useOsDecorations.hashCode ^
       dismissedProjectPaths.hashCode ^
@@ -481,6 +487,8 @@ class AppSettings {
           motionCardTilt == other.motionCardTilt &&
           motionClickRipple == other.motionClickRipple &&
           motionPressBounce == other.motionPressBounce &&
+          showSplashScreen == other.showSplashScreen &&
+          skippedConfirmations == other.skippedConfirmations &&
           language == other.language &&
           useOsDecorations == other.useOsDecorations &&
           dismissedProjectPaths == other.dismissedProjectPaths &&

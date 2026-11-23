@@ -5,8 +5,6 @@ import '../core/interaction.dart';
 
 typedef GhViewTab = ({String value, String label, FaIconData icon});
 
-/// The section switch that sits beside a view's search box (Asset Store:
-/// Addons and Templates). Icon and label per section, the active one filled.
 class GhViewTabs extends StatelessWidget {
   const GhViewTabs({super.key, required this.tabs, required this.value, required this.onChanged});
 

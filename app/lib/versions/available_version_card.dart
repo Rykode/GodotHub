@@ -15,17 +15,8 @@ import 'version_logic.dart';
 
 String _tv(String key, {num? count, Map<String, Object?> args = const {}}) => ghTr('versions:$key', count: count, args: args);
 
-/// Below this width (in spacing units) the card stacks its actions under the
-/// release details.
 const double availableCardStackBelow = 110;
 
-/// One downloadable release asset in the Available versions list.
-///
-/// Anatomy: the tag in mono, then channel, .NET and size badges. The trailing
-/// side carries exactly one primary action for the current state: Install
-/// when not installed, Resume when paused, none while downloading or queued
-/// (Pause and Cancel are ghost buttons), and an Installed badge once it is on
-/// disk. The release page link is always a ghost icon button.
 class AvailableVersionCard extends StatelessWidget {
   const AvailableVersionCard({
     super.key,

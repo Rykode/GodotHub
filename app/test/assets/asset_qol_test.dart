@@ -202,7 +202,6 @@ void main() {
         sizes.add(maxResults);
         return const AssetLibraryResponse(assets: [], page: 0, pages: 1, total: 0);
       });
-      // About 1500 px of grid width: five columns.
       await base.pumpHost(tester, body: const AssetStoreView(), size: const Size(1560, 1000));
       await base.settle(tester, 10);
       expect(sizes, isNotEmpty);

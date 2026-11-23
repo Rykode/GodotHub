@@ -645,7 +645,6 @@ fn extract_tpz(archive_path: &Path, destination: &Path) -> Result<(u64, usize), 
         if entry.is_symlink() {
             continue;
         }
-        // `enclosed_name` rejects absolute paths and `..` traversal.
         let Some(path) = entry.enclosed_name() else {
             continue;
         };

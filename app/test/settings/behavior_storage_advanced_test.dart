@@ -232,7 +232,6 @@ void main() {
       expect(saved.last.projectScanDirs, ['C:/projects', dir.path]);
       expect(tester.widget<TextField>(addProject).controller!.text, isEmpty);
 
-      // The single template folder is edited in place and saved with Apply.
       final template = find.byType(TextField).last;
       await tester.enterText(template, dir.path);
       await base.settle(tester, 2);

@@ -392,7 +392,6 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.text(t.common.announcement_support_title), findsOneWidget);
 
-      // Turning the support setting off hides it again.
       enabled = false;
       await tester.pump(const Duration(seconds: GhAnnouncement.tickSeconds));
       await tester.pumpAndSettle();
@@ -401,7 +400,6 @@ void main() {
       controller.show();
       await tester.pumpAndSettle();
 
-      // Opening the support page also counts as dismissal.
       await tester.tap(find.text(t.common.support));
       await tester.pumpAndSettle();
       expect(supports, 1);

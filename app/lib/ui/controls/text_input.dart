@@ -63,7 +63,6 @@ class GhTextInput extends StatefulWidget {
   final double? width;
   final String? semanticLabel;
 
-  /// Read after the label by screen readers: the field's error, or its hint.
   final String? semanticHint;
   final String? tooltip;
   final int? maxLines;

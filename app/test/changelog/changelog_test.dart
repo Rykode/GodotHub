@@ -171,7 +171,6 @@ void main() {
       ),
       findsNothing,
     );
-    // Outside the card box itself, above the version line.
     final box = find.ancestor(of: find.text('v1.6.0'), matching: find.byType(GhAnimatedBox)).first;
     expect(find.descendant(of: box, matching: title), findsNothing);
     expect(tester.getBottomLeft(title).dy, lessThanOrEqualTo(tester.getTopLeft(box).dy));

@@ -24,7 +24,6 @@ class GhAnnouncementController extends ChangeNotifier {
   final void Function(String key, String value) setItem;
   final bool Function()? isHidden;
 
-  /// Mirrors the "Show support button" setting: when off, the banner stays away.
   final bool Function()? isEnabled;
 
   bool _visible = false;

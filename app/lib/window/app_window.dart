@@ -165,7 +165,6 @@ class AppWindow {
     _hardStopTimer = Timer(const Duration(seconds: 3), _releaseRestoredSize);
   }
 
-  /// Ends the settle period. Safe to call again.
   void _releaseRestoredSize() {
     _settleTimer?.cancel();
     _hardStopTimer?.cancel();
@@ -173,7 +172,6 @@ class AppWindow {
     settled.value = true;
   }
 
-  /// True when the window was put back to the restored size.
   bool _reassertRestoredSize() {
     final target = _restoredSize;
     if (target == null) return false;

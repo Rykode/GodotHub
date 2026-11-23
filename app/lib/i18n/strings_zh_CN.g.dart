@@ -947,6 +947,8 @@ class _Translations$common$zh_CN extends Translations$common$en_US {
 	@override String get clone_repo_selected => '已选择 {{name}}';
 	@override String get clone_repo_select_hint => '从列表中选择一个仓库以克隆。';
 	@override String get project_missing_badge => '不可用';
+	@override String get project_missing_relocate => 'Set new location';
+	@override String get dont_ask_again => 'Don\'t ask again';
 	@override String get project_missing_title => '项目文件夹不可用';
 	@override String get project_missing_desc => 'GodotHub 无法读取此路径下的 project.godot 文件。请重新连接磁盘或网络共享位置并刷新，或者将该项目从项目库中移除。';
 	@override String get project_missing_open_disabled => '请重新连接磁盘或网络共享位置，以打开此项目';
@@ -1541,6 +1543,17 @@ class _Translations$settings$zh_CN extends Translations$settings$en_US {
 	@override String get card_tilt_label => '悬停时卡片倾斜';
 	@override String get click_ripple_label => '点击时波纹';
 	@override String get press_bounce_label => '按下时回弹';
+	@override String get show_splash_label => 'Show splash screen on startup';
+	@override String get skipped_confirmations_label => 'Skipped confirmations';
+	@override String get skipped_confirmations_add => 'Add confirmation';
+	@override String get skipped_confirmations_remove => 'Ask again for this confirmation';
+	@override String get confirm_project_remove => 'Remove a project from the library';
+	@override String get confirm_project_delete => 'Delete a project';
+	@override String get confirm_project_bulk_remove => 'Remove several projects from the library';
+	@override String get confirm_project_bulk_delete => 'Delete several projects';
+	@override String get confirm_version_uninstall => 'Uninstall a Godot version';
+	@override String get confirm_export_templates_remove => 'Remove export templates';
+	@override String get confirm_export_templates_orphan_delete => 'Delete leftover export templates';
 	@override String get animation_intensity_label => '动画强度';
 	@override String get animation_full => '完整';
 	@override String get animation_subtle => '柔和';
@@ -3431,6 +3444,8 @@ extension on TranslationsZhCn {
 			'common.clone_repo_selected' => '已选择 {{name}}',
 			'common.clone_repo_select_hint' => '从列表中选择一个仓库以克隆。',
 			'common.project_missing_badge' => '不可用',
+			'common.project_missing_relocate' => 'Set new location',
+			'common.dont_ask_again' => 'Don\'t ask again',
 			'common.project_missing_title' => '项目文件夹不可用',
 			'common.project_missing_desc' => 'GodotHub 无法读取此路径下的 project.godot 文件。请重新连接磁盘或网络共享位置并刷新，或者将该项目从项目库中移除。',
 			'common.project_missing_open_disabled' => '请重新连接磁盘或网络共享位置，以打开此项目',
@@ -3882,10 +3897,10 @@ extension on TranslationsZhCn {
 			'settings.reset_settings' => '重置设置',
 			'settings.delete_app_data' => '删除应用数据',
 			'settings.new_project_default' => '新项目默认路径',
-			'settings.download_folder' => '下载文件夹',
-			'settings.system' => '跟随系统',
 			_ => null,
 		} ?? switch (path) {
+			'settings.download_folder' => '下载文件夹',
+			'settings.system' => '跟随系统',
 			'settings.k12h' => '12 小时制 (2:30 PM)',
 			'settings.k24h' => '24 小时制 (14:30)',
 			'settings.dd_mm_yyyy' => 'DD-MM-YYYY',
@@ -3970,6 +3985,17 @@ extension on TranslationsZhCn {
 			'settings.card_tilt_label' => '悬停时卡片倾斜',
 			'settings.click_ripple_label' => '点击时波纹',
 			'settings.press_bounce_label' => '按下时回弹',
+			'settings.show_splash_label' => 'Show splash screen on startup',
+			'settings.skipped_confirmations_label' => 'Skipped confirmations',
+			'settings.skipped_confirmations_add' => 'Add confirmation',
+			'settings.skipped_confirmations_remove' => 'Ask again for this confirmation',
+			'settings.confirm_project_remove' => 'Remove a project from the library',
+			'settings.confirm_project_delete' => 'Delete a project',
+			'settings.confirm_project_bulk_remove' => 'Remove several projects from the library',
+			'settings.confirm_project_bulk_delete' => 'Delete several projects',
+			'settings.confirm_version_uninstall' => 'Uninstall a Godot version',
+			'settings.confirm_export_templates_remove' => 'Remove export templates',
+			'settings.confirm_export_templates_orphan_delete' => 'Delete leftover export templates',
 			'settings.animation_intensity_label' => '动画强度',
 			'settings.animation_full' => '完整',
 			'settings.animation_subtle' => '柔和',
@@ -4385,6 +4411,8 @@ extension on TranslationsZhCn {
 			'versions.export_templates_category_other' => '其他',
 			'versions.export_templates_web_standard' => 'Web (标准)',
 			'versions.export_templates_web_extensions' => 'Web (支持扩展)',
+			_ => null,
+		} ?? switch (path) {
 			'versions.export_templates_web_single_threaded' => 'Web (单线程)',
 			'versions.export_templates_web_extensions_single_threaded' => 'Web (支持扩展·单线程)',
 			'versions.export_templates_refresh' => '刷新可用模板',
@@ -4398,8 +4426,6 @@ extension on TranslationsZhCn {
 			'versions.adding_custom_build' => '正在添加自定义构建…',
 			'versions.download_failed_summary' => 'GodotHub 无法下载 Godot {{tag}}。',
 			'versions.download_failed_show_details' => '显示错误详情',
-			_ => null,
-		} ?? switch (path) {
 			'versions.download_failed_hide_details' => '隐藏错误详情',
 			'versions.download_failed_report' => '报告此问题',
 			'versions.export_templates_select_none' => '取消全选',

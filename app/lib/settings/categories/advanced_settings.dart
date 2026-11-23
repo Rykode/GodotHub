@@ -13,6 +13,7 @@ import '../../ui/feedback/confirm_dialog.dart';
 import '../../ui/feedback/toast.dart';
 import '../settings_parts.dart';
 import 'settings_option_controls.dart';
+import 'skipped_confirmations_setting.dart';
 
 String _ts(String key, {num? count, Map<String, Object?> args = const {}}) => settingsTr(key, count: count, args: args);
 
@@ -93,6 +94,7 @@ class AdvancedSettings extends ConsumerWidget {
             onPressed: () => saveSettings(ref, (s) => copySettings(s, setupComplete: false)).ignore(),
           ),
         ),
+        const SkippedConfirmationsSetting(),
         SettingsActionCard(
           title: ghTr('check_updates_title_modal'),
           action: SettingsOutlineButton(

@@ -466,7 +466,6 @@ class TemplateCard extends StatelessWidget {
 
   final ProjectTemplate template;
 
-  /// A newer upload of the Asset Library asset this template came from.
   final TemplateUpdate? update;
   final bool updating;
   final VoidCallback? onUpdate;

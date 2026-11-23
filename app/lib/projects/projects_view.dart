@@ -35,6 +35,7 @@ import '../ui/core/i18n.dart';
 import '../ui/core/interaction.dart';
 import '../ui/core/tooltip.dart';
 import '../ui/feedback/confirm_dialog.dart';
+import '../ui/feedback/confirm_removal.dart';
 import '../ui/feedback/modal_shell.dart';
 import '../ui/feedback/toast.dart';
 import '../ui/overlays/context_menu.dart';
@@ -306,8 +307,9 @@ class ProjectsViewState extends ConsumerState<ProjectsView> {
   Future<void> _confirmBatch({required bool delete}) async {
     final tr = context.tr.common;
     final count = _selected.length;
-    final ok = await showGhConfirmDialog(
+    final ok = await confirmRemoval(
       context,
+      delete ? RemovalConfirm.projectBulkDelete : RemovalConfirm.projectBulkRemove,
       title: ghTr(delete ? 'bulk_delete_title' : 'bulk_remove_title', count: count),
       description: ghTr(delete ? 'bulk_delete_desc' : 'bulk_remove_desc', count: count),
       confirmLabel: delete ? tr.project_delete_confirm : tr.bulk_remove,
@@ -642,6 +644,7 @@ class ProjectsViewState extends ConsumerState<ProjectsView> {
       onVersionChange: (tag) => _projects.updateVersion(p.id, tag).ignore(),
       onRemove: () => _removeWithUndo(p, false).ignore(),
       onDelete: () => _projects.remove(p.id, true).ignore(),
+      onRelocate: () => relocateProject(p, _projects.refresh).ignore(),
       onCategoryChange: _viewMode == ProjectViewMode.list
           ? (settings.categoriesEnabled && _sortBy != ProjectSortOption.categories
                 ? (cat) => _projects.setCategory(p.id, cat).ignore()

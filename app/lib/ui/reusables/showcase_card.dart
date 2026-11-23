@@ -14,8 +14,6 @@ int _hash(String text) {
   return h;
 }
 
-/// Two colors derived from [seed] around the accent hue, for covers with no
-/// image and for initials avatars: every item gets its own, stable color.
 (Color, Color) ghSeedColors(GhTheme theme, String seed) {
   final h = _hash(seed);
   final base = HSLColor.fromColor(theme.accent);
@@ -25,10 +23,6 @@ int _hash(String text) {
   return (a, b);
 }
 
-/// The top of a showcase card. Shows [imageUrl] full bleed, or a generated
-/// gradient with a large faint [fallbackIcon] when there is no picture (or
-/// it fails to load). [topStart] and [topEnd] float over the
-/// cover (glass chips and quick actions). [zoom] is the card's hover state.
 class GhCover extends StatelessWidget {
   const GhCover({
     super.key,
@@ -46,7 +40,6 @@ class GhCover extends StatelessWidget {
   final FaIconData fallbackIcon;
   final bool zoom;
 
-  /// Height in spacing units.
   final double height;
   final List<Widget> topStart;
   final List<Widget> topEnd;
@@ -74,7 +67,6 @@ class GhCover extends StatelessWidget {
     Widget image(BoxFit fit, {Widget? fallback}) => Image.network(
       url!,
       fit: fit,
-      // Small library icons are scaled up to the cover; smooth the result.
       filterQuality: FilterQuality.medium,
       excludeFromSemantics: true,
       frameBuilder: ghFadeInFrameBuilder,
@@ -97,7 +89,6 @@ class GhCover extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           ClipRect(child: art),
-          // Soft scrim so glass chips read on bright images.
           IgnorePointer(
             child: DecoratedBox(
               decoration: BoxDecoration(
@@ -134,7 +125,6 @@ class GhCover extends StatelessWidget {
   }
 }
 
-/// A translucent pill for labels over a cover image (source, rating, category).
 class GhGlassChip extends StatelessWidget {
   const GhGlassChip({super.key, required this.label, this.icon, this.iconColor, this.tooltip});
 
@@ -174,9 +164,6 @@ class GhGlassChip extends StatelessWidget {
   }
 }
 
-/// A round translucent quick action over a cover (save, hide, open page).
-/// [visible] lets the card reveal it on hover or focus; an [active] action
-/// (a saved favorite) always shows.
 class GhGlassIconButton extends StatelessWidget {
   const GhGlassIconButton({
     super.key,
@@ -227,13 +214,11 @@ class GhGlassIconButton extends StatelessWidget {
   }
 }
 
-/// A small round initials badge with a color from the name, for authors.
 class GhInitialsAvatar extends StatelessWidget {
   const GhInitialsAvatar({super.key, required this.name, this.size = 6});
 
   final String name;
 
-  /// Diameter in spacing units.
   final double size;
 
   @override

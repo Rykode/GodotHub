@@ -218,8 +218,6 @@ fn pick_backup_gist(gists: Vec<GistSummary>) -> Option<BackupGist> {
     best.map(|(_, gist)| gist)
 }
 
-/// Find the newest backup gist in the signed-in account. This is what lets a
-/// fresh install (no local sync state) pick up an existing cloud backup.
 async fn find_backup_gist(
     client: &reqwest::Client,
     token: &str,
@@ -248,8 +246,6 @@ async fn find_backup_gist(
     Ok(pick_backup_gist(gists))
 }
 
-/// Local sync state when we have one, otherwise the newest backup gist found in
-/// the account (which is then remembered locally).
 async fn resolve_sync_state(
     app: &AppHandle,
     client: &reqwest::Client,
@@ -339,8 +335,6 @@ pub async fn gist_sync_push(app: AppHandle) -> Result<GistSyncResult, String> {
             }
         },
         None => match find_backup_gist(&client, &token).await {
-            // A backup already exists in this account: update it instead of
-            // creating a duplicate gist.
             Ok(Some(found)) => match update_gist(&client, &token, &found.id, &content).await {
                 Ok(url) => (found.id, url),
                 Err(update_err) => {
@@ -637,8 +631,6 @@ mod tests {
         assert!(!is_backup_gist(None, &gist_files(&[])));
     }
 
-    // Trimmed copy of a real GET /gists response (unrelated fields dropped),
-    // including a null description and files without an inlined content field.
     const GIST_LISTING: &str = r#"[
         {
             "id": "aa11",

@@ -1,0 +1,21 @@
+{
+  "id": "f53f7dbe-805d-4fc5-b9ee-3f22c5dd2ec1",
+  "version": "v1.6.3",
+  "date": "2026-11-23",
+  "notes": [
+    {
+      "category": "add",
+      "text": "Settings > Motion: new \"Show splash screen on startup\" toggle brings back the GodotHub logo intro when the app opens. It is off by default (#382)"
+    },
+    {
+      "category": "add",
+      "text": "Projects: a project whose folder is unavailable now has a \"Set new location\" button, so you can point it at the folder it moved to instead of removing it and re-adding it"
+    },
+    {
+      "category": "add",
+      "text": "Remove, delete and uninstall dialogs for projects and Godot versions now have a \"Don't ask again\" checkbox that skips only that one dialog. Settings > Advanced lists the skipped dialogs so you can turn each one back on"
+    }
+  ],
+  "known_issues": [],
+  "created_at": 1795388520
+}

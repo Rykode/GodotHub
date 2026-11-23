@@ -379,7 +379,6 @@ fn steam_roots() -> Vec<PathBuf> {
     roots
 }
 
-/// Parse `libraryfolders.vdf` for the `"path"` of each Steam library.
 fn steam_library_paths(steam_root: &Path) -> Vec<PathBuf> {
     let mut libs = vec![steam_root.to_path_buf()];
     let vdf = steam_root.join("steamapps").join("libraryfolders.vdf");

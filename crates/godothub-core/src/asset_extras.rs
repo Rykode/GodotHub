@@ -1,8 +1,3 @@
-//! Asset Store and Asset Library extras on top of search and install: a
-//! normalized detail view for both sources, a file listing of an asset's
-//! archive (downloaded once into a capped cache that installs reuse), the
-//! user's favorite and hidden assets, and update checks for templates that
-//! came from the Asset Library.
 
 use crate::asset_library::{
     client, fetch_detail, normalize_store_asset, resolve_store_download_url, AssetDetail,
@@ -22,7 +17,6 @@ use std::path::{Path, PathBuf};
 pub struct AssetMedia {
     pub url: String,
     pub thumbnail: Option<String>,
-    /// A video link (YouTube and the like) rather than an image.
     pub video: bool,
 }
 
@@ -37,11 +31,9 @@ pub struct AssetRelease {
     pub size_bytes: Option<u64>,
 }
 
-/// Everything the asset detail dialog shows, the same shape for both sources.
 #[derive(Debug, Clone, Serialize)]
 pub struct AssetInfo {
     pub asset: AssetLibraryAsset,
-    /// Plain text; the Store's BBCode is flattened.
     pub description: String,
     pub version: String,
     pub revision: Option<u64>,
@@ -67,7 +59,6 @@ pub struct AssetFileEntry {
 #[derive(Debug, Clone, Serialize)]
 pub struct AssetFileListing {
     pub entries: Vec<AssetFileEntry>,
-    /// The archive held more entries than are listed.
     pub truncated: bool,
     pub archive_bytes: u64,
 }
@@ -78,8 +69,6 @@ fn store_slugs(asset_id: &str) -> Option<(String, String)> {
     (!publisher.is_empty() && !slug.is_empty()).then(|| (publisher.to_string(), slug.to_string()))
 }
 
-/// Flattens BBCode to readable plain text: tags are dropped, list items get a
-/// bullet, `[url=..]label[/url]` keeps the label, and images disappear.
 pub(crate) fn bbcode_to_text(input: &str) -> String {
     let img = regex::Regex::new(r"(?is)\[img[^\]]*\].*?\[/img\]").unwrap();
     let item = regex::Regex::new(r"(?i)\[\*\]|\[li\]").unwrap();
@@ -295,8 +284,6 @@ pub async fn get_asset_info(asset_id: String) -> Result<AssetInfo, String> {
     Ok(info)
 }
 
-// ---------------------------------------------------------------------------
-// Archive cache shared by the file preview and installs.
 
 const ARCHIVE_CACHE_MAX_FILES: usize = 12;
 const ARCHIVE_CACHE_MAX_BYTES: u64 = 1024 * 1024 * 1024;
@@ -319,7 +306,6 @@ fn archive_cache_file(app: &AppHandle, url: &str) -> Option<PathBuf> {
 /// at the same URL, so an older copy must not be installed as the new one.
 const ARCHIVE_CACHE_MAX_AGE: std::time::Duration = std::time::Duration::from_secs(24 * 60 * 60);
 
-/// A recently downloaded archive for [url], if the preview fetched it.
 pub(crate) fn cached_archive(app: &AppHandle, url: &str) -> Option<PathBuf> {
     archive_cache_file(app, url).filter(|p| is_fresh(p, ARCHIVE_CACHE_MAX_AGE))
 }
@@ -333,7 +319,6 @@ fn is_fresh(path: &Path, max_age: std::time::Duration) -> bool {
         .is_some_and(|age| age <= max_age)
 }
 
-/// Keeps the cache to the newest few archives and a total size cap.
 pub(crate) fn prune_archive_cache(dir: &Path, max_files: usize, max_bytes: u64) {
     let Ok(entries) = fs::read_dir(dir) else {
         return;
@@ -401,8 +386,6 @@ async fn download_archive(
     Ok(dest)
 }
 
-/// Lists the files of a zip archive, adding folder entries for folders that
-/// are only implied by file paths, sorted folders-first per level.
 pub(crate) fn list_zip(path: &Path, max_entries: usize) -> Result<AssetFileListing, String> {
     let file = fs::File::open(path).map_err(|e| e.to_string())?;
     let archive_bytes = file.metadata().map(|m| m.len()).unwrap_or(0);
@@ -472,7 +455,6 @@ pub async fn list_asset_files(
         .map_err(|e| e.to_string())?
 }
 
-// ---------------------------------------------------------------------------
 // Favorites and hidden assets. Global, not per workspace: an asset you like or
 // dismissed is the same asset whichever workspace you browse it from.
 
@@ -539,8 +521,6 @@ pub fn set_asset_hidden(
     .map_err(|e| e.to_string())
 }
 
-// ---------------------------------------------------------------------------
-// Template updates.
 
 #[derive(Debug, Clone, Serialize)]
 pub struct TemplateUpdate {
@@ -550,8 +530,6 @@ pub struct TemplateUpdate {
     pub latest_version: String,
 }
 
-/// Whether the library copy is newer than what a template was installed from.
-/// Revisions are compared when both are known; otherwise the version strings.
 pub(crate) fn is_newer(
     installed_version: &str,
     installed_revision: Option<u64>,

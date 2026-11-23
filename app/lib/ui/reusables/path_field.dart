@@ -9,12 +9,9 @@ import '../core/i18n.dart';
 import '../feedback/toast.dart';
 import 'labelled_field.dart';
 
-/// What a path field must point at.
 enum GhPathKind {
-  /// An existing folder (scan folders, a project location, a clone parent).
   folder,
 
-  /// An existing file; see [GhPathField.extensions].
   file,
 
   /// Something that will be created: its parent folder must exist, and the
@@ -24,7 +21,6 @@ enum GhPathKind {
 
 typedef GhPathPicker = Future<String?> Function();
 
-/// Checks a typed path and returns the message to show, or null when usable.
 typedef GhPathValidator = String? Function(String raw);
 
 /// Cleans up a typed or pasted path: trims it, removes the quotes Windows'
@@ -79,18 +75,6 @@ String? ghPathError(String raw, GhPathKind kind, {bool required = true, List<Str
   return null;
 }
 
-/// The one path input in the app: an editable, monospace field the user can
-/// type or paste into, plus a Browse button that opens the native picker.
-///
-/// A value is committed with Enter, the Apply button ([showApply]) or a pick
-/// from Browse; it is validated then and [onCommitted] receives the cleaned
-/// path only when it is valid. Typing clears a shown error until the next
-/// commit. Forms that read [controller] on submit should set [showErrors]
-/// after a submit attempt so the current text is validated in place.
-///
-/// The field renders its own label, hint and error through
-/// [GhLabelledField]; pass [error] for form-level problems such as "a folder
-/// with this name already exists".
 class GhPathField extends StatefulWidget {
   const GhPathField({
     super.key,
@@ -128,49 +112,32 @@ class GhPathField extends StatefulWidget {
   final ValueChanged<String>? onCommitted;
   final ValueChanged<String>? onChanged;
 
-  /// Opens the native picker. Defaults to the folder picker; file kinds must
-  /// pass the picker that matches them (for example `pickSavePath`).
   final GhPathPicker? pick;
   final List<String> extensions;
   final String? placeholder;
   final bool enabled;
   final bool autofocus;
 
-  /// An empty value is an error. Turn off for optional paths.
   final bool required;
 
-  /// Marks the label as optional.
   final bool optional;
   final bool showErrors;
 
-  /// Shows an explicit Apply button while the text differs from the last
-  /// committed value, for fields that save immediately (settings).
   final bool showApply;
 
-  /// Icon-only Browse (and Apply) buttons for dense rows.
   final bool compactBrowse;
   final FocusNode? focusNode;
 
-  /// Replaces the [kind] check with a field-specific one, for paths with
-  /// their own rules (an export output may be relative to the project, for
-  /// example). Receives the raw text; normalize it with [ghNormalizePath].
   final GhPathValidator? validator;
 
-  /// Overrides the Browse button text (and its tooltip in [compactBrowse]).
   final String? browseLabel;
 
-  /// Overrides the Apply button text, for example "Add folder" on a field
-  /// that adds to a list.
   final String? applyLabel;
 
-  /// Empties the field after each commit, for fields that add to a list.
   final bool clearOnCommit;
 
-  /// Called when the native picker fails. Defaults to an error toast.
   final ValueChanged<Object>? onPickError;
 
-  /// Called after Enter commits a valid path (not after Browse or Apply), for
-  /// forms that submit on Enter.
   final ValueChanged<String>? onSubmitted;
 
   @override
@@ -228,8 +195,6 @@ class _GhPathFieldState extends State<GhPathField> {
   }
 
   void _onFocus() {
-    // Leaving the field validates what was typed so a mistake is visible
-    // before the user reaches the submit button.
     if (!_node.hasFocus && widget.controller.text.trim().isNotEmpty && widget.controller.text != _committed) _validate();
   }
 

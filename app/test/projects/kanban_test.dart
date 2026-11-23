@@ -274,7 +274,6 @@ void main() {
     await tester.pumpAndSettle();
     expect(saved, hasLength(1));
     expect(saved.single, closeTo(ProjectCardKanban.defaultColumnUnits(false) + 80 / theme.spacingUnit, 3));
-    // The parent stores the width; a saved width is applied to all columns.
     await _pump(tester, projects: [_project('a', 'Alpha', category: 'Games')], categories: categories, columnWidthUnits: saved.single);
     expect(tester.getSize(_column('c1')).width, greaterThan(before + 60));
     expect(tester.getSize(_column('uncategorized')).width, tester.getSize(_column('c1')).width);

@@ -1131,6 +1131,8 @@
   "clone_repo_selected": "已选择 {{name}}",
   "clone_repo_select_hint": "从列表中选择一个仓库以克隆。",
   "project_missing_badge": "不可用",
+  "project_missing_relocate": "Set new location",
+  "dont_ask_again": "Don't ask again",
   "project_missing_title": "项目文件夹不可用",
   "project_missing_desc": "GodotHub 无法读取此路径下的 project.godot 文件。请重新连接磁盘或网络共享位置并刷新，或者将该项目从项目库中移除。",
   "project_missing_open_disabled": "请重新连接磁盘或网络共享位置，以打开此项目",

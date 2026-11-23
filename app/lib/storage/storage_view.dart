@@ -618,8 +618,6 @@ class _StorageViewState extends ConsumerState<StorageView> {
     );
   }
 
-  /// Where the space goes, in one stacked bar with a legend, and whether
-  /// anything can be cleaned up.
   Widget _overview(GhTheme theme, StorageTotals totals, double reclaimable) {
     final parts = [
       (label: ghTr('versions:installed_heading'), value: totals.versions, color: theme.accent),
@@ -643,7 +641,6 @@ class _StorageViewState extends ConsumerState<StorageView> {
                 children: [
                   for (final p in shown)
                     Expanded(
-                      // At least a sliver for small but non-zero parts.
                       flex: math.max(1, (p.value / totals.all * 1000).round()),
                       child: Padding(
                         padding: EdgeInsetsDirectional.only(end: p == shown.last ? 0 : 2),

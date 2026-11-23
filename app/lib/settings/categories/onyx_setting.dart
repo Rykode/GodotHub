@@ -14,8 +14,6 @@ import 'settings_buttons.dart';
 
 String _ts(String key, {Map<String, Object?> args = const {}}) => ghTr('settings:$key', args: args);
 
-/// Onyx uploads builds to Steamworks. It can only be turned on while an up-to-date
-/// copy is installed; otherwise the section links to its GitHub releases.
 class OnyxSetting extends ConsumerStatefulWidget {
   const OnyxSetting({super.key});
 

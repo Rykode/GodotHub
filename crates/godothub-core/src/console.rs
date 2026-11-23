@@ -491,8 +491,6 @@ pub fn spawn_in_app_console(
     })
 }
 
-/// A build owns its child process, rather than participating in editor/game
-/// tracking. Reuse the same bounded buffers, disk log and incremental reader.
 pub(crate) struct JobConsole {
     id: String,
     session: u64,

@@ -9,16 +9,17 @@ import '../ui/core/i18n.dart';
 /// drive or an offline network share. The library entry is kept; removing it
 /// is always the user's explicit choice.
 class ProjectMissingNotice extends StatelessWidget {
-  const ProjectMissingNotice({super.key, required this.onRemove, this.compact = false});
+  const ProjectMissingNotice({super.key, required this.onRemove, this.onRelocate, this.compact = false});
 
   final VoidCallback? onRemove;
+  final VoidCallback? onRelocate;
   final bool compact;
 
   @override
   Widget build(BuildContext context) {
     final theme = GhTheme.of(context);
     final tr = context.tr.common;
-    final remove = onRemove == null
+    final removeButton = onRemove == null
         ? null
         : GhButton(
             label: tr.project_card_remove_library,
@@ -27,6 +28,12 @@ class ProjectMissingNotice extends StatelessWidget {
             onPressed: onRemove,
             tooltip: compact ? tr.project_missing_desc : null,
           );
+    final relocateButton = onRelocate == null
+        ? null
+        : GhButton(label: tr.project_missing_relocate, variant: GhButtonVariant.ghost, size: GhTextSize.x2s, onPressed: onRelocate);
+    final remove = removeButton == null && relocateButton == null
+        ? null
+        : Wrap(spacing: theme.space(1), runSpacing: theme.space(1), children: [?relocateButton, ?removeButton]);
     return Semantics(
       container: true,
       liveRegion: true,
@@ -39,8 +46,6 @@ class ProjectMissingNotice extends StatelessWidget {
         ),
         child: LayoutBuilder(
           builder: (context, constraints) {
-            // Narrow cards (kanban columns, small grid tiles) cannot fit the
-            // remove action beside the title, so it moves underneath.
             final stacked = remove != null && constraints.maxWidth < theme.space(76);
             return Row(
               crossAxisAlignment: CrossAxisAlignment.start,

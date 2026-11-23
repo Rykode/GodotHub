@@ -605,10 +605,6 @@ class _ProjectCardGridState extends State<ProjectCardGrid> {
   }
 }
 
-/// Category board: one column per visible category plus uncategorized.
-/// Columns share one width that grows to fill the view when only a few are
-/// shown and falls back to a minimum width with horizontal scroll when they
-/// do not fit.
 class ProjectCardKanban extends StatefulWidget {
   const ProjectCardKanban({
     super.key,
@@ -632,12 +628,8 @@ class ProjectCardKanban extends StatefulWidget {
   final Set<String> selectedIds;
   final bool compact;
 
-  /// The width every column uses, in spacing units; null for the default.
-  /// Columns keep this width whatever the board's size: a few columns leave
-  /// free space beside them, many scroll sideways.
   final double? columnWidthUnits;
 
-  /// Called with the new width when the user finishes dragging a column edge.
   final ValueChanged<double>? onColumnWidthChanged;
   final ProjectReorderCallback? onReorder;
   final ProjectMoveCallback? onMoveProjects;
@@ -645,7 +637,6 @@ class ProjectCardKanban extends StatefulWidget {
   final ValueChanged<String>? onUnhideCategory;
   final CategoryMenuOpener? onCategoryContextMenu;
 
-  /// Column width limits and defaults, in spacing units.
   static const double minColumnUnits = 64;
   static const double maxColumnUnits = 160;
   static double defaultColumnUnits(bool compact) => compact ? 64 : 76;
@@ -658,7 +649,6 @@ class _ProjectCardKanbanState extends State<ProjectCardKanban> {
   final ProjectDndBinding _dnd = ProjectDndBinding('kanban-cat-');
   final ScrollController _horizontal = GhSmoothScrollController();
 
-  /// The width while an edge is being dragged, before it is saved.
   double? _dragUnits;
   bool _resizeHover = false;
 
@@ -667,8 +657,6 @@ class _ProjectCardKanbanState extends State<ProjectCardKanban> {
     ProjectCardKanban.maxColumnUnits,
   );
 
-  /// The grip on a column's trailing edge. Dragging it resizes every column,
-  /// so the board keeps one even rhythm.
   Widget _resizeGrip(GhTheme theme) {
     if (widget.onColumnWidthChanged == null) return const SizedBox.shrink();
     final rtl = Directionality.of(context) == TextDirection.rtl;
@@ -829,10 +817,6 @@ class _ProjectCardKanbanState extends State<ProjectCardKanban> {
   }
 }
 
-/// One board column: a quiet surface with a fixed header (category dot,
-/// name, count, options) above its own vertically scrolling card list. The
-/// whole column is the drop zone, so it lights up while a dragged card is
-/// anywhere over it, and an empty column shows a dashed drop target.
 class KanbanColumn extends StatelessWidget {
   const KanbanColumn({
     super.key,
@@ -909,8 +893,6 @@ class KanbanColumn extends StatelessWidget {
                 border: Border.all(color: Colors.black.withValues(alpha: 0.2)),
               ),
             ),
-            // Title and count share the free space, so the options button
-            // always sits flush with the column's end.
             Expanded(
               child: Row(
                 spacing: theme.space(2),

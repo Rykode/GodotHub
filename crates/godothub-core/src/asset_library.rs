@@ -101,8 +101,6 @@ pub struct AssetLibraryAsset {
     pub modify_date: Option<String>,
     pub rating: String,
     pub source: String,
-    /// The latest version string, when the source reports it in results
-    /// (the Asset Library does; Store results leave it empty).
     #[serde(default)]
     pub version: String,
 }
@@ -272,7 +270,6 @@ async fn download_to_file(
     title: &str,
     max_bytes: Option<u64>,
 ) -> Result<(), String> {
-    // The file preview already downloaded this archive: reuse it.
     if let Some(cached) = crate::asset_extras::cached_archive(app, url) {
         fs::copy(&cached, dest).map_err(|e| e.to_string())?;
         return Ok(());
@@ -1086,8 +1083,6 @@ async fn download_and_install(
     extract_result
 }
 
-/// Downloads the newest upload of the asset a template came from and swaps
-/// it into that template, keeping the template's id and name.
 pub async fn update_template_from_asset(app: AppHandle, template_id: String) -> Result<ProjectTemplate, String> {
     let template = crate::templates::read_templates(&app)
         .into_iter()
@@ -1132,15 +1127,12 @@ pub async fn update_template_from_asset(app: AppHandle, template_id: String) -> 
     result
 }
 
-/// Cap on the compressed archive we are willing to download to disk.
 pub(crate) const MAX_ASSET_DOWNLOAD_BYTES: u64 = 2 * 1024 * 1024 * 1024;
 
 struct ExtractLimits {
     /// Cap on the total decompressed size across all entries (zip-bomb guard).
     max_total_bytes: u64,
-    /// Cap on the number of entries in the archive.
     max_entries: usize,
-    /// Cap on a single entry's decompressed size.
     max_entry_bytes: u64,
 }
 
@@ -1344,7 +1336,6 @@ mod extract_tests {
             let mut w = ZipWriter::new(Cursor::new(&mut buf));
             let opts =
                 SimpleFileOptions::default().compression_method(zip::CompressionMethod::Deflated);
-            // Two 800-byte entries decompress to 1600 bytes, past the 1024 cap.
             for n in 0..2 {
                 w.start_file(format!("payload{n}.bin"), opts).unwrap();
                 w.write_all(&vec![0u8; 800]).unwrap();

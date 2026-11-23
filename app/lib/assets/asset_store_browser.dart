@@ -43,7 +43,6 @@ class AssetStoreBrowser extends ConsumerStatefulWidget {
     this.savedOnly = false,
   });
 
-  /// Shows the user's saved (favorite) assets instead of search results.
   final bool savedOnly;
 
   final String query;
@@ -53,8 +52,6 @@ class AssetStoreBrowser extends ConsumerStatefulWidget {
   final AssetSortKey sort;
   final ValueChanged<({bool loading, int total})>? onStatsChange;
 
-  /// Resets the search and filters; offered when nothing matches. Null when
-  /// no search or filter is active.
   final VoidCallback? onClearFilters;
 
   @override
@@ -67,7 +64,6 @@ class _AssetStoreBrowserState extends ConsumerState<AssetStoreBrowser> {
   bool _paging = false;
   String? _error;
 
-  /// A page change that failed while the current results stay visible.
   int? _failedPage;
   int _page = 0;
   int _pages = 0;
@@ -80,12 +76,9 @@ class _AssetStoreBrowserState extends ConsumerState<AssetStoreBrowser> {
   Timer? _noticeTimer;
   int _requestSeq = 0;
 
-  /// Page size matched to the column count, set from the first layout.
   int _pageSize = assetPageSize;
   bool _sized = false;
 
-  /// Requests pages that fill whole rows. Measured from the grid's width
-  /// before the first search, and again when a resize changes the columns.
   Widget _sizedTo(BoxConstraints constraints, Widget child) {
     final theme = GhTheme.of(context);
     final size = assetPageSizeFor(GhGridBreakpoints.cards.columnsFor(constraints.maxWidth, fontScale: theme.fontScale));

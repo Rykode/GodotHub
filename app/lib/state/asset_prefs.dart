@@ -61,7 +61,6 @@ extension AssetPrefsLookup on AssetPrefs {
   Set<String> get hiddenIds => {for (final h in hidden) h.assetId};
 }
 
-/// Which of the user's projects each asset was installed into by GodotHub.
 final assetInstallationsProvider = NotifierProvider<AssetInstallationsNotifier, ApiData<List<AssetInstallation>>>(
   AssetInstallationsNotifier.new,
 );
@@ -82,11 +81,9 @@ Map<String, List<AssetInstallation>> groupInstallations(List<AssetInstallation> 
   return map;
 }
 
-/// True when [asset] reports a version and a project has a different one.
 bool assetHasUpdate(AssetLibraryAsset asset, List<AssetInstallation> installs) =>
     asset.version.isNotEmpty && installs.any((i) => i.version.isNotEmpty && i.version != asset.version);
 
-/// Local templates whose Asset Library source has a newer upload.
 final templateUpdatesProvider = NotifierProvider<TemplateUpdatesNotifier, ApiData<List<TemplateUpdate>>>(TemplateUpdatesNotifier.new);
 
 class TemplateUpdatesNotifier extends ApiDataNotifier<List<TemplateUpdate>> {

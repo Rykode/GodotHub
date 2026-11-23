@@ -8,10 +8,6 @@ import '../core/i18n.dart';
 
 enum GhStateKind { empty, loading, error }
 
-/// The one empty / loading / error panel for main screens. Every state has an
-/// icon, a short title, an optional explanation and the actions that get the
-/// user unstuck (retry, change filters, open settings). Errors use the danger
-/// tone and always offer [onRetry] when one is provided.
 class GhStatePanel extends StatelessWidget {
   const GhStatePanel({
     super.key,
@@ -118,8 +114,6 @@ class GhStatePanel extends StatelessWidget {
   }
 }
 
-/// A placeholder bar for skeleton loaders. Give either [width] or
-/// [widthFactor]; height and radius default to a single text line.
 class GhSkeleton extends StatelessWidget {
   const GhSkeleton({super.key, this.width, this.widthFactor, required this.height, this.radius});
 

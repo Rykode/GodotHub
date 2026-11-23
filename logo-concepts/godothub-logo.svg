@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <title>GodotHub logo</title>
+  <defs>
+    <mask id="cut" maskUnits="userSpaceOnUse" x="0" y="0" width="259" height="259">
+      <rect width="259" height="259" fill="#fff"/>
+      <circle cx="85" cy="124" r="24" fill="#000"/>
+      <circle cx="174" cy="124" r="24" fill="#000"/>
+      <polyline points="17,160.2 65,168 65,202 111,202 111,168 148,168 148,202 194,202 194,168 242,160.2" fill="none" stroke="#000" stroke-width="11" stroke-linejoin="miter" stroke-miterlimit="10"/>
+    </mask>
+  </defs>
+  <rect width="1024" height="1024" rx="232" fill="#494FE5"/>
+  <g transform="translate(51.2 53.9) scale(3.5583)">
+    <path d="M41.5 67.5A30 30 0 0 1 71.5 37.5L187.5 37.5A30 30 0 0 1 217.5 67.5L217.5 95L41.5 95Z" fill="#fff" fill-opacity="0.34"/>
+    <path d="M32.5 82.5A30 30 0 0 1 62.5 52.5L196.5 52.5A30 30 0 0 1 226.5 82.5L226.5 95L32.5 95Z" fill="#fff" fill-opacity="0.424"/>
+    <path d="M22.7 99.7A30 30 0 0 1 52.7 67.5L206.3 67.5A30 30 0 0 1 236.3 99.7L232.4 152L226.8 197.2A26 26 0 0 1 201 220L58 220A26 26 0 0 1 32.2 197.2L26.6 152Z" fill="#fff" mask="url(#cut)"/>
+  </g>
+</svg>

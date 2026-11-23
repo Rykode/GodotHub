@@ -1,4 +1,8 @@
 <p align="center">
+  <img src="assets/godothub-logo.png" alt="GodotHub logo" width="96" height="96">
+</p>
+
+<p align="center">
   <a href="https://ryko.is-a.dev/godothub">
     <img width="800" height="340" alt="Frame 3" src="https://github.com/user-attachments/assets/09d83d02-2741-4507-8ba7-904c215af51e" />
   </a>

@@ -189,6 +189,7 @@ class NativeTrayBackend implements TrayBackend {
     icon.icon = native_ui.Image.fromBase64(base64Encode(bytes.buffer.asUint8List(bytes.offsetInBytes, bytes.lengthInBytes)));
     icon.isIconTemplate = Platform.isMacOS;
     icon.setContextMenuTrigger(native_ui.ContextMenuTrigger.rightClicked);
+    icon.setVisible(true);
     final backend = NativeTrayBackend._(icon);
     icon.addListener((event) {
       if (event is native_ui.TrayIconClickedEvent) onClick();

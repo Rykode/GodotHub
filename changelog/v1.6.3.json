@@ -16,6 +16,10 @@
       "text": "Remove, delete and uninstall dialogs for projects and Godot versions now have a \"Don't ask again\" checkbox that skips only that one dialog. Settings > Advanced lists the skipped dialogs so you can turn each one back on"
     },
     {
+      "category": "fix",
+      "text": "Windows: the GodotHub system tray icon now actually appears. Was Bugged after changing from tauri to flutter"
+    },
+    {
       "category": "improve",
       "text": "UI polish pass: the Dashboard stat cards and activity bars are now flat in your accent color instead of fixed blue, violet, green and amber gradients, the Versions \"Open\" button is smaller, the Git sidebar's Push, Pull and Fetch buttons show text labels, and the Appearance Reset button and the System language entry use proper icons instead of a heart and an emoji"
     },

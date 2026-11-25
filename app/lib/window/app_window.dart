@@ -67,7 +67,9 @@ class AppWindow {
   final double _scale;
   Rect? _normalBounds;
   Size? _restoredSize;
+  Offset? _restoredPosition;
   int _restoreRetries = 0;
+  int _positionRetries = 0;
   Timer? _settleTimer;
   Timer? _hardStopTimer;
   bool _closing = false;
@@ -120,7 +122,7 @@ class AppWindow {
       // Wayland always composites, so the window can be left invisible while it settles.
       // The OS frame would show over an empty window, and without a compositor it would be black.
       final hideWhileSettling = !useOsDecorations && Platform.environment.containsKey('WAYLAND_DISPLAY');
-      app._holdRestoredSize(restored.size, hideWindow: hideWhileSettling);
+      app._holdRestoredSize(restored.size, position: restored.position, hideWindow: hideWhileSettling);
     }
     app._normalBounds = window.bounds.toRect();
     if (saved?.maximized ?? false) {
@@ -139,6 +141,7 @@ class AppWindow {
     SchedulerBinding.instance.addPostFrameCallback((_) {
       window.show();
       window.focus();
+      app._reassertRestoredSize();
       app._startSettleClock();
     });
     return app;
@@ -146,10 +149,15 @@ class AppWindow {
 
   /// On Linux the compositor and the window's shadow gutter resize a window again
   /// after it is mapped, so the restored size does not stick (#352). Until the size
-  /// has stopped changing, put the restored size back whenever it was changed.
-  void _holdRestoredSize(Size size, {required bool hideWindow}) {
+  /// has stopped changing, put the restored size back whenever it was changed. The
+  /// position gets the same treatment: the window manager places a window by its own
+  /// rules when it maps it, and the position set before that is lost (on X11 the
+  /// window came up at 0,0 and that was then saved over the real position).
+  void _holdRestoredSize(Size size, {Offset? position, required bool hideWindow}) {
     if (!Platform.isLinux) return;
     _restoredSize = size;
+    _restoredPosition = position;
+    _positionRetries = 6;
     _restoreRetries = 3;
     if (hideWindow) settled.value = false;
     // Only a failsafe: the settle clock proper starts once the window is shown, because
@@ -169,6 +177,7 @@ class AppWindow {
     _settleTimer?.cancel();
     _hardStopTimer?.cancel();
     _restoredSize = null;
+    _restoredPosition = null;
     settled.value = true;
   }
 
@@ -177,7 +186,20 @@ class AppWindow {
     if (target == null) return false;
     _settleTimer?.cancel();
     _settleTimer = Timer(const Duration(milliseconds: 1200), _releaseRestoredSize);
-    final current = _window.bounds.toRect().size;
+    final bounds = _window.bounds.toRect();
+    final position = _restoredPosition;
+    if (position != null) {
+      if ((bounds.left - position.dx).abs() >= 1 || (bounds.top - position.dy).abs() >= 1) {
+        // Wayland never reports a position, so there the retries run out and the hold ends.
+        if (_positionRetries > 0 && !_window.isMaximized && !_window.isMinimized) {
+          _positionRetries--;
+          _window.bounds = (position & target).toNative();
+          return true;
+        }
+        _restoredPosition = null;
+      }
+    }
+    final current = bounds.size;
     if ((current.width - target.width).abs() < 1 && (current.height - target.height).abs() < 1) {
       return false;
     }

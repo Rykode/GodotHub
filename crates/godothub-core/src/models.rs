@@ -187,6 +187,8 @@ pub struct AppSettings {
     pub git_auto_fetch: bool,
     #[serde(default)]
     pub close_on_project_open: bool,
+    #[serde(default = "default_true")]
+    pub check_updates_on_startup: bool,
     #[serde(default)]
     pub minimize_to_tray: bool,
     #[serde(default)]
@@ -661,6 +663,7 @@ impl Default for AppSettings {
             animation_intensity: default_animation_intensity(),
             view_entrance: default_view_entrance(),
             close_on_project_open: false,
+            check_updates_on_startup: true,
             minimize_to_tray: false,
             reopen_after_godot_closes: false,
             last_opened_time_format: default_last_opened_time_format(),

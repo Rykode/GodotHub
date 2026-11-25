@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../api/updater.dart';
+import 'settings.dart';
 
 @immutable
 class UpdateAvailableState {
@@ -44,11 +45,24 @@ class UpdateAvailableNotifier extends Notifier<UpdateAvailableState> {
     var cancelled = false;
     ref.onDispose(() => cancelled = true);
     final check = ref.read(updateCheckerProvider);
-    scheduleMicrotask(() async {
+    Future<void> run() async {
       try {
         final available = await check();
         if (!cancelled && available) state = state.copyWith(updateAvailable: true);
       } catch (_) {}
+    }
+
+    // With the startup check off nothing is asked until the user checks by hand; turning it
+    // back on checks right away.
+    scheduleMicrotask(() async {
+      var enabled = true;
+      try {
+        enabled = (await ref.read(settingsProvider.future)).checkUpdatesOnStartup;
+      } catch (_) {}
+      if (!cancelled && enabled) await run();
+    });
+    ref.listen(settingsProvider.select((settings) => settings.value?.checkUpdatesOnStartup), (previous, next) {
+      if (previous == false && next == true) run().ignore();
     });
     return const UpdateAvailableState();
   }

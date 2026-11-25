@@ -485,6 +485,8 @@ class _Translations$common$ar_MA extends Translations$common$en_US {
 	@override String get onboarding_corner_radius => 'دوران الزوايا';
 	@override String get onboarding_discord_rpc => 'ميزة \'Rich Presence\' في Discord';
 	@override String get onboarding_discord_rpc_desc => 'Show what you\'re doing in GodotHub on your Discord profile.';
+	@override String get onboarding_check_updates => 'Check for updates on startup';
+	@override String get onboarding_check_updates_desc => 'GodotHub looks for a new version each time it opens. Turn this off to check only when you ask. You can change it later in Settings.';
 	@override String get version_search_placeholder => 'بحث عن الإصدارات…';
 	@override String get version_no_installed => 'لا توجد إصدارات مثبتة. Download a version from below or drag and drop your existing version folder here.';
 	@override String get version_save_name_aria => 'احفظ الإسم';
@@ -1603,6 +1605,10 @@ class _Translations$settings$ar_MA extends Translations$settings$en_US {
 	@override String get delete_all_desc => 'هذا سيحذف بشكل كامل كل بيئة عمل, مشروع, تصنيف, إصدارات مثبتة, و كل إعدادات GodotHub, و يعيدك إلى قائمة الإعداد الأولى. مجلدات مشاريعك و نسخ Godot المثبتة لن تُلمس, إلا إذا كانت في مجلد التحميل الإفتراضي, في هذه الحالة سيتم حذفهم فعلا (إصدارات Godot). هذا الخيار لا يمكن التراجع عنه.';
 	@override String get empty_hint_projects => 'لم تُضف أي مجلدات, لن يتم مسح أي مجلد أثناء الإقلاع, المشاريع الجديدة ستسألك أين تحفظ في كل مرة.';
 	@override String get empty_hint_versions => 'لم تُضف أي مجلدات, , لن يتم مسح أي مجلد أثناء الإقلاع, التنزيلات الجديدة ستستخدم مجلد بيانات التطبيق.';
+	@override String get check_updates_startup_label => 'Check for updates on startup';
+	@override String get editor_path_label => 'Code editor';
+	@override String get editor_path_placeholder => 'Path to your editor, e.g. zed (empty: auto-detect)';
+	@override String get editor_path_browse => 'Browse';
 	@override String get naming_convention_label => 'مجلد تمسية المصطلحات';
 	@override String get naming_keep => 'أبقه كما هو مكتوب (My Game)';
 	@override String get naming_kebab => 'kebab-case (my-game)';
@@ -1834,9 +1840,9 @@ class _Translations$settings$ar_MA extends Translations$settings$en_US {
 	@override String get interface_label => 'واجهة المستخدم';
 	@override String get card_layout_label => 'تخطيط البطاقة';
 	@override String get landing_tab_label => 'الصفحة الأساسية الإفتراضية';
-	@override String get language_complete => 'مكتملة';
-	@override String get language_beta => 'تجريبية';
-	@override String get language_incomplete => 'غير مكتملة';
+	@override String get language_complete => 'Maintained';
+	@override String get language_beta => 'Occasional';
+	@override String get language_incomplete => 'Unmaintained';
 	@override String get use_os_decorations => 'استخدم مظهر نافذة نظام التشغيل';
 	@override String get credits => 'المطورون';
 	@override String get credits_developer => 'تم الإنشاء بواسطة';
@@ -3016,6 +3022,8 @@ extension on TranslationsArMa {
 			'common.onboarding_corner_radius' => 'دوران الزوايا',
 			'common.onboarding_discord_rpc' => 'ميزة \'Rich Presence\' في Discord',
 			'common.onboarding_discord_rpc_desc' => 'Show what you\'re doing in GodotHub on your Discord profile.',
+			'common.onboarding_check_updates' => 'Check for updates on startup',
+			'common.onboarding_check_updates_desc' => 'GodotHub looks for a new version each time it opens. Turn this off to check only when you ask. You can change it later in Settings.',
 			'common.version_search_placeholder' => 'بحث عن الإصدارات…',
 			'common.version_no_installed' => 'لا توجد إصدارات مثبتة. Download a version from below or drag and drop your existing version folder here.',
 			'common.version_save_name_aria' => 'احفظ الإسم',
@@ -3142,10 +3150,10 @@ extension on TranslationsArMa {
 			'common.task_tray_only_recent_one' => '{{count}} المهمة الأخيرة',
 			'common.task_tray_only_recent_other' => '{{count}} المهام الأخيرة',
 			'common.task_tray_aria' => 'المهام',
-			'common.task_tray_auto_dismiss' => 'Completed auto-dismiss',
-			'common.task_tray_dismiss' => 'متجاهلة {{count}}',
 			_ => null,
 		} ?? switch (path) {
+			'common.task_tray_auto_dismiss' => 'Completed auto-dismiss',
+			'common.task_tray_dismiss' => 'متجاهلة {{count}}',
 			'common.task_error_status' => 'خطأ',
 			'common.command_palette_title' => 'Command Palette',
 			'common.command_palette_placeholder' => 'Search commands, projects, engines, settings…',
@@ -3656,10 +3664,10 @@ extension on TranslationsArMa {
 			'common.project_addons.update_to' => 'Version {{version}} is available',
 			'common.project_addons.current' => 'Up to date ({{version}})',
 			'common.project_addons.matched_by_name' => 'matched by name to “{{title}}”',
-			'common.project_addons.update' => 'Update',
-			'common.project_addons.updating' => 'Updating…',
 			_ => null,
 		} ?? switch (path) {
+			'common.project_addons.update' => 'Update',
+			'common.project_addons.updating' => 'Updating…',
 			'common.project_addons.updated' => '{{name}} was updated',
 			'common.project_addons.confirm_title' => 'Update {{name}}?',
 			'common.project_addons.confirm_description' => 'This replaces res://addons/{{folder}} with version {{version}} from the Asset Library. The old folder is moved to the Trash, so any changes you made to the addon are kept there. Close the project in Godot first.',
@@ -4170,10 +4178,10 @@ extension on TranslationsArMa {
 			'settings.restart_app_confirm_title' => 'هل تريد إعادة تشغيل GodotHub',
 			'settings.restart_app_confirm_desc' => 'سيتم إغلاق التطبيق و إعادة فتحه تلقائيا. العملية التي في طور التشغيل أو الغير محفوظة ستتم مقاطعتها.',
 			'settings.reset_settings' => 'أعد ضبط كل الإعدادات',
-			'settings.delete_app_data' => 'احذف ملفات التطبيق',
-			'settings.new_project_default' => 'مجلد البحث الإفتراضي',
 			_ => null,
 		} ?? switch (path) {
+			'settings.delete_app_data' => 'احذف ملفات التطبيق',
+			'settings.new_project_default' => 'مجلد البحث الإفتراضي',
 			'settings.download_folder' => 'مجلد التنزيل الإفتراضي',
 			'settings.system' => 'النظام',
 			'settings.k12h' => '12-ساعة (2:30 PM)',
@@ -4187,6 +4195,10 @@ extension on TranslationsArMa {
 			'settings.delete_all_desc' => 'هذا سيحذف بشكل كامل كل بيئة عمل, مشروع, تصنيف, إصدارات مثبتة, و كل إعدادات GodotHub, و يعيدك إلى قائمة الإعداد الأولى. مجلدات مشاريعك و نسخ Godot المثبتة لن تُلمس, إلا إذا كانت في مجلد التحميل الإفتراضي, في هذه الحالة سيتم حذفهم فعلا (إصدارات Godot). هذا الخيار لا يمكن التراجع عنه.',
 			'settings.empty_hint_projects' => 'لم تُضف أي مجلدات, لن يتم مسح أي مجلد أثناء الإقلاع, المشاريع الجديدة ستسألك أين تحفظ في كل مرة.',
 			'settings.empty_hint_versions' => 'لم تُضف أي مجلدات, , لن يتم مسح أي مجلد أثناء الإقلاع, التنزيلات الجديدة ستستخدم مجلد بيانات التطبيق.',
+			'settings.check_updates_startup_label' => 'Check for updates on startup',
+			'settings.editor_path_label' => 'Code editor',
+			'settings.editor_path_placeholder' => 'Path to your editor, e.g. zed (empty: auto-detect)',
+			'settings.editor_path_browse' => 'Browse',
 			'settings.naming_convention_label' => 'مجلد تمسية المصطلحات',
 			'settings.naming_keep' => 'أبقه كما هو مكتوب (My Game)',
 			'settings.naming_kebab' => 'kebab-case (my-game)',
@@ -4369,9 +4381,9 @@ extension on TranslationsArMa {
 			'settings.interface_label' => 'واجهة المستخدم',
 			'settings.card_layout_label' => 'تخطيط البطاقة',
 			'settings.landing_tab_label' => 'الصفحة الأساسية الإفتراضية',
-			'settings.language_complete' => 'مكتملة',
-			'settings.language_beta' => 'تجريبية',
-			'settings.language_incomplete' => 'غير مكتملة',
+			'settings.language_complete' => 'Maintained',
+			'settings.language_beta' => 'Occasional',
+			'settings.language_incomplete' => 'Unmaintained',
 			'settings.use_os_decorations' => 'استخدم مظهر نافذة نظام التشغيل',
 			'settings.credits' => 'المطورون',
 			'settings.credits_developer' => 'تم الإنشاء بواسطة',
@@ -4680,14 +4692,14 @@ extension on TranslationsArMa {
 			'versions.export_templates_uninstall_named' => 'Uninstall {{name}}',
 			'versions.export_templates_uninstall_failed' => 'Couldn\'t uninstall templates: {{error}}',
 			'versions.export_templates_category_desktop' => 'Desktop',
+			_ => null,
+		} ?? switch (path) {
 			'versions.export_templates_category_mobile' => 'Mobile',
 			'versions.export_templates_category_web' => 'Web',
 			'versions.export_templates_category_common' => 'Common',
 			'versions.export_templates_category_other' => 'Other',
 			'versions.export_templates_web_standard' => 'Web',
 			'versions.export_templates_web_extensions' => 'Web with Extensions',
-			_ => null,
-		} ?? switch (path) {
 			'versions.export_templates_web_single_threaded' => 'Web Single-Threaded',
 			'versions.export_templates_web_extensions_single_threaded' => 'Web with Extensions Single-Threaded',
 			'versions.export_templates_refresh' => 'Refresh available templates',

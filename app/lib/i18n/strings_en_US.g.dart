@@ -1236,6 +1236,12 @@ class Translations$common$en_US {
 	/// en-US: 'Show what you're doing in GodotHub on your Discord profile.'
 	String get onboarding_discord_rpc_desc => 'Show what you\'re doing in GodotHub on your Discord profile.';
 
+	/// en-US: 'Check for updates on startup'
+	String get onboarding_check_updates => 'Check for updates on startup';
+
+	/// en-US: 'GodotHub looks for a new version each time it opens. Turn this off to check only when you ask. You can change it later in Settings.'
+	String get onboarding_check_updates_desc => 'GodotHub looks for a new version each time it opens. Turn this off to check only when you ask. You can change it later in Settings.';
+
 	/// en-US: 'Search versions…'
 	String get version_search_placeholder => 'Search versions…';
 
@@ -4100,6 +4106,18 @@ class Translations$settings$en_US {
 	/// en-US: 'No folders added, nothing will be scanned at startup, and new downloads will use the app data folder.'
 	String get empty_hint_versions => 'No folders added, nothing will be scanned at startup, and new downloads will use the app data folder.';
 
+	/// en-US: 'Check for updates on startup'
+	String get check_updates_startup_label => 'Check for updates on startup';
+
+	/// en-US: 'Code editor'
+	String get editor_path_label => 'Code editor';
+
+	/// en-US: 'Path to your editor, e.g. zed (empty: auto-detect)'
+	String get editor_path_placeholder => 'Path to your editor, e.g. zed (empty: auto-detect)';
+
+	/// en-US: 'Browse'
+	String get editor_path_browse => 'Browse';
+
 	/// en-US: 'Directory naming convention'
 	String get naming_convention_label => 'Directory naming convention';
 
@@ -4667,14 +4685,14 @@ class Translations$settings$en_US {
 	/// en-US: 'Default landing page'
 	String get landing_tab_label => 'Default landing page';
 
-	/// en-US: 'Complete'
-	String get language_complete => 'Complete';
+	/// en-US: 'Maintained'
+	String get language_complete => 'Maintained';
 
-	/// en-US: 'Beta'
-	String get language_beta => 'Beta';
+	/// en-US: 'Occasional'
+	String get language_beta => 'Occasional';
 
-	/// en-US: 'Incomplete'
-	String get language_incomplete => 'Incomplete';
+	/// en-US: 'Unmaintained'
+	String get language_incomplete => 'Unmaintained';
 
 	/// en-US: 'Use OS window decorations'
 	String get use_os_decorations => 'Use OS window decorations';
@@ -6956,6 +6974,8 @@ extension on Translations {
 			'common.onboarding_corner_radius' => 'Corner radius',
 			'common.onboarding_discord_rpc' => 'Discord Rich Presence',
 			'common.onboarding_discord_rpc_desc' => 'Show what you\'re doing in GodotHub on your Discord profile.',
+			'common.onboarding_check_updates' => 'Check for updates on startup',
+			'common.onboarding_check_updates_desc' => 'GodotHub looks for a new version each time it opens. Turn this off to check only when you ask. You can change it later in Settings.',
 			'common.version_search_placeholder' => 'Search versions…',
 			'common.version_no_installed' => 'No versions installed. Download a version from below or drag and drop your existing version folder here.',
 			'common.version_save_name_aria' => 'Save name',
@@ -7082,10 +7102,10 @@ extension on Translations {
 			'common.task_tray_only_recent_one' => '{{count}} recent task',
 			'common.task_tray_only_recent_other' => '{{count}} recent tasks',
 			'common.task_tray_aria' => 'Task tray',
-			'common.task_tray_auto_dismiss' => 'Completed auto-dismiss',
-			'common.task_tray_dismiss' => 'Dismiss {{count}}',
 			_ => null,
 		} ?? switch (path) {
+			'common.task_tray_auto_dismiss' => 'Completed auto-dismiss',
+			'common.task_tray_dismiss' => 'Dismiss {{count}}',
 			'common.task_error_status' => 'Error',
 			'common.command_palette_title' => 'Command palette',
 			'common.command_palette_placeholder' => 'Search commands, projects, engines, settings…',
@@ -7596,10 +7616,10 @@ extension on Translations {
 			'common.project_addons.update_to' => 'Version {{version}} is available',
 			'common.project_addons.current' => 'Up to date ({{version}})',
 			'common.project_addons.matched_by_name' => 'matched by name to “{{title}}”',
-			'common.project_addons.update' => 'Update',
-			'common.project_addons.updating' => 'Updating…',
 			_ => null,
 		} ?? switch (path) {
+			'common.project_addons.update' => 'Update',
+			'common.project_addons.updating' => 'Updating…',
 			'common.project_addons.updated' => '{{name}} was updated',
 			'common.project_addons.confirm_title' => 'Update {{name}}?',
 			'common.project_addons.confirm_description' => 'This replaces res://addons/{{folder}} with version {{version}} from the Asset Library. The old folder is moved to the Trash, so any changes you made to the addon are kept there. Close the project in Godot first.',
@@ -8110,10 +8130,10 @@ extension on Translations {
 			'settings.restart_app_confirm_title' => 'Restart GodotHub?',
 			'settings.restart_app_confirm_desc' => 'The app will close and reopen automatically. Unsaved in-progress operations may be interrupted.',
 			'settings.reset_settings' => 'Reset settings',
-			'settings.delete_app_data' => 'Delete app data',
-			'settings.new_project_default' => 'New project default',
 			_ => null,
 		} ?? switch (path) {
+			'settings.delete_app_data' => 'Delete app data',
+			'settings.new_project_default' => 'New project default',
 			'settings.download_folder' => 'Download folder',
 			'settings.system' => 'System',
 			'settings.k12h' => '12-hour (2:30 PM)',
@@ -8127,6 +8147,10 @@ extension on Translations {
 			'settings.delete_all_desc' => 'This permanently deletes every workspace, project, category, installed-version record, and setting GodotHub has stored, and restarts you at first-time setup. Your actual project folders and Godot installs on disk are not touched, unless they live in the default download folder, in which case they\'re deleted too. This can\'t be undone.',
 			'settings.empty_hint_projects' => 'No folders added, nothing will be scanned at startup, and new projects will ask where to save each time.',
 			'settings.empty_hint_versions' => 'No folders added, nothing will be scanned at startup, and new downloads will use the app data folder.',
+			'settings.check_updates_startup_label' => 'Check for updates on startup',
+			'settings.editor_path_label' => 'Code editor',
+			'settings.editor_path_placeholder' => 'Path to your editor, e.g. zed (empty: auto-detect)',
+			'settings.editor_path_browse' => 'Browse',
 			'settings.naming_convention_label' => 'Directory naming convention',
 			'settings.naming_keep' => 'Keep as typed (My Game)',
 			'settings.naming_kebab' => 'kebab-case (my-game)',
@@ -8309,9 +8333,9 @@ extension on Translations {
 			'settings.interface_label' => 'Interface',
 			'settings.card_layout_label' => 'Card layout',
 			'settings.landing_tab_label' => 'Default landing page',
-			'settings.language_complete' => 'Complete',
-			'settings.language_beta' => 'Beta',
-			'settings.language_incomplete' => 'Incomplete',
+			'settings.language_complete' => 'Maintained',
+			'settings.language_beta' => 'Occasional',
+			'settings.language_incomplete' => 'Unmaintained',
 			'settings.use_os_decorations' => 'Use OS window decorations',
 			'settings.credits' => 'Credits',
 			'settings.credits_developer' => 'Created by',
@@ -8620,14 +8644,14 @@ extension on Translations {
 			'versions.export_templates_uninstall_named' => 'Uninstall {{name}}',
 			'versions.export_templates_uninstall_failed' => 'Couldn\'t uninstall templates: {{error}}',
 			'versions.export_templates_category_desktop' => 'Desktop',
+			_ => null,
+		} ?? switch (path) {
 			'versions.export_templates_category_mobile' => 'Mobile',
 			'versions.export_templates_category_web' => 'Web',
 			'versions.export_templates_category_common' => 'Common',
 			'versions.export_templates_category_other' => 'Other',
 			'versions.export_templates_web_standard' => 'Web',
 			'versions.export_templates_web_extensions' => 'Web with Extensions',
-			_ => null,
-		} ?? switch (path) {
 			'versions.export_templates_web_single_threaded' => 'Web single-threaded',
 			'versions.export_templates_web_extensions_single_threaded' => 'Web with extensions single-threaded',
 			'versions.export_templates_refresh' => 'Refresh available templates',

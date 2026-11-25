@@ -471,6 +471,8 @@ class _Translations$common$es_MX extends Translations$common$en_US {
 	@override String get onboarding_corner_radius => 'Radio de esquina';
 	@override String get onboarding_discord_rpc => 'Discord Rich Presence';
 	@override String get onboarding_discord_rpc_desc => 'Show what you\'re doing in GodotHub on your Discord profile.';
+	@override String get onboarding_check_updates => 'Check for updates on startup';
+	@override String get onboarding_check_updates_desc => 'GodotHub looks for a new version each time it opens. Turn this off to check only when you ask. You can change it later in Settings.';
 	@override String get version_search_placeholder => 'Buscando Versiones…';
 	@override String get version_no_installed => 'Version no instalada. Descarga una version desde abajo o arrastra y suelta aqui la carpeta de la version existente.';
 	@override String get version_save_name_aria => 'Guardar Nombre';
@@ -1523,6 +1525,10 @@ class _Translations$settings$es_MX extends Translations$settings$en_US {
 	@override String get delete_all_desc => 'Esto eleminara permanente todos los Espacios de Trabajo, Proyectos, Categorias, Versiones Instaladas, Y Configuraciones de GodotHub guardado, y reiniciar todo hasta la pantalla de "Primera vez", Tus carpetas de los proyectos actuales y descargas de Godot se mantendran intacto en tu disco, No se puede deshacer';
 	@override String get empty_hint_projects => 'Carpetas sin ser Añadidos, no se escaneara nada al inicio, y nuevos proyectos estaran preguntando en donde guardar cada cierto tiempo.';
 	@override String get empty_hint_versions => 'Carpetas sin ser Añadidos, no se escaneara nada al inicio, y las nuevas descargas se alamacenara en la carpeta AppData.';
+	@override String get check_updates_startup_label => 'Check for updates on startup';
+	@override String get editor_path_label => 'Code editor';
+	@override String get editor_path_placeholder => 'Path to your editor, e.g. zed (empty: auto-detect)';
+	@override String get editor_path_browse => 'Browse';
 	@override String get naming_convention_label => 'Directory naming convention';
 	@override String get naming_keep => 'Keep as typed (My Game)';
 	@override String get naming_kebab => 'kebab-case (my-game)';
@@ -1733,9 +1739,9 @@ class _Translations$settings$es_MX extends Translations$settings$en_US {
 	@override String get interface_label => 'Interface';
 	@override String get card_layout_label => 'Card layout';
 	@override String get landing_tab_label => 'Default landing page';
-	@override String get language_complete => 'Complete';
-	@override String get language_beta => 'Beta';
-	@override String get language_incomplete => 'Incomplete';
+	@override String get language_complete => 'Maintained';
+	@override String get language_beta => 'Occasional';
+	@override String get language_incomplete => 'Unmaintained';
 	@override String get use_os_decorations => 'Use OS window decorations';
 	@override String get credits => 'Credits';
 	@override String get credits_developer => 'Created by';
@@ -2853,6 +2859,8 @@ extension on TranslationsEsMx {
 			'common.onboarding_corner_radius' => 'Radio de esquina',
 			'common.onboarding_discord_rpc' => 'Discord Rich Presence',
 			'common.onboarding_discord_rpc_desc' => 'Show what you\'re doing in GodotHub on your Discord profile.',
+			'common.onboarding_check_updates' => 'Check for updates on startup',
+			'common.onboarding_check_updates_desc' => 'GodotHub looks for a new version each time it opens. Turn this off to check only when you ask. You can change it later in Settings.',
 			'common.version_search_placeholder' => 'Buscando Versiones…',
 			'common.version_no_installed' => 'Version no instalada. Descarga una version desde abajo o arrastra y suelta aqui la carpeta de la version existente.',
 			'common.version_save_name_aria' => 'Guardar Nombre',
@@ -2979,10 +2987,10 @@ extension on TranslationsEsMx {
 			'common.task_tray_only_recent_one' => '{{count}} recent task',
 			'common.task_tray_only_recent_other' => '{{count}} recent tasks',
 			'common.task_tray_aria' => 'Bandeja de tareas',
-			'common.task_tray_auto_dismiss' => 'Cancelar completado-automatico',
-			'common.task_tray_dismiss' => 'Cancelar {{count}}',
 			_ => null,
 		} ?? switch (path) {
+			'common.task_tray_auto_dismiss' => 'Cancelar completado-automatico',
+			'common.task_tray_dismiss' => 'Cancelar {{count}}',
 			'common.task_error_status' => 'Error',
 			'common.command_palette_title' => 'Paleta de comandos',
 			'common.command_palette_placeholder' => 'Buscar Comandos, Proyectos, Motores, Configuraciones…',
@@ -3493,10 +3501,10 @@ extension on TranslationsEsMx {
 			'common.project_addons.update_to' => 'Version {{version}} is available',
 			'common.project_addons.current' => 'Up to date ({{version}})',
 			'common.project_addons.matched_by_name' => 'matched by name to “{{title}}”',
-			'common.project_addons.update' => 'Update',
-			'common.project_addons.updating' => 'Updating…',
 			_ => null,
 		} ?? switch (path) {
+			'common.project_addons.update' => 'Update',
+			'common.project_addons.updating' => 'Updating…',
 			'common.project_addons.updated' => '{{name}} was updated',
 			'common.project_addons.confirm_title' => 'Update {{name}}?',
 			'common.project_addons.confirm_description' => 'This replaces res://addons/{{folder}} with version {{version}} from the Asset Library. The old folder is moved to the Trash, so any changes you made to the addon are kept there. Close the project in Godot first.',
@@ -4007,10 +4015,10 @@ extension on TranslationsEsMx {
 			'settings.restart_app_confirm_title' => 'Restart GodotHub?',
 			'settings.restart_app_confirm_desc' => 'The app will close and reopen automatically. Unsaved in-progress operations may be interrupted.',
 			'settings.reset_settings' => 'Restablecer Configuracion',
-			'settings.delete_app_data' => 'Eleminar datos de la aplicacion',
-			'settings.new_project_default' => 'Nuevo Proyecto por Defecto',
 			_ => null,
 		} ?? switch (path) {
+			'settings.delete_app_data' => 'Eleminar datos de la aplicacion',
+			'settings.new_project_default' => 'Nuevo Proyecto por Defecto',
 			'settings.download_folder' => 'Carpeta de Descargas',
 			'settings.system' => 'System',
 			'settings.k12h' => '12-horas (2:30 PM)',
@@ -4024,6 +4032,10 @@ extension on TranslationsEsMx {
 			'settings.delete_all_desc' => 'Esto eleminara permanente todos los Espacios de Trabajo, Proyectos, Categorias, Versiones Instaladas, Y Configuraciones de GodotHub guardado, y reiniciar todo hasta la pantalla de "Primera vez", Tus carpetas de los proyectos actuales y descargas de Godot se mantendran intacto en tu disco, No se puede deshacer',
 			'settings.empty_hint_projects' => 'Carpetas sin ser Añadidos, no se escaneara nada al inicio, y nuevos proyectos estaran preguntando en donde guardar cada cierto tiempo.',
 			'settings.empty_hint_versions' => 'Carpetas sin ser Añadidos, no se escaneara nada al inicio, y las nuevas descargas se alamacenara en la carpeta AppData.',
+			'settings.check_updates_startup_label' => 'Check for updates on startup',
+			'settings.editor_path_label' => 'Code editor',
+			'settings.editor_path_placeholder' => 'Path to your editor, e.g. zed (empty: auto-detect)',
+			'settings.editor_path_browse' => 'Browse',
 			'settings.naming_convention_label' => 'Directory naming convention',
 			'settings.naming_keep' => 'Keep as typed (My Game)',
 			'settings.naming_kebab' => 'kebab-case (my-game)',
@@ -4206,9 +4218,9 @@ extension on TranslationsEsMx {
 			'settings.interface_label' => 'Interface',
 			'settings.card_layout_label' => 'Card layout',
 			'settings.landing_tab_label' => 'Default landing page',
-			'settings.language_complete' => 'Complete',
-			'settings.language_beta' => 'Beta',
-			'settings.language_incomplete' => 'Incomplete',
+			'settings.language_complete' => 'Maintained',
+			'settings.language_beta' => 'Occasional',
+			'settings.language_incomplete' => 'Unmaintained',
 			'settings.use_os_decorations' => 'Use OS window decorations',
 			'settings.credits' => 'Credits',
 			'settings.credits_developer' => 'Created by',
@@ -4517,14 +4529,14 @@ extension on TranslationsEsMx {
 			'versions.export_templates_uninstall_named' => 'Uninstall {{name}}',
 			'versions.export_templates_uninstall_failed' => 'Couldn\'t uninstall templates: {{error}}',
 			'versions.export_templates_category_desktop' => 'Desktop',
+			_ => null,
+		} ?? switch (path) {
 			'versions.export_templates_category_mobile' => 'Mobile',
 			'versions.export_templates_category_web' => 'Web',
 			'versions.export_templates_category_common' => 'Common',
 			'versions.export_templates_category_other' => 'Other',
 			'versions.export_templates_web_standard' => 'Web',
 			'versions.export_templates_web_extensions' => 'Web with Extensions',
-			_ => null,
-		} ?? switch (path) {
 			'versions.export_templates_web_single_threaded' => 'Web Single-Threaded',
 			'versions.export_templates_web_extensions_single_threaded' => 'Web with Extensions Single-Threaded',
 			'versions.export_templates_refresh' => 'Refresh available templates',

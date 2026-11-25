@@ -471,6 +471,8 @@ class _Translations$common$pt_BR extends Translations$common$en_US {
 	@override String get onboarding_corner_radius => 'Arredondamento dos cantos';
 	@override String get onboarding_discord_rpc => 'Discord Rich Presence';
 	@override String get onboarding_discord_rpc_desc => 'Mostre o que você está fazendo no GodotHub no seu perfil do Discord.';
+	@override String get onboarding_check_updates => 'Check for updates on startup';
+	@override String get onboarding_check_updates_desc => 'GodotHub looks for a new version each time it opens. Turn this off to check only when you ask. You can change it later in Settings.';
 	@override String get version_search_placeholder => 'Pesquisar versões…';
 	@override String get version_no_installed => 'Nenhuma versão instalada. Baixe uma versão abaixo ou arraste e solte aqui a pasta de uma versão existente.';
 	@override String get version_save_name_aria => 'Salvar nome';
@@ -1523,6 +1525,10 @@ class _Translations$settings$pt_BR extends Translations$settings$en_US {
 	@override String get delete_all_desc => 'Isso exclui permanentemente todos os espaços de trabalho, projetos, categorias, registros de versões instaladas e configurações armazenados pelo GodotHub e reinicia o aplicativo na configuração inicial. As pastas dos projetos e instalações do Godot no disco não serão alteradas, a menos que estejam na pasta de download padrão; nesse caso, também serão excluídas. Esta ação não pode ser desfeita.';
 	@override String get empty_hint_projects => 'Nenhuma pasta adicionada. O GodotHub não procurará projetos automaticamente ao iniciar, e você precisará escolher onde salvar cada novo projeto.';
 	@override String get empty_hint_versions => 'Nenhuma pasta adicionada. O GodotHub não procurará versões automaticamente ao iniciar, e novos downloads usarão a pasta de dados do aplicativo.';
+	@override String get check_updates_startup_label => 'Check for updates on startup';
+	@override String get editor_path_label => 'Code editor';
+	@override String get editor_path_placeholder => 'Path to your editor, e.g. zed (empty: auto-detect)';
+	@override String get editor_path_browse => 'Browse';
 	@override String get naming_convention_label => 'Convenção de nomes de pastas';
 	@override String get naming_keep => 'Manter como digitado (Meu Jogo)';
 	@override String get naming_kebab => 'kebab-case (meu-jogo)';
@@ -1733,9 +1739,9 @@ class _Translations$settings$pt_BR extends Translations$settings$en_US {
 	@override String get interface_label => 'Interface';
 	@override String get card_layout_label => 'Layout em cartões';
 	@override String get landing_tab_label => 'Página inicial padrão';
-	@override String get language_complete => 'Completo';
-	@override String get language_beta => 'Beta';
-	@override String get language_incomplete => 'Incompleto';
+	@override String get language_complete => 'Maintained';
+	@override String get language_beta => 'Occasional';
+	@override String get language_incomplete => 'Unmaintained';
 	@override String get use_os_decorations => 'Usar decorações de janela do sistema';
 	@override String get credits => 'Créditos';
 	@override String get credits_developer => 'Criado por';
@@ -2853,6 +2859,8 @@ extension on TranslationsPtBr {
 			'common.onboarding_corner_radius' => 'Arredondamento dos cantos',
 			'common.onboarding_discord_rpc' => 'Discord Rich Presence',
 			'common.onboarding_discord_rpc_desc' => 'Mostre o que você está fazendo no GodotHub no seu perfil do Discord.',
+			'common.onboarding_check_updates' => 'Check for updates on startup',
+			'common.onboarding_check_updates_desc' => 'GodotHub looks for a new version each time it opens. Turn this off to check only when you ask. You can change it later in Settings.',
 			'common.version_search_placeholder' => 'Pesquisar versões…',
 			'common.version_no_installed' => 'Nenhuma versão instalada. Baixe uma versão abaixo ou arraste e solte aqui a pasta de uma versão existente.',
 			'common.version_save_name_aria' => 'Salvar nome',
@@ -2979,10 +2987,10 @@ extension on TranslationsPtBr {
 			'common.task_tray_only_recent_one' => '{{count}} tarefa recente',
 			'common.task_tray_only_recent_other' => '{{count}} tarefas recentes',
 			'common.task_tray_aria' => 'Bandeja do sistema',
-			'common.task_tray_auto_dismiss' => 'Concluídas são dispensadas automaticamente',
-			'common.task_tray_dismiss' => 'Dispensar {{count}}',
 			_ => null,
 		} ?? switch (path) {
+			'common.task_tray_auto_dismiss' => 'Concluídas são dispensadas automaticamente',
+			'common.task_tray_dismiss' => 'Dispensar {{count}}',
 			'common.task_error_status' => 'Erro',
 			'common.command_palette_title' => 'Menu de comandos',
 			'common.command_palette_placeholder' => 'Pesquisar comandos, projetos, versões da Godot e configurações…',
@@ -3493,10 +3501,10 @@ extension on TranslationsPtBr {
 			'common.project_addons.update_to' => 'Version {{version}} is available',
 			'common.project_addons.current' => 'Up to date ({{version}})',
 			'common.project_addons.matched_by_name' => 'matched by name to “{{title}}”',
-			'common.project_addons.update' => 'Update',
-			'common.project_addons.updating' => 'Updating…',
 			_ => null,
 		} ?? switch (path) {
+			'common.project_addons.update' => 'Update',
+			'common.project_addons.updating' => 'Updating…',
 			'common.project_addons.updated' => '{{name}} was updated',
 			'common.project_addons.confirm_title' => 'Update {{name}}?',
 			'common.project_addons.confirm_description' => 'This replaces res://addons/{{folder}} with version {{version}} from the Asset Library. The old folder is moved to the Trash, so any changes you made to the addon are kept there. Close the project in Godot first.',
@@ -4007,10 +4015,10 @@ extension on TranslationsPtBr {
 			'settings.restart_app_confirm_title' => 'Reiniciar o GodotHub?',
 			'settings.restart_app_confirm_desc' => 'O aplicativo será fechado e reaberto automaticamente. Operações em andamento e não salvas podem ser interrompidas.',
 			'settings.reset_settings' => 'Redefinir configurações',
-			'settings.delete_app_data' => 'Excluir dados do aplicativo',
-			'settings.new_project_default' => 'padrão',
 			_ => null,
 		} ?? switch (path) {
+			'settings.delete_app_data' => 'Excluir dados do aplicativo',
+			'settings.new_project_default' => 'padrão',
 			'settings.download_folder' => 'padrão',
 			'settings.system' => 'Sistema',
 			'settings.k12h' => '12 horas (2:30 PM)',
@@ -4024,6 +4032,10 @@ extension on TranslationsPtBr {
 			'settings.delete_all_desc' => 'Isso exclui permanentemente todos os espaços de trabalho, projetos, categorias, registros de versões instaladas e configurações armazenados pelo GodotHub e reinicia o aplicativo na configuração inicial. As pastas dos projetos e instalações do Godot no disco não serão alteradas, a menos que estejam na pasta de download padrão; nesse caso, também serão excluídas. Esta ação não pode ser desfeita.',
 			'settings.empty_hint_projects' => 'Nenhuma pasta adicionada. O GodotHub não procurará projetos automaticamente ao iniciar, e você precisará escolher onde salvar cada novo projeto.',
 			'settings.empty_hint_versions' => 'Nenhuma pasta adicionada. O GodotHub não procurará versões automaticamente ao iniciar, e novos downloads usarão a pasta de dados do aplicativo.',
+			'settings.check_updates_startup_label' => 'Check for updates on startup',
+			'settings.editor_path_label' => 'Code editor',
+			'settings.editor_path_placeholder' => 'Path to your editor, e.g. zed (empty: auto-detect)',
+			'settings.editor_path_browse' => 'Browse',
 			'settings.naming_convention_label' => 'Convenção de nomes de pastas',
 			'settings.naming_keep' => 'Manter como digitado (Meu Jogo)',
 			'settings.naming_kebab' => 'kebab-case (meu-jogo)',
@@ -4206,9 +4218,9 @@ extension on TranslationsPtBr {
 			'settings.interface_label' => 'Interface',
 			'settings.card_layout_label' => 'Layout em cartões',
 			'settings.landing_tab_label' => 'Página inicial padrão',
-			'settings.language_complete' => 'Completo',
-			'settings.language_beta' => 'Beta',
-			'settings.language_incomplete' => 'Incompleto',
+			'settings.language_complete' => 'Maintained',
+			'settings.language_beta' => 'Occasional',
+			'settings.language_incomplete' => 'Unmaintained',
 			'settings.use_os_decorations' => 'Usar decorações de janela do sistema',
 			'settings.credits' => 'Créditos',
 			'settings.credits_developer' => 'Criado por',
@@ -4517,14 +4529,14 @@ extension on TranslationsPtBr {
 			'versions.export_templates_uninstall_named' => 'Uninstall {{name}}',
 			'versions.export_templates_uninstall_failed' => 'Couldn\'t uninstall templates: {{error}}',
 			'versions.export_templates_category_desktop' => 'Desktop',
+			_ => null,
+		} ?? switch (path) {
 			'versions.export_templates_category_mobile' => 'Mobile',
 			'versions.export_templates_category_web' => 'Web',
 			'versions.export_templates_category_common' => 'Common',
 			'versions.export_templates_category_other' => 'Other',
 			'versions.export_templates_web_standard' => 'Web',
 			'versions.export_templates_web_extensions' => 'Web with Extensions',
-			_ => null,
-		} ?? switch (path) {
 			'versions.export_templates_web_single_threaded' => 'Web Single-Threaded',
 			'versions.export_templates_web_extensions_single_threaded' => 'Web with Extensions Single-Threaded',
 			'versions.export_templates_refresh' => 'Refresh available templates',

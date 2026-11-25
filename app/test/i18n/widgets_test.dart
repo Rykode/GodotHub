@@ -103,7 +103,7 @@ void main() {
 
       final japanese = AppLocale.jaJp.translations;
       expect(find.text(japanese.common.language_label.toUpperCase()), findsOneWidget);
-      expect(find.text(japanese.settings.language_complete), findsNWidgets(5));
+      expect(find.text(japanese.settings.language_complete), findsNWidgets(3));
       expect(find.text(japanese.common.system_language), findsOneWidget);
       expect(find.byKey(const ValueKey('rtl-layout-toggle')), findsNothing);
 
@@ -119,7 +119,7 @@ void main() {
       await tester.pumpAndSettle();
       final arabic = AppLocale.arMa.translations;
       expect(find.text(arabic.common.language_label.toUpperCase()), findsOneWidget);
-      expect(find.text(arabic.settings.language_beta), findsNWidgets(2));
+      expect(find.text(arabic.settings.language_beta), findsNWidgets(4));
       expect(find.byKey(const ValueKey('rtl-layout-toggle')), findsOneWidget);
       expect(find.bySemanticsLabel(_toRtl), findsOneWidget);
 

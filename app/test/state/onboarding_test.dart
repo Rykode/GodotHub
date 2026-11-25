@@ -154,6 +154,13 @@ void main() {
     expect(c.read(discordRpcDraftProvider)?.discordRpcEnabled, isFalse);
   });
 
+  test('the startup update check starts on and can be turned off in the draft', () async {
+    final c = await start();
+    expect(c.read(onboardingProvider).draft.checkUpdatesOnStartup, isTrue);
+    c.read(onboardingProvider.notifier).setDraft((d) => copySettings(d, checkUpdatesOnStartup: false));
+    expect(c.read(onboardingProvider).draft.checkUpdatesOnStartup, isFalse);
+  });
+
   test('theme setters update the draft and the live preview', () async {
     final c = await start(settings: copySettings(defaultSettings, themeMode: 'dark', backgroundColor: '#101010'));
     final onboarding = c.read(onboardingProvider.notifier);

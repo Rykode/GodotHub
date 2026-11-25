@@ -179,6 +179,7 @@ pub struct _AppSettings {
     pub builtin_console: bool,
     pub git_auto_fetch: bool,
     pub close_on_project_open: bool,
+    pub check_updates_on_startup: bool,
     pub minimize_to_tray: bool,
     pub reopen_after_godot_closes: bool,
     pub last_opened_time_format: String,

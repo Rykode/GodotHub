@@ -142,6 +142,7 @@ class AppSettings {
   final bool builtinConsole;
   final bool gitAutoFetch;
   final bool closeOnProjectOpen;
+  final bool checkUpdatesOnStartup;
   final bool minimizeToTray;
   final bool reopenAfterGodotCloses;
   final String lastOpenedTimeFormat;
@@ -242,6 +243,7 @@ class AppSettings {
     required this.builtinConsole,
     required this.gitAutoFetch,
     required this.closeOnProjectOpen,
+    required this.checkUpdatesOnStartup,
     required this.minimizeToTray,
     required this.reopenAfterGodotCloses,
     required this.lastOpenedTimeFormat,
@@ -344,6 +346,7 @@ class AppSettings {
       builtinConsole.hashCode ^
       gitAutoFetch.hashCode ^
       closeOnProjectOpen.hashCode ^
+      checkUpdatesOnStartup.hashCode ^
       minimizeToTray.hashCode ^
       reopenAfterGodotCloses.hashCode ^
       lastOpenedTimeFormat.hashCode ^
@@ -448,6 +451,7 @@ class AppSettings {
           builtinConsole == other.builtinConsole &&
           gitAutoFetch == other.gitAutoFetch &&
           closeOnProjectOpen == other.closeOnProjectOpen &&
+          checkUpdatesOnStartup == other.checkUpdatesOnStartup &&
           minimizeToTray == other.minimizeToTray &&
           reopenAfterGodotCloses == other.reopenAfterGodotCloses &&
           lastOpenedTimeFormat == other.lastOpenedTimeFormat &&

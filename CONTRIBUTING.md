@@ -475,15 +475,15 @@ own namespace (`git`, `settings`, `versions`, etc.) falls back to `common`.
 
 | Locale | Language | Status |
 |--------|----------|--------|
-| `ar-MA` | العربية | 🧪 Beta |
-| `en-US` | English | ✅ Complete |
-| `es-MX` | Español | 🚧 Incomplete |
-| `fr-FR` | Français | ✅ Complete |
-| `ja-JP` | 日本語 | ✅ Complete |
-| `pt-BR` | Português (Brasil) | 🧪 Beta |
-| `ru-RU` | Русский | 🚧 Incomplete |
-| `vi-VN` | Tiếng Việt | ✅ Complete |
-| `zh-CN` | 简体中文 | ✅ Complete |
+| `ar-MA` | العربية | 🧪 Occasional |
+| `en-US` | English | ✅ Maintained |
+| `es-MX` | Español | 🚧 Unmaintained |
+| `fr-FR` | Français | 🧪 Occasional |
+| `ja-JP` | 日本語 | ✅ Maintained |
+| `pt-BR` | Português (Brasil) | 🧪 Occasional |
+| `ru-RU` | Русский | 🚧 Unmaintained |
+| `vi-VN` | Tiếng Việt | 🧪 Occasional |
+| `zh-CN` | 简体中文 | ✅ Maintained |
 
 **Total keys:** 1,742 in en-US across 9 namespaces (counted 2026-11-05)
 
@@ -653,9 +653,9 @@ Say you want to add **Korean** (`ko-KR`):
    namespaces first (`common`, `nav`, `settings`). Adjust each `(plural)`
    group to the plural categories of the new language.
 4. **Set a status badge.** `status` is one of:
-   - `complete`, every key translated and verified.
-   - `beta`, mostly translated; minor gaps or needs a native-speaker review.
-   - `incomplete`, new or partially translated; falls back to English in places.
+   - `complete`, shown as "Maintained": kept up to date with every release.
+   - `beta`, shown as "Occasional": updated now and then, so new strings may fall back to English.
+   - `incomplete`, shown as "Unmaintained": not being maintained; falls back to English in places.
 5. **Verify** and open a PR:
    ```bash
    cd app

@@ -9644,6 +9644,7 @@ const _: fn() = || {
         let _: bool = AppSettings.builtin_console;
         let _: bool = AppSettings.git_auto_fetch;
         let _: bool = AppSettings.close_on_project_open;
+        let _: bool = AppSettings.check_updates_on_startup;
         let _: bool = AppSettings.minimize_to_tray;
         let _: bool = AppSettings.reopen_after_godot_closes;
         let _: String = AppSettings.last_opened_time_format;
@@ -10870,6 +10871,7 @@ impl SseDecode for crate::api::types::AppSettings {
         let mut var_builtinConsole = <bool>::sse_decode(deserializer);
         let mut var_gitAutoFetch = <bool>::sse_decode(deserializer);
         let mut var_closeOnProjectOpen = <bool>::sse_decode(deserializer);
+        let mut var_checkUpdatesOnStartup = <bool>::sse_decode(deserializer);
         let mut var_minimizeToTray = <bool>::sse_decode(deserializer);
         let mut var_reopenAfterGodotCloses = <bool>::sse_decode(deserializer);
         let mut var_lastOpenedTimeFormat = <String>::sse_decode(deserializer);
@@ -10974,6 +10976,7 @@ impl SseDecode for crate::api::types::AppSettings {
             builtin_console: var_builtinConsole,
             git_auto_fetch: var_gitAutoFetch,
             close_on_project_open: var_closeOnProjectOpen,
+            check_updates_on_startup: var_checkUpdatesOnStartup,
             minimize_to_tray: var_minimizeToTray,
             reopen_after_godot_closes: var_reopenAfterGodotCloses,
             last_opened_time_format: var_lastOpenedTimeFormat,
@@ -15862,6 +15865,7 @@ impl flutter_rust_bridge::IntoDart for FrbWrapper<crate::api::types::AppSettings
             self.0.builtin_console.into_into_dart().into_dart(),
             self.0.git_auto_fetch.into_into_dart().into_dart(),
             self.0.close_on_project_open.into_into_dart().into_dart(),
+            self.0.check_updates_on_startup.into_into_dart().into_dart(),
             self.0.minimize_to_tray.into_into_dart().into_dart(),
             self.0
                 .reopen_after_godot_closes
@@ -19414,6 +19418,7 @@ impl SseEncode for crate::api::types::AppSettings {
         <bool>::sse_encode(self.builtin_console, serializer);
         <bool>::sse_encode(self.git_auto_fetch, serializer);
         <bool>::sse_encode(self.close_on_project_open, serializer);
+        <bool>::sse_encode(self.check_updates_on_startup, serializer);
         <bool>::sse_encode(self.minimize_to_tray, serializer);
         <bool>::sse_encode(self.reopen_after_godot_closes, serializer);
         <String>::sse_encode(self.last_opened_time_format, serializer);

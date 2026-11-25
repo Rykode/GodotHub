@@ -134,6 +134,26 @@ void main() {
       expect(saved.last.directoryNamingConvention, 'snake_case');
     });
 
+    testWidgets('the code editor path is saved when entered and cleared when emptied', (tester) async {
+      await pump(
+        tester,
+        const BehaviorSettings(isMacOverride: false),
+        settings: copySettings(baseSettings, setupComplete: true, externalEditorPath: () => '/usr/bin/zed'),
+      );
+      expect(find.text(ts('editor_path_label')), findsOneWidget);
+      expect(find.text('/usr/bin/zed'), findsOneWidget);
+
+      await tester.enterText(find.byType(EditableText).last, '  /opt/zed/bin/zed  ');
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      await base.settle(tester, 3);
+      expect(saved.last.externalEditorPath, '/opt/zed/bin/zed');
+
+      await tester.enterText(find.byType(EditableText).last, '');
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      await base.settle(tester, 3);
+      expect(saved.last.externalEditorPath, isNull);
+    });
+
     testWidgets('mac hides the tray toggle and shows reopen when closing on open', (tester) async {
       await pump(
         tester,

@@ -445,6 +445,39 @@ class _OnboardingViewState extends ConsumerState<OnboardingView> with SingleTick
 
   static const _shellFrom = GhPose(opacity: 0, y: 24, scale: 0.985);
 
+  Widget _toggleCard(
+    GhTheme theme, {
+    required String title,
+    required String description,
+    required bool checked,
+    required ValueChanged<bool> onChanged,
+  }) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: theme.space(4), vertical: theme.space(3)),
+      decoration: BoxDecoration(
+        color: theme.overlay,
+        borderRadius: BorderRadius.circular(theme.radiusItem),
+        border: Border.all(color: theme.outline.withValues(alpha: 0.5)),
+      ),
+      child: Row(
+        spacing: theme.space(4),
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(title, style: theme.text(size: GhTextSize.xs, weight: GhWeight.medium, color: theme.ink)),
+                SizedBox(height: theme.space(0.5)),
+                Text(description, style: theme.text(size: GhTextSize.x2s, color: theme.muted, lineHeight: 1.625)),
+              ],
+            ),
+          ),
+          GhToggle(checked: checked, label: title, onChanged: onChanged),
+        ],
+      ),
+    );
+  }
+
   Widget _stepContent(GhTheme theme, OnboardingState state, AppSettings settings, List<Project> projects, int versionCount) {
     final draft = state.draft;
     switch (state.step.id) {
@@ -482,39 +515,19 @@ class _OnboardingViewState extends ConsumerState<OnboardingView> with SingleTick
                 ],
               ),
               const OnboardingCloudBackup(),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: theme.space(4), vertical: theme.space(3)),
-                decoration: BoxDecoration(
-                  color: theme.overlay,
-                  borderRadius: BorderRadius.circular(theme.radiusItem),
-                  border: Border.all(color: theme.outline.withValues(alpha: 0.5)),
-                ),
-                child: Row(
-                  spacing: theme.space(4),
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            ghTr('onboarding_discord_rpc'),
-                            style: theme.text(size: GhTextSize.xs, weight: GhWeight.medium, color: theme.ink),
-                          ),
-                          SizedBox(height: theme.space(0.5)),
-                          Text(
-                            ghTr('onboarding_discord_rpc_desc'),
-                            style: theme.text(size: GhTextSize.x2s, color: theme.muted, lineHeight: 1.625),
-                          ),
-                        ],
-                      ),
-                    ),
-                    GhToggle(
-                      checked: draft.discordRpcEnabled,
-                      label: ghTr('onboarding_discord_rpc'),
-                      onChanged: (checked) => _notifier.setDraft((d) => copySettings(d, discordRpcEnabled: checked)),
-                    ),
-                  ],
-                ),
+              _toggleCard(
+                theme,
+                title: ghTr('onboarding_discord_rpc'),
+                description: ghTr('onboarding_discord_rpc_desc'),
+                checked: draft.discordRpcEnabled,
+                onChanged: (checked) => _notifier.setDraft((d) => copySettings(d, discordRpcEnabled: checked)),
+              ),
+              _toggleCard(
+                theme,
+                title: ghTr('onboarding_check_updates'),
+                description: ghTr('onboarding_check_updates_desc'),
+                checked: draft.checkUpdatesOnStartup,
+                onChanged: (checked) => _notifier.setDraft((d) => copySettings(d, checkUpdatesOnStartup: checked)),
               ),
             ],
           ),

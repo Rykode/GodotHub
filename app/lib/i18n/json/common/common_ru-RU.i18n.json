@@ -398,6 +398,8 @@
   "onboarding_corner_radius": "Радиус углов",
   "onboarding_discord_rpc": "Discord Rich Presence",
   "onboarding_discord_rpc_desc": "Show what you're doing in GodotHub on your Discord profile.",
+  "onboarding_check_updates": "Check for updates on startup",
+  "onboarding_check_updates_desc": "GodotHub looks for a new version each time it opens. Turn this off to check only when you ask. You can change it later in Settings.",
   "version_search_placeholder": "Найти версию...",
   "version_no_installed": "Пока нет установленных версий. Загрузите версию ниже или перетащите сюда папку с вашей существующей версией.",
   "version_save_name_aria": "Сохранить имя",

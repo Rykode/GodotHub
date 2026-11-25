@@ -15,6 +15,7 @@ import '../../ui/controls/toggle.dart';
 import '../../ui/overlays/dropdown.dart';
 import '../../ui/overlays/menu.dart';
 import '../settings_parts.dart';
+import 'editor_path_setting.dart';
 import 'settings_option_controls.dart';
 
 String _ts(String key, {num? count, Map<String, Object?> args = const {}}) => settingsTr(key, count: count, args: args);
@@ -193,6 +194,7 @@ class BehaviorSettings extends ConsumerWidget {
             _ts('use_workspaces_label'),
             _ts('init_git_label'),
             _ts('naming_convention_label'),
+            _ts('editor_path_label'),
           ].join(' '),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -228,6 +230,7 @@ class BehaviorSettings extends ConsumerWidget {
                   trigger: (context, open, toggle) => SettingsDropdownTrigger(label: conventionLabel, open: open, onPressed: toggle),
                 ),
               ),
+              const EditorPathSetting(),
             ],
           ),
         ),

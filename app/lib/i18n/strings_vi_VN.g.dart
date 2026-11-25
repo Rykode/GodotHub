@@ -461,6 +461,8 @@ class _Translations$common$vi_VN extends Translations$common$en_US {
 	@override String get onboarding_corner_radius => 'Độ bo góc';
 	@override String get onboarding_discord_rpc => 'Discord Rich Presence';
 	@override String get onboarding_discord_rpc_desc => 'Show what you\'re doing in GodotHub on your Discord profile.';
+	@override String get onboarding_check_updates => 'Check for updates on startup';
+	@override String get onboarding_check_updates_desc => 'GodotHub looks for a new version each time it opens. Turn this off to check only when you ask. You can change it later in Settings.';
 	@override String get version_search_placeholder => 'Tìm phiên bản…';
 	@override String get version_no_installed => 'Chưa cài phiên bản nào. Tải một phiên bản từ bên dưới hoặc kéo thả thư mục phiên bản hiện có vào đây.';
 	@override String get version_save_name_aria => 'Lưu tên';
@@ -1469,6 +1471,10 @@ class _Translations$settings$vi_VN extends Translations$settings$en_US {
 	@override String get delete_all_desc => 'Thao tác này xóa vĩnh viễn mọi workspace, dự án, danh mục, bản ghi phiên bản đã cài và cài đặt mà GodotHub đã lưu, và đưa bạn về thiết lập lần đầu. Thư mục dự án thực tế và bản cài Godot trên đĩa không bị ảnh hưởng, trừ khi chúng nằm trong thư mục tải xuống mặc định, khi đó chúng cũng bị xóa. Không thể hoàn tác.';
 	@override String get empty_hint_projects => 'Chưa thêm thư mục nào, sẽ không quét khi khởi động, và dự án mới sẽ hỏi nơi lưu mỗi lần.';
 	@override String get empty_hint_versions => 'Chưa thêm thư mục nào, sẽ không quét khi khởi động, và tải xuống mới sẽ dùng thư mục dữ liệu ứng dụng.';
+	@override String get check_updates_startup_label => 'Check for updates on startup';
+	@override String get editor_path_label => 'Code editor';
+	@override String get editor_path_placeholder => 'Path to your editor, e.g. zed (empty: auto-detect)';
+	@override String get editor_path_browse => 'Browse';
 	@override String get naming_convention_label => 'Quy ước đặt tên thư mục';
 	@override String get naming_keep => 'Giữ nguyên (My Game)';
 	@override String get naming_kebab => 'kebab-case (my-game)';
@@ -1665,9 +1671,9 @@ class _Translations$settings$vi_VN extends Translations$settings$en_US {
 	@override String get interface_label => 'Giao diện';
 	@override String get card_layout_label => 'Bố cục thẻ';
 	@override String get landing_tab_label => 'Trang đích mặc định';
-	@override String get language_complete => 'Hoàn chỉnh';
-	@override String get language_beta => 'Beta';
-	@override String get language_incomplete => 'Chưa hoàn chỉnh';
+	@override String get language_complete => 'Maintained';
+	@override String get language_beta => 'Occasional';
+	@override String get language_incomplete => 'Unmaintained';
 	@override String get use_os_decorations => 'Dùng trang trí cửa sổ hệ điều hành';
 	@override String get credits => 'Ghi công';
 	@override String get credits_developer => 'Tạo bởi';
@@ -2743,6 +2749,8 @@ extension on TranslationsViVn {
 			'common.onboarding_corner_radius' => 'Độ bo góc',
 			'common.onboarding_discord_rpc' => 'Discord Rich Presence',
 			'common.onboarding_discord_rpc_desc' => 'Show what you\'re doing in GodotHub on your Discord profile.',
+			'common.onboarding_check_updates' => 'Check for updates on startup',
+			'common.onboarding_check_updates_desc' => 'GodotHub looks for a new version each time it opens. Turn this off to check only when you ask. You can change it later in Settings.',
 			'common.version_search_placeholder' => 'Tìm phiên bản…',
 			'common.version_no_installed' => 'Chưa cài phiên bản nào. Tải một phiên bản từ bên dưới hoặc kéo thả thư mục phiên bản hiện có vào đây.',
 			'common.version_save_name_aria' => 'Lưu tên',
@@ -2869,10 +2877,10 @@ extension on TranslationsViVn {
 			'common.task_tray_only_recent_one' => '{{count}} recent task',
 			'common.task_tray_only_recent_other' => '{{count}} recent tasks',
 			'common.task_tray_aria' => 'Khay tác vụ',
-			'common.task_tray_auto_dismiss' => 'Tự ẩn khi hoàn thành',
-			'common.task_tray_dismiss' => 'Ẩn {{count}}',
 			_ => null,
 		} ?? switch (path) {
+			'common.task_tray_auto_dismiss' => 'Tự ẩn khi hoàn thành',
+			'common.task_tray_dismiss' => 'Ẩn {{count}}',
 			'common.task_error_status' => 'Lỗi',
 			'common.command_palette_title' => 'Bảng lệnh',
 			'common.command_palette_placeholder' => 'Tìm lệnh, dự án, engine, cài đặt…',
@@ -3383,10 +3391,10 @@ extension on TranslationsViVn {
 			'common.project_addons.update_to' => 'Version {{version}} is available',
 			'common.project_addons.current' => 'Up to date ({{version}})',
 			'common.project_addons.matched_by_name' => 'matched by name to “{{title}}”',
-			'common.project_addons.update' => 'Update',
-			'common.project_addons.updating' => 'Updating…',
 			_ => null,
 		} ?? switch (path) {
+			'common.project_addons.update' => 'Update',
+			'common.project_addons.updating' => 'Updating…',
 			'common.project_addons.updated' => '{{name}} was updated',
 			'common.project_addons.confirm_title' => 'Update {{name}}?',
 			'common.project_addons.confirm_description' => 'This replaces res://addons/{{folder}} with version {{version}} from the Asset Library. The old folder is moved to the Trash, so any changes you made to the addon are kept there. Close the project in Godot first.',
@@ -3897,10 +3905,10 @@ extension on TranslationsViVn {
 			'settings.restart_app_confirm_title' => 'Khởi động lại GodotHub?',
 			'settings.restart_app_confirm_desc' => 'Ứng dụng sẽ đóng và mở lại tự động. Các thao tác đang chạy chưa lưu có thể bị gián đoạn.',
 			'settings.reset_settings' => 'Đặt lại cài đặt',
-			'settings.delete_app_data' => 'Xóa dữ liệu ứng dụng',
-			'settings.new_project_default' => 'Mặc định dự án mới',
 			_ => null,
 		} ?? switch (path) {
+			'settings.delete_app_data' => 'Xóa dữ liệu ứng dụng',
+			'settings.new_project_default' => 'Mặc định dự án mới',
 			'settings.download_folder' => 'Thư mục tải xuống',
 			'settings.system' => 'Hệ thống',
 			'settings.k12h' => '12 giờ (2:30 CH)',
@@ -3914,6 +3922,10 @@ extension on TranslationsViVn {
 			'settings.delete_all_desc' => 'Thao tác này xóa vĩnh viễn mọi workspace, dự án, danh mục, bản ghi phiên bản đã cài và cài đặt mà GodotHub đã lưu, và đưa bạn về thiết lập lần đầu. Thư mục dự án thực tế và bản cài Godot trên đĩa không bị ảnh hưởng, trừ khi chúng nằm trong thư mục tải xuống mặc định, khi đó chúng cũng bị xóa. Không thể hoàn tác.',
 			'settings.empty_hint_projects' => 'Chưa thêm thư mục nào, sẽ không quét khi khởi động, và dự án mới sẽ hỏi nơi lưu mỗi lần.',
 			'settings.empty_hint_versions' => 'Chưa thêm thư mục nào, sẽ không quét khi khởi động, và tải xuống mới sẽ dùng thư mục dữ liệu ứng dụng.',
+			'settings.check_updates_startup_label' => 'Check for updates on startup',
+			'settings.editor_path_label' => 'Code editor',
+			'settings.editor_path_placeholder' => 'Path to your editor, e.g. zed (empty: auto-detect)',
+			'settings.editor_path_browse' => 'Browse',
 			'settings.naming_convention_label' => 'Quy ước đặt tên thư mục',
 			'settings.naming_keep' => 'Giữ nguyên (My Game)',
 			'settings.naming_kebab' => 'kebab-case (my-game)',
@@ -4096,9 +4108,9 @@ extension on TranslationsViVn {
 			'settings.interface_label' => 'Giao diện',
 			'settings.card_layout_label' => 'Bố cục thẻ',
 			'settings.landing_tab_label' => 'Trang đích mặc định',
-			'settings.language_complete' => 'Hoàn chỉnh',
-			'settings.language_beta' => 'Beta',
-			'settings.language_incomplete' => 'Chưa hoàn chỉnh',
+			'settings.language_complete' => 'Maintained',
+			'settings.language_beta' => 'Occasional',
+			'settings.language_incomplete' => 'Unmaintained',
 			'settings.use_os_decorations' => 'Dùng trang trí cửa sổ hệ điều hành',
 			'settings.credits' => 'Ghi công',
 			'settings.credits_developer' => 'Tạo bởi',
@@ -4407,14 +4419,14 @@ extension on TranslationsViVn {
 			'versions.export_templates_uninstall_named' => 'Uninstall {{name}}',
 			'versions.export_templates_uninstall_failed' => 'Couldn\'t uninstall templates: {{error}}',
 			'versions.export_templates_category_desktop' => 'Desktop',
+			_ => null,
+		} ?? switch (path) {
 			'versions.export_templates_category_mobile' => 'Mobile',
 			'versions.export_templates_category_web' => 'Web',
 			'versions.export_templates_category_common' => 'Common',
 			'versions.export_templates_category_other' => 'Other',
 			'versions.export_templates_web_standard' => 'Web',
 			'versions.export_templates_web_extensions' => 'Web with Extensions',
-			_ => null,
-		} ?? switch (path) {
 			'versions.export_templates_web_single_threaded' => 'Web Single-Threaded',
 			'versions.export_templates_web_extensions_single_threaded' => 'Web with Extensions Single-Threaded',
 			'versions.export_templates_refresh' => 'Refresh available templates',

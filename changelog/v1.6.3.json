@@ -16,6 +16,14 @@
       "text": "Remove, delete and uninstall dialogs for projects and Godot versions now have a \"Don't ask again\" checkbox that skips only that one dialog. Settings > Advanced lists the skipped dialogs so you can turn each one back on"
     },
     {
+      "category": "add",
+      "text": "Settings > Behavior: new \"Code editor\" field sets which program \"Open in IDE\" starts (for example the path to Zed), with a Browse button. Leave it empty to keep auto-detecting VS Code, Rider, IntelliJ, VSCodium and Zed (#387)"
+    },
+    {
+      "category": "add",
+      "text": "Settings > Advanced: \"Check for updates on startup\" is now a toggle. Turn it off and GodotHub never contacts the update server on its own; use the Check for Updates button when you want to look. It is on by default, and the first-run setup asks about it too"
+    },
+    {
       "category": "fix",
       "text": "Windows: the GodotHub system tray icon now actually appears. Was Bugged after changing from tauri to flutter"
     },
@@ -34,6 +42,18 @@
     {
       "category": "fix",
       "text": "Linux: a window that was maximized when you closed GodotHub now comes back with its normal size and position intact, instead of growing a little each time with the OS title bar on"
+    },
+    {
+      "category": "fix",
+      "text": "Linux: the current-version command is now named godot (lowercase), so typing godot in a terminal works. Before, it was named Godot, which Linux treats as a different name"
+    },
+    {
+      "category": "fix",
+      "text": "Linux: saving a bug report now uses your real Downloads folder, even if you moved or renamed it, instead of always creating a Downloads folder in your home directory"
+    },
+    {
+      "category": "improve",
+      "text": "Linux: the .deb and .rpm packages now recommend xdg-utils, gdbus and pkexec/polkit, which GodotHub uses to open links, detect the system tray and install updates"
     },
     {
       "category": "improve",

@@ -382,6 +382,8 @@
   "onboarding_corner_radius": "圆角半径",
   "onboarding_discord_rpc": "Discord 活动状态",
   "onboarding_discord_rpc_desc": "在你的 Discord 个人资料上显示你在 GodotHub 中的操作。",
+  "onboarding_check_updates": "Check for updates on startup",
+  "onboarding_check_updates_desc": "GodotHub looks for a new version each time it opens. Turn this off to check only when you ask. You can change it later in Settings.",
   "version_search_placeholder": "搜索版本…",
   "version_no_installed": "尚未安装任何版本。请从下方下载版本或将现有版本文件夹拖放到此处。",
   "version_save_name_aria": "保存名称",

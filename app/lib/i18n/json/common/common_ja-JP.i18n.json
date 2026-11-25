@@ -383,6 +383,8 @@
   "onboarding_corner_radius": "角の丸み",
   "onboarding_discord_rpc": "Discord リッチプレゼンス",
   "onboarding_discord_rpc_desc": "GodotHub での作業内容を Discord のプロフィールに表示します。",
+  "onboarding_check_updates": "Check for updates on startup",
+  "onboarding_check_updates_desc": "GodotHub looks for a new version each time it opens. Turn this off to check only when you ask. You can change it later in Settings.",
   "version_search_placeholder": "バージョンを検索…",
   "version_no_installed": "インストール済みのバージョンはありません。下からバージョンをダウンロードするか、既存のバージョンフォルダをここにドラッグ＆ドロップしてください。",
   "version_save_name_aria": "名前を保存",

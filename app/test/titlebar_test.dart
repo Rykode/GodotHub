@@ -47,6 +47,7 @@ const baseSettings = AppSettings(
   builtinConsole: false,
   gitAutoFetch: false,
   closeOnProjectOpen: false,
+  checkUpdatesOnStartup: true,
   minimizeToTray: false,
   reopenAfterGodotCloses: false,
   lastOpenedTimeFormat: '',
@@ -454,8 +455,8 @@ void main() {
       for (final language in ghLanguages) {
         expect(find.text(language.displayLabel()), findsOneWidget);
       }
-      expect(find.text(t.settings.language_complete), findsNWidgets(5));
-      expect(find.text(t.settings.language_beta), findsNWidgets(2));
+      expect(find.text(t.settings.language_complete), findsNWidgets(3));
+      expect(find.text(t.settings.language_beta), findsNWidgets(4));
       expect(find.text(t.settings.language_incomplete), findsNWidgets(2));
       final englishRow = find.byKey(const ValueKey('language-en-US'));
       expect(find.descendant(of: englishRow, matching: byGhIcon(GhIcons.check)), findsOneWidget);

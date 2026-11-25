@@ -8,6 +8,7 @@ import '../../logic/settings_copy.dart';
 import '../../state/app_signals.dart';
 import '../../state/settings.dart';
 import '../../state/shell_signals.dart';
+import '../../ui/controls/toggle.dart';
 import '../../ui/core/i18n.dart';
 import '../../ui/feedback/confirm_dialog.dart';
 import '../../ui/feedback/toast.dart';
@@ -95,6 +96,14 @@ class AdvancedSettings extends ConsumerWidget {
           ),
         ),
         const SkippedConfirmationsSetting(),
+        SettingsActionCard(
+          title: _ts('check_updates_startup_label'),
+          action: GhToggle(
+            checked: ref.watch(settingsProvider.select((s) => s.value?.checkUpdatesOnStartup ?? true)),
+            label: _ts('check_updates_startup_label'),
+            onChanged: (value) => saveSettings(ref, (s) => copySettings(s, checkUpdatesOnStartup: value)).ignore(),
+          ),
+        ),
         SettingsActionCard(
           title: ghTr('check_updates_title_modal'),
           action: SettingsOutlineButton(

@@ -37,6 +37,7 @@ const AppSettings defaultSettings = AppSettings(
   builtinConsole: true,
   gitAutoFetch: false,
   closeOnProjectOpen: false,
+  checkUpdatesOnStartup: true,
   minimizeToTray: false,
   reopenAfterGodotCloses: false,
   lastOpenedTimeFormat: '12h',

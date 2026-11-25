@@ -476,6 +476,8 @@ class _Translations$common$ru_RU extends Translations$common$en_US {
 	@override String get onboarding_corner_radius => 'Радиус углов';
 	@override String get onboarding_discord_rpc => 'Discord Rich Presence';
 	@override String get onboarding_discord_rpc_desc => 'Show what you\'re doing in GodotHub on your Discord profile.';
+	@override String get onboarding_check_updates => 'Check for updates on startup';
+	@override String get onboarding_check_updates_desc => 'GodotHub looks for a new version each time it opens. Turn this off to check only when you ask. You can change it later in Settings.';
 	@override String get version_search_placeholder => 'Найти версию...';
 	@override String get version_no_installed => 'Пока нет установленных версий. Загрузите версию ниже или перетащите сюда папку с вашей существующей версией.';
 	@override String get version_save_name_aria => 'Сохранить имя';
@@ -1550,6 +1552,10 @@ class _Translations$settings$ru_RU extends Translations$settings$en_US {
 	@override String get delete_all_desc => 'Это навсегда удаляет все рабочие пространства, проекты, категории, записи об установленных версиях и настройки, которые GodotHub сохранил, и перезапускает вас в режиме первичной настройки. Фактические папки проектов и установки Godot на диске не затрагиваются, если только они не находятся в папке загрузок по умолчанию. В этом случае они также будут удалены. Это действие нельзя отменить.';
 	@override String get empty_hint_projects => 'Папки не выбраны, при запуске ничего сканироваться не будет, и при добавлении новых проектов каждый раз будет спрашиваться, куда их сохранять.';
 	@override String get empty_hint_versions => 'Папки не выбраны, при запуске ничего сканироваться не будет, и новые загрузки будут использовать папку данных приложения.';
+	@override String get check_updates_startup_label => 'Check for updates on startup';
+	@override String get editor_path_label => 'Code editor';
+	@override String get editor_path_placeholder => 'Path to your editor, e.g. zed (empty: auto-detect)';
+	@override String get editor_path_browse => 'Browse';
 	@override String get naming_convention_label => 'Правила наименований для директорий';
 	@override String get naming_keep => 'Сохранить как введено (Моя игра)';
 	@override String get naming_kebab => 'kebab-case (Моя-игра)';
@@ -1767,9 +1773,9 @@ class _Translations$settings$ru_RU extends Translations$settings$en_US {
 	@override String get interface_label => 'Interface';
 	@override String get card_layout_label => 'Card layout';
 	@override String get landing_tab_label => 'Default landing page';
-	@override String get language_complete => 'Complete';
-	@override String get language_beta => 'Beta';
-	@override String get language_incomplete => 'Incomplete';
+	@override String get language_complete => 'Maintained';
+	@override String get language_beta => 'Occasional';
+	@override String get language_incomplete => 'Unmaintained';
 	@override String get use_os_decorations => 'Использовать системный вид окна';
 	@override String get credits => 'Credits';
 	@override String get credits_developer => 'Created by';
@@ -2908,6 +2914,8 @@ extension on TranslationsRuRu {
 			'common.onboarding_corner_radius' => 'Радиус углов',
 			'common.onboarding_discord_rpc' => 'Discord Rich Presence',
 			'common.onboarding_discord_rpc_desc' => 'Show what you\'re doing in GodotHub on your Discord profile.',
+			'common.onboarding_check_updates' => 'Check for updates on startup',
+			'common.onboarding_check_updates_desc' => 'GodotHub looks for a new version each time it opens. Turn this off to check only when you ask. You can change it later in Settings.',
 			'common.version_search_placeholder' => 'Найти версию...',
 			'common.version_no_installed' => 'Пока нет установленных версий. Загрузите версию ниже или перетащите сюда папку с вашей существующей версией.',
 			'common.version_save_name_aria' => 'Сохранить имя',
@@ -3034,10 +3042,10 @@ extension on TranslationsRuRu {
 			'common.task_tray_only_recent_one' => '{{count}} recent task',
 			'common.task_tray_only_recent_other' => '{{count}} recent tasks',
 			'common.task_tray_aria' => 'Панель задач',
-			'common.task_tray_auto_dismiss' => 'Завершённые задачи автоматически скрываются',
-			'common.task_tray_dismiss' => 'Скрыть {{count}}',
 			_ => null,
 		} ?? switch (path) {
+			'common.task_tray_auto_dismiss' => 'Завершённые задачи автоматически скрываются',
+			'common.task_tray_dismiss' => 'Скрыть {{count}}',
 			'common.task_error_status' => 'Ошибка',
 			'common.command_palette_title' => 'Command Palette',
 			'common.command_palette_placeholder' => 'Найти команду, проект, версию, настройки...',
@@ -3548,10 +3556,10 @@ extension on TranslationsRuRu {
 			'common.project_addons.update_to' => 'Version {{version}} is available',
 			'common.project_addons.current' => 'Up to date ({{version}})',
 			'common.project_addons.matched_by_name' => 'matched by name to “{{title}}”',
-			'common.project_addons.update' => 'Update',
-			'common.project_addons.updating' => 'Updating…',
 			_ => null,
 		} ?? switch (path) {
+			'common.project_addons.update' => 'Update',
+			'common.project_addons.updating' => 'Updating…',
 			'common.project_addons.updated' => '{{name}} was updated',
 			'common.project_addons.confirm_title' => 'Update {{name}}?',
 			'common.project_addons.confirm_description' => 'This replaces res://addons/{{folder}} with version {{version}} from the Asset Library. The old folder is moved to the Trash, so any changes you made to the addon are kept there. Close the project in Godot first.',
@@ -4062,10 +4070,10 @@ extension on TranslationsRuRu {
 			'settings.restart_app_confirm_title' => 'Restart GodotHub?',
 			'settings.restart_app_confirm_desc' => 'The app will close and reopen automatically. Unsaved in-progress operations may be interrupted.',
 			'settings.reset_settings' => 'Восстановить настройки по умолчанию',
-			'settings.delete_app_data' => 'Удалить все данные приложения',
-			'settings.new_project_default' => 'Новый проект по умолчанию',
 			_ => null,
 		} ?? switch (path) {
+			'settings.delete_app_data' => 'Удалить все данные приложения',
+			'settings.new_project_default' => 'Новый проект по умолчанию',
 			'settings.download_folder' => 'Папка для загрузок',
 			'settings.system' => 'System',
 			'settings.k12h' => '12-часовой (2:30 PM)',
@@ -4079,6 +4087,10 @@ extension on TranslationsRuRu {
 			'settings.delete_all_desc' => 'Это навсегда удаляет все рабочие пространства, проекты, категории, записи об установленных версиях и настройки, которые GodotHub сохранил, и перезапускает вас в режиме первичной настройки. Фактические папки проектов и установки Godot на диске не затрагиваются, если только они не находятся в папке загрузок по умолчанию. В этом случае они также будут удалены. Это действие нельзя отменить.',
 			'settings.empty_hint_projects' => 'Папки не выбраны, при запуске ничего сканироваться не будет, и при добавлении новых проектов каждый раз будет спрашиваться, куда их сохранять.',
 			'settings.empty_hint_versions' => 'Папки не выбраны, при запуске ничего сканироваться не будет, и новые загрузки будут использовать папку данных приложения.',
+			'settings.check_updates_startup_label' => 'Check for updates on startup',
+			'settings.editor_path_label' => 'Code editor',
+			'settings.editor_path_placeholder' => 'Path to your editor, e.g. zed (empty: auto-detect)',
+			'settings.editor_path_browse' => 'Browse',
 			'settings.naming_convention_label' => 'Правила наименований для директорий',
 			'settings.naming_keep' => 'Сохранить как введено (Моя игра)',
 			'settings.naming_kebab' => 'kebab-case (Моя-игра)',
@@ -4261,9 +4273,9 @@ extension on TranslationsRuRu {
 			'settings.interface_label' => 'Interface',
 			'settings.card_layout_label' => 'Card layout',
 			'settings.landing_tab_label' => 'Default landing page',
-			'settings.language_complete' => 'Complete',
-			'settings.language_beta' => 'Beta',
-			'settings.language_incomplete' => 'Incomplete',
+			'settings.language_complete' => 'Maintained',
+			'settings.language_beta' => 'Occasional',
+			'settings.language_incomplete' => 'Unmaintained',
 			'settings.use_os_decorations' => 'Использовать системный вид окна',
 			'settings.credits' => 'Credits',
 			'settings.credits_developer' => 'Created by',
@@ -4572,14 +4584,14 @@ extension on TranslationsRuRu {
 			'versions.export_templates_uninstall_named' => 'Uninstall {{name}}',
 			'versions.export_templates_uninstall_failed' => 'Couldn\'t uninstall templates: {{error}}',
 			'versions.export_templates_category_desktop' => 'Desktop',
+			_ => null,
+		} ?? switch (path) {
 			'versions.export_templates_category_mobile' => 'Mobile',
 			'versions.export_templates_category_web' => 'Web',
 			'versions.export_templates_category_common' => 'Common',
 			'versions.export_templates_category_other' => 'Other',
 			'versions.export_templates_web_standard' => 'Web',
 			'versions.export_templates_web_extensions' => 'Web with Extensions',
-			_ => null,
-		} ?? switch (path) {
 			'versions.export_templates_web_single_threaded' => 'Web Single-Threaded',
 			'versions.export_templates_web_extensions_single_threaded' => 'Web with Extensions Single-Threaded',
 			'versions.export_templates_refresh' => 'Refresh available templates',

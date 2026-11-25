@@ -68,6 +68,7 @@ class AppWindow {
   Rect? _normalBounds;
   Size? _restoredSize;
   Offset? _restoredPosition;
+  Rect? _pendingNormal;
   int _restoreRetries = 0;
   int _positionRetries = 0;
   Timer? _settleTimer;
@@ -118,6 +119,11 @@ class AppWindow {
       window.setSize((restored?.size ?? defaultWindowSize).toNative(), false);
       window.center();
     }
+    if (restored == null && Platform.isLinux) {
+      // Nothing saved: the default size gets held too, or the shadow gutter and the
+      // window manager leave it larger than asked, and that size is then saved.
+      app._holdRestoredSize(defaultWindowSize, hideWindow: false);
+    }
     if (restored != null && !(saved?.maximized ?? false)) {
       // Wayland always composites, so the window can be left invisible while it settles.
       // The OS frame would show over an empty window, and without a compositor it would be black.
@@ -126,6 +132,14 @@ class AppWindow {
     }
     app._normalBounds = window.bounds.toRect();
     if (saved?.maximized ?? false) {
+      if (Platform.isLinux && restored != null) {
+        // The size and position set before the window is mapped are not what the window
+        // has when it is un-maximized (with OS decorations it came back 37px taller each
+        // time). Keep the saved normal bounds as they are and apply them on un-maximize.
+        final normal = (restored.position ?? app._normalBounds!.topLeft) & restored.size;
+        app._normalBounds = normal;
+        app._pendingNormal = restored.position == null ? null : normal;
+      }
       window.maximize();
     }
 
@@ -218,6 +232,12 @@ class AppWindow {
         if (_reassertRestoredSize()) break;
         if (!_window.isMaximized && !_window.isMinimized) {
           _normalBounds = _window.bounds.toRect();
+        }
+      case WindowRestoredEvent():
+        final normal = _pendingNormal;
+        if (normal != null && !_window.isMaximized) {
+          _pendingNormal = null;
+          _window.bounds = normal.toNative();
         }
       case WindowCloseRequestedEvent():
         event.request.cancel();

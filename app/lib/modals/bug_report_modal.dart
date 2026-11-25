@@ -166,10 +166,29 @@ String bugReportIssueUrl(String description, String specs, String errors, [Strin
 
 String bugReportFileName(DateTime now) => 'godothub-bug-report-${_dateStamp(now)}.txt';
 
+/// Linux lets the user move or rename the Downloads folder (user-dirs.dirs); everywhere
+/// else, and when nothing is configured, it is Downloads in the home folder.
+Future<String> _downloadsPath(String home) async {
+  final fallback = '$home${Platform.pathSeparator}Downloads';
+  if (!Platform.isLinux) return fallback;
+  try {
+    final config = Platform.environment['XDG_CONFIG_HOME'];
+    final base = config != null && config.isNotEmpty ? config : '$home/.config';
+    final text = await File('$base/user-dirs.dirs').readAsString();
+    final match = RegExp(r'^\s*XDG_DOWNLOAD_DIR\s*=\s*"([^"]+)"', multiLine: true).firstMatch(text);
+    final value = match?.group(1);
+    if (value == null) return fallback;
+    final path = value.replaceAll(r'$HOME', home);
+    return path == home || path.isEmpty ? fallback : path;
+  } catch (_) {
+    return fallback;
+  }
+}
+
 Future<String> _saveToDownloads(String name, String content) async {
   final home = Platform.environment[Platform.isWindows ? 'USERPROFILE' : 'HOME'];
   if (home == null || home.isEmpty) throw StateError('Could not find the Downloads folder');
-  final dir = Directory('$home${Platform.pathSeparator}Downloads');
+  final dir = Directory(await _downloadsPath(home));
   if (!await dir.exists()) await dir.create(recursive: true);
   var file = File('${dir.path}${Platform.pathSeparator}$name');
   final dot = name.lastIndexOf('.');

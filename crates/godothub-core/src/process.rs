@@ -212,6 +212,10 @@ $processes | Where-Object { $_.CommandLine } | ForEach-Object {
 
     #[cfg(unix)]
     {
+        #[cfg(target_os = "linux")]
+        if let Some(found) = linux_proc_processes() {
+            return Ok(found);
+        }
         let output = Command::new("ps")
             .args(["-eo", "pid=,args="])
             .output()
@@ -223,6 +227,48 @@ $processes | Where-Object { $_.CommandLine } | ForEach-Object {
             &output.stdout,
         )))
     }
+}
+
+/// On Linux the arguments are read from /proc, where they are kept apart, so a project
+/// path with spaces comes out exactly. `None` when /proc cannot be read: `ps` is the fallback.
+#[cfg(target_os = "linux")]
+fn linux_proc_processes() -> Option<Vec<RunningProcess>> {
+    let mut found = Vec::new();
+    for entry in std::fs::read_dir("/proc").ok()?.flatten() {
+        let Some(pid) = entry.file_name().to_str().and_then(|name| name.parse::<u32>().ok()) else {
+            continue;
+        };
+        let Ok(raw) = std::fs::read(entry.path().join("cmdline")) else {
+            continue;
+        };
+        let text = String::from_utf8_lossy(&raw);
+        let args: Vec<&str> = text.split(' ').filter(|arg| !arg.is_empty()).collect();
+        let command_line = args.join(" ");
+        if !command_line.to_ascii_lowercase().contains("godot") {
+            continue;
+        }
+        let Some(project_path) = exact_path_arg(&args) else {
+            continue;
+        };
+        found.push(RunningProcess { pid, project_path, is_export: is_export_command(&command_line) });
+    }
+    Some(found)
+}
+
+#[cfg(target_os = "linux")]
+fn exact_path_arg(args: &[&str]) -> Option<String> {
+    let mut iter = args.iter();
+    while let Some(arg) = iter.next() {
+        let value = if *arg == "--path" {
+            iter.next().copied()
+        } else {
+            arg.strip_prefix("--path=")
+        };
+        if let Some(value) = value.filter(|value| !value.is_empty()) {
+            return Some(value.to_string());
+        }
+    }
+    None
 }
 
 pub(crate) fn process_liveness(pid: u32) -> ProcessLiveness {
@@ -360,5 +406,17 @@ mod unquoted_path_tests {
         assert_eq!(found[0].project_path, "/home/u/My Game");
         assert_eq!(parse_path_arg("godot --path /home/u/My Game"), Some("/home/u/My Game".to_string()));
         assert_eq!(parse_path_arg("godot --path=/home/u/My Game --editor"), Some("/home/u/My Game".to_string()));
+    }
+}
+
+#[cfg(all(test, target_os = "linux"))]
+mod proc_path_tests {
+    use super::exact_path_arg;
+
+    #[test]
+    fn the_path_is_the_next_argument_whatever_follows() {
+        assert_eq!(exact_path_arg(&["godot", "--path", "/home/u/My Game", "scene.tscn"]), Some("/home/u/My Game".to_string()));
+        assert_eq!(exact_path_arg(&["godot", "--path=/p q", "-e"]), Some("/p q".to_string()));
+        assert_eq!(exact_path_arg(&["godot", "-e"]), None);
     }
 }

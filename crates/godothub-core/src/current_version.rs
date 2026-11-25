@@ -3,7 +3,7 @@ use std::fs;
 use std::path::{Path, PathBuf};
 use crate::AppHandle;
 
-pub const ALIAS_CANDIDATES: [&str; 3] = ["Godot.exe", "Godot.cmd", "Godot"];
+pub const ALIAS_CANDIDATES: [&str; 4] = ["Godot.exe", "Godot.cmd", "Godot", "godot"];
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
 pub struct CurrentVersionInfo {
@@ -76,11 +76,21 @@ pub fn alias_file_name() -> &'static str {
     "Godot.exe"
 }
 
-#[cfg(not(target_os = "windows"))]
+/// Linux file names are case-sensitive and the command people type is `godot`; macOS
+/// and Windows look names up without regard to case, so `Godot` is found there too.
+#[cfg(target_os = "linux")]
+pub fn alias_file_name() -> &'static str {
+    "godot"
+}
+
+#[cfg(not(any(target_os = "windows", target_os = "linux")))]
 pub fn alias_file_name() -> &'static str {
     "Godot"
 }
 
+#[cfg(target_os = "linux")]
+const PIN_ALIAS_NAME: &str = "godot";
+#[cfg(not(target_os = "linux"))]
 const PIN_ALIAS_NAME: &str = "Godot";
 
 const RESERVED_NAMES: [&str; 22] = [

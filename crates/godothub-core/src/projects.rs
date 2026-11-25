@@ -1562,7 +1562,8 @@ pub(crate) fn launch_project(
         #[cfg(target_os = "macos")]
         let keep_alive = true;
         #[cfg(not(target_os = "macos"))]
-        let keep_alive = settings.minimize_to_tray && tray_available();
+        // With no tray the window can only come back by itself when Godot closes.
+        let keep_alive = settings.minimize_to_tray && (settings.reopen_after_godot_closes || tray_available());
 
         if keep_alive {
             app.host().hide_main_window();

@@ -103,6 +103,7 @@ Installed-Size: $installed_kb
 Maintainer: Rykode
 Priority: optional
 Depends: libgtk-3-0 | libgtk-3-0t64, libx11-6, libxi6, liblzma5, libegl1, libgles2
+Recommends: xdg-utils, libglib2.0-bin, pkexec | policykit-1
 Description: $summary
  GodotHub manages Godot versions and projects.
 EOF
@@ -122,6 +123,7 @@ mkdir -p "$rpmtop/SPECS" "$rpmtop/BUILDROOT" "$rpmtop/RPMS"
   echo "BuildArch: x86_64"
   echo "AutoReqProv: no"
   echo "Requires: gtk3, libX11, libXi, xz-libs, libEGL.so.1()(64bit), libGLESv2.so.2()(64bit)"
+  echo "Recommends: xdg-utils, glib2, polkit"
   echo
   echo "%description"
   echo "$summary"

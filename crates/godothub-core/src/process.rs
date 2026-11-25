@@ -52,8 +52,14 @@ pub(crate) fn parse_path_arg(cmdline: &str) -> Option<String> {
         let path = &rest[..end];
         return (!path.is_empty()).then(|| path.to_string());
     }
-    let end = rest.find(char::is_whitespace).unwrap_or(rest.len());
-    let path = &rest[..end];
+    // Unquoted (`ps` prints arguments as they are): the path may hold spaces, so it runs
+    // until the next option, or to the end of the line.
+    let end = rest
+        .char_indices()
+        .find(|(index, c)| c.is_whitespace() && rest[*index..].trim_start().starts_with('-'))
+        .map(|(index, _)| index)
+        .unwrap_or(rest.len());
+    let path = rest[..end].trim_end();
     (!path.is_empty()).then(|| path.to_string())
 }
 
@@ -339,5 +345,20 @@ mod liveness_tests {
         drop(child);
         assert_eq!(process_liveness(pid), ProcessLiveness::Exited);
         assert_eq!(process_liveness(std::process::id()), ProcessLiveness::Alive);
+    }
+}
+
+#[cfg(all(test, unix))]
+mod unquoted_path_tests {
+    use super::*;
+
+    #[test]
+    fn path_with_spaces_from_ps_output() {
+        let line = "4242 /opt/godot/Godot_v4.3 --editor --path /home/u/My Game --verbose";
+        let found = parse_unix_process_output(line);
+        assert_eq!(found.len(), 1);
+        assert_eq!(found[0].project_path, "/home/u/My Game");
+        assert_eq!(parse_path_arg("godot --path /home/u/My Game"), Some("/home/u/My Game".to_string()));
+        assert_eq!(parse_path_arg("godot --path=/home/u/My Game --editor"), Some("/home/u/My Game".to_string()));
     }
 }

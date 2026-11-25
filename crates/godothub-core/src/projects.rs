@@ -1562,7 +1562,7 @@ pub(crate) fn launch_project(
         #[cfg(target_os = "macos")]
         let keep_alive = true;
         #[cfg(not(target_os = "macos"))]
-        let keep_alive = settings.minimize_to_tray;
+        let keep_alive = settings.minimize_to_tray && tray_available();
 
         if keep_alive {
             app.host().hide_main_window();
@@ -1591,6 +1591,45 @@ pub(crate) fn launch_project(
     });
 
     Ok(())
+}
+
+/// Whether hiding the main window leaves a tray icon to bring it back. Only Linux can
+/// lack one: a desktop without a StatusNotifier host (GNOME without the AppIndicator
+/// extension) shows no icon at all. Mirrors `linuxTrayHostRunning` in the app, so when
+/// the bus cannot be asked the tray is assumed to be there.
+#[cfg(not(target_os = "macos"))]
+fn tray_available() -> bool {
+    #[cfg(target_os = "linux")]
+    {
+        for name in ["org.kde.StatusNotifierWatcher", "com.canonical.StatusNotifierWatcher"] {
+            let output = std::process::Command::new("gdbus")
+                .args([
+                    "call",
+                    "--session",
+                    "--dest",
+                    "org.freedesktop.DBus",
+                    "--object-path",
+                    "/org/freedesktop/DBus",
+                    "--method",
+                    "org.freedesktop.DBus.NameHasOwner",
+                    name,
+                ])
+                .output();
+            match output {
+                Ok(out) if out.status.success() => {
+                    if String::from_utf8_lossy(&out.stdout).contains("true") {
+                        return true;
+                    }
+                }
+                _ => return true,
+            }
+        }
+        false
+    }
+    #[cfg(not(target_os = "linux"))]
+    {
+        true
+    }
 }
 
 #[cfg(unix)]

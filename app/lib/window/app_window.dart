@@ -238,8 +238,20 @@ class AppWindow {
     }
   }
 
+  /// The bounds are cached from move and resize events, and on Linux a read taken while
+  /// the window was not yet mapped can be 0,0, which then got saved over the real
+  /// position. A window that is showing is asked directly; a hidden, minimized or
+  /// maximized one keeps its cached normal bounds.
+  Rect _boundsToSave() {
+    if (Platform.isLinux && _window.isVisible && !_window.isMaximized && !_window.isMinimized) {
+      final live = _window.bounds.toRect();
+      if (live.width > 0 && live.height > 0) return live;
+    }
+    return _normalBounds ?? _window.bounds.toRect();
+  }
+
   Future<void> _saveState() async {
-    final bounds = _normalBounds ?? _window.bounds.toRect();
+    final bounds = _boundsToSave();
     try {
       await rust.saveWindowState(
         state: windowStateFrom(bounds: bounds, maximized: _window.isMaximized, scale: _scale),

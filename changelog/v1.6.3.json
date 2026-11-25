@@ -20,6 +20,18 @@
       "text": "Windows: the GodotHub system tray icon now actually appears. Was Bugged after changing from tauri to flutter"
     },
     {
+      "category": "fix",
+      "text": "Linux: the window position is now restored on X11 (and whenever the desktop reports it). The window manager used to ignore the position set before the window appeared, so it opened at the corner and saved that over the real position (#384)"
+    },
+    {
+      "category": "fix",
+      "text": "Linux: when \"Close on project open\" and \"Minimize to tray\" are on but your desktop has no tray (for example GNOME without the AppIndicator extension), GodotHub no longer hides with no way to bring it back"
+    },
+    {
+      "category": "fix",
+      "text": "Linux: running projects whose folder path contains a space are now detected correctly, so they show as running and can be stopped"
+    },
+    {
       "category": "improve",
       "text": "UI polish pass: the Dashboard stat cards and activity bars are now flat in your accent color instead of fixed blue, violet, green and amber gradients, the Versions \"Open\" button is smaller, the Git sidebar's Push, Pull and Fetch buttons show text labels, and the Appearance Reset button and the System language entry use proper icons instead of a heart and an emoji"
     },

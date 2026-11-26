@@ -56,19 +56,11 @@ blocks.push(
     'Already using GodotHub? It offers this update in the app.',
 )
 blocks.push(
-  '**AppImage not starting on Linux?**\n\n' +
-    'The AppImage does not run on every Linux setup. If it fails to start, install it with ' +
-    '[AM](https://github.com/ivan-hc/AM) instead. AM downloads the same AppImage from this page, ' +
-    'adds GodotHub to your app menu, and updates it with `am -u godothub`.\n\n' +
-    '1. Install AM:\n\n' +
-    '```bash\n' +
-    'wget -q https://raw.githubusercontent.com/ivan-hc/AM/main/AM-INSTALLER && chmod a+x ./AM-INSTALLER && ./AM-INSTALLER && rm ./AM-INSTALLER\n' +
-    '```\n\n' +
-    '2. Install GodotHub:\n\n' +
-    '```bash\n' +
-    'am -i godothub\n' +
-    '```\n\n' +
-    'If you chose AppMan in the AM installer, use `appman -i godothub` instead.',
+  '**Window size or position not saved on Linux?**\n\n' +
+    'On some Linux distros, GodotHub may not remember its window size and position after you close it, ' +
+    'and the window can open at the wrong size or place. This comes from Flutter itself, not GodotHub. ' +
+    'It can only be worked around inside GodotHub, and those workarounds could cause new window bugs for others, ' +
+    'so GodotHub leaves it as it is for now.',
 )
 blocks.push(
   '**Requirements:** Windows 10 or 11 (x64), macOS 12 or newer, or a 64-bit Linux desktop with GTK 3 and OpenGL ES. ' +

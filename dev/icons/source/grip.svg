@@ -1,3 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-aliases="drag handle reorder" data-waive-detail-budget="the 2x3 dot grid is the metaphor; six dots is the minimum">
-  <path d="M8 5h.01M16 5h.01M8 12h.01M16 12h.01M8 19h.01M16 19h.01"/>
+  <circle cx="8.5" cy="5" r="1.25" data-role="silhouette"/>
+  <circle cx="15.5" cy="5" r="1.25" data-role="silhouette"/>
+  <circle cx="8.5" cy="12" r="1.25" data-role="silhouette"/>
+  <circle cx="15.5" cy="12" r="1.25" data-role="silhouette"/>
+  <circle cx="8.5" cy="19" r="1.25" data-role="silhouette"/>
+  <circle cx="15.5" cy="19" r="1.25" data-role="silhouette"/>
 </svg>

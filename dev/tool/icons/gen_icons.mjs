@@ -19,10 +19,12 @@ import { createRequire } from 'node:module';
 import paper from 'paper-jsdom';
 import ClipperLib from 'clipper-lib';
 
-const STROKE = 3;
 const GRID = 24;
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../..');
+// the stroke width is the one in icons.yaml, so the two never drift apart
+const STROKE = Number(/^\s*stroke:\s*([\d.]+)/m.exec(fs.readFileSync(path.join(root, 'icons.yaml'), 'utf8'))?.[1]);
+if (!(STROKE > 0)) throw new Error('could not read dna.stroke from icons.yaml');
 const srcDir = path.join(root, 'dev/icons/source');
 const dartFile = path.join(root, 'app/lib/design/icons.g.dart');
 const verify = process.argv.includes('--verify');

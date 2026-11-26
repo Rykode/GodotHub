@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-aliases="paint art draw">
-  <path d="M11.5 14.5L20.5 5.5"/>
-  <path d="M3.5 20.5C3.5 16 6 13 9.5 13L12.5 16C12.5 19.5 9 20.5 3.5 20.5Z" data-role="silhouette"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M20.3 2.7L16.05 6.95"/>
+  <path d="M6.5 9.42L13.58 16.5" data-role="detail"/>
+  <path d="M10.53 8.51L8.41 10.63L6.29 11.33L4.52 13.1L3.32 19.68L9.9 18.48L11.67 16.71L12.37 14.59L14.5 12.47Z" data-role="silhouette"/>
 </svg>

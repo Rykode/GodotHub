@@ -479,6 +479,7 @@ class GhRingPulse extends StatefulWidget {
     this.rings = 2,
     this.width = 2,
     this.running = true,
+    this.cycles,
   });
 
   final Widget child;
@@ -488,6 +489,10 @@ class GhRingPulse extends StatefulWidget {
   final double width;
   final bool running;
 
+  /// Pulses per ring before the rings rest, or null to pulse for as long as [running] is true.
+  /// Every animated frame redraws the window, which is costly under software rendering.
+  final int? cycles;
+
   @override
   State<GhRingPulse> createState() => _GhRingPulseState();
 }
@@ -496,6 +501,7 @@ class _GhRingPulseState extends State<GhRingPulse> with SingleTickerProviderStat
   late final Ticker _ticker = createTicker(_tick);
   final ValueNotifier<double> _time = ValueNotifier(-1);
   double _timeScale = 1;
+  bool _finished = false;
 
   @override
   void didChangeDependencies() {
@@ -512,7 +518,8 @@ class _GhRingPulseState extends State<GhRingPulse> with SingleTickerProviderStat
 
   void _sync() {
     final run = widget.running && !GhMotion.of(context).off;
-    if (run && !_ticker.isActive) {
+    if (!run) _finished = false;
+    if (run && !_ticker.isActive && !_finished) {
       _time.value = 0;
       _ticker.start();
     } else if (!run && _ticker.isActive) {
@@ -524,7 +531,15 @@ class _GhRingPulseState extends State<GhRingPulse> with SingleTickerProviderStat
   }
 
   void _tick(Duration elapsed) {
-    _time.value = elapsed.inMicroseconds / 1e6 * _timeScale;
+    final time = elapsed.inMicroseconds / 1e6 * _timeScale;
+    final cycles = widget.cycles;
+    if (cycles != null && time >= (widget.rings - 1) * GhRingPulseTiming.each + cycles * GhRingPulseTiming.duration) {
+      _ticker.stop();
+      _finished = true;
+      _time.value = -1;
+      return;
+    }
+    _time.value = time;
   }
 
   @override
@@ -537,7 +552,14 @@ class _GhRingPulseState extends State<GhRingPulse> with SingleTickerProviderStat
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
-      painter: _RingPainter(time: _time, rings: widget.rings, color: widget.color, radius: widget.radius, width: widget.width),
+      painter: _RingPainter(
+        time: _time,
+        rings: widget.rings,
+        color: widget.color,
+        radius: widget.radius,
+        width: widget.width,
+        cycles: widget.cycles,
+      ),
       child: widget.child,
     );
   }
@@ -552,11 +574,15 @@ class GhRingFrame {
   final double opacity;
 }
 
-GhRingFrame? ghRingFrame(double time, int ring, double radius) {
+/// Ring [ring]'s frame at [time]; null before the pulse starts or once the ring has pulsed [cycles] times.
+GhRingFrame? ghRingFrame(double time, int ring, double radius, {int? cycles}) {
   if (time < 0) {
     return null;
   }
   final local = time - ring * GhRingPulseTiming.each;
+  if (cycles != null && local >= cycles * GhRingPulseTiming.duration) {
+    return null;
+  }
   final double p;
   if (local < 0) {
     p = 0;
@@ -572,7 +598,7 @@ GhRingFrame? ghRingFrame(double time, int ring, double radius) {
 }
 
 class _RingPainter extends CustomPainter {
-  _RingPainter({required this.time, required this.rings, required this.color, required this.radius, required this.width})
+  _RingPainter({required this.time, required this.rings, required this.color, required this.radius, required this.width, this.cycles})
     : super(repaint: time);
 
   final ValueNotifier<double> time;
@@ -580,11 +606,12 @@ class _RingPainter extends CustomPainter {
   final Color color;
   final double radius;
   final double width;
+  final int? cycles;
 
   @override
   void paint(Canvas canvas, Size size) {
     for (var i = 0; i < rings; i++) {
-      final frame = ghRingFrame(time.value, i, radius);
+      final frame = ghRingFrame(time.value, i, radius, cycles: cycles);
       if (frame == null || frame.opacity <= 0) {
         continue;
       }
@@ -606,7 +633,8 @@ class _RingPainter extends CustomPainter {
       oldDelegate.rings != rings ||
       oldDelegate.color != color ||
       oldDelegate.radius != radius ||
-      oldDelegate.width != width;
+      oldDelegate.width != width ||
+      oldDelegate.cycles != cycles;
 }
 
 abstract final class GhMagnetTiming {

@@ -422,7 +422,7 @@ class _CommandPaletteState extends ConsumerState<CommandPalette> {
           shortcut: navShortcuts['settings'],
           icon: GhIcons.gear,
           section: ghTr('nav:settings', translations: tr),
-          action: () => AppSignals.emit(openSettingSignal, key),
+          action: () => AppSignals.emit(openSettingsCategorySignal, tab),
         ),
       );
     }

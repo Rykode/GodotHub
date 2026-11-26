@@ -18,7 +18,10 @@ Widget _host(Widget child, {GhMotionPrefs prefs = _speed1, bool reduced = false,
     home: GhMotion(
       prefs: prefs,
       osReduced: reduced,
-      child: Directionality(textDirection: direction, child: Scaffold(body: child)),
+      child: Directionality(
+        textDirection: direction,
+        child: Scaffold(body: child),
+      ),
     ),
   );
 }
@@ -33,7 +36,9 @@ Widget _shell({int buttons = 35, int parts = 2, Object? replay, VoidCallback? on
           child: SizedBox(
             key: const ValueKey('titlebar'),
             height: 32,
-            child: Row(children: [for (var i = 0; i < parts; i++) GhIntroPart(child: SizedBox(key: ValueKey('part$i'), width: 40))]),
+            child: Row(
+              children: [for (var i = 0; i < parts; i++) GhIntroPart(child: SizedBox(key: ValueKey('part$i'), width: 40))],
+            ),
           ),
         ),
         Expanded(
@@ -65,7 +70,10 @@ Widget _shell({int buttons = 35, int parts = 2, Object? replay, VoidCallback? on
 }
 
 GhPoseTransition? _transitionAbove(WidgetTester tester, String key) {
-  final finder = find.ancestor(of: find.byKey(ValueKey(key), skipOffstage: false), matching: find.byType(GhPoseTransition, skipOffstage: false));
+  final finder = find.ancestor(
+    of: find.byKey(ValueKey(key), skipOffstage: false),
+    matching: find.byType(GhPoseTransition, skipOffstage: false),
+  );
   if (finder.evaluate().isEmpty) {
     return null;
   }
@@ -178,9 +186,15 @@ void main() {
   });
 
   testWidgets('pressables outside a sidebar do not register', (tester) async {
-    await tester.pumpWidget(_host(GhShellIntro(
-      child: GhIntroTitleBar(child: GhPressable(onPressed: () {}, builder: (context, states) => const SizedBox(width: 10, height: 10))),
-    )));
+    await tester.pumpWidget(
+      _host(
+        GhShellIntro(
+          child: GhIntroTitleBar(
+            child: GhPressable(onPressed: () {}, builder: (context, states) => const SizedBox(width: 10, height: 10)),
+          ),
+        ),
+      ),
+    );
     final state = tester.state<GhShellIntroState>(find.byType(GhShellIntro));
     expect(state.count(GhIntroRole.item), 0);
     await tester.pump(const Duration(seconds: 3));
@@ -211,6 +225,10 @@ void main() {
     expect(ghRingFrame(2.4, 0, 8)!.opacity, closeTo(0.75, 1e-9));
     expect(ghRingFrame(3.6, 1, 8)!.opacity, closeTo(0.75, 1e-9));
     expect(ghRingFrame(2.3999, 0, 8)!.opacity, lessThan(0.01));
+    // With a cycle limit each ring stops after its own last pulse instead of starting another.
+    expect(ghRingFrame(7.1, 0, 8, cycles: 3), isNotNull);
+    expect(ghRingFrame(7.3, 0, 8, cycles: 3), isNull);
+    expect(ghRingFrame(8.3, 1, 8, cycles: 3), isNotNull);
   });
 
   test('magnet pull stays within the margin', () {
@@ -247,14 +265,36 @@ void main() {
     expect(tester.hasRunningAnimations, isFalse);
   });
 
+  testWidgets('ring pulse with a cycle limit stops ticking after its last ring finishes', (tester) async {
+    await tester.pumpWidget(_host(const GhRingPulse(color: Color(0xFF00FF00), cycles: 3, child: SizedBox(width: 80, height: 30))));
+    // Two rings, the second starts `each` later: the last pulse ends at each + 3 * duration.
+    const end = GhRingPulseTiming.each + 3 * GhRingPulseTiming.duration;
+    await tester.pump();
+    await tester.pump(Duration(milliseconds: (end * 1000).round() - 200));
+    expect(tester.hasRunningAnimations, isTrue);
+    await tester.pump(const Duration(milliseconds: 400));
+    await tester.pump(const Duration(milliseconds: 16));
+    expect(tester.hasRunningAnimations, isFalse);
+  });
+
   testWidgets('magnet follows the pointer and releases on exit', (tester) async {
-    await tester.pumpWidget(_host(Center(
-      child: SizedBox(
-        width: 400,
-        height: 300,
-        child: GhMagneticArea(child: Center(child: GhMagnet(child: Container(key: const ValueKey('cta'), width: 100, height: 40, color: const Color(0xFF0000FF))))),
+    await tester.pumpWidget(
+      _host(
+        Center(
+          child: SizedBox(
+            width: 400,
+            height: 300,
+            child: GhMagneticArea(
+              child: Center(
+                child: GhMagnet(
+                  child: Container(key: const ValueKey('cta'), width: 100, height: 40, color: const Color(0xFF0000FF)),
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
-    )));
+    );
     final center = tester.getCenter(find.byKey(const ValueKey('cta')));
     final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
     await mouse.addPointer(location: center);

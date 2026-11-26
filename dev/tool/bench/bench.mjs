@@ -5,7 +5,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const HERE = path.dirname(fileURLToPath(import.meta.url))
-const APP = path.resolve(HERE, '..', '..', 'app')
+const APP = path.resolve(HERE, '..', '..', '..', 'app')
 const LAB = process.env.GODOTHUB_BENCH_LAB || path.join(APP, 'build', 'bench_lab')
 const PLATFORM = { win32: 'windows', linux: 'linux', darwin: 'macos' }[process.platform]
 const RESULTS = path.join(LAB, 'results', PLATFORM)

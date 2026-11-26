@@ -743,10 +743,26 @@ fn spawn_detached(exe: &str, args: &[String]) -> Result<(), String> {
 
 #[cfg(not(windows))]
 fn spawn_detached(exe: &str, args: &[String]) -> Result<(), String> {
+    use std::os::unix::process::CommandExt;
+    use std::process::Stdio;
     let mut cmd = Command::new(exe);
     crate::terminal::sanitize_child_env(&mut cmd);
     cmd.args(args)
-        .spawn()
+        .stdin(Stdio::null())
+        .stdout(Stdio::null())
+        .stderr(Stdio::null());
+    // A new session, so the editor has no controlling terminal: closing the
+    // terminal (SIGHUP) or pressing Ctrl+C there no longer takes Godot down.
+    // SAFETY: setsid is async-signal-safe and touches no memory of this process.
+    unsafe {
+        cmd.pre_exec(|| {
+            if libc::setsid() == -1 {
+                return Err(std::io::Error::last_os_error());
+            }
+            Ok(())
+        });
+    }
+    cmd.spawn()
         .map(|_| ())
         .map_err(|e| format!("Failed to launch Godot: {e}"))
 }
@@ -780,6 +796,27 @@ fn ffi_dispatch(argv: Vec<OsString>) -> Option<i32> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[cfg(target_os = "linux")]
+    #[test]
+    fn detached_editor_runs_in_its_own_session() {
+        let out = std::env::temp_dir().join(format!("godothub-detach-{}", std::process::id()));
+        let _ = std::fs::remove_file(&out);
+        let script = format!("cut -d' ' -f6 /proc/self/stat > '{}'", out.display());
+        spawn_detached("/bin/sh", &["-c".to_string(), script]).unwrap();
+        let mut sid = String::new();
+        for _ in 0..100 {
+            sid = std::fs::read_to_string(&out).unwrap_or_default();
+            if !sid.trim().is_empty() {
+                break;
+            }
+            std::thread::sleep(std::time::Duration::from_millis(20));
+        }
+        let _ = std::fs::remove_file(&out);
+        let ours = unsafe { libc::getsid(0) };
+        let theirs: i32 = sid.trim().parse().expect("child wrote its session id");
+        assert_ne!(theirs, ours, "the editor must not share the terminal's session");
+    }
 
     fn parse(args: &[&str]) -> Cli {
         Cli::try_parse_from(args).expect("args should parse")

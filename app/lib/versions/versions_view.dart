@@ -153,7 +153,7 @@ class _VersionsViewState extends ConsumerState<VersionsView> {
       if (open != null) {
         open();
       } else {
-        AppSignals.emit(openSettingSignal, 'version_scan_dirs');
+        AppSignals.emit(openSettingsCategorySignal, 'storage');
       }
       return;
     }

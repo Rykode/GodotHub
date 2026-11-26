@@ -34,6 +34,7 @@ import '../state/workspaces.dart';
 import '../titlebar/title_bar.dart';
 import '../ui/core/button.dart';
 import '../ui/core/i18n.dart';
+import '../ui/reusables/state_panel.dart';
 import '../ui/feedback/announcement_banner.dart';
 import '../ui/feedback/confirm_dialog.dart';
 import '../ui/feedback/error_boundary.dart';
@@ -170,6 +171,10 @@ class _AppShellState extends ConsumerState<AppShell> {
     _announcement.dispose();
     super.dispose();
   }
+
+  /// Scan folders for projects, versions and templates all live in Settings > Storage.
+  /// Goes through the signal so an already-mounted Settings view switches category too.
+  void _openSettingsCategory(String category) => AppSignals.emit(openSettingsCategorySignal, category);
 
   void _setTab(String id, {bool closeGit = false}) {
     if (!mounted) return;
@@ -355,7 +360,7 @@ class _AppShellState extends ConsumerState<AppShell> {
     final settings = ref.read(settingsProvider).value;
     if (settings == null) return;
     if (settings.projectScanDirs.isEmpty) {
-      _setTab('settings');
+      _openSettingsCategory('storage');
       return;
     }
     try {
@@ -462,7 +467,7 @@ class _AppShellState extends ConsumerState<AppShell> {
         active: active,
         gitSidebarOpen: _git != null,
         prefs: widget.prefs,
-        onOpenSettings: () => _setTab('settings'),
+        onOpenSettings: () => _openSettingsCategory('storage'),
       );
     }
     if (id == 'asset-store') {
@@ -484,10 +489,10 @@ class _AppShellState extends ConsumerState<AppShell> {
       return VaultView(connected: connected, prefs: widget.prefs);
     }
     if (id == 'templates') {
-      return TemplatesView(connected: connected, prefs: widget.prefs, onOpenSettings: () => _setTab('settings'));
+      return TemplatesView(connected: connected, prefs: widget.prefs, onOpenSettings: () => _openSettingsCategory('storage'));
     }
     if (id == 'versions') {
-      return VersionsView(connected: connected, prefs: widget.prefs, onOpenSettings: () => _setTab('settings'));
+      return VersionsView(connected: connected, prefs: widget.prefs, onOpenSettings: () => _openSettingsCategory('storage'));
     }
     if (id == 'settings') {
       return SettingsView(connected: connected, prefs: widget.prefs);
@@ -576,10 +581,7 @@ class _AppShellState extends ConsumerState<AppShell> {
                         Positioned.fill(
                           child: Padding(
                             padding: insets,
-                            child: GhAnnouncementBanner(
-                              controller: _announcement,
-                              onSupport: () => Api.openUrl(ghSupportUrl).ignore(),
-                            ),
+                            child: GhAnnouncementBanner(controller: _announcement, onSupport: () => Api.openUrl(ghSupportUrl).ignore()),
                           ),
                         ),
                       ],
@@ -619,7 +621,8 @@ class _AppShellState extends ConsumerState<AppShell> {
     ref.watch(openTodosProvider);
     ref.watch(todoDueNotificationsProvider);
     final theme = GhTheme.of(context);
-    final settings = ref.watch(settingsProvider).value;
+    final settingsState = ref.watch(settingsProvider);
+    final settings = settingsState.value;
     if (settings != null && !settings.setupComplete) {
       _onboarding = true;
       return SizedBox.expand(
@@ -631,14 +634,37 @@ class _AppShellState extends ConsumerState<AppShell> {
       _introHandedOff = GhUiTransition.consumeShellIntroHandOff();
     }
     if (settings == null) {
+      // Settings wait for the active workspace. If the workspace list failed to load, or settings
+      // themselves failed, that wait never ends: show the error with Retry instead of "Loading" forever.
+      final workspaces = ref.watch(workspacesProvider);
+      final workspacesFailed = workspaces.loaded && workspaces.activeId.isEmpty;
+      final failed = settingsState.hasError || workspacesFailed;
       return SizedBox.expand(
         child: ColoredBox(
           color: theme.base,
           child: Center(
-            child: Text(
-              context.tr.common.app_loading,
-              style: theme.text(size: GhTextSize.sm, color: theme.muted),
-            ),
+            child: failed
+                ? ConstrainedBox(
+                    constraints: BoxConstraints(maxWidth: theme.rem(32)),
+                    child: GhStatePanel.error(
+                      key: const ValueKey('startup-load-error'),
+                      title: ghTr('settings:settings_load_failed'),
+                      message: (settingsState.error ?? ref.read(workspacesProvider.notifier).loadError)?.toString(),
+                      onRetry: () {
+                        if (workspacesFailed) {
+                          // A failed reload leaves the view state unchanged; rebuild so the new error shows.
+                          ref.read(workspacesProvider.notifier).reload().whenComplete(() {
+                            if (mounted) setState(() {});
+                          }).ignore();
+                        }
+                        ref.invalidate(settingsProvider);
+                      },
+                    ),
+                  )
+                : Text(
+                    context.tr.common.app_loading,
+                    style: theme.text(size: GhTextSize.sm, color: theme.muted),
+                  ),
           ),
         ),
       );

@@ -6,3 +6,25 @@ resolver = "2"
 lto = "thin"
 codegen-units = 1
 strip = true
+
+# Debug builds run the app with an unoptimised Rust core. Hashing and unzipping a
+# 100 MB editor archive then takes 15 s or more, which looks like a hang at 100%
+# after a download. Optimise just those dependencies; the project's own code stays
+# unoptimised so debugging is unaffected.
+[profile.dev.package.sha2]
+opt-level = 3
+
+[profile.dev.package.zip]
+opt-level = 3
+
+[profile.dev.package.flate2]
+opt-level = 3
+
+[profile.dev.package.miniz_oxide]
+opt-level = 3
+
+[profile.dev.package.zlib-rs]
+opt-level = 3
+
+[profile.dev.package.crc32fast]
+opt-level = 3

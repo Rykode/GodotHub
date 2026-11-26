@@ -1195,6 +1195,8 @@ enum VerifyOutcome {
     Unverified(String),
 }
 
+const SUMS_TIMEOUT: Duration = Duration::from_secs(20);
+
 async fn verify_download(
     client: &reqwest::Client,
     job: &DownloadJob,
@@ -1204,7 +1206,10 @@ async fn verify_download(
     let Some(url) = sums_url(&job.download_url, resolved_url) else {
         return VerifyOutcome::Unverified("could not determine checksum URL".into());
     };
-    let resp = match client.get(&url).send().await {
+    // The archive is already on disk, so a slow or silent checksum host must not
+    // keep the download sitting at 100%. The timeout covers the whole request,
+    // body included; a timeout just means "unverified" and the install goes on.
+    let resp = match client.get(&url).timeout(SUMS_TIMEOUT).send().await {
         Ok(r) if r.status().is_success() => r,
         Ok(r) => {
             return VerifyOutcome::Unverified(format!(
@@ -1384,7 +1389,13 @@ async fn run_download(app: AppHandle, key: String) {
         }
     };
 
-    match verify_download(&client, &job, &zip_path, &resolved_url).await {
+    let verify_started = Instant::now();
+    let outcome = verify_download(&client, &job, &zip_path, &resolved_url).await;
+    crate::diagnostics::record(
+        "download",
+        &format!("{key}: checksum step took {} ms", verify_started.elapsed().as_millis()),
+    );
+    match outcome {
         VerifyOutcome::Verified => {}
         VerifyOutcome::Mismatch { expected, actual } => {
             let _ = fs::remove_file(&zip_path);
@@ -1408,10 +1419,15 @@ async fn run_download(app: AppHandle, key: String) {
     let app2 = app.clone();
     let job2 = job.clone();
     let target2 = target_dir.clone();
+    let install_started = Instant::now();
     let result = tokio::task::spawn_blocking(move || -> Result<(), String> {
         install_version_archive(&app2, &job2, &zip_path, &target2)
     })
     .await;
+    crate::diagnostics::record(
+        "download",
+        &format!("{key}: install step took {} ms", install_started.elapsed().as_millis()),
+    );
 
     match result {
         Ok(Ok(())) => {
@@ -1429,11 +1445,16 @@ fn install_version_archive(
     zip_path: &Path,
     target_dir: &Path,
 ) -> Result<(), String> {
+    let extract_started = Instant::now();
     let zip_file = fs::File::open(zip_path).map_err(|e| e.to_string())?;
     let mut archive = zip::ZipArchive::new(std::io::BufReader::with_capacity(256 * 1024, zip_file))
         .map_err(|e| e.to_string())?;
     archive.extract(&target_dir).map_err(|e| e.to_string())?;
     let _ = fs::remove_file(zip_path);
+    crate::diagnostics::record(
+        "download",
+        &format!("{}: extracting took {} ms", job.tag, extract_started.elapsed().as_millis()),
+    );
 
     let exe_path = find_executable(&target_dir)
         .ok_or_else(|| "Could not locate Godot executable after extraction".to_string())?;
@@ -1472,8 +1493,13 @@ fn install_version_archive(
         managed_by: None,
     };
     register_version(app, installed.clone()).map_err(|e| e.to_string())?;
+    let rebind_started = Instant::now();
     crate::projects::rebind_projects_to_version(app, &installed);
     crate::discovery::bind_unbound_projects(app);
+    crate::diagnostics::record(
+        "download",
+        &format!("{}: re-binding projects took {} ms", job.tag, rebind_started.elapsed().as_millis()),
+    );
     Ok(())
 }
 

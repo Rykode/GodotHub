@@ -40,7 +40,8 @@ enum GhIconAnimation {
   nudgeDown(Duration(milliseconds: 380)),
   nudgeLeft(Duration(milliseconds: 380)),
   nudgeRight(Duration(milliseconds: 380)),
-  launch(Duration(milliseconds: 520));
+  launch(Duration(milliseconds: 520)),
+  rise(Duration(milliseconds: 900));
 
   const GhIconAnimation(this.duration);
 
@@ -92,6 +93,11 @@ enum GhIconAnimation {
         }
         final k = (1 - t) * 2;
         return GhIconPose(dx: -0.7 * k, dy: 0.7 * k);
+      case GhIconAnimation.rise:
+        // a slow, soft lift towards the top right that settles back where it began,
+        // always inside the icon's own box
+        final lift = Curves.easeInOutSine.transform(t < 0.5 ? t * 2 : 2 - t * 2);
+        return GhIconPose(dx: 0.1 * lift, dy: -0.1 * lift);
     }
   }
 }
@@ -144,7 +150,7 @@ const _motions = <String, GhIconAnimation>{
   'eye': GhIconAnimation.blink,
   'eye-slash': GhIconAnimation.blink,
   'pin': GhIconAnimation.tilt,
-  'rocket': GhIconAnimation.launch,
+  'rocket': GhIconAnimation.rise,
   'folder': GhIconAnimation.hop,
   'folder-plus': GhIconAnimation.hop,
   'house': GhIconAnimation.hop,

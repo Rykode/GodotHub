@@ -41,6 +41,21 @@ void main() {
       }
     });
 
+    test('the rocket lifts gently and never leaves its own box', () {
+      expect(ghIconMotionFor(GhIcons.rocket), GhIconAnimation.rise);
+      expect(GhIconAnimation.rise.duration, greaterThanOrEqualTo(const Duration(milliseconds: 800)));
+      var previous = GhIconAnimation.rise.pose(0);
+      for (var i = 1; i <= 100; i++) {
+        final pose = GhIconAnimation.rise.pose(i / 100);
+        expect(pose.dx.abs(), lessThanOrEqualTo(0.15));
+        expect(pose.dy.abs(), lessThanOrEqualTo(0.15));
+        // no jumps: it moves a hundredth of the icon size at most between frames
+        expect((pose.dx - previous.dx).abs(), lessThan(0.01));
+        expect((pose.dy - previous.dy).abs(), lessThan(0.01));
+        previous = pose;
+      }
+    });
+
     test('every icon in the set has a motion entry that points at a real icon or falls back to pop', () {
       expect(ghIconMotionFor(GhIcons.bell), GhIconAnimation.ring);
       expect(ghIconMotionFor(GhIcons.gear), GhIconAnimation.turnEighth);

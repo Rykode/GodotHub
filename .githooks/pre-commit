@@ -57,10 +57,18 @@ if git diff --cached --name-only -- 'app/lib/i18n/json' | grep -q '\.json$'; the
     echo "pre-commit: generated locale code not updated ($1)." >&2
     echo "pre-commit: run 'cd app && dart run slang' and commit app/lib/i18n, or CI will warn." >&2
   }
+  # Git points GIT_DIR and GIT_INDEX_FILE at the current repository while a hook
+  # runs, which is the worktree's own gitdir inside a linked worktree. The Flutter
+  # tool reads its SDK version with git, so with those set it reads the wrong
+  # repository, reports version 0.0.0-unknown and pub refuses to resolve
+  # ("requires Flutter SDK version >=3.50.1"). Slang does not need them, so it runs
+  # without them; the git add below keeps them.
+  slang_out=""
   if ! command -v dart >/dev/null 2>&1; then
     skip "Dart SDK not found"
-  elif ! (cd "$root/app" && dart run slang >/dev/null 2>&1); then
+  elif ! slang_out=$(cd "$root/app" && env -u GIT_DIR -u GIT_WORK_TREE -u GIT_INDEX_FILE -u GIT_PREFIX dart run slang 2>&1); then
     skip "slang failed"
+    echo "$slang_out" | tail -n 8 | sed 's/^/pre-commit:   /' >&2
   else
     git -C "$root" add -- 'app/lib/i18n/*.g.dart'
     echo "pre-commit: regenerated and staged app/lib/i18n/*.g.dart." >&2

@@ -554,7 +554,6 @@ fn reconcile_with_disk(
 
 pub(crate) fn list_projects_blocking(app: &AppHandle) -> Vec<Project> {
     let app = app.clone();
-    let start = std::time::Instant::now();
     settle_stale_sessions(&app);
     let mut kept = read_projects(&app);
     let mut file_infos: HashMap<String, Option<ProjectFileInfo>> = HashMap::new();

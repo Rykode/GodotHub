@@ -584,7 +584,7 @@ class _ProjectCardState extends ConsumerState<ProjectCard> {
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      _versionDropdown(context, theme, version),
+                      Flexible(child: _versionDropdown(context, theme, version)),
                       if (project.pinned || reveal)
                         Padding(
                           padding: EdgeInsetsDirectional.only(start: theme.space(1.5)),
@@ -1354,7 +1354,13 @@ class _ProjectCardState extends ConsumerState<ProjectCard> {
         builder: (context, states) => _chipFace(theme, states, [
           _hoverIcon(GhIcons.node, theme.space(2.5), states.active ? theme.ink : theme.muted),
           if (version != null) ...[
-            Text((version.customName?.isNotEmpty ?? false) ? version.customName! : version.tag),
+            Flexible(
+              child: Text(
+                (version.customName?.isNotEmpty ?? false) ? version.customName! : version.tag,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
             if (version.isMono)
               Container(
                 padding: EdgeInsets.symmetric(horizontal: theme.space(1.5), vertical: theme.space(0.5)),
@@ -1369,7 +1375,9 @@ class _ProjectCardState extends ConsumerState<ProjectCard> {
                 ),
               ),
           ] else
-            Text(tr.no_version_selected),
+            Flexible(
+              child: Text(tr.no_version_selected, maxLines: 1, overflow: TextOverflow.ellipsis),
+            ),
           _chevron(theme, open),
         ]),
       ),

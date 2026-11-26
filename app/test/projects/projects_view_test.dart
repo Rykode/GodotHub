@@ -12,6 +12,7 @@ import 'package:godothub/modals/category_manager_modal.dart';
 import 'package:godothub/modals/launch_args_modal.dart';
 import 'package:godothub/modals/tag_manager_modal.dart';
 import 'package:godothub/projects/category_sections.dart';
+import 'package:godothub/projects/project_actions.dart' show ProjectCallbacks;
 import 'package:godothub/projects/project_card.dart';
 import 'package:godothub/projects/project_layouts.dart';
 import 'package:godothub/projects/project_tile.dart';
@@ -246,6 +247,39 @@ void main() {
     await settle(tester, 5);
     expect(find.text('Uncategorized'), findsOneWidget);
   });
+
+  for (final width in [420.0, 440.0, 470.0, 500.0]) {
+    testWidgets('the version chip shrinks instead of overflowing in a ${width.toInt()}px card', (tester) async {
+      backend([project('a', 'Alpha', version: '')]);
+      tester.view.physicalSize = const Size(900, 800);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [fakeSettings(() => viewSettings())],
+          child: MaterialApp(
+            theme: GhTheme.defaults().toThemeData(),
+            home: Scaffold(
+              body: Align(
+                alignment: Alignment.topLeft,
+                child: SizedBox(
+                  width: width,
+                  child: ProjectCard(
+                    project: project('a', 'Alpha', version: ''),
+                    installedVersions: const [],
+                    callbacks: ProjectCallbacks.preview,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+      await settle(tester, 5);
+      expect(find.text('No version selected'), findsWidgets);
+      expect(tester.takeException(), isNull);
+    });
+  }
 
   testWidgets('dragging a card below another reorders and switches to manual sort', (tester) async {
     backend([project('a', 'Alpha', order: 0), project('b', 'Beta', order: 1), project('c', 'Gamma', order: 2)]);

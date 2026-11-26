@@ -238,6 +238,7 @@ class _WelcomeIntroState extends ConsumerState<WelcomeIntro> with TickerProvider
                             enabled: !_leaving,
                             child: GhRingPulse(
                               running: _rings && !_leaving,
+                              cycles: 3,
                               color: theme.accentBright,
                               radius: theme.radiusBtn,
                               child: _DiveInButton(onPressed: _leaving ? null : _diveIn),

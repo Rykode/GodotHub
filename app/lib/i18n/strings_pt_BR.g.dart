@@ -1402,9 +1402,6 @@ class _Translations$nav$pt_BR extends Translations$nav$en_US {
 	@override String get group_explore => 'Explorar';
 	@override String get you => 'You';
 	@override String get account_manage => 'Manage accounts';
-	@override String get workspace_tip_title => 'O seletor de espaços foi movido';
-	@override String get workspace_tip_body => 'Troque e gerencie espaços de trabalho pelo menu da conta abaixo.';
-	@override String get workspace_tip_dismiss => 'Entendi';
 }
 
 // Path: onboarding
@@ -3947,9 +3944,6 @@ extension on TranslationsPtBr {
 			'nav.group_explore' => 'Explorar',
 			'nav.you' => 'You',
 			'nav.account_manage' => 'Manage accounts',
-			'nav.workspace_tip_title' => 'O seletor de espaços foi movido',
-			'nav.workspace_tip_body' => 'Troque e gerencie espaços de trabalho pelo menu da conta abaixo.',
-			'nav.workspace_tip_dismiss' => 'Entendi',
 			'onboarding.welcome' => 'Boas-vindas',
 			'onboarding.finish' => 'Concluir',
 			'onboarding.in_progress' => 'Em andamento',
@@ -4029,11 +4023,11 @@ extension on TranslationsPtBr {
 			'settings.git_pat_username' => 'Nome de usuário',
 			'settings.git_pat_token' => 'Token',
 			'settings.git_pat_save' => 'Salvar token',
-			_ => null,
-		} ?? switch (path) {
 			'settings.git_pat_empty' => 'Nenhum token adicionado ainda.',
 			'settings.git_pat_remove' => 'Remover token',
 			'settings.storage_title' => 'Armazenamento e busca automática',
+			_ => null,
+		} ?? switch (path) {
 			'settings.behavior_projects_title' => 'Projetos',
 			'settings.file_watchers_title' => 'Monitores de arquivos',
 			'settings.last_opened_title' => 'Última abertura',
@@ -4543,11 +4537,11 @@ extension on TranslationsPtBr {
 			'versions.export_templates_selected_other' => '{{count}} templates selected',
 			'versions.export_templates_size_summary' => '~{{download}} download · {{installed}} on disk',
 			'versions.export_templates_download_selected' => 'Download selected',
-			_ => null,
-		} ?? switch (path) {
 			'versions.export_templates_loading_options' => 'Checking this release\'s available templates…',
 			'versions.export_templates_options_failed' => 'Couldn\'t load the templates for this release.',
 			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('pt'))(count, one: '1 available template group', many: '${count} available template groups', other: '${count} available template groups', ), 
+			_ => null,
+		} ?? switch (path) {
 			'versions.export_templates_available_one' => '1 available template group',
 			'versions.export_templates_available_other' => '{{count}} available template groups',
 			'versions.export_templates_select_all' => 'Select all',

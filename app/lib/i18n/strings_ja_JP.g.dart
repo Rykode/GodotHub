@@ -1352,9 +1352,6 @@ class _Translations$nav$ja_JP extends Translations$nav$en_US {
 	@override String get group_explore => '見つける';
 	@override String get you => 'ユーザー';
 	@override String get account_manage => 'アカウントを管理';
-	@override String get workspace_tip_title => 'ワークスペース切替が移動しました';
-	@override String get workspace_tip_body => '下のアカウントメニューからワークスペースを切り替え・管理できます。';
-	@override String get workspace_tip_dismiss => '了解';
 }
 
 // Path: onboarding
@@ -3837,9 +3834,6 @@ extension on TranslationsJaJp {
 			'nav.group_explore' => '見つける',
 			'nav.you' => 'ユーザー',
 			'nav.account_manage' => 'アカウントを管理',
-			'nav.workspace_tip_title' => 'ワークスペース切替が移動しました',
-			'nav.workspace_tip_body' => '下のアカウントメニューからワークスペースを切り替え・管理できます。',
-			'nav.workspace_tip_dismiss' => '了解',
 			'onboarding.welcome' => 'ようこそ',
 			'onboarding.finish' => '完了',
 			'onboarding.in_progress' => '進行中',
@@ -3919,11 +3913,11 @@ extension on TranslationsJaJp {
 			'settings.git_pat_username' => 'ユーザー名',
 			'settings.git_pat_token' => 'トークン',
 			'settings.git_pat_save' => 'トークンを保存',
-			_ => null,
-		} ?? switch (path) {
 			'settings.git_pat_empty' => 'トークンはまだ追加されていません。',
 			'settings.git_pat_remove' => 'トークンを削除',
 			'settings.storage_title' => 'ストレージと自動スキャン',
+			_ => null,
+		} ?? switch (path) {
 			'settings.behavior_projects_title' => 'プロジェクト',
 			'settings.file_watchers_title' => 'ファイル監視',
 			'settings.last_opened_title' => '「最終起動」の表示',
@@ -4433,11 +4427,11 @@ extension on TranslationsJaJp {
 			'versions.export_templates_selected_other' => '{{count}} 個のテンプレートを選択中',
 			'versions.export_templates_size_summary' => 'ダウンロード 約 {{download}} · ディスク上 {{installed}}',
 			'versions.export_templates_download_selected' => '選択したものをダウンロード',
-			_ => null,
-		} ?? switch (path) {
 			'versions.export_templates_loading_options' => 'このリリースで利用できるテンプレートを確認しています…',
 			'versions.export_templates_options_failed' => 'このリリースのテンプレートを読み込めませんでした。',
 			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(count, other: '利用可能なテンプレートグループ ${count} 個', ), 
+			_ => null,
+		} ?? switch (path) {
 			'versions.export_templates_available_one' => '利用可能なテンプレートグループ 1 個',
 			'versions.export_templates_available_other' => '利用可能なテンプレートグループ {{count}} 個',
 			'versions.export_templates_select_all' => 'すべて選択',

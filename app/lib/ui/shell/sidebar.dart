@@ -77,7 +77,6 @@ class GhSidebar extends StatefulWidget {
     this.onOpenCommandPalette,
     this.onOpenUpdatesModal,
     this.updateAvailable = false,
-    this.workspacesEnabled = false,
     this.fixedResizeKnob = false,
     this.initialWidth = defaultWidth,
     this.onWidthChanged,
@@ -87,8 +86,6 @@ class GhSidebar extends StatefulWidget {
     this.onSeenNewTabsChanged,
     this.initialClosedGroups = const [],
     this.onClosedGroupsChanged,
-    this.workspaceTipSeen = false,
-    this.onWorkspaceTipDismissed,
     this.onSettingsClick,
     this.accountMenuBuilder,
     this.isMac,
@@ -99,9 +96,6 @@ class GhSidebar extends StatefulWidget {
     this.collapseLabel,
     this.newBadgeLabel,
     this.updateAvailableLabel,
-    this.workspaceTipTitle,
-    this.workspaceTipBody,
-    this.workspaceTipDismiss,
   });
 
   final List<GhSidebarTab> tabs;
@@ -112,7 +106,6 @@ class GhSidebar extends StatefulWidget {
   final VoidCallback? onOpenCommandPalette;
   final VoidCallback? onOpenUpdatesModal;
   final bool updateAvailable;
-  final bool workspacesEnabled;
   final bool fixedResizeKnob;
   final double initialWidth;
   final ValueChanged<double>? onWidthChanged;
@@ -122,8 +115,6 @@ class GhSidebar extends StatefulWidget {
   final ValueChanged<List<String>>? onSeenNewTabsChanged;
   final List<String> initialClosedGroups;
   final ValueChanged<List<String>>? onClosedGroupsChanged;
-  final bool workspaceTipSeen;
-  final VoidCallback? onWorkspaceTipDismissed;
   final VoidCallback? onSettingsClick;
   final GhAccountMenuBuilder? accountMenuBuilder;
   final bool? isMac;
@@ -134,9 +125,6 @@ class GhSidebar extends StatefulWidget {
   final String? collapseLabel;
   final String? newBadgeLabel;
   final String? updateAvailableLabel;
-  final String? workspaceTipTitle;
-  final String? workspaceTipBody;
-  final String? workspaceTipDismiss;
 
   static const double collapsedWidth = 68;
   static const double defaultWidth = 256;
@@ -164,7 +152,6 @@ class _GhSidebarState extends State<GhSidebar> {
   late double _width = GhSidebar.clampWidth(widget.initialWidth);
   late bool _collapsed = widget.initialCollapsed;
   late List<String> _seenNew = List.of(widget.initialSeenNewTabs);
-  late bool _tipSeen = widget.workspaceTipSeen;
   late List<String> _closedGroups = List.of(widget.initialClosedGroups);
   bool _dragging = false;
   bool _revealed = false;
@@ -185,9 +172,6 @@ class _GhSidebarState extends State<GhSidebar> {
   @override
   void didUpdateWidget(GhSidebar oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.workspaceTipSeen != widget.workspaceTipSeen && widget.workspaceTipSeen) {
-      _tipSeen = true;
-    }
     if (oldWidget.activeTab != widget.activeTab) {
       final groupId = _activeGroupId();
       if (groupId != null && _closedGroups.contains(groupId)) {
@@ -224,11 +208,6 @@ class _GhSidebarState extends State<GhSidebar> {
     final next = [..._seenNew, id];
     setState(() => _seenNew = next);
     widget.onSeenNewTabsChanged?.call(List.unmodifiable(next));
-  }
-
-  void _dismissTip() {
-    setState(() => _tipSeen = true);
-    widget.onWorkspaceTipDismissed?.call();
   }
 
   void _toggleCollapsed() {
@@ -638,16 +617,6 @@ class _GhSidebarState extends State<GhSidebar> {
                 ),
               )
             : _UpdateButton(label: widget.updateAvailableLabel ?? context.tr.common.update_available, onPressed: updates),
-      );
-    }
-    if (widget.workspacesEnabled && !collapsed && !_tipSeen) {
-      children.add(
-        _WorkspaceTip(
-          title: widget.workspaceTipTitle ?? context.tr.nav.workspace_tip_title,
-          body: widget.workspaceTipBody ?? context.tr.nav.workspace_tip_body,
-          dismissLabel: widget.workspaceTipDismiss ?? context.tr.nav.workspace_tip_dismiss,
-          onDismiss: _dismissTip,
-        ),
       );
     }
     final accountTab = GhSidebarTab(id: 'account', label: widget.youLabel ?? context.tr.nav.you, icon: GhIcons.user);
@@ -1220,76 +1189,6 @@ class _UpdateButton extends StatelessWidget {
           ),
         );
       },
-    );
-  }
-}
-
-class _WorkspaceTip extends StatelessWidget {
-  const _WorkspaceTip({required this.title, required this.body, required this.dismissLabel, required this.onDismiss});
-
-  final String title;
-  final String body;
-  final String dismissLabel;
-  final VoidCallback onDismiss;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = GhTheme.of(context);
-    final radius = BorderRadius.circular(theme.radiusBtn);
-    return Container(
-      padding: EdgeInsets.all(theme.space(3)),
-      decoration: BoxDecoration(
-        color: theme.accent.withValues(alpha: 0.1),
-        borderRadius: BorderRadius.circular(theme.radiusItem),
-        border: Border.all(color: theme.accent.withValues(alpha: 0.3)),
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top: theme.space(0.5)),
-            child: GhIcon(GhIcons.info, size: theme.space(4), color: theme.accentBright),
-          ),
-          SizedBox(width: theme.space(2.5)),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  title,
-                  style: theme.text(size: GhTextSize.xs, weight: GhWeight.semibold, color: theme.ink),
-                ),
-                SizedBox(height: theme.space(0.5)),
-                Text(
-                  body,
-                  style: theme.text(size: GhTextSize.x2s, color: theme.muted, lineHeight: 1.625),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(width: theme.space(2.5)),
-          GhNegativeMargin(
-            margin: EdgeInsets.all(theme.space(1)),
-            child: GhPressable(
-              onPressed: onDismiss,
-              borderRadius: radius,
-              semanticLabel: dismissLabel,
-              builder: (context, states) => Padding(
-                padding: EdgeInsets.all(theme.space(1)),
-                child: GhIconMotionScale(
-                  states: states,
-                  child: GhAnimatedIcon(
-                    GhIcons.x,
-                    color: states.active ? theme.ink : theme.muted.withValues(alpha: 0.5),
-                    size: theme.space(3.5),
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

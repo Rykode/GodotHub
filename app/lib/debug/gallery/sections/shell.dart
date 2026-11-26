@@ -70,7 +70,7 @@ class _SidebarsState extends State<_Sidebars> {
     workspaceItem: _workspaceItem(_workspace, (id) => setState(() => _workspace = id)),
   );
 
-  Widget _sidebar({required bool collapsed, bool connected = false, bool update = false, bool tip = false}) {
+  Widget _sidebar({required bool collapsed, bool connected = false, bool update = false}) {
     return SizedBox(
       height: 600,
       child: Row(
@@ -78,7 +78,7 @@ class _SidebarsState extends State<_Sidebars> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           GhSidebar(
-            key: ValueKey('$collapsed-$connected-$update-$tip-$_sidebarKey'),
+            key: ValueKey('$collapsed-$connected-$update-$_sidebarKey'),
             tabs: _sampleTabs,
             activeTab: _active,
             onTabChange: (id) => setState(() => _active = id),
@@ -87,7 +87,6 @@ class _SidebarsState extends State<_Sidebars> {
             updateAvailable: update,
             onOpenUpdatesModal: _noop,
             onOpenCommandPalette: _noop,
-            workspacesEnabled: tip,
             accountMenuBuilder: _account,
           ),
           const SizedBox(width: 24),
@@ -124,7 +123,7 @@ class _SidebarsState extends State<_Sidebars> {
           title: 'Expanded and collapsed',
           spacing: 40,
           children: [
-            GalleryItem(label: 'expanded · update · tip', child: _sidebar(collapsed: false, update: true, tip: true)),
+            GalleryItem(label: 'expanded · update', child: _sidebar(collapsed: false, update: true)),
             GalleryItem(label: 'collapsed · update', child: _sidebar(collapsed: true, update: true)),
             GalleryItem(label: 'connected', child: _sidebar(collapsed: false, connected: true)),
           ],

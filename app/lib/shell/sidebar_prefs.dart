@@ -7,7 +7,6 @@ abstract final class SidebarPrefs {
   static const width = 'new_ui_sidebar_width';
   static const collapsed = 'new_ui_sidebar_collapsed';
   static const seenNewTabs = 'new_ui_sidebar_seen_new_tabs';
-  static const workspaceTipSeen = 'new_ui_sidebar_workspace_tip_seen';
   static const closedGroups = 'new_ui_sidebar_closed_groups';
 
   static double readWidth(UiPrefsStore prefs) {

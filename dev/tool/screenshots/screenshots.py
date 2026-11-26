@@ -220,7 +220,7 @@ def seed():
     json.dump([], open(os.path.join(jam_dir, "projects.json"), "w"))
     # Quiet the first-run hints and show the Kanban board.
     json.dump({"schema_version": 1, "values": {
-        "godothub_projects_view_mode": "kanban", "new_ui_sidebar_workspace_tip_seen": "1", "new_ui_sidebar_palette_hint_dismissed": "1",
+        "godothub_projects_view_mode": "kanban", "new_ui_sidebar_palette_hint_dismissed": "1",
         "new_ui_sidebar_seen_new_tabs": '["vault","storage"]', "godothub_announcement_dismissed": "1"}}, open(os.path.join(DATA, "ui_prefs.json"), "w"), indent=2)
     print(f"seeded {len(projects)} projects in {DEMO}")
 

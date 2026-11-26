@@ -1352,9 +1352,6 @@ class _Translations$nav$vi_VN extends Translations$nav$en_US {
 	@override String get group_explore => 'Khám phá';
 	@override String get you => 'You';
 	@override String get account_manage => 'Manage accounts';
-	@override String get workspace_tip_title => 'Bộ chuyển khu vực làm việc đã chuyển';
-	@override String get workspace_tip_body => 'Chuyển và quản lý khu vực làm việc từ menu tài khoản bên dưới.';
-	@override String get workspace_tip_dismiss => 'Đã hiểu';
 }
 
 // Path: onboarding
@@ -3837,9 +3834,6 @@ extension on TranslationsViVn {
 			'nav.group_explore' => 'Khám phá',
 			'nav.you' => 'You',
 			'nav.account_manage' => 'Manage accounts',
-			'nav.workspace_tip_title' => 'Bộ chuyển khu vực làm việc đã chuyển',
-			'nav.workspace_tip_body' => 'Chuyển và quản lý khu vực làm việc từ menu tài khoản bên dưới.',
-			'nav.workspace_tip_dismiss' => 'Đã hiểu',
 			'onboarding.welcome' => 'Chào Mừng',
 			'onboarding.finish' => 'Hoàn Thành',
 			'onboarding.in_progress' => 'Đang Phát Triển',
@@ -3919,11 +3913,11 @@ extension on TranslationsViVn {
 			'settings.git_pat_username' => 'Tên người dùng',
 			'settings.git_pat_token' => 'Token',
 			'settings.git_pat_save' => 'Lưu token',
-			_ => null,
-		} ?? switch (path) {
 			'settings.git_pat_empty' => 'Chưa thêm token nào.',
 			'settings.git_pat_remove' => 'Xóa token',
 			'settings.storage_title' => 'Lưu trữ & Quét tự động',
+			_ => null,
+		} ?? switch (path) {
 			'settings.behavior_projects_title' => 'Dự án',
 			'settings.file_watchers_title' => 'Theo dõi tệp',
 			'settings.last_opened_title' => 'Hiển thị lần mở cuối',
@@ -4433,11 +4427,11 @@ extension on TranslationsViVn {
 			'versions.export_templates_selected_other' => '{{count}} templates selected',
 			'versions.export_templates_size_summary' => '~{{download}} download · {{installed}} on disk',
 			'versions.export_templates_download_selected' => 'Download selected',
-			_ => null,
-		} ?? switch (path) {
 			'versions.export_templates_loading_options' => 'Checking this release\'s available templates…',
 			'versions.export_templates_options_failed' => 'Couldn\'t load the templates for this release.',
 			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('vi'))(count, other: '${count} available template groups', ), 
+			_ => null,
+		} ?? switch (path) {
 			'versions.export_templates_available_one' => '1 available template group',
 			'versions.export_templates_available_other' => '{{count}} available template groups',
 			'versions.export_templates_select_all' => 'Select all',

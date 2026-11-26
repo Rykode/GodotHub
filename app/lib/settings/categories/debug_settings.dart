@@ -12,9 +12,7 @@ import '../../api/updater.dart';
 import '../../design/design.dart';
 import '../../logic/debug_mode.dart';
 import '../../logic/settings_copy.dart';
-import '../../shell/sidebar_prefs.dart';
 import '../../src/rust/api/diagnostics.dart' as diagnostics_rust;
-import '../../src/ui_prefs.dart';
 import '../../state/app_signals.dart';
 import '../../state/app_version.dart';
 import '../../state/settings.dart';
@@ -157,11 +155,6 @@ class _DebugSettingsState extends ConsumerState<DebugSettings> {
     }
   }
 
-  void _showWorkspaceTip() {
-    UiPrefsStore.instance.removeItem(SidebarPrefs.workspaceTipSeen);
-    UiPrefsStore.instance.flush().then((_) => _restartAndToast('Could not reload the window')).ignore();
-  }
-
   void _showOnboarding() {
     final settings = ref.read(settingsProvider).value;
     if (settings == null) return;
@@ -244,11 +237,6 @@ class _DebugSettingsState extends ConsumerState<DebugSettings> {
           title: 'Tips & banners',
           description: 'Re-trigger one-time UI hints.',
           children: [
-            _DebugRow(
-              label: 'Re-show workspace tip',
-              description: 'Clears the dismissed flag for the sidebar workspace-switcher tip and reloads the window so it appears again.',
-              children: [_DebugButton(label: 'Show', onPressed: _showWorkspaceTip)],
-            ),
             _DebugRow(
               label: 'Show announcement banner',
               description: 'Displays the one-time bottom banner now, ignoring the 30-minute usage timer and the dismissed flag.',

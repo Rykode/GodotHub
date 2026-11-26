@@ -1476,9 +1476,6 @@ class _Translations$nav$ar_MA extends Translations$nav$en_US {
 	@override String get group_explore => 'استكشاف';
 	@override String get you => 'You';
 	@override String get account_manage => 'Manage accounts';
-	@override String get workspace_tip_title => 'انتقل مُبدّل مساحات العمل';
-	@override String get workspace_tip_body => 'بدّل مساحات العمل وأدِرها من قائمة الحساب بالأسفل.';
-	@override String get workspace_tip_dismiss => 'فهمت';
 }
 
 // Path: onboarding
@@ -4110,9 +4107,6 @@ extension on TranslationsArMa {
 			'nav.group_explore' => 'استكشاف',
 			'nav.you' => 'You',
 			'nav.account_manage' => 'Manage accounts',
-			'nav.workspace_tip_title' => 'انتقل مُبدّل مساحات العمل',
-			'nav.workspace_tip_body' => 'بدّل مساحات العمل وأدِرها من قائمة الحساب بالأسفل.',
-			'nav.workspace_tip_dismiss' => 'فهمت',
 			'onboarding.welcome' => 'أهلا و سهلا',
 			'onboarding.finish' => 'تم',
 			'onboarding.in_progress' => 'قيد التقدم',
@@ -4192,11 +4186,11 @@ extension on TranslationsArMa {
 			'settings.git_pat_username' => 'إسم المستخدم',
 			'settings.git_pat_token' => 'الرمز (Token)',
 			'settings.git_pat_save' => 'احفظ الرمز',
-			_ => null,
-		} ?? switch (path) {
 			'settings.git_pat_empty' => 'لم يتم إضافة أي رمز بعد.',
 			'settings.git_pat_remove' => 'أزل الرمز (Token)',
 			'settings.storage_title' => 'التخزين و البحث التلقائي',
+			_ => null,
+		} ?? switch (path) {
 			'settings.behavior_projects_title' => 'المشاريع',
 			'settings.file_watchers_title' => 'مراقب التغييرات',
 			'settings.last_opened_title' => 'اعرض أخر مشروع فُتح',
@@ -4706,11 +4700,11 @@ extension on TranslationsArMa {
 			'versions.export_templates_selected_other' => '{{count}} templates selected',
 			'versions.export_templates_size_summary' => '~{{download}} download · {{installed}} on disk',
 			'versions.export_templates_download_selected' => 'Download selected',
-			_ => null,
-		} ?? switch (path) {
 			'versions.export_templates_loading_options' => 'Checking this release\'s available templates…',
 			'versions.export_templates_options_failed' => 'Couldn\'t load the templates for this release.',
 			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ar'))(count, zero: '${count} available template groups', one: '1 available template group', two: '${count} available template groups', few: '${count} available template groups', many: '${count} available template groups', other: '${count} available template groups', ), 
+			_ => null,
+		} ?? switch (path) {
 			'versions.export_templates_available_one' => '1 available template group',
 			'versions.export_templates_available_other' => '{{count}} available template groups',
 			'versions.export_templates_select_all' => 'Select all',

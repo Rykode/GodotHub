@@ -1351,9 +1351,6 @@ class _Translations$nav$zh_CN extends Translations$nav$en_US {
 	@override String get group_explore => '探索';
 	@override String get you => '账户';
 	@override String get account_manage => '管理账户';
-	@override String get workspace_tip_title => '工作区切换器已移动';
-	@override String get workspace_tip_body => '在下方的账户菜单中切换和管理工作区。';
-	@override String get workspace_tip_dismiss => '知道了';
 }
 
 // Path: onboarding
@@ -3835,9 +3832,6 @@ extension on TranslationsZhCn {
 			'nav.group_explore' => '探索',
 			'nav.you' => '账户',
 			'nav.account_manage' => '管理账户',
-			'nav.workspace_tip_title' => '工作区切换器已移动',
-			'nav.workspace_tip_body' => '在下方的账户菜单中切换和管理工作区。',
-			'nav.workspace_tip_dismiss' => '知道了',
 			'onboarding.welcome' => '欢迎',
 			'onboarding.finish' => '完成',
 			'onboarding.in_progress' => '进行中',
@@ -3917,11 +3911,11 @@ extension on TranslationsZhCn {
 			'settings.git_pat_username' => '用户名',
 			'settings.git_pat_token' => '令牌',
 			'settings.git_pat_save' => '保存令牌',
-			_ => null,
-		} ?? switch (path) {
 			'settings.git_pat_empty' => '尚未添加令牌。',
 			'settings.git_pat_remove' => '删除令牌',
 			'settings.storage_title' => '存储与自动扫描',
+			_ => null,
+		} ?? switch (path) {
 			'settings.behavior_projects_title' => '项目',
 			'settings.file_watchers_title' => '文件监听',
 			'settings.last_opened_title' => '最近打开记录',
@@ -4431,11 +4425,11 @@ extension on TranslationsZhCn {
 			'versions.export_templates_selected_other' => '{{count}} 个模板已选择',
 			'versions.export_templates_size_summary' => '~{{download}} 下载 · {{installed}} 已安装',
 			'versions.export_templates_download_selected' => '下载所选',
-			_ => null,
-		} ?? switch (path) {
 			'versions.export_templates_loading_options' => '正在检查此版本的可用模板…',
 			'versions.export_templates_options_failed' => '无法加载此版本的模板。',
 			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(count, other: '${count} 个可用模板组', ), 
+			_ => null,
+		} ?? switch (path) {
 			'versions.export_templates_available_one' => '1 个可用模板组',
 			'versions.export_templates_available_other' => '{{count}} 个可用模板组',
 			'versions.export_templates_select_all' => '全选',

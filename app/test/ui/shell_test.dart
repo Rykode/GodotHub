@@ -281,9 +281,8 @@ void main() {
       expect(widths, [GhSidebar.maxWidth]);
     });
 
-    testWidgets('update button, workspace tip and connected layout', (tester) async {
+    testWidgets('update button and connected layout', (tester) async {
       var updates = 0;
-      var dismissed = 0;
       await tester.pumpWidget(
         _app(
           _sidebarHost(
@@ -294,19 +293,12 @@ void main() {
               connected: true,
               updateAvailable: true,
               onOpenUpdatesModal: () => updates++,
-              workspacesEnabled: true,
-              onWorkspaceTipDismissed: () => dismissed++,
             ),
           ),
         ),
       );
       await tester.tap(find.text(t.common.update_available));
       expect(updates, 1);
-      expect(find.text(t.nav.workspace_tip_title), findsOneWidget);
-      await tester.tap(find.bySemanticsLabel(t.nav.workspace_tip_dismiss));
-      await tester.pump();
-      expect(dismissed, 1);
-      expect(find.text(t.nav.workspace_tip_title), findsNothing);
     });
 
     testWidgets('account trigger opens the account menu', (tester) async {

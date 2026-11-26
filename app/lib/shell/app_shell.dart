@@ -528,7 +528,6 @@ class _AppShellState extends ConsumerState<AppShell> {
           : () => _openUpdates(preview: update.previewUpdate && !update.updateAvailable),
       updateAvailable: update.updateAvailable || update.previewUpdate,
       updateAvailableLabel: update.downloaded ? context.tr.common.restart_to_apply_update : null,
-      workspacesEnabled: settings.workspacesEnabled,
       fixedResizeKnob: settings.fixedSidebarResizeKnob,
       isMac: _isMac,
       initialWidth: SidebarPrefs.readWidth(prefs),
@@ -539,8 +538,6 @@ class _AppShellState extends ConsumerState<AppShell> {
       onSeenNewTabsChanged: (ids) => prefs.setItem(SidebarPrefs.seenNewTabs, jsonEncode(ids)),
       initialClosedGroups: SidebarPrefs.readList(prefs, SidebarPrefs.closedGroups),
       onClosedGroupsChanged: (ids) => prefs.setItem(SidebarPrefs.closedGroups, jsonEncode(ids)),
-      workspaceTipSeen: prefs.getItem(SidebarPrefs.workspaceTipSeen) == '1',
-      onWorkspaceTipDismissed: () => prefs.setItem(SidebarPrefs.workspaceTipSeen, '1'),
       accountMenuBuilder: (context, trigger) => AccountMenuHost(trigger: trigger, onNavigate: changeTab),
     );
   }

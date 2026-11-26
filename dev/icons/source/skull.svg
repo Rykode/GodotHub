@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-aliases="danger death">
+  <path d="M9 11h.01" data-role="detail"/>
+  <path d="M15 11h.01" data-role="detail"/>
+  <path d="M12 18V21.5" data-role="detail"/>
+  <path d="M4 11A8 8 0 0 1 20 11C20 13.5 18.5 15 17 16V19A2 2 0 0 1 15 21H9A2 2 0 0 1 7 19V16C5.5 15 4 13.5 4 11Z" data-role="silhouette"/>
+</svg>

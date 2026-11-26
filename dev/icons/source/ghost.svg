@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-aliases="spooky">
+  <path d="M9 12h.01" data-role="detail"/>
+  <path d="M15 12h.01" data-role="detail"/>
+  <path d="M4 21V12A8 8 0 0 1 20 12V21L16 18L12 21L8 18Z" data-role="silhouette"/>
+</svg>

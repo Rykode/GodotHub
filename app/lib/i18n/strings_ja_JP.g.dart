@@ -207,6 +207,20 @@ class _Translations$common$ja_JP extends Translations$common$en_US {
 	@override String get add => '追加';
 	@override String get color_label => '色';
 	@override String get icon_label => 'アイコン';
+	@override String get icon_search_placeholder => 'Search icons';
+	@override String get icon_no_results => 'No icons match your search';
+	@override String get icon_category_all => 'All';
+	@override String get icon_category_general => 'General';
+	@override String get icon_category_work => 'Work';
+	@override String get icon_category_tech => 'Tech';
+	@override String get icon_category_creative => 'Creative';
+	@override String get icon_category_nature => 'Nature';
+	@override String get icon_category_travel => 'Travel';
+	@override String get icon_category_fun => 'Fun';
+	@override String get color_custom => 'Custom color';
+	@override String get color_selected => 'Selected';
+	@override String get workspace_reset => 'Reset';
+	@override String get workspace_unsaved => 'Unsaved changes';
 	@override String get expand => '展開';
 	@override String get collapse => '折りたたむ';
 	@override String file_count({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(count,
@@ -2504,6 +2518,20 @@ extension on TranslationsJaJp {
 			'common.add' => '追加',
 			'common.color_label' => '色',
 			'common.icon_label' => 'アイコン',
+			'common.icon_search_placeholder' => 'Search icons',
+			'common.icon_no_results' => 'No icons match your search',
+			'common.icon_category_all' => 'All',
+			'common.icon_category_general' => 'General',
+			'common.icon_category_work' => 'Work',
+			'common.icon_category_tech' => 'Tech',
+			'common.icon_category_creative' => 'Creative',
+			'common.icon_category_nature' => 'Nature',
+			'common.icon_category_travel' => 'Travel',
+			'common.icon_category_fun' => 'Fun',
+			'common.color_custom' => 'Custom color',
+			'common.color_selected' => 'Selected',
+			'common.workspace_reset' => 'Reset',
+			'common.workspace_unsaved' => 'Unsaved changes',
 			'common.expand' => '展開',
 			'common.collapse' => '折りたたむ',
 			'common.file_count' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(count, other: '${count} 個のファイル', ), 
@@ -2863,6 +2891,8 @@ extension on TranslationsJaJp {
 			'common.clone_repo_search_repos' => 'リポジトリを検索…',
 			'common.clone_repo_no_repos_found' => '検索条件に一致するリポジトリはありません。',
 			'common.clone_repo_loading_repos' => 'リポジトリを読み込み中…',
+			_ => null,
+		} ?? switch (path) {
 			'common.clone_repo_load_error' => 'リポジトリの読み込みに失敗しました。',
 			'common.clone_repo_select' => '選択',
 			'common.clone_repo_no_account' => 'GitHub や GitLab のアカウントが接続されていません。代わりに URL を使ってクローンしてください。',
@@ -2877,8 +2907,6 @@ extension on TranslationsJaJp {
 			'common.task_tray_only_recent_one' => '最近のタスク {{count}} 件',
 			'common.task_tray_only_recent_other' => '最近のタスク {{count}} 件',
 			'common.task_tray_aria' => 'タスクトレイ',
-			_ => null,
-		} ?? switch (path) {
 			'common.task_tray_auto_dismiss' => '完了したものを自動的に消す',
 			'common.task_tray_dismiss' => '{{count}} 件を消す',
 			'common.task_error_status' => 'エラー',
@@ -3377,6 +3405,8 @@ extension on TranslationsJaJp {
 			'common.project_addons.count_one' => '{{count}} 件のアドオンをインストール済み',
 			'common.project_addons.count_other' => '{{count}} 件のアドオンをインストール済み',
 			'common.project_addons.empty' => 'このプロジェクトには addons フォルダがありません。アセットストアからアドオンをインストールするか、res://addons にコピーしてください。',
+			_ => null,
+		} ?? switch (path) {
 			'common.project_addons.check_updates' => '更新を確認',
 			'common.project_addons.checking' => '確認中…',
 			'common.project_addons.updates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(count, other: '${count} 件の更新があります', ), 
@@ -3391,8 +3421,6 @@ extension on TranslationsJaJp {
 			'common.project_addons.update_to' => 'バージョン {{version}} が利用可能です',
 			'common.project_addons.current' => '最新です（{{version}}）',
 			'common.project_addons.matched_by_name' => '名前から「{{title}}」と判定',
-			_ => null,
-		} ?? switch (path) {
 			'common.project_addons.update' => '更新',
 			'common.project_addons.updating' => '更新中…',
 			'common.project_addons.updated' => '{{name}} を更新しました',
@@ -3891,6 +3919,8 @@ extension on TranslationsJaJp {
 			'settings.git_pat_username' => 'ユーザー名',
 			'settings.git_pat_token' => 'トークン',
 			'settings.git_pat_save' => 'トークンを保存',
+			_ => null,
+		} ?? switch (path) {
 			'settings.git_pat_empty' => 'トークンはまだ追加されていません。',
 			'settings.git_pat_remove' => 'トークンを削除',
 			'settings.storage_title' => 'ストレージと自動スキャン',
@@ -3905,8 +3935,6 @@ extension on TranslationsJaJp {
 			'settings.restart_app_confirm_title' => 'GodotHub を再起動しますか？',
 			'settings.restart_app_confirm_desc' => 'アプリが自動的に終了して再度開きます。保存されていない進行中の処理は中断される場合があります。',
 			'settings.reset_settings' => '設定をリセット',
-			_ => null,
-		} ?? switch (path) {
 			'settings.delete_app_data' => 'アプリデータを削除',
 			'settings.new_project_default' => '新規プロジェクトの既定',
 			'settings.download_folder' => 'ダウンロードフォルダ',
@@ -4405,6 +4433,8 @@ extension on TranslationsJaJp {
 			'versions.export_templates_selected_other' => '{{count}} 個のテンプレートを選択中',
 			'versions.export_templates_size_summary' => 'ダウンロード 約 {{download}} · ディスク上 {{installed}}',
 			'versions.export_templates_download_selected' => '選択したものをダウンロード',
+			_ => null,
+		} ?? switch (path) {
 			'versions.export_templates_loading_options' => 'このリリースで利用できるテンプレートを確認しています…',
 			'versions.export_templates_options_failed' => 'このリリースのテンプレートを読み込めませんでした。',
 			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(count, other: '利用可能なテンプレートグループ ${count} 個', ), 
@@ -4419,8 +4449,6 @@ extension on TranslationsJaJp {
 			'versions.export_templates_uninstall_named' => '{{name}} をアンインストール',
 			'versions.export_templates_uninstall_failed' => 'テンプレートをアンインストールできませんでした: {{error}}',
 			'versions.export_templates_category_desktop' => 'デスクトップ',
-			_ => null,
-		} ?? switch (path) {
 			'versions.export_templates_category_mobile' => 'モバイル',
 			'versions.export_templates_category_web' => 'Web',
 			'versions.export_templates_category_common' => '共通',

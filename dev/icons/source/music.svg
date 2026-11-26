@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-aliases="audio note">
+  <path d="M9 17V5.5H18V15"/>
+  <circle cx="6" cy="18" r="1.5" data-role="silhouette"/>
+  <circle cx="15" cy="16" r="1.5" data-role="silhouette"/>
+</svg>

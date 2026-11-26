@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-aliases="idea tip">
+  <path d="M9 16V14.77A6.5 6.5 0 1 1 15 14.77V16Z" data-role="silhouette"/>
+  <path d="M9.5 21h5"/>
+  <path d="M9.5 8.5L12 11L14.5 8.5" data-role="detail"/>
+</svg>

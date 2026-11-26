@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-aliases="vehicle drive auto" data-waive-detail-outside="wheel arches deliberately cut up through the bottom edge">
+  <path d="M2.5 16.254L2.5 15.509A2 2 0 0 1 3.951 13.586L4.941 13.302A2 2 0 0 0 6.311 11.944L8.078 5.936A2 2 0 0 1 9.996 4.5L14.004 4.5A2 2 0 0 1 15.922 5.936L17.689 11.944A2 2 0 0 0 19.059 13.302L20.049 13.586A2 2 0 0 1 21.5 15.509L21.5 17A2 2 0 0 1 19.5 19L4.5 19A2 2 0 0 1 2.5 17Z" data-role="silhouette"/>
+  <path d="M10 10H14" data-role="detail"/>
+  <circle cx="7" cy="19" r="1.5" data-role="detail"/>
+  <circle cx="17" cy="19" r="1.5" data-role="detail"/>
+</svg>

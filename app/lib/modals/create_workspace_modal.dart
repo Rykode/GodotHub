@@ -66,7 +66,7 @@ class _CreateWorkspaceModalState extends State<CreateWorkspaceModal> {
     return GhModalShell(
       icon: GhIcon(GhIcons.plus, size: theme.space(5), color: theme.accentBright),
       title: tr.create_workspace_title,
-      maxWidth: GhModalWidth.lg,
+      maxWidth: GhModalWidth.x2l,
       onClose: widget.onClose,
       showClose: false,
       error: _error,

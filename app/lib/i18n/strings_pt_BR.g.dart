@@ -209,6 +209,20 @@ class _Translations$common$pt_BR extends Translations$common$en_US {
 	@override String get add => 'Adicionar';
 	@override String get color_label => 'Cor';
 	@override String get icon_label => 'Ícone';
+	@override String get icon_search_placeholder => 'Search icons';
+	@override String get icon_no_results => 'No icons match your search';
+	@override String get icon_category_all => 'All';
+	@override String get icon_category_general => 'General';
+	@override String get icon_category_work => 'Work';
+	@override String get icon_category_tech => 'Tech';
+	@override String get icon_category_creative => 'Creative';
+	@override String get icon_category_nature => 'Nature';
+	@override String get icon_category_travel => 'Travel';
+	@override String get icon_category_fun => 'Fun';
+	@override String get color_custom => 'Custom color';
+	@override String get color_selected => 'Selected';
+	@override String get workspace_reset => 'Reset';
+	@override String get workspace_unsaved => 'Unsaved changes';
 	@override String get expand => 'Expandir';
 	@override String get collapse => 'Recolher';
 	@override String file_count({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('pt'))(count,
@@ -2614,6 +2628,20 @@ extension on TranslationsPtBr {
 			'common.add' => 'Adicionar',
 			'common.color_label' => 'Cor',
 			'common.icon_label' => 'Ícone',
+			'common.icon_search_placeholder' => 'Search icons',
+			'common.icon_no_results' => 'No icons match your search',
+			'common.icon_category_all' => 'All',
+			'common.icon_category_general' => 'General',
+			'common.icon_category_work' => 'Work',
+			'common.icon_category_tech' => 'Tech',
+			'common.icon_category_creative' => 'Creative',
+			'common.icon_category_nature' => 'Nature',
+			'common.icon_category_travel' => 'Travel',
+			'common.icon_category_fun' => 'Fun',
+			'common.color_custom' => 'Custom color',
+			'common.color_selected' => 'Selected',
+			'common.workspace_reset' => 'Reset',
+			'common.workspace_unsaved' => 'Unsaved changes',
 			'common.expand' => 'Expandir',
 			'common.collapse' => 'Recolher',
 			'common.file_count' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('pt'))(count, one: '${count} arquivo', many: '${count} arquivo', other: '${count} arquivos', ), 
@@ -2973,6 +3001,8 @@ extension on TranslationsPtBr {
 			'common.clone_repo_search_repos' => 'Pesquisar seus repositórios...',
 			'common.clone_repo_no_repos_found' => 'Nenhum repositório corresponde à sua pesquisa.',
 			'common.clone_repo_loading_repos' => 'Carregando repositórios...',
+			_ => null,
+		} ?? switch (path) {
 			'common.clone_repo_load_error' => 'Falha ao carregar os repositórios.',
 			'common.clone_repo_select' => 'Selecionar',
 			'common.clone_repo_no_account' => 'Nenhuma conta do GitHub ou GitLab conectada. Use uma URL para clonar.',
@@ -2987,8 +3017,6 @@ extension on TranslationsPtBr {
 			'common.task_tray_only_recent_one' => '{{count}} tarefa recente',
 			'common.task_tray_only_recent_other' => '{{count}} tarefas recentes',
 			'common.task_tray_aria' => 'Bandeja do sistema',
-			_ => null,
-		} ?? switch (path) {
 			'common.task_tray_auto_dismiss' => 'Concluídas são dispensadas automaticamente',
 			'common.task_tray_dismiss' => 'Dispensar {{count}}',
 			'common.task_error_status' => 'Erro',
@@ -3487,6 +3515,8 @@ extension on TranslationsPtBr {
 			'common.project_addons.count_one' => '{{count}} addon installed',
 			'common.project_addons.count_other' => '{{count}} addons installed',
 			'common.project_addons.empty' => 'This project has no addons folder. Install addons from the Asset Store or copy them into res://addons.',
+			_ => null,
+		} ?? switch (path) {
 			'common.project_addons.check_updates' => 'Check for updates',
 			'common.project_addons.checking' => 'Checking…',
 			'common.project_addons.updates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('pt'))(count, one: '${count} update available', many: '${count} updates available', other: '${count} updates available', ), 
@@ -3501,8 +3531,6 @@ extension on TranslationsPtBr {
 			'common.project_addons.update_to' => 'Version {{version}} is available',
 			'common.project_addons.current' => 'Up to date ({{version}})',
 			'common.project_addons.matched_by_name' => 'matched by name to “{{title}}”',
-			_ => null,
-		} ?? switch (path) {
 			'common.project_addons.update' => 'Update',
 			'common.project_addons.updating' => 'Updating…',
 			'common.project_addons.updated' => '{{name}} was updated',
@@ -4001,6 +4029,8 @@ extension on TranslationsPtBr {
 			'settings.git_pat_username' => 'Nome de usuário',
 			'settings.git_pat_token' => 'Token',
 			'settings.git_pat_save' => 'Salvar token',
+			_ => null,
+		} ?? switch (path) {
 			'settings.git_pat_empty' => 'Nenhum token adicionado ainda.',
 			'settings.git_pat_remove' => 'Remover token',
 			'settings.storage_title' => 'Armazenamento e busca automática',
@@ -4015,8 +4045,6 @@ extension on TranslationsPtBr {
 			'settings.restart_app_confirm_title' => 'Reiniciar o GodotHub?',
 			'settings.restart_app_confirm_desc' => 'O aplicativo será fechado e reaberto automaticamente. Operações em andamento e não salvas podem ser interrompidas.',
 			'settings.reset_settings' => 'Redefinir configurações',
-			_ => null,
-		} ?? switch (path) {
 			'settings.delete_app_data' => 'Excluir dados do aplicativo',
 			'settings.new_project_default' => 'padrão',
 			'settings.download_folder' => 'padrão',
@@ -4515,6 +4543,8 @@ extension on TranslationsPtBr {
 			'versions.export_templates_selected_other' => '{{count}} templates selected',
 			'versions.export_templates_size_summary' => '~{{download}} download · {{installed}} on disk',
 			'versions.export_templates_download_selected' => 'Download selected',
+			_ => null,
+		} ?? switch (path) {
 			'versions.export_templates_loading_options' => 'Checking this release\'s available templates…',
 			'versions.export_templates_options_failed' => 'Couldn\'t load the templates for this release.',
 			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('pt'))(count, one: '1 available template group', many: '${count} available template groups', other: '${count} available template groups', ), 
@@ -4529,8 +4559,6 @@ extension on TranslationsPtBr {
 			'versions.export_templates_uninstall_named' => 'Uninstall {{name}}',
 			'versions.export_templates_uninstall_failed' => 'Couldn\'t uninstall templates: {{error}}',
 			'versions.export_templates_category_desktop' => 'Desktop',
-			_ => null,
-		} ?? switch (path) {
 			'versions.export_templates_category_mobile' => 'Mobile',
 			'versions.export_templates_category_web' => 'Web',
 			'versions.export_templates_category_common' => 'Common',

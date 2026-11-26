@@ -207,6 +207,20 @@ class _Translations$common$vi_VN extends Translations$common$en_US {
 	@override String get add => 'Thêm';
 	@override String get color_label => 'Màu';
 	@override String get icon_label => 'Biểu tượng';
+	@override String get icon_search_placeholder => 'Search icons';
+	@override String get icon_no_results => 'No icons match your search';
+	@override String get icon_category_all => 'All';
+	@override String get icon_category_general => 'General';
+	@override String get icon_category_work => 'Work';
+	@override String get icon_category_tech => 'Tech';
+	@override String get icon_category_creative => 'Creative';
+	@override String get icon_category_nature => 'Nature';
+	@override String get icon_category_travel => 'Travel';
+	@override String get icon_category_fun => 'Fun';
+	@override String get color_custom => 'Custom color';
+	@override String get color_selected => 'Selected';
+	@override String get workspace_reset => 'Reset';
+	@override String get workspace_unsaved => 'Unsaved changes';
 	@override String get expand => 'Mở rộng';
 	@override String get collapse => 'Thu gọn';
 	@override String file_count({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('vi'))(count,
@@ -2504,6 +2518,20 @@ extension on TranslationsViVn {
 			'common.add' => 'Thêm',
 			'common.color_label' => 'Màu',
 			'common.icon_label' => 'Biểu tượng',
+			'common.icon_search_placeholder' => 'Search icons',
+			'common.icon_no_results' => 'No icons match your search',
+			'common.icon_category_all' => 'All',
+			'common.icon_category_general' => 'General',
+			'common.icon_category_work' => 'Work',
+			'common.icon_category_tech' => 'Tech',
+			'common.icon_category_creative' => 'Creative',
+			'common.icon_category_nature' => 'Nature',
+			'common.icon_category_travel' => 'Travel',
+			'common.icon_category_fun' => 'Fun',
+			'common.color_custom' => 'Custom color',
+			'common.color_selected' => 'Selected',
+			'common.workspace_reset' => 'Reset',
+			'common.workspace_unsaved' => 'Unsaved changes',
 			'common.expand' => 'Mở rộng',
 			'common.collapse' => 'Thu gọn',
 			'common.file_count' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('vi'))(count, other: '${count} files', ), 
@@ -2863,6 +2891,8 @@ extension on TranslationsViVn {
 			'common.clone_repo_search_repos' => 'Tìm repository của bạn...',
 			'common.clone_repo_no_repos_found' => 'Không có repository nào khớp tìm kiếm.',
 			'common.clone_repo_loading_repos' => 'Đang tải repository...',
+			_ => null,
+		} ?? switch (path) {
 			'common.clone_repo_load_error' => 'Tải repository thất bại.',
 			'common.clone_repo_select' => 'Chọn',
 			'common.clone_repo_no_account' => 'Chưa kết nối tài khoản GitHub hoặc GitLab. Dùng URL để sao chép thay thế.',
@@ -2877,8 +2907,6 @@ extension on TranslationsViVn {
 			'common.task_tray_only_recent_one' => '{{count}} recent task',
 			'common.task_tray_only_recent_other' => '{{count}} recent tasks',
 			'common.task_tray_aria' => 'Khay tác vụ',
-			_ => null,
-		} ?? switch (path) {
 			'common.task_tray_auto_dismiss' => 'Tự ẩn khi hoàn thành',
 			'common.task_tray_dismiss' => 'Ẩn {{count}}',
 			'common.task_error_status' => 'Lỗi',
@@ -3377,6 +3405,8 @@ extension on TranslationsViVn {
 			'common.project_addons.count_one' => '{{count}} addon installed',
 			'common.project_addons.count_other' => '{{count}} addons installed',
 			'common.project_addons.empty' => 'This project has no addons folder. Install addons from the Asset Store or copy them into res://addons.',
+			_ => null,
+		} ?? switch (path) {
 			'common.project_addons.check_updates' => 'Check for updates',
 			'common.project_addons.checking' => 'Checking…',
 			'common.project_addons.updates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('vi'))(count, other: '${count} updates available', ), 
@@ -3391,8 +3421,6 @@ extension on TranslationsViVn {
 			'common.project_addons.update_to' => 'Version {{version}} is available',
 			'common.project_addons.current' => 'Up to date ({{version}})',
 			'common.project_addons.matched_by_name' => 'matched by name to “{{title}}”',
-			_ => null,
-		} ?? switch (path) {
 			'common.project_addons.update' => 'Update',
 			'common.project_addons.updating' => 'Updating…',
 			'common.project_addons.updated' => '{{name}} was updated',
@@ -3891,6 +3919,8 @@ extension on TranslationsViVn {
 			'settings.git_pat_username' => 'Tên người dùng',
 			'settings.git_pat_token' => 'Token',
 			'settings.git_pat_save' => 'Lưu token',
+			_ => null,
+		} ?? switch (path) {
 			'settings.git_pat_empty' => 'Chưa thêm token nào.',
 			'settings.git_pat_remove' => 'Xóa token',
 			'settings.storage_title' => 'Lưu trữ & Quét tự động',
@@ -3905,8 +3935,6 @@ extension on TranslationsViVn {
 			'settings.restart_app_confirm_title' => 'Khởi động lại GodotHub?',
 			'settings.restart_app_confirm_desc' => 'Ứng dụng sẽ đóng và mở lại tự động. Các thao tác đang chạy chưa lưu có thể bị gián đoạn.',
 			'settings.reset_settings' => 'Đặt lại cài đặt',
-			_ => null,
-		} ?? switch (path) {
 			'settings.delete_app_data' => 'Xóa dữ liệu ứng dụng',
 			'settings.new_project_default' => 'Mặc định dự án mới',
 			'settings.download_folder' => 'Thư mục tải xuống',
@@ -4405,6 +4433,8 @@ extension on TranslationsViVn {
 			'versions.export_templates_selected_other' => '{{count}} templates selected',
 			'versions.export_templates_size_summary' => '~{{download}} download · {{installed}} on disk',
 			'versions.export_templates_download_selected' => 'Download selected',
+			_ => null,
+		} ?? switch (path) {
 			'versions.export_templates_loading_options' => 'Checking this release\'s available templates…',
 			'versions.export_templates_options_failed' => 'Couldn\'t load the templates for this release.',
 			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('vi'))(count, other: '${count} available template groups', ), 
@@ -4419,8 +4449,6 @@ extension on TranslationsViVn {
 			'versions.export_templates_uninstall_named' => 'Uninstall {{name}}',
 			'versions.export_templates_uninstall_failed' => 'Couldn\'t uninstall templates: {{error}}',
 			'versions.export_templates_category_desktop' => 'Desktop',
-			_ => null,
-		} ?? switch (path) {
 			'versions.export_templates_category_mobile' => 'Mobile',
 			'versions.export_templates_category_web' => 'Web',
 			'versions.export_templates_category_common' => 'Common',

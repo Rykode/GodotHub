@@ -32,12 +32,21 @@ class WorkspaceEditModal extends StatefulWidget {
 }
 
 class _WorkspaceEditModalState extends State<WorkspaceEditModal> {
-  late GhWorkspaceDraft _draft = GhWorkspaceDraft(name: widget.workspace.name, icon: widget.workspace.icon, color: widget.workspace.color);
+  late final GhWorkspaceDraft _original = GhWorkspaceDraft(name: widget.workspace.name, icon: widget.workspace.icon, color: widget.workspace.color);
+  late GhWorkspaceDraft _draft = _original;
   bool _touched = false;
   String? _error;
   bool _busy = false;
 
   bool get _invalid => ghWorkspaceNameError(_draft.name, widget.takenNames) != null;
+
+  bool get _dirty => _draft.copyWith(name: _draft.name.trim()) != _original;
+
+  void _reset() => setState(() {
+    _draft = _original;
+    _touched = false;
+    _error = null;
+  });
 
   Future<void> _submit() async {
     setState(() => _touched = true);
@@ -84,15 +93,25 @@ class _WorkspaceEditModalState extends State<WorkspaceEditModal> {
     return GhModalShell(
       icon: GhIcon(GhIcons.pencil, size: theme.space(5), color: theme.accentBright),
       title: tr.edit_workspace_title,
-      maxWidth: GhModalWidth.lg,
+      maxWidth: GhModalWidth.x2l,
       onClose: widget.onClose,
       showClose: false,
       error: _error,
       footer: ghModalActions(
-        leading: [delete],
-        trailing: [GhButton(onPressed: widget.onClose, label: tr.cancel)],
+        leading: [
+          delete,
+          if (_dirty)
+            Text(
+              tr.workspace_unsaved,
+              style: theme.text(size: GhTextSize.x2s, color: theme.muted),
+            ),
+        ],
+        trailing: [
+          if (_dirty) GhButton(key: const ValueKey('workspace-reset'), onPressed: _busy ? null : _reset, label: tr.workspace_reset),
+          GhButton(onPressed: widget.onClose, label: tr.cancel),
+        ],
         primary: GhButton(
-          onPressed: _busy || (_touched && _invalid) ? null : _submit,
+          onPressed: _busy || !_dirty || (_touched && _invalid) ? null : _submit,
           label: tr.save,
           variant: GhButtonVariant.primary,
           paddingX: 5,

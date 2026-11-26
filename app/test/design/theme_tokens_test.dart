@@ -161,7 +161,8 @@ void main() {
     expect(bgPresetsLight, s['bgLight']);
     expect(categoryColors, s['category']);
     expect(workspaceColorPresets, s['workspace']);
-    expect(workspaceIconKeys, s['workspaceIcons']);
+    // the original twelve keep their order at the front, workspaces saved on disk point at them
+    expect(workspaceIconKeys.take((s['workspaceIcons'] as List).length), s['workspaceIcons']);
     expect(workspaceIcon('missing'), GhIcons.briefcase);
   });
 

@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-aliases="security protect">
+  <path d="M12 3L19.5 6A1.5 1.5 0 0 1 20.5 7.4V12C20.5 16.5 17 19.5 12 21.5C7 19.5 3.5 16.5 3.5 12V7.4A1.5 1.5 0 0 1 4.5 6Z" data-role="silhouette"/>
+  <path d="M9 11.5l2.5 2.5 4-4.5" data-role="detail"/>
+</svg>

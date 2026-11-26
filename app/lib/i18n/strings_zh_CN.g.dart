@@ -207,6 +207,20 @@ class _Translations$common$zh_CN extends Translations$common$en_US {
 	@override String get add => '添加';
 	@override String get color_label => '颜色';
 	@override String get icon_label => '图标';
+	@override String get icon_search_placeholder => 'Search icons';
+	@override String get icon_no_results => 'No icons match your search';
+	@override String get icon_category_all => 'All';
+	@override String get icon_category_general => 'General';
+	@override String get icon_category_work => 'Work';
+	@override String get icon_category_tech => 'Tech';
+	@override String get icon_category_creative => 'Creative';
+	@override String get icon_category_nature => 'Nature';
+	@override String get icon_category_travel => 'Travel';
+	@override String get icon_category_fun => 'Fun';
+	@override String get color_custom => 'Custom color';
+	@override String get color_selected => 'Selected';
+	@override String get workspace_reset => 'Reset';
+	@override String get workspace_unsaved => 'Unsaved changes';
 	@override String get expand => '展开';
 	@override String get collapse => '折叠';
 	@override String file_count({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(count,
@@ -2502,6 +2516,20 @@ extension on TranslationsZhCn {
 			'common.add' => '添加',
 			'common.color_label' => '颜色',
 			'common.icon_label' => '图标',
+			'common.icon_search_placeholder' => 'Search icons',
+			'common.icon_no_results' => 'No icons match your search',
+			'common.icon_category_all' => 'All',
+			'common.icon_category_general' => 'General',
+			'common.icon_category_work' => 'Work',
+			'common.icon_category_tech' => 'Tech',
+			'common.icon_category_creative' => 'Creative',
+			'common.icon_category_nature' => 'Nature',
+			'common.icon_category_travel' => 'Travel',
+			'common.icon_category_fun' => 'Fun',
+			'common.color_custom' => 'Custom color',
+			'common.color_selected' => 'Selected',
+			'common.workspace_reset' => 'Reset',
+			'common.workspace_unsaved' => 'Unsaved changes',
 			'common.expand' => '展开',
 			'common.collapse' => '折叠',
 			'common.file_count' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(count, other: '${count} 个文件', ), 
@@ -2861,6 +2889,8 @@ extension on TranslationsZhCn {
 			'common.clone_repo_search_repos' => '搜索你的仓库...',
 			'common.clone_repo_no_repos_found' => '没有匹配的仓库。',
 			'common.clone_repo_loading_repos' => '加载仓库中...',
+			_ => null,
+		} ?? switch (path) {
 			'common.clone_repo_load_error' => '加载仓库失败。',
 			'common.clone_repo_select' => '选择',
 			'common.clone_repo_no_account' => '未连接 GitHub 或 GitLab 账户。请使用 URL 克隆。',
@@ -2875,8 +2905,6 @@ extension on TranslationsZhCn {
 			'common.task_tray_only_recent_one' => '{{count}} 个最近任务',
 			'common.task_tray_only_recent_other' => '{{count}} 个最近任务',
 			'common.task_tray_aria' => '任务托盘',
-			_ => null,
-		} ?? switch (path) {
 			'common.task_tray_auto_dismiss' => '已完成自动关闭',
 			'common.task_tray_dismiss' => '隐藏 {{count}} 个任务',
 			'common.task_error_status' => '错误',
@@ -3375,6 +3403,8 @@ extension on TranslationsZhCn {
 			'common.project_addons.count_one' => '已安装 {{count}} 个插件',
 			'common.project_addons.count_other' => '已安装 {{count}} 个插件',
 			'common.project_addons.empty' => '此项目没有 addons 文件夹。请从资源商店安装插件，或将其复制到 res://addons。',
+			_ => null,
+		} ?? switch (path) {
 			'common.project_addons.check_updates' => '检查更新',
 			'common.project_addons.checking' => '正在检查…',
 			'common.project_addons.updates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(count, other: '有 ${count} 个更新可用', ), 
@@ -3389,8 +3419,6 @@ extension on TranslationsZhCn {
 			'common.project_addons.update_to' => '版本 {{version}} 可用',
 			'common.project_addons.current' => '已是最新（{{version}}）',
 			'common.project_addons.matched_by_name' => '按名称匹配到“{{title}}”',
-			_ => null,
-		} ?? switch (path) {
 			'common.project_addons.update' => '更新',
 			'common.project_addons.updating' => '正在更新…',
 			'common.project_addons.updated' => '{{name}} 已更新',
@@ -3889,6 +3917,8 @@ extension on TranslationsZhCn {
 			'settings.git_pat_username' => '用户名',
 			'settings.git_pat_token' => '令牌',
 			'settings.git_pat_save' => '保存令牌',
+			_ => null,
+		} ?? switch (path) {
 			'settings.git_pat_empty' => '尚未添加令牌。',
 			'settings.git_pat_remove' => '删除令牌',
 			'settings.storage_title' => '存储与自动扫描',
@@ -3903,8 +3933,6 @@ extension on TranslationsZhCn {
 			'settings.restart_app_confirm_title' => '重启 GodotHub？',
 			'settings.restart_app_confirm_desc' => '应用将自动关闭并重新打开。未保存的进行中操作可能会被中断。',
 			'settings.reset_settings' => '重置设置',
-			_ => null,
-		} ?? switch (path) {
 			'settings.delete_app_data' => '删除应用数据',
 			'settings.new_project_default' => '新项目默认路径',
 			'settings.download_folder' => '下载文件夹',
@@ -4403,6 +4431,8 @@ extension on TranslationsZhCn {
 			'versions.export_templates_selected_other' => '{{count}} 个模板已选择',
 			'versions.export_templates_size_summary' => '~{{download}} 下载 · {{installed}} 已安装',
 			'versions.export_templates_download_selected' => '下载所选',
+			_ => null,
+		} ?? switch (path) {
 			'versions.export_templates_loading_options' => '正在检查此版本的可用模板…',
 			'versions.export_templates_options_failed' => '无法加载此版本的模板。',
 			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(count, other: '${count} 个可用模板组', ), 
@@ -4417,8 +4447,6 @@ extension on TranslationsZhCn {
 			'versions.export_templates_uninstall_named' => '卸载 {{name}}',
 			'versions.export_templates_uninstall_failed' => '无法卸载模板: {{error}}',
 			'versions.export_templates_category_desktop' => '桌面端',
-			_ => null,
-		} ?? switch (path) {
 			'versions.export_templates_category_mobile' => '移动端',
 			'versions.export_templates_category_web' => 'Web 端',
 			'versions.export_templates_category_common' => '通用',

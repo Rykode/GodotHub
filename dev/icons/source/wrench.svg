@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-aliases="tools spanner">
+  <path d="M4.5 19.5L11.5 12.5"/>
+  <circle cx="15.5" cy="8.5" r="5.5" data-role="silhouette"/>
+  <path d="M15.5 8.5L21 3" data-role="detail"/>
+</svg>

@@ -4,6 +4,7 @@ import '../../design/design.dart';
 import '../core/interaction.dart';
 import '../core/i18n.dart';
 import '../../motion/motion.dart';
+import 'workspace_pickers.dart';
 
 @immutable
 class GhWorkspaceDraft {
@@ -99,7 +100,8 @@ class GhWorkspaceForm extends StatelessWidget {
   final String? requiredError;
   final String? takenError;
 
-  static const double twoColumnBreakpoint = 640;
+  /// Width of the form itself, not the window, above which the icon and colour pickers sit side by side.
+  static const double twoColumnBreakpoint = 560;
 
   @override
   Widget build(BuildContext context) {
@@ -181,49 +183,41 @@ class GhWorkspaceForm extends StatelessWidget {
         ],
       ],
     );
-    final iconPicker = _LabeledGrid(
+    final iconPicker = GhWorkspaceIconPicker(
       label: iconLabel,
-      columns: 6,
-      children: [
-        for (final key in workspaceIconKeys)
-          _IconOption(
-            iconKey: key,
-            active: value.icon == key,
-            onPressed: () => onChanged(value.copyWith(icon: key)),
-          ),
-      ],
+      value: value.icon,
+      tint: colorFromHex(value.color),
+      onChanged: (icon) => onChanged(value.copyWith(icon: icon)),
     );
-    final colorPicker = _LabeledGrid(
+    final colorPicker = GhWorkspaceColorPicker(
       label: colorLabel,
-      columns: 7,
-      children: [
-        for (final color in workspaceColorPresets)
-          _ColorOption(
-            color: color,
-            active: value.color == color,
-            onPressed: () => onChanged(value.copyWith(color: color)),
-          ),
-      ],
+      value: value.color,
+      onChanged: (color) => onChanged(value.copyWith(color: color)),
     );
-    final twoColumns = MediaQuery.sizeOf(context).width >= twoColumnBreakpoint;
-    final pickers = twoColumns
-        ? Row(
+    final pickers = LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth >= twoColumnBreakpoint) {
+          return Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(child: iconPicker),
+              Expanded(flex: 3, child: iconPicker),
               SizedBox(width: theme.space(5)),
-              Expanded(child: colorPicker),
-            ],
-          )
-        : Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              iconPicker,
-              SizedBox(height: theme.space(5)),
-              colorPicker,
+              Expanded(flex: 2, child: colorPicker),
             ],
           );
+        }
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          // stacked, the short colour row goes first so it is never hidden below the tall icon grid
+          children: [
+            colorPicker,
+            SizedBox(height: theme.space(5)),
+            iconPicker,
+          ],
+        );
+      },
+    );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisSize: MainAxisSize.min,
@@ -355,134 +349,6 @@ class _NameInputState extends State<_NameInput> {
           ),
         ),
       ),
-    );
-  }
-}
-
-class _LabeledGrid extends StatelessWidget {
-  const _LabeledGrid({required this.label, required this.columns, required this.children});
-
-  final String label;
-  final int columns;
-  final List<Widget> children;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = GhTheme.of(context);
-    final gap = theme.space(1.5);
-    final rows = <Widget>[];
-    for (var start = 0; start < children.length; start += columns) {
-      final cells = <Widget>[];
-      for (var i = 0; i < columns; i++) {
-        if (i > 0) {
-          cells.add(SizedBox(width: gap));
-        }
-        final index = start + i;
-        cells.add(Expanded(child: AspectRatio(aspectRatio: 1, child: index < children.length ? children[index] : null)));
-      }
-      if (rows.isNotEmpty) {
-        rows.add(SizedBox(height: gap));
-      }
-      rows.add(Row(children: cells));
-    }
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(
-          label,
-          style: theme.text(size: GhTextSize.xs, weight: GhWeight.medium, color: theme.muted),
-        ),
-        SizedBox(height: theme.space(2)),
-        Semantics(
-          label: label,
-          container: true,
-          child: Column(mainAxisSize: MainAxisSize.min, children: rows),
-        ),
-      ],
-    );
-  }
-}
-
-class _IconOption extends StatelessWidget {
-  const _IconOption({required this.iconKey, required this.active, required this.onPressed});
-
-  final String iconKey;
-  final bool active;
-  final VoidCallback onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = GhTheme.of(context);
-    final radius = BorderRadius.circular(theme.radiusBtn);
-    return GhPressable(
-      onPressed: onPressed,
-      borderRadius: radius,
-      semanticLabel: iconKey.replaceAll('_', ' '),
-      checked: active,
-      builder: (context, states) {
-        final hover = states.active && !active;
-        final Color foreground;
-        final Color background;
-        final Color border;
-        if (active) {
-          foreground = theme.accentBright;
-          background = theme.accent.withValues(alpha: 0.1);
-          border = theme.accent;
-        } else {
-          foreground = hover ? theme.ink : theme.muted;
-          background = hover ? theme.overlay : theme.overlay.withValues(alpha: 0);
-          border = theme.outline.withValues(alpha: 0.5);
-        }
-        return GhAnimatedBox(
-          alignment: Alignment.center,
-          color: background,
-          borderRadius: radius,
-          border: Border.all(color: border),
-          boxShadow: hover ? GhShadows.hoverLift() : const [],
-          child: GhIconMotionScale(
-            states: states,
-            child: GhAnimatedIcon(workspaceIcon(iconKey), color: foreground, size: theme.space(3.5)),
-          ),
-        );
-      },
-    );
-  }
-}
-
-class _ColorOption extends StatelessWidget {
-  const _ColorOption({required this.color, required this.active, required this.onPressed});
-
-  final String color;
-  final bool active;
-  final VoidCallback onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = GhTheme.of(context);
-    final motion = GhMotion.of(context);
-    final radius = BorderRadius.circular(999);
-    return GhPressable(
-      onPressed: onPressed,
-      borderRadius: radius,
-      semanticLabel: color,
-      checked: active,
-      builder: (context, states) {
-        final hover = states.active && !active;
-        return AnimatedScale(
-          scale: hover ? 1.1 : 1,
-          duration: motion.css(GhDurations.interactive),
-          curve: GhCurves.outExpo,
-          child: GhAnimatedBox(
-            duration: motion.css(GhDurations.interactive),
-            alignment: Alignment.center,
-            color: colorFromHex(color),
-            borderRadius: radius,
-            boxShadow: active ? GhShadows.ring(theme.ink.withValues(alpha: 0.8), width: 2, offset: 2, offsetColor: theme.raised) : const [],
-            child: active ? GhIcon(GhIcons.check, size: theme.space(2.5), color: Colors.white) : null,
-          ),
-        );
-      },
     );
   }
 }

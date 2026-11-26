@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-aliases="sky online">
+  <circle cx="6.5" cy="15" r="3.5" data-role="silhouette"/>
+  <circle cx="12" cy="10.5" r="5.5" data-role="silhouette"/>
+  <circle cx="18" cy="15" r="3.5" data-role="silhouette"/>
+  <path d="M6.5 12H18V18.5H6.5Z" data-role="silhouette"/>
+</svg>

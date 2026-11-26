@@ -39,6 +39,13 @@ npm install
 node gen_icons.mjs --verify
 ```
 
-A new icon needs a `static const` entry in `icons.g.dart` first (a placeholder
-is fine); the generator fills in the path. Each icon's hover animation is set in
-`app/lib/design/icon_motion.dart`.
+Run the skill's `build` first (`node .agents/skills/draw-icons/scripts/icons.js
+build` from the repository root) so `dev/icons/*.svg` is current. A new source
+gets its `GhIcons` entry added automatically (`foo-bar.svg` becomes
+`GhIcons.fooBar`). Each icon's hover animation is set in
+`app/lib/design/icon_motion.dart`; icons that are not listed there get a pop.
+
+Brand logos (`GhIcons.github`, `GhIcons.gitlab`) are not drawn by us. They are
+the Font Awesome Free brands glyphs (see `app/assets/icons/FontAwesome-LICENSE.txt`),
+they have no source in `dev/icons/source`, and the generator leaves them alone.
+Add any new brand logo the same way, from an icon library, never as a drawing.

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-aliases="bloom garden">
+  <circle cx="12" cy="6.5" r="3" data-role="silhouette"/>
+  <circle cx="17.23" cy="10.3" r="3" data-role="silhouette"/>
+  <circle cx="15.2" cy="16.4" r="3" data-role="silhouette"/>
+  <circle cx="8.8" cy="16.4" r="3" data-role="silhouette"/>
+  <circle cx="6.77" cy="10.3" r="3" data-role="silhouette"/>
+  <circle cx="12" cy="12" r="2" data-role="silhouette"/>
+  <path d="M12 12h.01" data-role="detail"/>
+</svg>

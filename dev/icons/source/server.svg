@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-aliases="rack host">
+  <path d="M6 3.5H18A3 3 0 0 1 21 6.5A3 3 0 0 1 18 9.5H6A3 3 0 0 1 3 6.5A3 3 0 0 1 6 3.5Z" data-role="silhouette"/>
+  <path d="M6 14.5H18A3 3 0 0 1 21 17.5A3 3 0 0 1 18 20.5H6A3 3 0 0 1 3 17.5A3 3 0 0 1 6 14.5Z" data-role="silhouette"/>
+  <path d="M7.5 6.5h.01M7.5 17.5h.01" data-role="detail"/>
+</svg>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-aliases="money finance">
+  <path d="M6 4.5H18"/>
+  <path d="M12 9.5L18 9.5A3 3 0 0 1 21 12.5L21 17A3 3 0 0 1 18 20L6 20A3 3 0 0 1 3 17L3 12.5A3 3 0 0 1 6 9.5Z" data-role="silhouette"/>
+  <path d="M15 14.5H21.5" data-role="detail"/>
+</svg>

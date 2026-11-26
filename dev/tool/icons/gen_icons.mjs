@@ -204,7 +204,7 @@ function camel(name) {
 
 const files = fs.readdirSync(srcDir).filter((f) => f.endsWith('.svg') && !f.includes('@')).sort();
 let dart = fs.readFileSync(dartFile, 'utf8');
-const missing = [];
+const added = [];
 const report = [];
 
 const require = createRequire(path.join(root, '.agents/skills/draw-icons/scripts/'));
@@ -222,7 +222,11 @@ for (const f of files) {
   const block = `  static const ${id} = FaIconData(\n    'gh',\n    '${name}',\n    ${GRID},\n    ${GRID},\n    '${d}',\n  );`;
   const re = new RegExp(`  static const ${id} = FaIconData\\([\\s\\S]*?\\n  \\);`);
   if (re.test(dart)) dart = dart.replace(re, () => block);
-  else missing.push(id);
+  else {
+    // a new source: append its entry to the end of the GhIcons class
+    dart = dart.replace(/\n}\s*$/, `\n${block}\n}\n`);
+    added.push(id);
+  }
   if (verify) {
     const raster = (svg) => new Resvg(svg, { fitTo: { mode: 'width', value: 96 }, background: '#fff' }).render().pixels;
     const built = fs.readFileSync(path.join(root, 'dev/icons', f), 'utf8').replace(/currentColor/g, '#000');
@@ -234,7 +238,7 @@ for (const f of files) {
   }
 }
 
-if (missing.length) console.log(`no GhIcons entry for: ${missing.join(', ')} (add it to icons.g.dart first)`);
+if (added.length) console.log(`added ${added.length} new GhIcons entries: ${added.join(', ')}`);
 fs.writeFileSync(dartFile, dart);
 console.log(`flattened ${files.length} icons`);
 if (report.length) console.log(report.join('\n'));

@@ -212,6 +212,20 @@ class _Translations$common$ar_MA extends Translations$common$en_US {
 	@override String get add => 'أضف';
 	@override String get color_label => 'اللون';
 	@override String get icon_label => 'الأيقونة';
+	@override String get icon_search_placeholder => 'Search icons';
+	@override String get icon_no_results => 'No icons match your search';
+	@override String get icon_category_all => 'All';
+	@override String get icon_category_general => 'General';
+	@override String get icon_category_work => 'Work';
+	@override String get icon_category_tech => 'Tech';
+	@override String get icon_category_creative => 'Creative';
+	@override String get icon_category_nature => 'Nature';
+	@override String get icon_category_travel => 'Travel';
+	@override String get icon_category_fun => 'Fun';
+	@override String get color_custom => 'Custom color';
+	@override String get color_selected => 'Selected';
+	@override String get workspace_reset => 'Reset';
+	@override String get workspace_unsaved => 'Unsaved changes';
 	@override String get expand => 'توسيع';
 	@override String get collapse => 'تقليص';
 	@override String file_count({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ar'))(count,
@@ -2777,6 +2791,20 @@ extension on TranslationsArMa {
 			'common.add' => 'أضف',
 			'common.color_label' => 'اللون',
 			'common.icon_label' => 'الأيقونة',
+			'common.icon_search_placeholder' => 'Search icons',
+			'common.icon_no_results' => 'No icons match your search',
+			'common.icon_category_all' => 'All',
+			'common.icon_category_general' => 'General',
+			'common.icon_category_work' => 'Work',
+			'common.icon_category_tech' => 'Tech',
+			'common.icon_category_creative' => 'Creative',
+			'common.icon_category_nature' => 'Nature',
+			'common.icon_category_travel' => 'Travel',
+			'common.icon_category_fun' => 'Fun',
+			'common.color_custom' => 'Custom color',
+			'common.color_selected' => 'Selected',
+			'common.workspace_reset' => 'Reset',
+			'common.workspace_unsaved' => 'Unsaved changes',
 			'common.expand' => 'توسيع',
 			'common.collapse' => 'تقليص',
 			'common.file_count' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ar'))(count, zero: '${count} ملف', one: '${count} ملف', two: '${count} ملف', few: '${count} ملف', many: '${count} ملف', other: '${count} ملفات', ), 
@@ -3136,6 +3164,8 @@ extension on TranslationsArMa {
 			'common.clone_repo_search_repos' => 'ابحث في مستودعاتك...',
 			'common.clone_repo_no_repos_found' => 'No repositories match your search.',
 			'common.clone_repo_loading_repos' => 'جاري تحميل المستودعات...',
+			_ => null,
+		} ?? switch (path) {
 			'common.clone_repo_load_error' => 'Failed to load repositories.',
 			'common.clone_repo_select' => 'اختر',
 			'common.clone_repo_no_account' => 'No GitHub or GitLab account connected. Use a URL to clone instead.',
@@ -3150,8 +3180,6 @@ extension on TranslationsArMa {
 			'common.task_tray_only_recent_one' => '{{count}} المهمة الأخيرة',
 			'common.task_tray_only_recent_other' => '{{count}} المهام الأخيرة',
 			'common.task_tray_aria' => 'المهام',
-			_ => null,
-		} ?? switch (path) {
 			'common.task_tray_auto_dismiss' => 'Completed auto-dismiss',
 			'common.task_tray_dismiss' => 'متجاهلة {{count}}',
 			'common.task_error_status' => 'خطأ',
@@ -3650,6 +3678,8 @@ extension on TranslationsArMa {
 			'common.project_addons.count_one' => '{{count}} addon installed',
 			'common.project_addons.count_other' => '{{count}} addons installed',
 			'common.project_addons.empty' => 'This project has no addons folder. Install addons from the Asset Store or copy them into res://addons.',
+			_ => null,
+		} ?? switch (path) {
 			'common.project_addons.check_updates' => 'Check for updates',
 			'common.project_addons.checking' => 'Checking…',
 			'common.project_addons.updates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ar'))(count, zero: '${count} updates available', one: '${count} update available', two: '${count} updates available', few: '${count} updates available', many: '${count} updates available', other: '${count} updates available', ), 
@@ -3664,8 +3694,6 @@ extension on TranslationsArMa {
 			'common.project_addons.update_to' => 'Version {{version}} is available',
 			'common.project_addons.current' => 'Up to date ({{version}})',
 			'common.project_addons.matched_by_name' => 'matched by name to “{{title}}”',
-			_ => null,
-		} ?? switch (path) {
 			'common.project_addons.update' => 'Update',
 			'common.project_addons.updating' => 'Updating…',
 			'common.project_addons.updated' => '{{name}} was updated',
@@ -4164,6 +4192,8 @@ extension on TranslationsArMa {
 			'settings.git_pat_username' => 'إسم المستخدم',
 			'settings.git_pat_token' => 'الرمز (Token)',
 			'settings.git_pat_save' => 'احفظ الرمز',
+			_ => null,
+		} ?? switch (path) {
 			'settings.git_pat_empty' => 'لم يتم إضافة أي رمز بعد.',
 			'settings.git_pat_remove' => 'أزل الرمز (Token)',
 			'settings.storage_title' => 'التخزين و البحث التلقائي',
@@ -4178,8 +4208,6 @@ extension on TranslationsArMa {
 			'settings.restart_app_confirm_title' => 'هل تريد إعادة تشغيل GodotHub',
 			'settings.restart_app_confirm_desc' => 'سيتم إغلاق التطبيق و إعادة فتحه تلقائيا. العملية التي في طور التشغيل أو الغير محفوظة ستتم مقاطعتها.',
 			'settings.reset_settings' => 'أعد ضبط كل الإعدادات',
-			_ => null,
-		} ?? switch (path) {
 			'settings.delete_app_data' => 'احذف ملفات التطبيق',
 			'settings.new_project_default' => 'مجلد البحث الإفتراضي',
 			'settings.download_folder' => 'مجلد التنزيل الإفتراضي',
@@ -4678,6 +4706,8 @@ extension on TranslationsArMa {
 			'versions.export_templates_selected_other' => '{{count}} templates selected',
 			'versions.export_templates_size_summary' => '~{{download}} download · {{installed}} on disk',
 			'versions.export_templates_download_selected' => 'Download selected',
+			_ => null,
+		} ?? switch (path) {
 			'versions.export_templates_loading_options' => 'Checking this release\'s available templates…',
 			'versions.export_templates_options_failed' => 'Couldn\'t load the templates for this release.',
 			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ar'))(count, zero: '${count} available template groups', one: '1 available template group', two: '${count} available template groups', few: '${count} available template groups', many: '${count} available template groups', other: '${count} available template groups', ), 
@@ -4692,8 +4722,6 @@ extension on TranslationsArMa {
 			'versions.export_templates_uninstall_named' => 'Uninstall {{name}}',
 			'versions.export_templates_uninstall_failed' => 'Couldn\'t uninstall templates: {{error}}',
 			'versions.export_templates_category_desktop' => 'Desktop',
-			_ => null,
-		} ?? switch (path) {
 			'versions.export_templates_category_mobile' => 'Mobile',
 			'versions.export_templates_category_web' => 'Web',
 			'versions.export_templates_category_common' => 'Common',

@@ -335,11 +335,11 @@ void main() {
       await settle(tester);
       expect(find.text('Give the workspace a name.'), findsOneWidget);
 
-      await tester.enterText(find.descendant(of: find.byType(CreateWorkspaceModal), matching: find.byType(TextField)), 'main');
+      await tester.enterText(find.descendant(of: find.byType(CreateWorkspaceModal), matching: find.byType(TextField)).first, 'main');
       await settle(tester);
       expect(find.text('Another workspace already uses this name.'), findsOneWidget);
 
-      await tester.enterText(find.descendant(of: find.byType(CreateWorkspaceModal), matching: find.byType(TextField)), ' Jam ');
+      await tester.enterText(find.descendant(of: find.byType(CreateWorkspaceModal), matching: find.byType(TextField)).first, ' Jam ');
       await settle(tester);
       await tester.tap(find.text('Create workspace').last);
       await settle(tester);

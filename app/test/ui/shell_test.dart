@@ -422,11 +422,11 @@ void main() {
       expect(find.text(t.common.workspace_name_required_error), findsOneWidget);
       expect(find.text(t.common.workspace_name_placeholder), findsNWidgets(2));
       expect(find.text(t.common.section_workspaces), findsOneWidget);
-      await tester.enterText(find.byType(TextField), 'work');
+      await tester.enterText(find.byType(TextField).first, 'work');
       await tester.pump();
       expect(draft.name, 'work');
       expect(find.text(t.common.workspace_name_taken_error), findsOneWidget);
-      await tester.enterText(find.byType(TextField), 'Jam');
+      await tester.enterText(find.byType(TextField).first, 'Jam');
       await tester.pump();
       expect(find.text(t.common.workspace_name_taken_error), findsNothing);
       expect(find.text('Jam'), findsNWidgets(2));
@@ -437,7 +437,10 @@ void main() {
       await tester.pump();
       expect(draft.icon, 'graduation_cap');
       expect(blurred, 0);
-      await tester.tap(find.bySemanticsLabel('#eb459e'));
+      final pink = find.byKey(const ValueKey('workspace-color:#eb459e'));
+      await tester.ensureVisible(pink);
+      await tester.pump();
+      await tester.tap(pink);
       await tester.pump();
       expect(draft.color, '#eb459e');
       rebuild(() => draft = draft.copyWith(name: 'Renamed'));
@@ -448,13 +451,15 @@ void main() {
     testWidgets('hides errors until requested', (tester) async {
       await tester.pumpWidget(
         _app(
-          SizedBox(
-            width: 520,
-            child: GhWorkspaceForm(
-              value: const GhWorkspaceDraft(name: '', icon: 'rocket', color: '#23a55a'),
-              onChanged: (_) {},
-              takenNames: const [],
-              showErrors: false,
+          SingleChildScrollView(
+            child: SizedBox(
+              width: 520,
+              child: GhWorkspaceForm(
+                value: const GhWorkspaceDraft(name: '', icon: 'rocket', color: '#23a55a'),
+                onChanged: (_) {},
+                takenNames: const [],
+                showErrors: false,
+              ),
             ),
           ),
         ),

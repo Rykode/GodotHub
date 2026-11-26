@@ -195,4 +195,70 @@ void main() {
     await tester.pumpAndSettle();
     expect(deleted, 0);
   });
+
+  group('edit workspace change tracking', () {
+    Finder save() => find.widgetWithText(GhButton, ghTr('save'));
+    Finder reset() => find.byKey(const ValueKey('workspace-reset'));
+
+    testWidgets('Save and Reset wait for a change', (tester) async {
+      await open(tester, (close) => editWorkspace(close));
+      expect(tester.widget<GhButton>(save()).onPressed, isNull);
+      expect(reset(), findsNothing);
+      expect(find.text(ghTr('workspace_unsaved')), findsNothing);
+      final rocket = find.byKey(const ValueKey('workspace-icon:rocket'));
+      await tester.ensureVisible(rocket);
+      await tester.pump();
+      await tester.tap(rocket);
+      await tester.pump();
+      expect(tester.widget<GhButton>(save()).onPressed, isNotNull);
+      expect(reset(), findsOneWidget);
+      expect(find.text(ghTr('workspace_unsaved')), findsOneWidget);
+    });
+
+    testWidgets('Reset puts the workspace back as it was', (tester) async {
+      await open(tester, (close) => editWorkspace(close));
+      final pink = find.byKey(const ValueKey('workspace-color:#eb459e'));
+      await tester.ensureVisible(pink);
+      await tester.pump();
+      await tester.tap(pink);
+      await tester.pump();
+      expect(tester.widget<GhButton>(save()).onPressed, isNotNull);
+      await tester.tap(reset());
+      await tester.pump();
+      expect(tester.widget<GhButton>(save()).onPressed, isNull);
+      expect(reset(), findsNothing);
+    });
+
+    testWidgets('saves the new icon and a custom colour', (tester) async {
+      (String, String, String)? saved;
+      await open(
+        tester,
+        (close) => WorkspaceEditModal(
+          workspace: _workspace,
+          takenNames: const [],
+          canDelete: true,
+          onClose: close,
+          onSave: (name, icon, color) async => saved = (name, icon, color),
+          onDelete: () async {},
+        ),
+      );
+      final plane = find.byKey(const ValueKey('workspace-icon:plane'));
+      await tester.ensureVisible(plane);
+      await tester.pump();
+      await tester.tap(plane);
+      await tester.pump();
+      final custom = find.byKey(const ValueKey('workspace-color-custom'));
+      await tester.ensureVisible(custom);
+      await tester.pump();
+      await tester.tap(custom);
+      await tester.pumpAndSettle();
+      await tester.enterText(find.widgetWithText(TextField, '#457ff2'), '#12ab34');
+      await tester.pump();
+      await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+      await tester.pumpAndSettle();
+      await tester.tap(save());
+      await tester.pumpAndSettle();
+      expect(saved, ('Main', 'plane', '#12ab34'));
+    });
+  });
 }

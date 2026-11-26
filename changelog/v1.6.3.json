@@ -68,6 +68,22 @@
       "text": "Projects: the \"No version selected\" chip no longer overflows the project card in narrow windows. Its text now shortens with \"…\" when there is not enough room"
     },
     {
+      "category": "fix",
+      "text": "Startup: if GodotHub can't read your workspaces or settings, it now shows the error with a Retry button instead of staying on \"Loading\" forever"
+    },
+    {
+      "category": "fix",
+      "text": "Welcome screen: the rings around Get started now pulse three times and stop. Before, they pulsed forever and kept a CPU core busy on Linux machines without GPU acceleration"
+    },
+    {
+      "category": "fix",
+      "text": "Linux and macOS: a Godot editor opened with godothub open from a terminal now keeps running when you close that terminal"
+    },
+    {
+      "category": "fix",
+      "text": "Scan buttons with no scan folders set, and settings picked from the command palette, now open the right Settings section (for example Storage) instead of Appearance"
+    },
+    {
       "category": "improve",
       "text": "Linux: the .deb and .rpm packages now recommend xdg-utils, gdbus and pkexec/polkit, which GodotHub uses to open links, detect the system tray and install updates"
     },

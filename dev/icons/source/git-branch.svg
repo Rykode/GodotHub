@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-aliases="branch fork version-control">
+  <circle cx="6" cy="5.5" r="2.5" data-role="silhouette"/>
+  <circle cx="6" cy="18.5" r="2.5" data-role="silhouette"/>
+  <circle cx="18" cy="9.5" r="2.5" data-role="silhouette"/>
+  <path d="M6 5.5V18.5"/>
+  <path d="M18 9.5V10.5A5 5 0 0 1 13 15.5H6"/>
+</svg>

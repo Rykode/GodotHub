@@ -1,5 +1,6 @@
 export 'effects.dart';
 export 'fa_icon_data.dart';
+export 'icon_motion.dart';
 export 'icons.g.dart';
 export 'palette.dart';
 export 'system_contrast.dart';

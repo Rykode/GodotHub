@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-aliases="work workspace">
+  <path d="M9 8V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V8"/>
+  <path d="M12 14h.01" data-role="detail"/>
+  <path d="M12 8L18 8A3 3 0 0 1 21 11L21 17A3 3 0 0 1 18 20L6 20A3 3 0 0 1 3 17L3 11A3 3 0 0 1 6 8Z" data-role="silhouette"/>
+</svg>

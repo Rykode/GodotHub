@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-aliases="issue defect">
+  <path d="M12 8L12.5 8A5 5 0 0 1 17.5 13L17.5 16A5 5 0 0 1 12.5 21L11.5 21A5 5 0 0 1 6.5 16L6.5 13A5 5 0 0 1 11.5 8Z" data-role="silhouette"/>
+  <path d="M6.5 14.5H2.5"/>
+  <path d="M17.5 14.5H21.5"/>
+  <path d="M9.5 8.5L6.5 5.5"/>
+  <path d="M14.5 8.5L17.5 5.5"/>
+</svg>

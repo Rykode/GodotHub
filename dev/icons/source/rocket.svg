@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-aliases="launch deploy">
+  <path d="M20.352 7.848L19.859 10.816A1.5 1.5 0 0 1 19.44 11.63L12.351 18.719A1.5 1.5 0 0 1 10.229 18.719L5.281 13.771A1.5 1.5 0 0 1 5.281 11.649L12.37 4.56A1.5 1.5 0 0 1 13.184 4.141L19.12 3.154A1.5 1.5 0 0 1 20.846 4.88Z" data-role="silhouette"/>
+  <circle cx="14.83" cy="9.17" r="1.5" data-role="detail"/>
+  <path d="M14.83 16.24V19.5"/>
+  <path d="M7.76 9.17H4.5"/>
+  <path d="M7.76 16.24L4 20"/>
+</svg>

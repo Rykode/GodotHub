@@ -156,7 +156,7 @@ class _GhPressableState extends State<GhPressable> {
     final enabled = _enabled;
     final raw = GhStates(hovered: _hovered, pressed: _pressed && enabled, focused: _focused, disabled: !enabled);
     final states = GhForcedStates.maybeOf(context)?.apply(raw) ?? raw;
-    Widget child = widget.builder(context, states);
+    Widget child = GhIconPlay(enabled: enabled, child: widget.builder(context, states));
     if (widget.excludeChildSemantics) {
       child = ExcludeSemantics(child: child);
     }

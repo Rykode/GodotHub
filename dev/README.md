@@ -26,5 +26,19 @@ Node and shell tools run from the repository root, for example
 
 Some committed files came from generators that have since been removed: the
 test fixtures in `app/test/fixtures` other than `intl_dates.json` (which
-`gen_date_fixtures.ts` still writes) are fixed test data now, and new Font
-Awesome icons are added to `app/lib/design/icons.g.dart` by hand.
+`gen_date_fixtures.ts` still writes) are fixed test data now.
+
+Icons are drawn as stroke-based sources in `dev/icons/source` (style rules in
+`icons.yaml`, made with the draw-icons skill) and flattened into
+`app/lib/design/icons.g.dart` by `dev/tool/icons/gen_icons.mjs`. To add or
+change one, edit its source, then:
+
+```
+cd dev/tool/icons
+npm install
+node gen_icons.mjs --verify
+```
+
+A new icon needs a `static const` entry in `icons.g.dart` first (a placeholder
+is fine); the generator fills in the path. Each icon's hover animation is set in
+`app/lib/design/icon_motion.dart`.

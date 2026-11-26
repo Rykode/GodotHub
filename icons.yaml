@@ -1,0 +1,19 @@
+product: GodotHub, a desktop launcher and project manager for Godot engine developers
+personality: [bold, friendly, sturdy]
+sizes: [12, 14, 16, 20]
+dir: dev/icons
+avoid: [letters or numbers inside icons, hairline details, thin outlines]
+
+dna:
+  style: filled
+  stroke: 3
+  grid: 24
+  padding: 1
+  keylines: { circle: 20, square: 18, portrait: [16, 20], landscape: [20, 16] }
+  corners: { family: circular, radius: { large: 3, small: 1.5 }, largeThreshold: 8 }
+  caps: round
+  joins: round
+  angles: [0, 45, 90]
+  detail: minimal
+  minGap: 2
+  badge: { position: bottom-right, size: 8, gap: 2 }

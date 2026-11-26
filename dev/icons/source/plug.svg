@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-aliases="power connector integration">
+  <path d="M8 8L16 8A3 3 0 0 1 19 11L19 12A7 7 0 0 1 12 19A7 7 0 0 1 5 12L5 11A3 3 0 0 1 8 8Z" data-role="silhouette"/>
+  <path d="M9 2.5V8"/>
+  <path d="M15 2.5V8"/>
+  <path d="M12 19V21.5"/>
+</svg>

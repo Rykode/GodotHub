@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-aliases="labels price">
+  <path d="M13 3L21 11"/>
+  <path d="M8 11h.01" data-role="detail"/>
+  <path d="M6.439 6L8.379 6A1.5 1.5 0 0 1 9.439 6.439L15.939 12.939A1.5 1.5 0 0 1 15.939 15.061L12.061 18.939A1.5 1.5 0 0 1 9.939 18.939L3.439 12.439A1.5 1.5 0 0 1 3 11.379L3 7.5A1.5 1.5 0 0 1 4.5 6Z" data-role="silhouette"/>
+</svg>

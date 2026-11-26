@@ -5,11 +5,15 @@ import 'package:flutter/gestures.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/misc.dart' show Override;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:godothub/git/git_sidebar.dart';
 import 'package:godothub/versions/versions_view.dart';
 import 'package:godothub/design/design.dart';
 import 'package:godothub/logic/settings_copy.dart';
+import 'package:godothub/settings/categories/storage_settings.dart';
+import 'package:godothub/settings/settings_view.dart';
+import 'package:godothub/ui/reusables/tool_buttons.dart';
 import 'package:godothub/modals/command_palette.dart';
 import 'package:godothub/modals/create_workspace_modal.dart';
 import 'package:godothub/shell/app_shell.dart';
@@ -109,14 +113,35 @@ Future<void> pumpShell(
     child: MaterialApp(
       theme: GhTheme.defaults().toThemeData(),
       builder: (context, child) => GhKeyboardShortcuts(child: child!),
-      home: Scaffold(
-        body: AppShell(prefs: prefs, isMac: false),
-      ),
+      home: Scaffold(body: AppShell(prefs: prefs, isMac: false)),
     ),
   );
   await tester.pumpWidget(wrap == null ? app : wrap(app));
   await tester.pump();
   await tester.pump(settle);
+}
+
+/// Pumps the shell without the settings override, so startup runs the real settings and workspace wait.
+Future<void> pumpBareShell(WidgetTester tester, List<Override> overrides) async {
+  tester.view.physicalSize = const Size(1400, 900);
+  tester.view.devicePixelRatio = 1;
+  addTearDown(tester.view.reset);
+  await tester.pumpWidget(
+    ProviderScope(
+      overrides: [
+        ...overrides,
+        titleBarWindowProvider.overrideWithValue(FakeWindow()),
+        runningProjectsSourceProvider.overrideWithValue(FakeRunningSource().source),
+        newsBadgeProvider.overrideWith(_NoNews.new),
+      ],
+      child: MaterialApp(
+        theme: GhTheme.defaults().toThemeData(),
+        home: Scaffold(body: AppShell(prefs: prefs, isMac: false)),
+      ),
+    ),
+  );
+  await tester.pump();
+  await tester.pump(const Duration(seconds: 2));
 }
 
 class _NoNews extends NewsBadgeNotifier {
@@ -294,6 +319,67 @@ void main() {
       await tester.sendKeyEvent(LogicalKeyboardKey.escape);
       await settle(tester);
       expect(find.byType(CommandPalette), findsNothing);
+    });
+
+    testWidgets('a workspace list that keeps failing shows an error with Retry instead of loading forever', (tester) async {
+      fakeBackend();
+      var failing = true;
+      rust
+        ..on('crateApiWorkspaceListWorkspaces', () async {
+          if (failing) throw StateError('workspaces.json is locked');
+          return workspaces('w1', [workspace('w1', 'Main')]);
+        })
+        ..on('crateApiSettingsGetSettings', () async => shellSettings());
+      await pumpBareShell(tester, const []);
+      await tester.pump();
+      await tester.pump(const Duration(seconds: 2));
+      expect(rust.callCount('crateApiWorkspaceListWorkspaces'), 1);
+      expect(find.byKey(const ValueKey('startup-load-error')), findsOneWidget);
+      expect(find.textContaining('workspaces.json is locked'), findsOneWidget);
+
+      failing = false;
+      await tester.tap(find.text('Retry'));
+      await tester.pump();
+      await tester.pump(const Duration(seconds: 3));
+      expect(find.byKey(const ValueKey('startup-load-error')), findsNothing);
+      expect(find.byType(GhSidebar), findsOneWidget);
+    });
+
+    testWidgets('a settings load error shows an error instead of loading forever', (tester) async {
+      fakeBackend();
+      await pumpBareShell(tester, [fakeSettings(() => Future<AppSettings>.error(StateError('settings.json is damaged')))]);
+      expect(find.byKey(const ValueKey('startup-load-error')), findsOneWidget);
+      expect(find.textContaining('settings.json is damaged'), findsOneWidget);
+      expect(find.text('Loading…'), findsNothing);
+    });
+
+    testWidgets('a setting run from the palette opens its settings category', (tester) async {
+      fakeBackend();
+      rust.on('crateApiAppAppIdentifier', () => 'Ryko.GodotHub');
+      await pumpShell(tester, shellSettings());
+      AppSignals.emit(toggleCommandPaletteSignal);
+      await settle(tester);
+      await tester.enterText(find.descendant(of: find.byType(CommandPalette), matching: find.byType(TextField)), 'Scan version folders');
+      await settle(tester);
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      await settle(tester);
+      expect(find.byType(SettingsView), findsOneWidget);
+      expect(find.byType(StorageSettings), findsOneWidget);
+    });
+
+    testWidgets('Scan with no scan folders opens Settings on Storage even after Settings was open before', (tester) async {
+      fakeBackend();
+      rust.on('crateApiAppAppIdentifier', () => 'Ryko.GodotHub');
+      await pumpShell(tester, shellSettings());
+      AppSignals.emit(setTabSignal, 'settings');
+      await settle(tester);
+      expect(find.byType(StorageSettings), findsNothing);
+      await tester.tap(tabButton('versions'));
+      await settle(tester);
+      await tester.tap(find.descendant(of: find.byType(VersionsView), matching: find.byType(GhScanButton)));
+      await settle(tester);
+      expect(find.byType(SettingsView), findsOneWidget);
+      expect(find.byType(StorageSettings), findsOneWidget);
     });
 
     testWidgets('project commands only show on the projects tab', (tester) async {

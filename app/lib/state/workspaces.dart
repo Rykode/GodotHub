@@ -36,11 +36,20 @@ class WorkspacesNotifier extends Notifier<WorkspacesView> {
     return const WorkspacesView();
   }
 
+  /// Why the last load failed, or null. Startup shows it instead of waiting forever for an active workspace.
+  Object? loadError;
+
+  /// Loads the list again, for the startup error's Retry.
+  Future<void> reload() => _load();
+
   Future<void> _load() async {
     WorkspacesState? loaded;
     try {
       loaded = await WorkspacesApi.list();
-    } catch (_) {}
+      loadError = null;
+    } catch (error) {
+      loadError = error;
+    }
     if (!ref.mounted) return;
     final base = loaded == null ? state : state.withState(loaded);
     state = WorkspacesView(workspaces: base.workspaces, activeId: base.activeId, loaded: true);

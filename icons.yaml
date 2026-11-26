@@ -6,7 +6,7 @@ avoid: [letters or numbers inside icons, hairline details, thin outlines]
 
 dna:
   style: filled
-  stroke: 3
+  stroke: 2.3
   grid: 24
   padding: 1
   keylines: { circle: 20, square: 18, portrait: [16, 20], landscape: [20, 16] }

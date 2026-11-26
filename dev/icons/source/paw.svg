@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-aliases="pet animal">
-  <circle cx="5" cy="11" r="1.5" data-role="silhouette"/>
-  <circle cx="9" cy="6.5" r="1.5" data-role="silhouette"/>
-  <circle cx="15" cy="6.5" r="1.5" data-role="silhouette"/>
-  <circle cx="19" cy="11" r="1.5" data-role="silhouette"/>
+  <circle cx="3.5" cy="10" r="1.25" data-role="silhouette"/>
+  <circle cx="8.5" cy="6" r="1.25" data-role="silhouette"/>
+  <circle cx="15.5" cy="6" r="1.25" data-role="silhouette"/>
+  <circle cx="20.5" cy="10" r="1.25" data-role="silhouette"/>
   <path d="M6.5 17.5A5.5 5.5 0 0 1 12 12A5.5 5.5 0 0 1 17.5 17.5A3.5 3.5 0 0 1 14 21H10A3.5 3.5 0 0 1 6.5 17.5Z" data-role="silhouette"/>
 </svg>

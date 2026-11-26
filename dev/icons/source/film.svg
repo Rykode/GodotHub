@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-aliases="movie video clapperboard" data-waive-angle="the tilted clapper stick is what makes it read as a clapperboard">
-  <path d="M4 6.5L20 4"/>
-  <path d="M6 11H18A3 3 0 0 1 21 14V18A3 3 0 0 1 18 21H6A3 3 0 0 1 3 18V14A3 3 0 0 1 6 11Z" data-role="silhouette"/>
-  <path d="M12 16h.01" data-role="detail"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-aliases="movie video clapperboard">
+  <path d="M2.5 9.5H21.5" data-role="detail"/>
+  <path d="M6 3L12 9M14 3L20 9" data-role="detail"/>
+  <path d="M5 4H19A2 2 0 0 1 21 6V18A2 2 0 0 1 19 20H5A2 2 0 0 1 3 18V6A2 2 0 0 1 5 4Z" data-role="silhouette"/>
 </svg>

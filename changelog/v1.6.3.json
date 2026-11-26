@@ -24,6 +24,14 @@
       "text": "Settings > Advanced: \"Check for updates on startup\" is now a toggle. Turn it off and GodotHub never contacts the update server on its own; use the Check for Updates button when you want to look. It is on by default, and the first-run setup asks about it too"
     },
     {
+      "category": "add",
+      "text": "Workspaces: you can now choose from 92 icons instead of 12. The icon picker has a search box and category filters (General, Work, Tech, Creative, Nature, Travel and Fun)"
+    },
+    {
+      "category": "add",
+      "text": "Workspaces: a workspace can now be any color. Next to the presets there is a Custom color button that opens the same color picker the theme settings use, with a color wheel and a hex field"
+    },
+    {
       "category": "fix",
       "text": "Windows: the GodotHub system tray icon now actually appears. Was Bugged after changing from tauri to flutter"
     },
@@ -52,6 +60,14 @@
       "text": "Linux: saving a bug report now uses your real Downloads folder, even if you moved or renamed it, instead of always creating a Downloads folder in your home directory"
     },
     {
+      "category": "fix",
+      "text": "Versions: a Godot version download no longer looks stuck at 100% for a long time in debug builds, and a slow or unresponsive checksum server can no longer hold the install up forever (the check now gives up after 20 seconds and installs anyway)"
+    },
+    {
+      "category": "fix",
+      "text": "Projects: the \"No version selected\" chip no longer overflows the project card in narrow windows. Its text now shortens with \"…\" when there is not enough room"
+    },
+    {
       "category": "improve",
       "text": "Linux: the .deb and .rpm packages now recommend xdg-utils, gdbus and pkexec/polkit, which GodotHub uses to open links, detect the system tray and install updates"
     },
@@ -62,6 +78,14 @@
     {
       "category": "improve",
       "text": "Consistent text across the app: labels and buttons now use sentence case (\"Save changes\" instead of \"Save Changes\"), loading and placeholder text uses \"…\" instead of \"...\", and the title bar and task tray follow the same text sizes as the rest of the app"
+    },
+    {
+      "category": "improve",
+      "text": "Create and edit workspace dialogs are wider, with the icon and color pickers side by side. The edit dialog keeps Save disabled until you change something, shows \"Unsaved changes\" and has a Reset button"
+    },
+    {
+      "category": "improve",
+      "text": "Icons across the app are now thick, solid shapes in one consistent style (including new settings, tags, console and bug icons), and every icon plays a short animation when you hover it or the button around it. The animations follow the Motion settings"
     }
   ],
   "known_issues": [

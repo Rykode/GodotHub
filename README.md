@@ -494,10 +494,7 @@ Docs live at **[ryko.is-a.dev/godothub-docs](https://ryko.is-a.dev/godothub-docs
 <br>
 
 ## AI disclosure
-
-<p align="center">
-<img width="800" height="140" alt="Frame 9" src="https://github.com/user-attachments/assets/99e0e858-4ef5-4652-9d86-fe1b8da45de3" />
-</p>
+<img width="800" height="140" alt="Frame 9" src="https://github.com/user-attachments/assets/a213a053-4ec8-4e26-81ff-c4b619f54cc1" />
 
 <br>
 

@@ -58,7 +58,7 @@ Finder get primaryButtons => find.byWidgetPredicate(
 void main() {
   setUpAll(() async {
     await base.loadFont('Inter', ['assets/fonts/inter-latin.ttf']);
-    await base.loadFont('GoogleSansCode', ['assets/fonts/gsc-latin-400.ttf', 'assets/fonts/gsc-latin-500.ttf']);
+    await base.loadFont('MapleMono', ['assets/fonts/maple-mono-nf-400.ttf', 'assets/fonts/maple-mono-nf-500.ttf']);
   });
   setUp(setUpTestI18n);
   setUp(() {

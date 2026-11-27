@@ -16,10 +16,27 @@ import '../ui/dnd/sortable.dart';
 import 'category_sections.dart';
 import '../ui/shell/smooth_scroll.dart';
 import 'project_actions.dart' show uncategorizedDot;
+import 'projects_empty_state.dart';
 
 typedef ProjectCardBuilder = Widget Function(Project project, {bool preview});
 typedef SliverHost = Widget Function(List<Widget> slivers);
 typedef CategoryMenuOpener = void Function(Offset position, Category category);
+
+Widget emptyProjectsView({required GhTheme theme, String? noMatch}) {
+  if (noMatch != null) {
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        spacing: theme.space(2),
+        children: [
+          GhIcon(GhIcons.node, size: theme.space(5), color: theme.muted.withValues(alpha: 0.5)),
+          Text(noMatch, style: theme.text(size: GhTextSize.sm, color: theme.muted)),
+        ],
+      ),
+    );
+  }
+  return const ProjectsEmptyState();
+}
 
 const double _cardGap = 8;
 const double _gridGap = 12;
@@ -313,24 +330,12 @@ class _ProjectCardListState extends State<ProjectCardList> {
 
     final slivers = <Widget>[];
     if (projects.isEmpty) {
-      slivers.add(
-        SliverFillRemaining(
-          hasScrollBody: false,
-          child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              spacing: theme.space(2),
-              children: [
-                GhIcon(GhIcons.node, size: theme.space(5), color: theme.muted.withValues(alpha: 0.5)),
-                Text(
-                  widget.hasActiveFilters ? tr.no_projects_match : tr.no_projects_yet,
-                  style: theme.text(size: GhTextSize.sm, color: theme.muted),
-                ),
-              ],
-            ),
-          ),
-        ),
+      final empty = emptyProjectsView(
+        theme: theme,
+        noMatch: widget.hasActiveFilters ? tr.no_projects_match : null,
       );
+      if (widget.hiddenCategories.isEmpty) return empty;
+      slivers.add(SliverToBoxAdapter(child: SizedBox(height: theme.space(96), child: empty)));
     } else {
       if (showPinned) {
         final pinnedIds = [for (final p in pinned) p.id];
@@ -406,8 +411,10 @@ class ProjectCardGrid extends StatefulWidget {
     this.hiddenCategories = const [],
     this.onUnhideCategory,
     this.onCategoryContextMenu,
+    this.hasActiveFilters = false,
   });
 
+  final bool hasActiveFilters;
   final List<Project> projects;
   final ProjectCardBuilder cardBuilder;
   final SliverHost host;
@@ -524,6 +531,12 @@ class _ProjectCardGridState extends State<ProjectCardGrid> {
       );
     }
 
+    if (projects.isEmpty && !grouped && widget.hiddenCategories.isEmpty) {
+      return emptyProjectsView(
+        theme: theme,
+        noMatch: widget.hasActiveFilters ? tr.no_projects_match : null,
+      );
+    }
     final slivers = <Widget>[];
     if (showPinned) {
       final pinnedEnabled = widget.onReorderPinned != null;

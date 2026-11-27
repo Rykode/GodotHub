@@ -168,7 +168,7 @@ void main() {
   tearDownAll(() => games.deleteSync(recursive: true));
   setUpAll(() async {
     await loadFont('Inter', ['assets/fonts/inter-latin.ttf']);
-    await loadFont('GoogleSansCode', ['assets/fonts/gsc-latin-400.ttf', 'assets/fonts/gsc-latin-500.ttf']);
+    await loadFont('MapleMono', ['assets/fonts/maple-mono-nf-400.ttf', 'assets/fonts/maple-mono-nf-500.ttf']);
   });
   setUp(setUpTestI18n);
   setUp(() {

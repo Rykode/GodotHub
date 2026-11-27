@@ -300,6 +300,7 @@
   "view_list": "Lista",
   "view_grid": "Cuadricula",
   "view_kanban": "Kanban",
+  "projects_empty_title": "It's awfully quiet in here",
   "no_projects_yet": "Aun no hay nada aqui. Crea un nuevo proyecto o importa uno existente desde tu disco.",
   "pinned_section": "Fijado",
   "set_category": "Estabel categoria…",

@@ -966,6 +966,9 @@ class Translations$common$en_US {
 	/// en-US: 'Kanban'
 	String get view_kanban => 'Kanban';
 
+	/// en-US: 'It's awfully quiet in here'
+	String get projects_empty_title => 'It\'s awfully quiet in here';
+
 	/// en-US: 'Nothing here yet. Create a new project or import one you already have on disk.'
 	String get no_projects_yet => 'Nothing here yet. Create a new project or import one you already have on disk.';
 
@@ -6921,6 +6924,7 @@ extension on Translations {
 			'common.view_list' => 'List',
 			'common.view_grid' => 'Grid',
 			'common.view_kanban' => 'Kanban',
+			'common.projects_empty_title' => 'It\'s awfully quiet in here',
 			'common.no_projects_yet' => 'Nothing here yet. Create a new project or import one you already have on disk.',
 			'common.pinned_section' => 'Pinned',
 			'common.set_category' => 'Set category…',
@@ -7137,9 +7141,9 @@ extension on Translations {
 			'common.clone_repo_url_manual' => 'Paste URL manually',
 			'common.clone_repo_search_repos' => 'Search your repositories…',
 			'common.clone_repo_no_repos_found' => 'No repositories match your search.',
-			'common.clone_repo_loading_repos' => 'Loading repositories…',
 			_ => null,
 		} ?? switch (path) {
+			'common.clone_repo_loading_repos' => 'Loading repositories…',
 			'common.clone_repo_load_error' => 'Failed to load repositories.',
 			'common.clone_repo_select' => 'Select',
 			'common.clone_repo_no_account' => 'No GitHub or GitLab account connected. Use a URL to clone instead.',
@@ -7651,9 +7655,9 @@ extension on Translations {
 			'common.project_addons.count' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count, one: '${count} addon installed', other: '${count} addons installed', ), 
 			'common.project_addons.count_one' => '{{count}} addon installed',
 			'common.project_addons.count_other' => '{{count}} addons installed',
-			'common.project_addons.empty' => 'This project has no addons folder. Install addons from the Asset Store or copy them into res://addons.',
 			_ => null,
 		} ?? switch (path) {
+			'common.project_addons.empty' => 'This project has no addons folder. Install addons from the Asset Store or copy them into res://addons.',
 			'common.project_addons.check_updates' => 'Check for updates',
 			'common.project_addons.checking' => 'Checking…',
 			'common.project_addons.updates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count, one: '${count} update available', other: '${count} updates available', ), 
@@ -8165,9 +8169,9 @@ extension on Translations {
 			'settings.git_pat_save' => 'Save token',
 			'settings.git_pat_empty' => 'No tokens added yet.',
 			'settings.git_pat_remove' => 'Remove token',
-			'settings.storage_title' => 'Storage & Auto-scan',
 			_ => null,
 		} ?? switch (path) {
+			'settings.storage_title' => 'Storage & Auto-scan',
 			'settings.behavior_projects_title' => 'Projects',
 			'settings.file_watchers_title' => 'File watchers',
 			'settings.last_opened_title' => 'Last opened display',
@@ -8679,9 +8683,9 @@ extension on Translations {
 			'versions.export_templates_size_summary' => '~{{download}} download · {{installed}} on disk',
 			'versions.export_templates_download_selected' => 'Download selected',
 			'versions.export_templates_loading_options' => 'Checking this release\'s available templates…',
-			'versions.export_templates_options_failed' => 'Couldn\'t load the templates for this release.',
 			_ => null,
 		} ?? switch (path) {
+			'versions.export_templates_options_failed' => 'Couldn\'t load the templates for this release.',
 			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count, one: '1 available template group', other: '${count} available template groups', ), 
 			'versions.export_templates_available_one' => '1 available template group',
 			'versions.export_templates_available_other' => '{{count}} available template groups',

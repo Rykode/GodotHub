@@ -133,9 +133,9 @@ class _Typography extends StatelessWidget {
             style: theme.text(size: GhTextSize.base, weight: weight),
           ),
         const SizedBox(height: 12),
-        Text('Google Sans Code 400  res://scenes/main.tscn', style: theme.text(size: GhTextSize.sm, mono: true)),
+        Text('Maple Mono NF 400  res://scenes/main.tscn', style: theme.text(size: GhTextSize.sm, mono: true)),
         Text(
-          'Google Sans Code 500  v4.5.1-stable',
+          'Maple Mono NF 500  v4.5.1-stable',
           style: theme.text(size: GhTextSize.sm, mono: true, weight: GhWeight.medium),
         ),
         const SizedBox(height: 12),

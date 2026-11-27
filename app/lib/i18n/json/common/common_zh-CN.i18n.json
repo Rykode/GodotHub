@@ -291,6 +291,7 @@
   "view_list": "列表",
   "view_grid": "网格",
   "view_kanban": "看板",
+  "projects_empty_title": "It's awfully quiet in here",
   "no_projects_yet": "还没有项目。创建一个新项目或导入磁盘上已有的项目。",
   "pinned_section": "已置顶",
   "set_category": "设置分类…",

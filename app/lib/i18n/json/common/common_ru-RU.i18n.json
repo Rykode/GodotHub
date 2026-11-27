@@ -304,6 +304,7 @@
   "view_list": "List",
   "view_grid": "Grid",
   "view_kanban": "Kanban",
+  "projects_empty_title": "It's awfully quiet in here",
   "no_projects_yet": "Пока здесь ничего нет. Создайте новый проект или импортируйте тот, который уже есть на диске.",
   "pinned_section": "Закреплённые",
   "set_category": "Указать категорию…",

@@ -300,6 +300,7 @@
   "view_list": "Lista",
   "view_grid": "Grade",
   "view_kanban": "Kanban",
+  "projects_empty_title": "It's awfully quiet in here",
   "no_projects_yet": "Ainda não há nada aqui. Crie um novo projeto ou importe um que já esteja no disco.",
   "pinned_section": "Fixados",
   "set_category": "Definir categoria…",

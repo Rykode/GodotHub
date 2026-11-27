@@ -31,7 +31,7 @@ abstract final class GhBodyFont {
 abstract final class GhFonts {
   static const body = 'Inter';
   static const alloBody = 'Allo';
-  static const mono = 'GoogleSansCode';
+  static const mono = 'MapleMono';
 
   static const bodyFallback = ['InterLatinExt', 'InterCyrillic', 'InterCyrillicExt', 'InterGreek', 'InterGreekExt', 'InterVietnamese'];
 
@@ -42,6 +42,7 @@ abstract final class GhFonts {
   static List<String> bodyFallbackFor(String id) => id == GhBodyFont.allo ? alloFallback : bodyFallback;
 
   static const monoFallback = [
+    'GoogleSansCode',
     'GoogleSansCodeLatinExt',
     'GoogleSansCodeVietnamese',
     'GoogleSansCodeSymbols',

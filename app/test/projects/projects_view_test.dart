@@ -16,6 +16,7 @@ import 'package:godothub/projects/project_actions.dart' show ProjectCallbacks;
 import 'package:godothub/projects/project_card.dart';
 import 'package:godothub/projects/project_layouts.dart';
 import 'package:godothub/projects/project_tile.dart';
+import 'package:godothub/projects/projects_empty_state.dart';
 import 'package:godothub/projects/projects_view.dart';
 import 'package:godothub/src/rust/api/types.dart';
 import 'package:godothub/src/ui_prefs.dart';
@@ -27,6 +28,7 @@ import 'package:godothub/ui/core/i18n.dart';
 import 'package:godothub/ui/dnd/sortable.dart';
 import 'package:godothub/ui/overlays/slash_menu.dart';
 import 'package:godothub/ui/reusables/view_header.dart';
+import 'package:godothub/ui/shell/overlay_scroll_area.dart';
 
 import '../support/fake_rust.dart';
 import '../support/finders.dart';
@@ -165,7 +167,7 @@ Future<void> dragCard(WidgetTester tester, String from, Offset to) async {
 void main() {
   setUpAll(() async {
     await loadFont('Inter', ['assets/fonts/inter-latin.ttf']);
-    await loadFont('GoogleSansCode', ['assets/fonts/gsc-latin-400.ttf', 'assets/fonts/gsc-latin-500.ttf']);
+    await loadFont('MapleMono', ['assets/fonts/maple-mono-nf-400.ttf', 'assets/fonts/maple-mono-nf-500.ttf']);
   });
   setUp(setUpTestI18n);
   setUp(() {
@@ -246,6 +248,18 @@ void main() {
     AppSignals.emit(switchViewSignal, 'kanban');
     await settle(tester, 5);
     expect(find.text('Uncategorized'), findsOneWidget);
+  });
+
+  testWidgets('an empty library shows a fixed empty state with actions in list and grid views', (tester) async {
+    backend([]);
+    await pumpView(tester, viewSettings());
+    expect(find.byType(ProjectsEmptyState), findsOneWidget);
+    expect(find.text("It's awfully quiet in here"), findsOneWidget);
+    expect(find.byType(GhOverlayScrollArea), findsNothing);
+    AppSignals.emit(switchViewSignal, 'grid');
+    await settle(tester, 5);
+    expect(find.byType(ProjectsEmptyState), findsOneWidget);
+    expect(find.byType(GhOverlayScrollArea), findsNothing);
   });
 
   for (final width in [420.0, 440.0, 470.0, 500.0]) {

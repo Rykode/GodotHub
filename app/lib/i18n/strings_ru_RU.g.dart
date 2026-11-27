@@ -382,6 +382,7 @@ class _Translations$common$ru_RU extends Translations$common$en_US {
 	@override String get view_list => 'List';
 	@override String get view_grid => 'Grid';
 	@override String get view_kanban => 'Kanban';
+	@override String get projects_empty_title => 'It\'s awfully quiet in here';
 	@override String get no_projects_yet => 'Пока здесь ничего нет. Создайте новый проект или импортируйте тот, который уже есть на диске.';
 	@override String get pinned_section => 'Закреплённые';
 	@override String get set_category => 'Указать категорию…';
@@ -2837,6 +2838,7 @@ extension on TranslationsRuRu {
 			'common.view_list' => 'List',
 			'common.view_grid' => 'Grid',
 			'common.view_kanban' => 'Kanban',
+			'common.projects_empty_title' => 'It\'s awfully quiet in here',
 			'common.no_projects_yet' => 'Пока здесь ничего нет. Создайте новый проект или импортируйте тот, который уже есть на диске.',
 			'common.pinned_section' => 'Закреплённые',
 			'common.set_category' => 'Указать категорию…',
@@ -3053,9 +3055,9 @@ extension on TranslationsRuRu {
 			'common.clone_repo_url_manual' => 'Вставить URL вручную',
 			'common.clone_repo_search_repos' => 'Поиск по вашим репозиториям...',
 			'common.clone_repo_no_repos_found' => 'Репозитории не найдены.',
-			'common.clone_repo_loading_repos' => 'Загрузка репозиториев...',
 			_ => null,
 		} ?? switch (path) {
+			'common.clone_repo_loading_repos' => 'Загрузка репозиториев...',
 			'common.clone_repo_load_error' => 'Не удалось загрузить репозитории.',
 			'common.clone_repo_select' => 'Выбрать',
 			'common.clone_repo_no_account' => 'Аккаунт GitHub или GitLab не подключен. Используйте URL для клонирования.',
@@ -3567,9 +3569,9 @@ extension on TranslationsRuRu {
 			'common.project_addons.count' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ru'))(count, one: '${count} addon installed', few: '${count} addons installed', many: '${count} addons installed', other: '${count} addons installed', ), 
 			'common.project_addons.count_one' => '{{count}} addon installed',
 			'common.project_addons.count_other' => '{{count}} addons installed',
-			'common.project_addons.empty' => 'This project has no addons folder. Install addons from the Asset Store or copy them into res://addons.',
 			_ => null,
 		} ?? switch (path) {
+			'common.project_addons.empty' => 'This project has no addons folder. Install addons from the Asset Store or copy them into res://addons.',
 			'common.project_addons.check_updates' => 'Check for updates',
 			'common.project_addons.checking' => 'Checking…',
 			'common.project_addons.updates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ru'))(count, one: '${count} update available', few: '${count} updates available', many: '${count} updates available', other: '${count} updates available', ), 
@@ -4081,9 +4083,9 @@ extension on TranslationsRuRu {
 			'settings.git_pat_save' => 'Save token',
 			'settings.git_pat_empty' => 'No tokens added yet.',
 			'settings.git_pat_remove' => 'Remove token',
-			'settings.storage_title' => 'Хранилище и сканирование',
 			_ => null,
 		} ?? switch (path) {
+			'settings.storage_title' => 'Хранилище и сканирование',
 			'settings.behavior_projects_title' => 'Проекты',
 			'settings.file_watchers_title' => 'Наблюдение за файлами',
 			'settings.last_opened_title' => 'Отображение "последнего открытия"',
@@ -4595,9 +4597,9 @@ extension on TranslationsRuRu {
 			'versions.export_templates_size_summary' => '~{{download}} download · {{installed}} on disk',
 			'versions.export_templates_download_selected' => 'Download selected',
 			'versions.export_templates_loading_options' => 'Checking this release\'s available templates…',
-			'versions.export_templates_options_failed' => 'Couldn\'t load the templates for this release.',
 			_ => null,
 		} ?? switch (path) {
+			'versions.export_templates_options_failed' => 'Couldn\'t load the templates for this release.',
 			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ru'))(count, one: '1 available template group', few: '${count} available template groups', many: '${count} available template groups', other: '${count} available template groups', ), 
 			'versions.export_templates_available_one' => '1 available template group',
 			'versions.export_templates_available_other' => '{{count}} available template groups',

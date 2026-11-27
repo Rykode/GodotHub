@@ -370,6 +370,7 @@ class _Translations$common$ja_JP extends Translations$common$en_US {
 	@override String get view_list => 'リスト';
 	@override String get view_grid => 'グリッド';
 	@override String get view_kanban => 'カンバン';
+	@override String get projects_empty_title => 'It\'s awfully quiet in here';
 	@override String get no_projects_yet => 'まだ何もありません。新しいプロジェクトを作成するか、ディスク上の既存のプロジェクトをインポートしてください。';
 	@override String get pinned_section => 'ピン留め';
 	@override String get set_category => 'カテゴリを設定…';
@@ -2672,6 +2673,7 @@ extension on TranslationsJaJp {
 			'common.view_list' => 'リスト',
 			'common.view_grid' => 'グリッド',
 			'common.view_kanban' => 'カンバン',
+			'common.projects_empty_title' => 'It\'s awfully quiet in here',
 			'common.no_projects_yet' => 'まだ何もありません。新しいプロジェクトを作成するか、ディスク上の既存のプロジェクトをインポートしてください。',
 			'common.pinned_section' => 'ピン留め',
 			'common.set_category' => 'カテゴリを設定…',
@@ -2888,9 +2890,9 @@ extension on TranslationsJaJp {
 			'common.clone_repo_url_manual' => 'URL を手動で貼り付ける',
 			'common.clone_repo_search_repos' => 'リポジトリを検索…',
 			'common.clone_repo_no_repos_found' => '検索条件に一致するリポジトリはありません。',
-			'common.clone_repo_loading_repos' => 'リポジトリを読み込み中…',
 			_ => null,
 		} ?? switch (path) {
+			'common.clone_repo_loading_repos' => 'リポジトリを読み込み中…',
 			'common.clone_repo_load_error' => 'リポジトリの読み込みに失敗しました。',
 			'common.clone_repo_select' => '選択',
 			'common.clone_repo_no_account' => 'GitHub や GitLab のアカウントが接続されていません。代わりに URL を使ってクローンしてください。',
@@ -3402,9 +3404,9 @@ extension on TranslationsJaJp {
 			'common.project_addons.count' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(count, other: '${count} 件のアドオンをインストール済み', ), 
 			'common.project_addons.count_one' => '{{count}} 件のアドオンをインストール済み',
 			'common.project_addons.count_other' => '{{count}} 件のアドオンをインストール済み',
-			'common.project_addons.empty' => 'このプロジェクトには addons フォルダがありません。アセットストアからアドオンをインストールするか、res://addons にコピーしてください。',
 			_ => null,
 		} ?? switch (path) {
+			'common.project_addons.empty' => 'このプロジェクトには addons フォルダがありません。アセットストアからアドオンをインストールするか、res://addons にコピーしてください。',
 			'common.project_addons.check_updates' => '更新を確認',
 			'common.project_addons.checking' => '確認中…',
 			'common.project_addons.updates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(count, other: '${count} 件の更新があります', ), 
@@ -3916,9 +3918,9 @@ extension on TranslationsJaJp {
 			'settings.git_pat_save' => 'トークンを保存',
 			'settings.git_pat_empty' => 'トークンはまだ追加されていません。',
 			'settings.git_pat_remove' => 'トークンを削除',
-			'settings.storage_title' => 'ストレージと自動スキャン',
 			_ => null,
 		} ?? switch (path) {
+			'settings.storage_title' => 'ストレージと自動スキャン',
 			'settings.behavior_projects_title' => 'プロジェクト',
 			'settings.file_watchers_title' => 'ファイル監視',
 			'settings.last_opened_title' => '「最終起動」の表示',
@@ -4430,9 +4432,9 @@ extension on TranslationsJaJp {
 			'versions.export_templates_size_summary' => 'ダウンロード 約 {{download}} · ディスク上 {{installed}}',
 			'versions.export_templates_download_selected' => '選択したものをダウンロード',
 			'versions.export_templates_loading_options' => 'このリリースで利用できるテンプレートを確認しています…',
-			'versions.export_templates_options_failed' => 'このリリースのテンプレートを読み込めませんでした。',
 			_ => null,
 		} ?? switch (path) {
+			'versions.export_templates_options_failed' => 'このリリースのテンプレートを読み込めませんでした。',
 			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(count, other: '利用可能なテンプレートグループ ${count} 個', ), 
 			'versions.export_templates_available_one' => '利用可能なテンプレートグループ 1 個',
 			'versions.export_templates_available_other' => '利用可能なテンプレートグループ {{count}} 個',

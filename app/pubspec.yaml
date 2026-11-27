@@ -81,6 +81,7 @@ flutter:
     - assets/licenses/
     - assets/fonts/Inter-LICENSE.txt
     - assets/fonts/Allo-LICENSE.txt
+    - assets/fonts/MapleMono-LICENSE.txt
     - assets/fonts/GoogleSansCode-LICENSE.txt
     - assets/icons/FontAwesome-LICENSE.txt
   fonts:
@@ -108,6 +109,12 @@ flutter:
     - family: Allo
       fonts:
         - asset: assets/fonts/allo-variable.ttf
+    - family: MapleMono
+      fonts:
+        - asset: assets/fonts/maple-mono-nf-400.ttf
+          weight: 400
+        - asset: assets/fonts/maple-mono-nf-500.ttf
+          weight: 500
     - family: GoogleSansCode
       fonts:
         - asset: assets/fonts/gsc-latin-400.ttf

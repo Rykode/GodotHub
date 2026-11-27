@@ -378,6 +378,7 @@ class _Translations$common$es_MX extends Translations$common$en_US {
 	@override String get view_list => 'Lista';
 	@override String get view_grid => 'Cuadricula';
 	@override String get view_kanban => 'Kanban';
+	@override String get projects_empty_title => 'It\'s awfully quiet in here';
 	@override String get no_projects_yet => 'Aun no hay nada aqui. Crea un nuevo proyecto o importa uno existente desde tu disco.';
 	@override String get pinned_section => 'Fijado';
 	@override String get set_category => 'Estabel categoria…';
@@ -2782,6 +2783,7 @@ extension on TranslationsEsMx {
 			'common.view_list' => 'Lista',
 			'common.view_grid' => 'Cuadricula',
 			'common.view_kanban' => 'Kanban',
+			'common.projects_empty_title' => 'It\'s awfully quiet in here',
 			'common.no_projects_yet' => 'Aun no hay nada aqui. Crea un nuevo proyecto o importa uno existente desde tu disco.',
 			'common.pinned_section' => 'Fijado',
 			'common.set_category' => 'Estabel categoria…',
@@ -2998,9 +3000,9 @@ extension on TranslationsEsMx {
 			'common.clone_repo_url_manual' => 'Pegar URL manualmente',
 			'common.clone_repo_search_repos' => 'Buscar en tus repositorios...',
 			'common.clone_repo_no_repos_found' => 'No se encontraron repositorios.',
-			'common.clone_repo_loading_repos' => 'Cargando repositorios...',
 			_ => null,
 		} ?? switch (path) {
+			'common.clone_repo_loading_repos' => 'Cargando repositorios...',
 			'common.clone_repo_load_error' => 'Error al cargar repositorios.',
 			'common.clone_repo_select' => 'Seleccionar',
 			'common.clone_repo_no_account' => 'No hay cuenta de GitHub o GitLab conectada. Use un URL para clonar.',
@@ -3512,9 +3514,9 @@ extension on TranslationsEsMx {
 			'common.project_addons.count' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('es'))(count, one: '${count} addon installed', many: '${count} addons installed', other: '${count} addons installed', ), 
 			'common.project_addons.count_one' => '{{count}} addon installed',
 			'common.project_addons.count_other' => '{{count}} addons installed',
-			'common.project_addons.empty' => 'This project has no addons folder. Install addons from the Asset Store or copy them into res://addons.',
 			_ => null,
 		} ?? switch (path) {
+			'common.project_addons.empty' => 'This project has no addons folder. Install addons from the Asset Store or copy them into res://addons.',
 			'common.project_addons.check_updates' => 'Check for updates',
 			'common.project_addons.checking' => 'Checking…',
 			'common.project_addons.updates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('es'))(count, one: '${count} update available', many: '${count} updates available', other: '${count} updates available', ), 
@@ -4026,9 +4028,9 @@ extension on TranslationsEsMx {
 			'settings.git_pat_save' => 'Save token',
 			'settings.git_pat_empty' => 'No tokens added yet.',
 			'settings.git_pat_remove' => 'Remove token',
-			'settings.storage_title' => 'Almacenamiento & Auto-Escaner',
 			_ => null,
 		} ?? switch (path) {
+			'settings.storage_title' => 'Almacenamiento & Auto-Escaner',
 			'settings.behavior_projects_title' => 'Proyectos',
 			'settings.file_watchers_title' => 'Supervision de Archivos',
 			'settings.last_opened_title' => 'Ultimo Proyecto Abierto',
@@ -4540,9 +4542,9 @@ extension on TranslationsEsMx {
 			'versions.export_templates_size_summary' => '~{{download}} download · {{installed}} on disk',
 			'versions.export_templates_download_selected' => 'Download selected',
 			'versions.export_templates_loading_options' => 'Checking this release\'s available templates…',
-			'versions.export_templates_options_failed' => 'Couldn\'t load the templates for this release.',
 			_ => null,
 		} ?? switch (path) {
+			'versions.export_templates_options_failed' => 'Couldn\'t load the templates for this release.',
 			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('es'))(count, one: '1 available template group', many: '${count} available template groups', other: '${count} available template groups', ), 
 			'versions.export_templates_available_one' => '1 available template group',
 			'versions.export_templates_available_other' => '{{count}} available template groups',

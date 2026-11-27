@@ -179,7 +179,7 @@ Future<void> loadFont(String family, List<String> files) async {
 void main() {
   setUpAll(() async {
     await loadFont('Inter', ['assets/fonts/inter-latin.ttf']);
-    await loadFont('GoogleSansCode', ['assets/fonts/gsc-latin-400.ttf', 'assets/fonts/gsc-latin-500.ttf']);
+    await loadFont('MapleMono', ['assets/fonts/maple-mono-nf-400.ttf', 'assets/fonts/maple-mono-nf-500.ttf']);
   });
   setUp(setUpTestI18n);
   setUp(() {
@@ -387,14 +387,14 @@ void main() {
       await pumpShell(tester, shellSettings());
       AppSignals.emit(toggleCommandPaletteSignal);
       await settle(tester);
-      expect(find.text('New project'), findsOneWidget);
+      expect(find.descendant(of: find.byType(CommandPalette), matching: find.text('New project')), findsOneWidget);
       await tester.sendKeyEvent(LogicalKeyboardKey.escape);
       await settle(tester);
       AppSignals.emit(setTabSignal, 'news');
       await settle(tester);
       AppSignals.emit(toggleCommandPaletteSignal);
       await settle(tester);
-      expect(find.text('New project'), findsNothing);
+      expect(find.descendant(of: find.byType(CommandPalette), matching: find.text('New project')), findsNothing);
     });
 
     testWidgets('workspace create request validates the name and creates with copied settings', (tester) async {

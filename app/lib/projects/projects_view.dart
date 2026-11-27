@@ -794,6 +794,7 @@ class ProjectsViewState extends ConsumerState<ProjectsView> {
         hiddenCategories: hiddenEntries,
         onUnhideCategory: (id) => ref.read(categoriesProvider.notifier).setHidden(id, false).ignore(),
         onCategoryContextMenu: openCategoryMenu,
+        hasActiveFilters: hasActiveFilters,
       );
     } else {
       body = ProjectCardList(

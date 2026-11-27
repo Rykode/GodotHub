@@ -25,7 +25,7 @@ void main() {
     await for (final entry in LicenseRegistry.licenses) {
       packages.addAll(entry.packages);
     }
-    expect(packages, containsAll(['Inter', 'Google Sans Code', 'Font Awesome Free', 'Flag icons', 'serde', 'tokio']));
+    expect(packages, containsAll(['Inter', 'Allo', 'Maple Mono', 'Google Sans Code', 'Font Awesome Free', 'Flag icons', 'serde', 'tokio']));
     expect(packages.contains('Microsoft Visual C++ runtime'), Platform.isWindows);
   });
 }

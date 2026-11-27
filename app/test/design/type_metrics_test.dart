@@ -43,7 +43,7 @@ const _browser = <String, List<double>>{
 void main() {
   setUpAll(() async {
     await _loadFont('Inter', ['assets/fonts/inter-latin.ttf']);
-    await _loadFont('GoogleSansCode', ['assets/fonts/gsc-latin-400.ttf', 'assets/fonts/gsc-latin-500.ttf']);
+    await _loadFont('MapleMono', ['assets/fonts/maple-mono-nf-400.ttf', 'assets/fonts/maple-mono-nf-500.ttf']);
   });
 
   test('text metrics stay close to Chromium for the same fonts', () {

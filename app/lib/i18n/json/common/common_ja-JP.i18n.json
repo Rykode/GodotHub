@@ -292,6 +292,7 @@
   "view_list": "リスト",
   "view_grid": "グリッド",
   "view_kanban": "カンバン",
+  "projects_empty_title": "It's awfully quiet in here",
   "no_projects_yet": "まだ何もありません。新しいプロジェクトを作成するか、ディスク上の既存のプロジェクトをインポートしてください。",
   "pinned_section": "ピン留め",
   "set_category": "カテゴリを設定…",

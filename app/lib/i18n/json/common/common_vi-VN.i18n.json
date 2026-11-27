@@ -292,6 +292,7 @@
   "view_list": "Xem danh sách",
   "view_grid": "Xem lưới",
   "view_kanban": "Kanban",
+  "projects_empty_title": "It's awfully quiet in here",
   "no_projects_yet": "Chưa có gì ở đây. Tạo dự án mới hoặc nhập một dự án đã có trên đĩa.",
   "pinned_section": "Đã ghim",
   "set_category": "Đặt danh mục…",

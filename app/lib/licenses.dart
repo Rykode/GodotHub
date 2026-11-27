@@ -11,6 +11,8 @@ const visualCppRuntimeNotice =
 
 const _bundledNotices = <(List<String>, String)>[
   (['Inter'], 'assets/fonts/Inter-LICENSE.txt'),
+  (['Allo'], 'assets/fonts/Allo-LICENSE.txt'),
+  (['Maple Mono'], 'assets/fonts/MapleMono-LICENSE.txt'),
   (['Google Sans Code'], 'assets/fonts/GoogleSansCode-LICENSE.txt'),
   (['Font Awesome Free'], 'assets/icons/FontAwesome-LICENSE.txt'),
   (['Flag icons'], 'assets/flags/LICENSE'),

@@ -378,6 +378,7 @@ class _Translations$common$fr_FR extends Translations$common$en_US {
 	@override String get view_list => 'Vue liste';
 	@override String get view_grid => 'Vue grille';
 	@override String get view_kanban => 'Kanban';
+	@override String get projects_empty_title => 'It\'s awfully quiet in here';
 	@override String get no_projects_yet => 'Rien ici pour le moment. Créez un nouveau projet ou importez-en un que vous avez déjà sur le disque.';
 	@override String get pinned_section => 'Épinglés';
 	@override String get set_category => 'Définir la catégorie…';
@@ -2782,6 +2783,7 @@ extension on TranslationsFrFr {
 			'common.view_list' => 'Vue liste',
 			'common.view_grid' => 'Vue grille',
 			'common.view_kanban' => 'Kanban',
+			'common.projects_empty_title' => 'It\'s awfully quiet in here',
 			'common.no_projects_yet' => 'Rien ici pour le moment. Créez un nouveau projet ou importez-en un que vous avez déjà sur le disque.',
 			'common.pinned_section' => 'Épinglés',
 			'common.set_category' => 'Définir la catégorie…',
@@ -2998,9 +3000,9 @@ extension on TranslationsFrFr {
 			'common.clone_repo_url_manual' => 'Coller l\'URL manuellement',
 			'common.clone_repo_search_repos' => 'Rechercher dans vos dépôts...',
 			'common.clone_repo_no_repos_found' => 'Aucun dépôt ne correspond à votre recherche.',
-			'common.clone_repo_loading_repos' => 'Chargement des dépôts...',
 			_ => null,
 		} ?? switch (path) {
+			'common.clone_repo_loading_repos' => 'Chargement des dépôts...',
 			'common.clone_repo_load_error' => 'Échec du chargement des dépôts.',
 			'common.clone_repo_select' => 'Sélectionner',
 			'common.clone_repo_no_account' => 'Aucun compte GitHub ou GitLab connecté. Utilisez une URL pour cloner à la place.',
@@ -3512,9 +3514,9 @@ extension on TranslationsFrFr {
 			'common.project_addons.count' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('fr'))(count, one: '${count} addon installed', many: '${count} addons installed', other: '${count} addons installed', ), 
 			'common.project_addons.count_one' => '{{count}} addon installed',
 			'common.project_addons.count_other' => '{{count}} addons installed',
-			'common.project_addons.empty' => 'This project has no addons folder. Install addons from the Asset Store or copy them into res://addons.',
 			_ => null,
 		} ?? switch (path) {
+			'common.project_addons.empty' => 'This project has no addons folder. Install addons from the Asset Store or copy them into res://addons.',
 			'common.project_addons.check_updates' => 'Check for updates',
 			'common.project_addons.checking' => 'Checking…',
 			'common.project_addons.updates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('fr'))(count, one: '${count} update available', many: '${count} updates available', other: '${count} updates available', ), 
@@ -4026,9 +4028,9 @@ extension on TranslationsFrFr {
 			'settings.git_pat_save' => 'Enregistrer le token',
 			'settings.git_pat_empty' => 'Aucun token ajouté pour le moment.',
 			'settings.git_pat_remove' => 'Supprimer le token',
-			'settings.storage_title' => 'Stockage et scan automatique',
 			_ => null,
 		} ?? switch (path) {
+			'settings.storage_title' => 'Stockage et scan automatique',
 			'settings.behavior_projects_title' => 'Projets',
 			'settings.file_watchers_title' => 'Surveillance des fichiers',
 			'settings.last_opened_title' => 'Affichage de la dernière ouverture',
@@ -4540,9 +4542,9 @@ extension on TranslationsFrFr {
 			'versions.export_templates_size_summary' => '~{{download}} download · {{installed}} on disk',
 			'versions.export_templates_download_selected' => 'Download selected',
 			'versions.export_templates_loading_options' => 'Checking this release\'s available templates…',
-			'versions.export_templates_options_failed' => 'Couldn\'t load the templates for this release.',
 			_ => null,
 		} ?? switch (path) {
+			'versions.export_templates_options_failed' => 'Couldn\'t load the templates for this release.',
 			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('fr'))(count, one: '1 available template group', many: '${count} available template groups', other: '${count} available template groups', ), 
 			'versions.export_templates_available_one' => '1 available template group',
 			'versions.export_templates_available_other' => '{{count}} available template groups',

@@ -370,6 +370,7 @@ class _Translations$common$vi_VN extends Translations$common$en_US {
 	@override String get view_list => 'Xem danh sách';
 	@override String get view_grid => 'Xem lưới';
 	@override String get view_kanban => 'Kanban';
+	@override String get projects_empty_title => 'It\'s awfully quiet in here';
 	@override String get no_projects_yet => 'Chưa có gì ở đây. Tạo dự án mới hoặc nhập một dự án đã có trên đĩa.';
 	@override String get pinned_section => 'Đã ghim';
 	@override String get set_category => 'Đặt danh mục…';
@@ -2672,6 +2673,7 @@ extension on TranslationsViVn {
 			'common.view_list' => 'Xem danh sách',
 			'common.view_grid' => 'Xem lưới',
 			'common.view_kanban' => 'Kanban',
+			'common.projects_empty_title' => 'It\'s awfully quiet in here',
 			'common.no_projects_yet' => 'Chưa có gì ở đây. Tạo dự án mới hoặc nhập một dự án đã có trên đĩa.',
 			'common.pinned_section' => 'Đã ghim',
 			'common.set_category' => 'Đặt danh mục…',
@@ -2888,9 +2890,9 @@ extension on TranslationsViVn {
 			'common.clone_repo_url_manual' => 'Dán URL thủ công',
 			'common.clone_repo_search_repos' => 'Tìm repository của bạn...',
 			'common.clone_repo_no_repos_found' => 'Không có repository nào khớp tìm kiếm.',
-			'common.clone_repo_loading_repos' => 'Đang tải repository...',
 			_ => null,
 		} ?? switch (path) {
+			'common.clone_repo_loading_repos' => 'Đang tải repository...',
 			'common.clone_repo_load_error' => 'Tải repository thất bại.',
 			'common.clone_repo_select' => 'Chọn',
 			'common.clone_repo_no_account' => 'Chưa kết nối tài khoản GitHub hoặc GitLab. Dùng URL để sao chép thay thế.',
@@ -3402,9 +3404,9 @@ extension on TranslationsViVn {
 			'common.project_addons.count' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('vi'))(count, other: '${count} addons installed', ), 
 			'common.project_addons.count_one' => '{{count}} addon installed',
 			'common.project_addons.count_other' => '{{count}} addons installed',
-			'common.project_addons.empty' => 'This project has no addons folder. Install addons from the Asset Store or copy them into res://addons.',
 			_ => null,
 		} ?? switch (path) {
+			'common.project_addons.empty' => 'This project has no addons folder. Install addons from the Asset Store or copy them into res://addons.',
 			'common.project_addons.check_updates' => 'Check for updates',
 			'common.project_addons.checking' => 'Checking…',
 			'common.project_addons.updates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('vi'))(count, other: '${count} updates available', ), 
@@ -3916,9 +3918,9 @@ extension on TranslationsViVn {
 			'settings.git_pat_save' => 'Lưu token',
 			'settings.git_pat_empty' => 'Chưa thêm token nào.',
 			'settings.git_pat_remove' => 'Xóa token',
-			'settings.storage_title' => 'Lưu trữ & Quét tự động',
 			_ => null,
 		} ?? switch (path) {
+			'settings.storage_title' => 'Lưu trữ & Quét tự động',
 			'settings.behavior_projects_title' => 'Dự án',
 			'settings.file_watchers_title' => 'Theo dõi tệp',
 			'settings.last_opened_title' => 'Hiển thị lần mở cuối',
@@ -4430,9 +4432,9 @@ extension on TranslationsViVn {
 			'versions.export_templates_size_summary' => '~{{download}} download · {{installed}} on disk',
 			'versions.export_templates_download_selected' => 'Download selected',
 			'versions.export_templates_loading_options' => 'Checking this release\'s available templates…',
-			'versions.export_templates_options_failed' => 'Couldn\'t load the templates for this release.',
 			_ => null,
 		} ?? switch (path) {
+			'versions.export_templates_options_failed' => 'Couldn\'t load the templates for this release.',
 			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('vi'))(count, other: '${count} available template groups', ), 
 			'versions.export_templates_available_one' => '1 available template group',
 			'versions.export_templates_available_other' => '{{count}} available template groups',

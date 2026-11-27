@@ -369,6 +369,7 @@ class _Translations$common$zh_CN extends Translations$common$en_US {
 	@override String get view_list => '列表';
 	@override String get view_grid => '网格';
 	@override String get view_kanban => '看板';
+	@override String get projects_empty_title => 'It\'s awfully quiet in here';
 	@override String get no_projects_yet => '还没有项目。创建一个新项目或导入磁盘上已有的项目。';
 	@override String get pinned_section => '已置顶';
 	@override String get set_category => '设置分类…';
@@ -2670,6 +2671,7 @@ extension on TranslationsZhCn {
 			'common.view_list' => '列表',
 			'common.view_grid' => '网格',
 			'common.view_kanban' => '看板',
+			'common.projects_empty_title' => 'It\'s awfully quiet in here',
 			'common.no_projects_yet' => '还没有项目。创建一个新项目或导入磁盘上已有的项目。',
 			'common.pinned_section' => '已置顶',
 			'common.set_category' => '设置分类…',
@@ -2886,9 +2888,9 @@ extension on TranslationsZhCn {
 			'common.clone_repo_url_manual' => '手动粘贴 URL',
 			'common.clone_repo_search_repos' => '搜索你的仓库...',
 			'common.clone_repo_no_repos_found' => '没有匹配的仓库。',
-			'common.clone_repo_loading_repos' => '加载仓库中...',
 			_ => null,
 		} ?? switch (path) {
+			'common.clone_repo_loading_repos' => '加载仓库中...',
 			'common.clone_repo_load_error' => '加载仓库失败。',
 			'common.clone_repo_select' => '选择',
 			'common.clone_repo_no_account' => '未连接 GitHub 或 GitLab 账户。请使用 URL 克隆。',
@@ -3400,9 +3402,9 @@ extension on TranslationsZhCn {
 			'common.project_addons.count' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(count, other: '已安装 ${count} 个插件', ), 
 			'common.project_addons.count_one' => '已安装 {{count}} 个插件',
 			'common.project_addons.count_other' => '已安装 {{count}} 个插件',
-			'common.project_addons.empty' => '此项目没有 addons 文件夹。请从资源商店安装插件，或将其复制到 res://addons。',
 			_ => null,
 		} ?? switch (path) {
+			'common.project_addons.empty' => '此项目没有 addons 文件夹。请从资源商店安装插件，或将其复制到 res://addons。',
 			'common.project_addons.check_updates' => '检查更新',
 			'common.project_addons.checking' => '正在检查…',
 			'common.project_addons.updates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(count, other: '有 ${count} 个更新可用', ), 
@@ -3914,9 +3916,9 @@ extension on TranslationsZhCn {
 			'settings.git_pat_save' => '保存令牌',
 			'settings.git_pat_empty' => '尚未添加令牌。',
 			'settings.git_pat_remove' => '删除令牌',
-			'settings.storage_title' => '存储与自动扫描',
 			_ => null,
 		} ?? switch (path) {
+			'settings.storage_title' => '存储与自动扫描',
 			'settings.behavior_projects_title' => '项目',
 			'settings.file_watchers_title' => '文件监听',
 			'settings.last_opened_title' => '最近打开记录',
@@ -4428,9 +4430,9 @@ extension on TranslationsZhCn {
 			'versions.export_templates_size_summary' => '~{{download}} 下载 · {{installed}} 已安装',
 			'versions.export_templates_download_selected' => '下载所选',
 			'versions.export_templates_loading_options' => '正在检查此版本的可用模板…',
-			'versions.export_templates_options_failed' => '无法加载此版本的模板。',
 			_ => null,
 		} ?? switch (path) {
+			'versions.export_templates_options_failed' => '无法加载此版本的模板。',
 			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(count, other: '${count} 个可用模板组', ), 
 			'versions.export_templates_available_one' => '1 个可用模板组',
 			'versions.export_templates_available_other' => '{{count}} 个可用模板组',

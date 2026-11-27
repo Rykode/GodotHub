@@ -105,6 +105,7 @@
   "download_concurrency_label": "Téléchargements simultanés",
   "tray_recent_label": "Projets récents dans la zone de notification",
   "tooltip_delay_label": "Délai des infobulles",
+  "font_family_label": "Font",
   "project_icon_opacity_label": "Opacité des icônes de projet",
   "list_project_card_style_label": "List project card style",
   "project_card_style_hub": "GodotHub",

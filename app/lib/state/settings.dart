@@ -33,6 +33,7 @@ const AppSettings defaultSettings = AppSettings(
   customCss: '',
   animationIntensity: 'full',
   viewEntrance: 'slide',
+  bodyFont: 'inter',
   launchWithConsole: false,
   builtinConsole: true,
   gitAutoFetch: false,

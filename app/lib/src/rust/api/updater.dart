@@ -11,19 +11,31 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 // These functions are ignored because they are not marked as `pub`: `installer_from`, `log_line`, `set_pending`
 // These function are ignored because they are on traits that is not defined in current crate (put an empty `#[frb]` on it to unignore): `clone`, `from`, `from`
 
-void setAppVersion({required String version}) => RustLib.instance.api.crateApiUpdaterSetAppVersion(version: version);
+void setAppVersion({required String version}) =>
+    RustLib.instance.api.crateApiUpdaterSetAppVersion(version: version);
 
 void setUpdaterTestOverrides({String? endpoint, String? publicKey}) =>
-    RustLib.instance.api.crateApiUpdaterSetUpdaterTestOverrides(endpoint: endpoint, publicKey: publicKey);
+    RustLib.instance.api.crateApiUpdaterSetUpdaterTestOverrides(
+      endpoint: endpoint,
+      publicKey: publicKey,
+    );
 
-Future<bool> confirmLaunch() => RustLib.instance.api.crateApiUpdaterConfirmLaunch();
+Future<bool> confirmLaunch() =>
+    RustLib.instance.api.crateApiUpdaterConfirmLaunch();
 
-Future<UpdateInfo?> checkForUpdate() => RustLib.instance.api.crateApiUpdaterCheckForUpdate();
+Future<UpdateInfo?> checkForUpdate() =>
+    RustLib.instance.api.crateApiUpdaterCheckForUpdate();
 
-Stream<UpdateProgress> downloadUpdate({required UpdateInfo update, String? githubToken}) =>
-    RustLib.instance.api.crateApiUpdaterDownloadUpdate(update: update, githubToken: githubToken);
+Stream<UpdateProgress> downloadUpdate({
+  required UpdateInfo update,
+  String? githubToken,
+}) => RustLib.instance.api.crateApiUpdaterDownloadUpdate(
+  update: update,
+  githubToken: githubToken,
+);
 
-Future<bool> restartToUpdate() => RustLib.instance.api.crateApiUpdaterRestartToUpdate();
+Future<bool> restartToUpdate() =>
+    RustLib.instance.api.crateApiUpdaterRestartToUpdate();
 
 class UpdateInfo {
   final String version;

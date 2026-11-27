@@ -179,6 +179,8 @@ pub struct AppSettings {
     pub animation_intensity: String,
     #[serde(default = "default_view_entrance")]
     pub view_entrance: String,
+    #[serde(default = "default_body_font")]
+    pub body_font: String,
     #[serde(default)]
     pub launch_with_console: bool,
     #[serde(default = "default_true")]
@@ -469,6 +471,9 @@ fn default_theme_mode() -> String {
 fn default_animation_intensity() -> String {
     "full".to_string()
 }
+fn default_body_font() -> String {
+    "inter".to_string()
+}
 fn default_view_entrance() -> String {
     "slide".to_string()
 }
@@ -662,6 +667,7 @@ impl Default for AppSettings {
             custom_css: String::new(),
             animation_intensity: default_animation_intensity(),
             view_entrance: default_view_entrance(),
+            body_font: default_body_font(),
             close_on_project_open: false,
             check_updates_on_startup: true,
             minimize_to_tray: false,

@@ -156,7 +156,11 @@ class ConsoleExit {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is ConsoleExit && runtimeType == other.runtimeType && id == other.id && code == other.code;
+      identical(this, other) ||
+      other is ConsoleExit &&
+          runtimeType == other.runtimeType &&
+          id == other.id &&
+          code == other.code;
 }
 
 class DownloadFailure {
@@ -171,7 +175,10 @@ class DownloadFailure {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DownloadFailure && runtimeType == other.runtimeType && tag == other.tag && message == other.message;
+      other is DownloadFailure &&
+          runtimeType == other.runtimeType &&
+          tag == other.tag &&
+          message == other.message;
 }
 
 class DownloadUnverified {
@@ -186,7 +193,10 @@ class DownloadUnverified {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DownloadUnverified && runtimeType == other.runtimeType && tag == other.tag && reason == other.reason;
+      other is DownloadUnverified &&
+          runtimeType == other.runtimeType &&
+          tag == other.tag &&
+          reason == other.reason;
 }
 
 class ProjectExited {
@@ -198,7 +208,11 @@ class ProjectExited {
   int get hashCode => id.hashCode;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ProjectExited && runtimeType == other.runtimeType && id == other.id;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ProjectExited &&
+          runtimeType == other.runtimeType &&
+          id == other.id;
 }
 
 class ProjectLaunched {
@@ -207,10 +221,16 @@ class ProjectLaunched {
   final String version;
   final bool console;
 
-  const ProjectLaunched({required this.id, required this.name, required this.version, required this.console});
+  const ProjectLaunched({
+    required this.id,
+    required this.name,
+    required this.version,
+    required this.console,
+  });
 
   @override
-  int get hashCode => id.hashCode ^ name.hashCode ^ version.hashCode ^ console.hashCode;
+  int get hashCode =>
+      id.hashCode ^ name.hashCode ^ version.hashCode ^ console.hashCode;
 
   @override
   bool operator ==(Object other) =>
@@ -235,5 +255,8 @@ class ScanProgress {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ScanProgress && runtimeType == other.runtimeType && current == other.current && total == other.total;
+      other is ScanProgress &&
+          runtimeType == other.runtimeType &&
+          current == other.current &&
+          total == other.total;
 }

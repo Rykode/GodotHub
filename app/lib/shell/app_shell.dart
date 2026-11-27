@@ -14,11 +14,14 @@ import '../logic/launch_errors.dart';
 import '../logic/screen_reader.dart';
 import '../logic/settings_category_nav.dart';
 import '../modals/command_palette.dart';
+import '../modals/survey_modal.dart';
 import '../motion/intro.dart';
 import '../motion/presence.dart';
 import '../motion/reveal.dart';
 import '../src/rust/api/types.dart';
 import '../src/ui_prefs.dart';
+import '../survey/survey.dart';
+import '../state/app_version.dart';
 import '../src/ui_transition.dart';
 import '../state/app_lifecycle.dart';
 import '../state/app_signals.dart';
@@ -95,6 +98,7 @@ class _AppShellState extends ConsumerState<AppShell> {
   final bool _uiSwitchIntent = GhUiTransition.shouldOpenSettingsAfterSwitch();
   bool _introHandedOff = GhUiTransition.consumeShellIntroHandOff();
   bool _onboarding = false;
+  Survey? _survey;
   bool _splashDone = !GhUiTransition.shouldShowSplash();
   late String _requestedTab = _uiSwitchIntent ? 'settings' : 'projects';
   late final GhAnnouncementController _announcement = GhAnnouncementController(
@@ -159,7 +163,10 @@ class _AppShellState extends ConsumerState<AppShell> {
     _subscriptions.add(AppEvents.of(AppEventKind.projectExited).listen((_) => ref.read(projectsProvider.notifier).refresh().ignore()));
     _announcement.start();
     WidgetsBinding.instance.addPostFrameCallback((_) => _checkProjectsHealth());
-    WidgetsBinding.instance.addPostFrameCallback((_) => _checkCrashNotice());
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await _checkCrashNotice();
+      await _checkSurvey();
+    });
   }
 
   @override
@@ -390,6 +397,57 @@ class _AppShellState extends ConsumerState<AppShell> {
     if (report) _openBugReport(description: notice.summary);
   }
 
+  /// Looks for a survey to offer. It only puts a pill in the sidebar; the dialog opens when it is clicked.
+  Future<void> _checkSurvey() async {
+    // Never during the first-run setup. A new install sees the pill on a later launch instead.
+    final AppSettings settings;
+    try {
+      settings = await ref.read(settingsProvider.future);
+    } catch (_) {
+      return;
+    }
+    if (!settings.setupComplete || !mounted) return;
+    final survey = await fetchActiveSurvey();
+    if (survey == null || !mounted || !shouldShowSurvey(survey)) return;
+    setState(() => _survey = survey);
+  }
+
+  void _dismissSurvey() {
+    final survey = _survey;
+    if (survey == null) return;
+    markSurveyDone(survey.id);
+    setState(() => _survey = null);
+  }
+
+  Future<void> _openSurvey() async {
+    final survey = _survey;
+    if (survey == null) return;
+    final version = await ref.read(appVersionProvider.future).then((v) => v ?? '', onError: (Object _) => '');
+    if (!mounted) return;
+    await showGhModal<void>(
+      context,
+      (modal) => SurveyModal(
+        survey: survey,
+        onClose: () => Navigator.of(modal).pop(),
+        onSend: (answers) async {
+          await sendSurvey(
+            surveyPayload(
+              survey: survey,
+              answers: answers,
+              appVersion: version.isEmpty ? 'unknown' : version,
+              installId: surveyInstallId(),
+              platform: surveyPlatform(),
+            ),
+          );
+          markSurveyDone(survey.id);
+          if (mounted) setState(() => _survey = null);
+          if (modal.mounted) Navigator.of(modal).pop();
+          ghToasts.pushToast(GhToastType.success, 'Thanks for your feedback!');
+        },
+      ),
+    );
+  }
+
   Future<void> _checkProjectsHealth() async {
     LoadStatus health;
     try {
@@ -531,6 +589,8 @@ class _AppShellState extends ConsumerState<AppShell> {
       onOpenUpdatesModal: update.downloaded
           ? () => _applyDownloadedUpdate(update.applyDownloaded!).ignore()
           : () => _openUpdates(preview: update.previewUpdate && !update.updateAvailable),
+      onOpenSurvey: _survey == null ? null : () => _openSurvey().ignore(),
+      onDismissSurvey: _survey == null ? null : _dismissSurvey,
       updateAvailable: update.updateAvailable || update.previewUpdate,
       updateAvailableLabel: update.downloaded ? context.tr.common.restart_to_apply_update : null,
       fixedResizeKnob: settings.fixedSidebarResizeKnob,
@@ -632,6 +692,8 @@ class _AppShellState extends ConsumerState<AppShell> {
     if (settings != null && _onboarding) {
       _onboarding = false;
       _introHandedOff = GhUiTransition.consumeShellIntroHandOff();
+      // The startup survey check skips first-run setup, so look again now that it is done.
+      WidgetsBinding.instance.addPostFrameCallback((_) => _checkSurvey().ignore());
     }
     if (settings == null) {
       // Settings wait for the active workspace. If the workspace list failed to load, or settings

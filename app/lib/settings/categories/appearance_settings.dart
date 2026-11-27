@@ -58,6 +58,7 @@ AppSettings withAppearanceReset(AppSettings settings) {
     cornerRadius: defaultCornerRadius,
     uiDensity: defaultUiDensity,
     fontScale: defaultFontScale,
+    bodyFont: GhBodyFont.inter,
     themeMode: 'dark',
     customCss: '',
     animationIntensity: 'full',
@@ -261,6 +262,28 @@ class _AppearanceSettingsState extends ConsumerState<AppearanceSettings> {
             checked: settings.cardLayout,
             label: lts('card_layout_label'),
             onChanged: (checked) => _update(copySettings(settings, cardLayout: checked)),
+          ),
+        ),
+        SettingsSubsection(
+          id: 'appearance-font',
+          inline: true,
+          title: lts('font_family_label'),
+          searchText: '${lts('font_family_label')} Inter Allo',
+          child: GhDropdown(
+            items: [
+              for (final (id, label) in const [(GhBodyFont.inter, 'Inter'), (GhBodyFont.allo, 'Allo')])
+                GhMenuItem(
+                  id: id,
+                  label: label,
+                  active: settings.bodyFont == id,
+                  onSelected: () => _update(copySettings(settings, bodyFont: id)),
+                ),
+            ],
+            trigger: (context, open, toggle) => SettingsDropdownTrigger(
+              label: settings.bodyFont == GhBodyFont.allo ? 'Allo' : 'Inter',
+              open: open,
+              onPressed: toggle,
+            ),
           ),
         ),
         SettingsSubsection(

@@ -9640,6 +9640,7 @@ const _: fn() = || {
         let _: String = AppSettings.custom_css;
         let _: String = AppSettings.animation_intensity;
         let _: String = AppSettings.view_entrance;
+        let _: String = AppSettings.body_font;
         let _: bool = AppSettings.launch_with_console;
         let _: bool = AppSettings.builtin_console;
         let _: bool = AppSettings.git_auto_fetch;
@@ -10867,6 +10868,7 @@ impl SseDecode for crate::api::types::AppSettings {
         let mut var_customCss = <String>::sse_decode(deserializer);
         let mut var_animationIntensity = <String>::sse_decode(deserializer);
         let mut var_viewEntrance = <String>::sse_decode(deserializer);
+        let mut var_bodyFont = <String>::sse_decode(deserializer);
         let mut var_launchWithConsole = <bool>::sse_decode(deserializer);
         let mut var_builtinConsole = <bool>::sse_decode(deserializer);
         let mut var_gitAutoFetch = <bool>::sse_decode(deserializer);
@@ -10972,6 +10974,7 @@ impl SseDecode for crate::api::types::AppSettings {
             custom_css: var_customCss,
             animation_intensity: var_animationIntensity,
             view_entrance: var_viewEntrance,
+            body_font: var_bodyFont,
             launch_with_console: var_launchWithConsole,
             builtin_console: var_builtinConsole,
             git_auto_fetch: var_gitAutoFetch,
@@ -15861,6 +15864,7 @@ impl flutter_rust_bridge::IntoDart for FrbWrapper<crate::api::types::AppSettings
             self.0.custom_css.into_into_dart().into_dart(),
             self.0.animation_intensity.into_into_dart().into_dart(),
             self.0.view_entrance.into_into_dart().into_dart(),
+            self.0.body_font.into_into_dart().into_dart(),
             self.0.launch_with_console.into_into_dart().into_dart(),
             self.0.builtin_console.into_into_dart().into_dart(),
             self.0.git_auto_fetch.into_into_dart().into_dart(),
@@ -19414,6 +19418,7 @@ impl SseEncode for crate::api::types::AppSettings {
         <String>::sse_encode(self.custom_css, serializer);
         <String>::sse_encode(self.animation_intensity, serializer);
         <String>::sse_encode(self.view_entrance, serializer);
+        <String>::sse_encode(self.body_font, serializer);
         <bool>::sse_encode(self.launch_with_console, serializer);
         <bool>::sse_encode(self.builtin_console, serializer);
         <bool>::sse_encode(self.git_auto_fetch, serializer);

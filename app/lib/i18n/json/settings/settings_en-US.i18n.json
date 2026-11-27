@@ -105,6 +105,7 @@
   "download_concurrency_label": "Simultaneous downloads",
   "tray_recent_label": "Tray recent projects",
   "tooltip_delay_label": "Tooltip delay",
+  "font_family_label": "Font",
   "project_icon_opacity_label": "Project icon opacity",
   "list_project_card_style_label": "List project card style",
   "project_card_style_hub": "GodotHub",

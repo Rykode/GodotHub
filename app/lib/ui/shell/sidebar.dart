@@ -76,6 +76,9 @@ class GhSidebar extends StatefulWidget {
     this.paletteKey = 'p',
     this.onOpenCommandPalette,
     this.onOpenUpdatesModal,
+    this.onOpenSurvey,
+    this.onDismissSurvey,
+    this.surveyLabel = 'Help fill a survey',
     this.updateAvailable = false,
     this.fixedResizeKnob = false,
     this.initialWidth = defaultWidth,
@@ -105,6 +108,12 @@ class GhSidebar extends StatefulWidget {
   final String paletteKey;
   final VoidCallback? onOpenCommandPalette;
   final VoidCallback? onOpenUpdatesModal;
+
+  /// When set, a pill above the update pill offers a survey. Dismissing it asks [onDismissSurvey].
+  /// Plain English on purpose: surveys are not translated.
+  final VoidCallback? onOpenSurvey;
+  final VoidCallback? onDismissSurvey;
+  final String surveyLabel;
   final bool updateAvailable;
   final bool fixedResizeKnob;
   final double initialWidth;
@@ -602,6 +611,29 @@ class _GhSidebarState extends State<GhSidebar> {
     final collapsed = _collapsed;
     final children = <Widget>[];
     final updates = widget.onOpenUpdatesModal;
+    final survey = widget.onOpenSurvey;
+    if (survey != null) {
+      children.add(
+        collapsed
+            ? _unclamped(
+                GhTooltip(
+                  message: widget.surveyLabel,
+                  child: _SquareIconButton(icon: GhIcons.pencil, semanticLabel: widget.surveyLabel, onPressed: survey, dot: true),
+                ),
+              )
+            : Row(
+                children: [
+                  Expanded(
+                    child: _UpdateButton(label: widget.surveyLabel, onPressed: survey),
+                  ),
+                  if (widget.onDismissSurvey != null) ...[
+                    SizedBox(width: theme.space(1)),
+                    _SquareIconButton(icon: GhIcons.x, semanticLabel: 'Dismiss survey', onPressed: widget.onDismissSurvey!),
+                  ],
+                ],
+              ),
+      );
+    }
     if (widget.updateAvailable && updates != null) {
       children.add(
         collapsed

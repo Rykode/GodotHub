@@ -301,6 +301,37 @@ void main() {
       expect(updates, 1);
     });
 
+    testWidgets('survey pill sits above the update pill and can be opened or dismissed', (tester) async {
+      var opened = 0;
+      var dismissed = 0;
+      await tester.pumpWidget(
+        _app(
+          _sidebarHost(
+            GhSidebar(
+              tabs: _tabs,
+              activeTab: 'projects',
+              onTabChange: (_) {},
+              connected: true,
+              updateAvailable: true,
+              onOpenUpdatesModal: () {},
+              onOpenSurvey: () => opened++,
+              onDismissSurvey: () => dismissed++,
+            ),
+          ),
+        ),
+      );
+      expect(tester.getTopLeft(find.text('Help fill a survey')).dy, lessThan(tester.getTopLeft(find.text(t.common.update_available)).dy));
+      await tester.tap(find.text('Help fill a survey'));
+      expect(opened, 1);
+      await tester.tap(find.bySemanticsLabel('Dismiss survey'));
+      expect(dismissed, 1);
+    });
+
+    testWidgets('no survey pill without a survey', (tester) async {
+      await tester.pumpWidget(_app(_sidebarHost(GhSidebar(tabs: _tabs, activeTab: 'projects', onTabChange: (_) {}))));
+      expect(find.text('Help fill a survey'), findsNothing);
+    });
+
     testWidgets('account trigger opens the account menu', (tester) async {
       final navigated = <String>[];
       await tester.pumpWidget(_app(_sidebarHost(GhSidebar(tabs: _tabs, activeTab: 'projects', onTabChange: navigated.add))));

@@ -4271,6 +4271,9 @@ class Translations$settings$en_US {
 	/// en-US: 'Tooltip delay'
 	String get tooltip_delay_label => 'Tooltip delay';
 
+	/// en-US: 'Font'
+	String get font_family_label => 'Font';
+
 	/// en-US: 'Project icon opacity'
 	String get project_icon_opacity_label => 'Project icon opacity';
 
@@ -8235,6 +8238,7 @@ extension on Translations {
 			'settings.download_concurrency_label' => 'Simultaneous downloads',
 			'settings.tray_recent_label' => 'Tray recent projects',
 			'settings.tooltip_delay_label' => 'Tooltip delay',
+			'settings.font_family_label' => 'Font',
 			'settings.project_icon_opacity_label' => 'Project icon opacity',
 			'settings.list_project_card_style_label' => 'List project card style',
 			'settings.project_card_style_hub' => 'GodotHub',
@@ -8676,9 +8680,9 @@ extension on Translations {
 			'versions.export_templates_download_selected' => 'Download selected',
 			'versions.export_templates_loading_options' => 'Checking this release\'s available templates…',
 			'versions.export_templates_options_failed' => 'Couldn\'t load the templates for this release.',
-			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count, one: '1 available template group', other: '${count} available template groups', ), 
 			_ => null,
 		} ?? switch (path) {
+			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count, one: '1 available template group', other: '${count} available template groups', ), 
 			'versions.export_templates_available_one' => '1 available template group',
 			'versions.export_templates_available_other' => '{{count}} available template groups',
 			'versions.export_templates_select_all' => 'Select all',

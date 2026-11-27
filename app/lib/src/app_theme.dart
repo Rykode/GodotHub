@@ -27,6 +27,7 @@ GhTheme ghThemeFromSettings(
     highContrast: highContrast,
     systemContrast: systemContrast,
     languageCode: ghResolveLanguage(settings.language).split(RegExp('[-_]')).first,
+    bodyFont: settings.bodyFont,
   );
 }
 

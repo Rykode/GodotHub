@@ -12,13 +12,17 @@ import '../../api/updater.dart';
 import '../../design/design.dart';
 import '../../logic/debug_mode.dart';
 import '../../logic/settings_copy.dart';
+import '../../modals/survey_editor_modal.dart';
+import '../../modals/survey_modal.dart';
 import '../../src/rust/api/diagnostics.dart' as diagnostics_rust;
 import '../../state/app_signals.dart';
 import '../../state/app_version.dart';
 import '../../state/settings.dart';
 import '../../state/shell_signals.dart';
 import '../../state/update_available.dart';
+import '../../survey/survey.dart';
 import '../../ui/core/interaction.dart';
+import '../../ui/feedback/modal_shell.dart';
 import '../../ui/feedback/toast.dart';
 
 enum _CrashTest { exitCode, abort }
@@ -155,6 +159,67 @@ class _DebugSettingsState extends ConsumerState<DebugSettings> {
     }
   }
 
+  static const _sampleSurvey = {
+    'id': 'debug-sample',
+    'title': 'Sample survey',
+    'intro': 'This is a local sample to preview the dialog.',
+    'questions': [
+      {
+        'id': 'pick',
+        'type': 'choice',
+        'text': 'Which one do you prefer?',
+        'required': true,
+        'options': [
+          {'id': 'a', 'label': 'Option A', 'description': 'The first option.'},
+          {'id': 'b', 'label': 'Option B', 'description': 'The second option.'},
+        ],
+      },
+      {'id': 'more', 'type': 'text', 'text': 'Anything to add?'},
+    ],
+  };
+
+  Future<void> _showSurvey(Survey survey, {required bool live}) async {
+    final version = ref.read(appVersionProvider).value ?? 'unknown';
+    await showGhModal<void>(
+      context,
+      (modal) => SurveyModal(
+        survey: survey,
+        onClose: () => Navigator.of(modal).pop(),
+        onSend: (answers) async {
+          if (live) {
+            await sendSurvey(
+              surveyPayload(
+                survey: survey,
+                answers: answers,
+                appVersion: version,
+                installId: surveyInstallId(),
+                platform: surveyPlatform(),
+              ),
+            );
+          } else {
+            await Future<void>.delayed(const Duration(milliseconds: 600));
+          }
+          if (modal.mounted) Navigator.of(modal).pop();
+          _toast(GhToastType.success, live ? 'Survey response sent' : 'Sample survey closed. Nothing was sent');
+        },
+      ),
+    );
+  }
+
+  Future<void> _showLiveSurvey() async {
+    if (surveyEndpoint.isEmpty) {
+      _toast(GhToastType.info, 'surveyEndpoint is empty, so there is no survey server');
+      return;
+    }
+    final survey = await fetchActiveSurvey();
+    if (!mounted) return;
+    if (survey == null) {
+      _toast(GhToastType.info, 'The server has no active survey, or it could not be reached');
+      return;
+    }
+    await _showSurvey(survey, live: true);
+  }
+
   void _showOnboarding() {
     final settings = ref.read(settingsProvider).value;
     if (settings == null) return;
@@ -269,6 +334,32 @@ class _DebugSettingsState extends ConsumerState<DebugSettings> {
                   ? 'APP_VERSION is not set, so the background update check is off. Pass --dart-define=APP_VERSION=x.y.z to test real updates.'
                   : 'Built as $appBuildVersion. The background update check compares against this version.',
               children: const [],
+            ),
+          ],
+        ),
+        _DebugSection(
+          title: 'Survey',
+          description: 'Preview the in-app survey dialog. It normally shows once per survey, on startup.',
+          children: [
+            _DebugRow(
+              label: 'Preview sample survey',
+              description: 'Opens a local sample survey. Nothing is sent anywhere.',
+              children: [_DebugButton(label: 'Preview sample', onPressed: () => _showSurvey(Survey.tryParse(_sampleSurvey)!, live: false).ignore())],
+            ),
+            _DebugRow(
+              label: 'Show active survey',
+              description: 'Fetches the active survey from the survey server and opens it, even if you already answered. Sending posts a real response to the team Discord, counted once per install.',
+              children: [_DebugButton(label: 'Open survey', onPressed: () => _showLiveSurvey().ignore())],
+            ),
+            _DebugRow(
+              label: 'Edit surveys',
+              description: 'Create, edit, activate and delete the surveys on the survey server, without an app release. Needs the Worker admin token.',
+              children: [
+                _DebugButton(
+                  label: 'Open editor',
+                  onPressed: () => showGhModal<void>(context, (modal) => SurveyEditorModal(onClose: () => Navigator.of(modal).pop())).ignore(),
+                ),
+              ],
             ),
           ],
         ),

@@ -43,6 +43,7 @@ const baseSettings = AppSettings(
   customCss: '',
   animationIntensity: '',
   viewEntrance: '',
+  bodyFont: 'inter',
   launchWithConsole: false,
   builtinConsole: false,
   gitAutoFetch: false,

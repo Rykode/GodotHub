@@ -175,6 +175,7 @@ pub struct _AppSettings {
     pub custom_css: String,
     pub animation_intensity: String,
     pub view_entrance: String,
+    pub body_font: String,
     pub launch_with_console: bool,
     pub builtin_console: bool,
     pub git_auto_fetch: bool,

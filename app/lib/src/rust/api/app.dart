@@ -14,10 +14,23 @@ String appVersion() => RustLib.instance.api.crateApiAppAppVersion();
 
 Future<String> startCore() => RustLib.instance.api.crateApiAppStartCore();
 
-Future<String> startCoreIn({required String dataDir, required String configDir, required String cacheDir}) =>
-    RustLib.instance.api.crateApiAppStartCoreIn(dataDir: dataDir, configDir: configDir, cacheDir: cacheDir);
+Future<String> startCoreIn({
+  required String dataDir,
+  required String configDir,
+  required String cacheDir,
+}) => RustLib.instance.api.crateApiAppStartCoreIn(
+  dataDir: dataDir,
+  configDir: configDir,
+  cacheDir: cacheDir,
+);
 
-Future<void> emitEventForTest({required String name, required String payloadJson}) =>
-    RustLib.instance.api.crateApiAppEmitEventForTest(name: name, payloadJson: payloadJson);
+Future<void> emitEventForTest({
+  required String name,
+  required String payloadJson,
+}) => RustLib.instance.api.crateApiAppEmitEventForTest(
+  name: name,
+  payloadJson: payloadJson,
+);
 
-Future<String?> getOsUsername() => RustLib.instance.api.crateApiAppGetOsUsername();
+Future<String?> getOsUsername() =>
+    RustLib.instance.api.crateApiAppGetOsUsername();

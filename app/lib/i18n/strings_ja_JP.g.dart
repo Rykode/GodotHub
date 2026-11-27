@@ -1526,6 +1526,7 @@ class _Translations$settings$ja_JP extends Translations$settings$en_US {
 	@override String get download_concurrency_label => '同時ダウンロード数';
 	@override String get tray_recent_label => 'トレイに表示する最近のプロジェクト';
 	@override String get tooltip_delay_label => 'ツールチップの表示遅延';
+	@override String get font_family_label => 'Font';
 	@override String get project_icon_opacity_label => 'プロジェクトアイコンの不透明度';
 	@override String get list_project_card_style_label => 'リスト表示のプロジェクトカードのスタイル';
 	@override String get project_card_style_hub => 'GodotHub';
@@ -3988,6 +3989,7 @@ extension on TranslationsJaJp {
 			'settings.download_concurrency_label' => '同時ダウンロード数',
 			'settings.tray_recent_label' => 'トレイに表示する最近のプロジェクト',
 			'settings.tooltip_delay_label' => 'ツールチップの表示遅延',
+			'settings.font_family_label' => 'Font',
 			'settings.project_icon_opacity_label' => 'プロジェクトアイコンの不透明度',
 			'settings.list_project_card_style_label' => 'リスト表示のプロジェクトカードのスタイル',
 			'settings.project_card_style_hub' => 'GodotHub',
@@ -4429,9 +4431,9 @@ extension on TranslationsJaJp {
 			'versions.export_templates_download_selected' => '選択したものをダウンロード',
 			'versions.export_templates_loading_options' => 'このリリースで利用できるテンプレートを確認しています…',
 			'versions.export_templates_options_failed' => 'このリリースのテンプレートを読み込めませんでした。',
-			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(count, other: '利用可能なテンプレートグループ ${count} 個', ), 
 			_ => null,
 		} ?? switch (path) {
+			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(count, other: '利用可能なテンプレートグループ ${count} 個', ), 
 			'versions.export_templates_available_one' => '利用可能なテンプレートグループ 1 個',
 			'versions.export_templates_available_other' => '利用可能なテンプレートグループ {{count}} 個',
 			'versions.export_templates_select_all' => 'すべて選択',

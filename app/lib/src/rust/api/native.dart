@@ -12,30 +12,43 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 
 Future<String?> pickFolder() => RustLib.instance.api.crateApiNativePickFolder();
 
-Future<String?> pickSavePath({required String defaultName}) => RustLib.instance.api.crateApiNativePickSavePath(defaultName: defaultName);
+Future<String?> pickSavePath({required String defaultName}) =>
+    RustLib.instance.api.crateApiNativePickSavePath(defaultName: defaultName);
 
-Future<String?> pickDataFile() => RustLib.instance.api.crateApiNativePickDataFile();
+Future<String?> pickDataFile() =>
+    RustLib.instance.api.crateApiNativePickDataFile();
 
-Future<String?> pickImageFile() => RustLib.instance.api.crateApiNativePickImageFile();
+Future<String?> pickImageFile() =>
+    RustLib.instance.api.crateApiNativePickImageFile();
 
-Future<String?> pickExecutable() => RustLib.instance.api.crateApiNativePickExecutable();
+Future<String?> pickExecutable() =>
+    RustLib.instance.api.crateApiNativePickExecutable();
 
-Future<void> notify({required String title, required String body}) => RustLib.instance.api.crateApiNativeNotify(title: title, body: body);
+Future<void> notify({required String title, required String body}) =>
+    RustLib.instance.api.crateApiNativeNotify(title: title, body: body);
 
-void setMainWindowVisible({required bool visible}) => RustLib.instance.api.crateApiNativeSetMainWindowVisible(visible: visible);
+void setMainWindowVisible({required bool visible}) =>
+    RustLib.instance.api.crateApiNativeSetMainWindowVisible(visible: visible);
 
-Future<void> relaunch({required List<String> args}) => RustLib.instance.api.crateApiNativeRelaunch(args: args);
+Future<void> relaunch({required List<String> args}) =>
+    RustLib.instance.api.crateApiNativeRelaunch(args: args);
 
-Future<List<RecentProject>> refreshRecentProjects() => RustLib.instance.api.crateApiNativeRefreshRecentProjects();
+Future<List<RecentProject>> refreshRecentProjects() =>
+    RustLib.instance.api.crateApiNativeRefreshRecentProjects();
 
-Future<void> openRecentProject({required String id}) => RustLib.instance.api.crateApiNativeOpenRecentProject(id: id);
+Future<void> openRecentProject({required String id}) =>
+    RustLib.instance.api.crateApiNativeOpenRecentProject(id: id);
 
 class RecentProject {
   final String id;
   final String label;
   final String path;
 
-  const RecentProject({required this.id, required this.label, required this.path});
+  const RecentProject({
+    required this.id,
+    required this.label,
+    required this.path,
+  });
 
   @override
   int get hashCode => id.hashCode ^ label.hashCode ^ path.hashCode;
@@ -43,5 +56,9 @@ class RecentProject {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is RecentProject && runtimeType == other.runtimeType && id == other.id && label == other.label && path == other.path;
+      other is RecentProject &&
+          runtimeType == other.runtimeType &&
+          id == other.id &&
+          label == other.label &&
+          path == other.path;
 }

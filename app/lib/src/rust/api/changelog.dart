@@ -10,14 +10,20 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 
 import 'types.dart';
 
-Future<List<ChangelogEntry>> listChangelogEntries() => RustLib.instance.api.crateApiChangelogListChangelogEntries();
+Future<List<ChangelogEntry>> listChangelogEntries() =>
+    RustLib.instance.api.crateApiChangelogListChangelogEntries();
 
 Future<ChangelogEntry> addChangelogEntry({
   required String version,
   required String date,
   required List<ChangelogNote> notes,
   required List<String> knownIssues,
-}) => RustLib.instance.api.crateApiChangelogAddChangelogEntry(version: version, date: date, notes: notes, knownIssues: knownIssues);
+}) => RustLib.instance.api.crateApiChangelogAddChangelogEntry(
+  version: version,
+  date: date,
+  notes: notes,
+  knownIssues: knownIssues,
+);
 
 Future<ChangelogEntry> updateChangelogEntry({
   required String id,
@@ -33,9 +39,16 @@ Future<ChangelogEntry> updateChangelogEntry({
   knownIssues: knownIssues,
 );
 
-Future<void> deleteChangelogEntry({required String id}) => RustLib.instance.api.crateApiChangelogDeleteChangelogEntry(id: id);
+Future<void> deleteChangelogEntry({required String id}) =>
+    RustLib.instance.api.crateApiChangelogDeleteChangelogEntry(id: id);
 
-Future<List<String>> listGitTags() => RustLib.instance.api.crateApiChangelogListGitTags();
+Future<List<String>> listGitTags() =>
+    RustLib.instance.api.crateApiChangelogListGitTags();
 
-Future<ChangelogDraft> generateChangelogDraft({required String from, required String to}) =>
-    RustLib.instance.api.crateApiChangelogGenerateChangelogDraft(from: from, to: to);
+Future<ChangelogDraft> generateChangelogDraft({
+  required String from,
+  required String to,
+}) => RustLib.instance.api.crateApiChangelogGenerateChangelogDraft(
+  from: from,
+  to: to,
+);

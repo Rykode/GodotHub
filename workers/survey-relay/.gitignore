@@ -1,0 +1,4 @@
+# Wrangler local cache. It holds your Cloudflare account id and name.
+.wrangler/
+node_modules/
+.dev.vars

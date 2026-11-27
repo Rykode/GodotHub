@@ -22,11 +22,24 @@ enum GhTextSize {
   final double? lineHeight;
 }
 
+abstract final class GhBodyFont {
+  static const inter = 'inter';
+  static const allo = 'allo';
+  static const all = [inter, allo];
+}
+
 abstract final class GhFonts {
   static const body = 'Inter';
+  static const alloBody = 'Allo';
   static const mono = 'GoogleSansCode';
 
   static const bodyFallback = ['InterLatinExt', 'InterCyrillic', 'InterCyrillicExt', 'InterGreek', 'InterGreekExt', 'InterVietnamese'];
+
+  static const alloFallback = ['Inter', ...bodyFallback];
+
+  static String bodyFamily(String id) => id == GhBodyFont.allo ? alloBody : body;
+
+  static List<String> bodyFallbackFor(String id) => id == GhBodyFont.allo ? alloFallback : bodyFallback;
 
   static const monoFallback = [
     'GoogleSansCodeLatinExt',
@@ -68,19 +81,25 @@ TextStyle ghTextStyle({
   double? lineHeight,
   double? letterSpacingEm,
   String? languageCode,
+  String bodyFont = GhBodyFont.inter,
 }) {
   final fontSize = size.rem * remPx;
   final monoWeight = weight.value >= 500 ? FontWeight.w500 : FontWeight.w400;
   return TextStyle(
     inherit: true,
-    fontFamily: mono ? GhFonts.mono : GhFonts.body,
+    fontFamily: mono ? GhFonts.mono : GhFonts.bodyFamily(bodyFont),
     fontFamilyFallback: [
-      ...(mono ? GhFonts.monoFallback : GhFonts.bodyFallback),
+      ...(mono ? GhFonts.monoFallback : GhFonts.bodyFallbackFor(bodyFont)),
       ...GhFonts.cjk(languageCode, mono: mono),
     ],
     fontSize: fontSize,
     fontWeight: mono ? monoWeight : weight,
-    fontVariations: mono ? null : [FontVariation.weight(weight.value.toDouble())],
+    fontVariations: mono
+        ? null
+        : [
+            FontVariation.weight(weight.value.toDouble()),
+            if (bodyFont == GhBodyFont.allo) FontVariation('opsz', fontSize.clamp(9, 32).toDouble()),
+          ],
     height: lineHeight ?? size.lineHeight ?? defaultLineHeight,
     leadingDistribution: TextLeadingDistribution.even,
     letterSpacing: letterSpacingEm == null ? null : letterSpacingEm * fontSize,

@@ -105,6 +105,7 @@
   "download_concurrency_label": "Số tải xuống đồng thời",
   "tray_recent_label": "Dự án gần đây trên khay",
   "tooltip_delay_label": "Độ trễ tooltip",
+  "font_family_label": "Font",
   "project_icon_opacity_label": "Độ mờ biểu tượng dự án",
   "list_project_card_style_label": "List project card style",
   "project_card_style_hub": "GodotHub",

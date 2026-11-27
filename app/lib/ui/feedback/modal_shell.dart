@@ -58,6 +58,7 @@ class GhModalShell extends StatefulWidget {
     this.initialFocus,
     this.isMenuOpen,
     this.staticPreview = false,
+    this.dismissOnBackdrop = true,
   });
 
   final Widget icon;
@@ -76,6 +77,9 @@ class GhModalShell extends StatefulWidget {
   final FocusNode? initialFocus;
   final bool Function()? isMenuOpen;
   final bool staticPreview;
+
+  /// Whether clicking the dimmed area outside the panel closes the modal. Escape and the close button still do.
+  final bool dismissOnBackdrop;
 
   static double tallBodyHeight(BuildContext context) => math.min(MediaQuery.sizeOf(context).height * 0.6, GhTheme.of(context).rem(34));
 
@@ -279,7 +283,7 @@ class _GhModalShellState extends State<GhModalShell> {
               children: [
                 GestureDetector(
                   behavior: HitTestBehavior.opaque,
-                  onTap: _close,
+                  onTap: widget.dismissOnBackdrop ? _close : null,
                   child: const ColoredBox(color: GhScrims.modal),
                 ),
                 Padding(

@@ -200,7 +200,7 @@ void main() {
       expect(tabs.first.group?.id, 'workspace');
       expect(tabs.first.group?.label, 'Workspace');
       expect(tabs.firstWhere((t) => t.id == 'storage').label, 'Storage');
-      expect(tabs.where((t) => t.isNew).map((t) => t.id), ['vault', 'storage']);
+      expect(tabs.where((t) => t.isNew).map((t) => t.id), isEmpty);
       expect(tabs.last.badge, 3);
     });
 

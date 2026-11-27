@@ -1580,6 +1580,7 @@ class _Translations$settings$fr_FR extends Translations$settings$en_US {
 	@override String get download_concurrency_label => 'Téléchargements simultanés';
 	@override String get tray_recent_label => 'Projets récents dans la zone de notification';
 	@override String get tooltip_delay_label => 'Délai des infobulles';
+	@override String get font_family_label => 'Font';
 	@override String get project_icon_opacity_label => 'Opacité des icônes de projet';
 	@override String get list_project_card_style_label => 'List project card style';
 	@override String get project_card_style_hub => 'GodotHub';
@@ -4098,6 +4099,7 @@ extension on TranslationsFrFr {
 			'settings.download_concurrency_label' => 'Téléchargements simultanés',
 			'settings.tray_recent_label' => 'Projets récents dans la zone de notification',
 			'settings.tooltip_delay_label' => 'Délai des infobulles',
+			'settings.font_family_label' => 'Font',
 			'settings.project_icon_opacity_label' => 'Opacité des icônes de projet',
 			'settings.list_project_card_style_label' => 'List project card style',
 			'settings.project_card_style_hub' => 'GodotHub',
@@ -4539,9 +4541,9 @@ extension on TranslationsFrFr {
 			'versions.export_templates_download_selected' => 'Download selected',
 			'versions.export_templates_loading_options' => 'Checking this release\'s available templates…',
 			'versions.export_templates_options_failed' => 'Couldn\'t load the templates for this release.',
-			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('fr'))(count, one: '1 available template group', many: '${count} available template groups', other: '${count} available template groups', ), 
 			_ => null,
 		} ?? switch (path) {
+			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('fr'))(count, one: '1 available template group', many: '${count} available template groups', other: '${count} available template groups', ), 
 			'versions.export_templates_available_one' => '1 available template group',
 			'versions.export_templates_available_other' => '{{count}} available template groups',
 			'versions.export_templates_select_all' => 'Select all',

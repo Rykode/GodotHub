@@ -36,6 +36,7 @@ class GhTheme extends ThemeExtension<GhTheme> {
     this.projectIconOpacity = defaultProjectIconOpacity,
     this.showScrollbars = true,
     this.languageCode,
+    this.bodyFont = GhBodyFont.inter,
   });
 
   factory GhTheme.fromPalette(
@@ -46,6 +47,7 @@ class GhTheme extends ThemeExtension<GhTheme> {
     double projectIconOpacity = defaultProjectIconOpacity,
     bool showScrollbars = true,
     String? languageCode,
+    String bodyFont = GhBodyFont.inter,
   }) {
     return GhTheme(
       mode: palette.mode,
@@ -70,6 +72,7 @@ class GhTheme extends ThemeExtension<GhTheme> {
       projectIconOpacity: projectIconOpacity,
       showScrollbars: showScrollbars,
       languageCode: languageCode,
+      bodyFont: bodyFont,
     );
   }
 
@@ -86,6 +89,7 @@ class GhTheme extends ThemeExtension<GhTheme> {
     required bool showScrollbars,
     required Brightness platformBrightness,
     String? languageCode,
+    String bodyFont = GhBodyFont.inter,
     bool highContrast = false,
     SystemContrastColors? systemContrast,
   }) {
@@ -117,6 +121,7 @@ class GhTheme extends ThemeExtension<GhTheme> {
       projectIconOpacity: projectIconOpacity,
       showScrollbars: showScrollbars,
       languageCode: languageCode,
+      bodyFont: bodyFont,
     );
   }
 
@@ -144,6 +149,7 @@ class GhTheme extends ThemeExtension<GhTheme> {
   final double projectIconOpacity;
   final bool showScrollbars;
   final String? languageCode;
+  final String bodyFont;
 
   static GhTheme of(BuildContext context) => Theme.of(context).extension<GhTheme>() ?? GhTheme.defaults();
 
@@ -187,6 +193,7 @@ class GhTheme extends ThemeExtension<GhTheme> {
       lineHeight: lineHeight,
       letterSpacingEm: letterSpacingEm,
       languageCode: languageCode,
+      bodyFont: bodyFont,
     );
   }
 
@@ -233,6 +240,7 @@ class GhTheme extends ThemeExtension<GhTheme> {
     double? projectIconOpacity,
     bool? showScrollbars,
     String? languageCode,
+    String? bodyFont,
   }) {
     return GhTheme(
       mode: mode ?? this.mode,
@@ -257,6 +265,7 @@ class GhTheme extends ThemeExtension<GhTheme> {
       projectIconOpacity: projectIconOpacity ?? this.projectIconOpacity,
       showScrollbars: showScrollbars ?? this.showScrollbars,
       languageCode: languageCode ?? this.languageCode,
+      bodyFont: bodyFont ?? this.bodyFont,
     );
   }
 
@@ -290,6 +299,7 @@ class GhTheme extends ThemeExtension<GhTheme> {
       projectIconOpacity: lerpDouble(projectIconOpacity, other.projectIconOpacity, t)!,
       showScrollbars: other.showScrollbars,
       languageCode: other.languageCode,
+      bodyFont: other.bodyFont,
     );
   }
 
@@ -323,11 +333,11 @@ class GhTheme extends ThemeExtension<GhTheme> {
       colorScheme: scheme,
       scaffoldBackgroundColor: base,
       canvasColor: base,
-      fontFamily: GhFonts.body,
-      fontFamilyFallback: GhFonts.bodyFallback,
+      fontFamily: GhFonts.bodyFamily(bodyFont),
+      fontFamilyFallback: GhFonts.bodyFallbackFor(bodyFont),
       textTheme: Typography.material2021().englishLike.apply(
-        fontFamily: GhFonts.body,
-        fontFamilyFallback: GhFonts.bodyFallback,
+        fontFamily: GhFonts.bodyFamily(bodyFont),
+        fontFamilyFallback: GhFonts.bodyFallbackFor(bodyFont),
         bodyColor: ink,
         displayColor: ink,
       ),
@@ -401,7 +411,8 @@ class GhTheme extends ThemeExtension<GhTheme> {
         other.fontScale == fontScale &&
         other.projectIconOpacity == projectIconOpacity &&
         other.showScrollbars == showScrollbars &&
-        other.languageCode == languageCode;
+        other.languageCode == languageCode &&
+        other.bodyFont == bodyFont;
   }
 
   @override
@@ -428,5 +439,6 @@ class GhTheme extends ThemeExtension<GhTheme> {
     projectIconOpacity,
     showScrollbars,
     languageCode,
+    bodyFont,
   ]);
 }

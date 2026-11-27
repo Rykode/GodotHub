@@ -9,17 +9,27 @@ import 'error.dart';
 import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 
 void recordDiagnostic({required String source, required String message}) =>
-    RustLib.instance.api.crateApiDiagnosticsRecordDiagnostic(source: source, message: message);
+    RustLib.instance.api.crateApiDiagnosticsRecordDiagnostic(
+      source: source,
+      message: message,
+    );
 
-Future<String> diagnosticLogTail({required int maxLines}) => RustLib.instance.api.crateApiDiagnosticsDiagnosticLogTail(maxLines: maxLines);
+Future<String> diagnosticLogTail({required int maxLines}) => RustLib
+    .instance
+    .api
+    .crateApiDiagnosticsDiagnosticLogTail(maxLines: maxLines);
 
-Future<String> diagnosticLogDir() => RustLib.instance.api.crateApiDiagnosticsDiagnosticLogDir();
+Future<String> diagnosticLogDir() =>
+    RustLib.instance.api.crateApiDiagnosticsDiagnosticLogDir();
 
-Future<void> debugPanic() => RustLib.instance.api.crateApiDiagnosticsDebugPanic();
+Future<void> debugPanic() =>
+    RustLib.instance.api.crateApiDiagnosticsDebugPanic();
 
-Future<void> debugAbort() => RustLib.instance.api.crateApiDiagnosticsDebugAbort();
+Future<void> debugAbort() =>
+    RustLib.instance.api.crateApiDiagnosticsDebugAbort();
 
-Future<CrashNotice?> takeCrashNotice() => RustLib.instance.api.crateApiDiagnosticsTakeCrashNotice();
+Future<CrashNotice?> takeCrashNotice() =>
+    RustLib.instance.api.crateApiDiagnosticsTakeCrashNotice();
 
 class CrashNotice {
   final String version;
@@ -27,10 +37,19 @@ class CrashNotice {
   final String? rolledBackTo;
   final String summary;
 
-  const CrashNotice({required this.version, required this.code, this.rolledBackTo, required this.summary});
+  const CrashNotice({
+    required this.version,
+    required this.code,
+    this.rolledBackTo,
+    required this.summary,
+  });
 
   @override
-  int get hashCode => version.hashCode ^ code.hashCode ^ rolledBackTo.hashCode ^ summary.hashCode;
+  int get hashCode =>
+      version.hashCode ^
+      code.hashCode ^
+      rolledBackTo.hashCode ^
+      summary.hashCode;
 
   @override
   bool operator ==(Object other) =>

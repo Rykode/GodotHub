@@ -1,0 +1,13 @@
+name = "godothub-survey-relay"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+# Create with: npx wrangler kv namespace create SURVEY_KV
+# then paste the returned id below.
+[[kv_namespaces]]
+binding = "SURVEY_KV"
+id = "17da17e654e8450287820be2f8c3ebbd"
+
+# Secrets (never put these in this file):
+#   npx wrangler secret put DISCORD_WEBHOOK_URL
+#   npx wrangler secret put IP_HASH_SALT

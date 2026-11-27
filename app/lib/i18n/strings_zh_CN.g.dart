@@ -1525,6 +1525,7 @@ class _Translations$settings$zh_CN extends Translations$settings$en_US {
 	@override String get download_concurrency_label => '同时下载数';
 	@override String get tray_recent_label => '托盘最近项目';
 	@override String get tooltip_delay_label => '工具提示延迟';
+	@override String get font_family_label => 'Font';
 	@override String get project_icon_opacity_label => '项目图标透明度';
 	@override String get list_project_card_style_label => '项目卡片样式';
 	@override String get project_card_style_hub => 'GodotHub';
@@ -3986,6 +3987,7 @@ extension on TranslationsZhCn {
 			'settings.download_concurrency_label' => '同时下载数',
 			'settings.tray_recent_label' => '托盘最近项目',
 			'settings.tooltip_delay_label' => '工具提示延迟',
+			'settings.font_family_label' => 'Font',
 			'settings.project_icon_opacity_label' => '项目图标透明度',
 			'settings.list_project_card_style_label' => '项目卡片样式',
 			'settings.project_card_style_hub' => 'GodotHub',
@@ -4427,9 +4429,9 @@ extension on TranslationsZhCn {
 			'versions.export_templates_download_selected' => '下载所选',
 			'versions.export_templates_loading_options' => '正在检查此版本的可用模板…',
 			'versions.export_templates_options_failed' => '无法加载此版本的模板。',
-			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(count, other: '${count} 个可用模板组', ), 
 			_ => null,
 		} ?? switch (path) {
+			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(count, other: '${count} 个可用模板组', ), 
 			'versions.export_templates_available_one' => '1 个可用模板组',
 			'versions.export_templates_available_other' => '{{count}} 个可用模板组',
 			'versions.export_templates_select_all' => '全选',

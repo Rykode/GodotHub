@@ -105,6 +105,7 @@
   "download_concurrency_label": "التنزيلات المتتالية",
   "tray_recent_label": "المشاريع الأخير في أيقونة شريط المهام",
   "tooltip_delay_label": "تأخير التلميح",
+  "font_family_label": "Font",
   "project_icon_opacity_label": "شفافية أيقونات المشاريع",
   "list_project_card_style_label": "List project card style",
   "project_card_style_hub": "GodotHub",

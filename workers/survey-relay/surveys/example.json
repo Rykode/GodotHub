@@ -1,0 +1,21 @@
+{
+  "id": "example-survey",
+  "title": "Lorem ipsum dolor sit amet",
+  "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "expires": "2027-03-01",
+  "questions": [
+    {
+      "id": "stance",
+      "type": "choice",
+      "text": "Lorem ipsum dolor sit amet consectetur?",
+      "required": true,
+      "options": [
+        { "id": "option_a", "label": "Lorem ipsum", "description": "Dolor sit amet, consectetur adipiscing elit." },
+        { "id": "option_b", "label": "Dolor sit amet", "description": "Sed do eiusmod tempor incididunt ut labore." },
+        { "id": "option_c", "label": "Consectetur", "description": "Ut enim ad minim veniam, quis nostrud." },
+        { "id": "option_d", "label": "Adipiscing elit", "description": "Duis aute irure dolor in reprehenderit." }
+      ]
+    },
+    { "id": "comment", "type": "text", "text": "Sed ut perspiciatis unde omnis?", "required": false }
+  ]
+}

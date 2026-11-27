@@ -1660,6 +1660,7 @@ class _Translations$settings$ar_MA extends Translations$settings$en_US {
 	@override String get download_concurrency_label => 'التنزيلات المتتالية';
 	@override String get tray_recent_label => 'المشاريع الأخير في أيقونة شريط المهام';
 	@override String get tooltip_delay_label => 'تأخير التلميح';
+	@override String get font_family_label => 'Font';
 	@override String get project_icon_opacity_label => 'شفافية أيقونات المشاريع';
 	@override String get list_project_card_style_label => 'List project card style';
 	@override String get project_card_style_hub => 'GodotHub';
@@ -4261,6 +4262,7 @@ extension on TranslationsArMa {
 			'settings.download_concurrency_label' => 'التنزيلات المتتالية',
 			'settings.tray_recent_label' => 'المشاريع الأخير في أيقونة شريط المهام',
 			'settings.tooltip_delay_label' => 'تأخير التلميح',
+			'settings.font_family_label' => 'Font',
 			'settings.project_icon_opacity_label' => 'شفافية أيقونات المشاريع',
 			'settings.list_project_card_style_label' => 'List project card style',
 			'settings.project_card_style_hub' => 'GodotHub',
@@ -4702,9 +4704,9 @@ extension on TranslationsArMa {
 			'versions.export_templates_download_selected' => 'Download selected',
 			'versions.export_templates_loading_options' => 'Checking this release\'s available templates…',
 			'versions.export_templates_options_failed' => 'Couldn\'t load the templates for this release.',
-			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ar'))(count, zero: '${count} available template groups', one: '1 available template group', two: '${count} available template groups', few: '${count} available template groups', many: '${count} available template groups', other: '${count} available template groups', ), 
 			_ => null,
 		} ?? switch (path) {
+			'versions.export_templates_available' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ar'))(count, zero: '${count} available template groups', one: '1 available template group', two: '${count} available template groups', few: '${count} available template groups', many: '${count} available template groups', other: '${count} available template groups', ), 
 			'versions.export_templates_available_one' => '1 available template group',
 			'versions.export_templates_available_other' => '{{count}} available template groups',
 			'versions.export_templates_select_all' => 'Select all',

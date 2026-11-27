@@ -5,6 +5,6 @@
   "description": "Flattens the stroke-based icon sources in dev/icons/source into app/lib/design/icons.g.dart",
   "dependencies": {
     "clipper-lib": "^6.4.2",
-    "paper-jsdom": "0.12.18"
+    "paper-jsdom": "0.12.20"
   }
 }

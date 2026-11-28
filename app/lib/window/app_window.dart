@@ -74,6 +74,8 @@ class AppWindow {
   Timer? _settleTimer;
   Timer? _hardStopTimer;
   bool _closing = false;
+  int _repaintGeneration = 0;
+  static const _repaintDelays = [Duration.zero, Duration(milliseconds: 80), Duration(milliseconds: 250), Duration(milliseconds: 600)];
   bool Function()? keepAliveOnClose;
   bool? startedWithOsDecorations;
 
@@ -293,6 +295,23 @@ class AppWindow {
     _window.show();
     _window.focus();
     native.setMainWindowVisible(visible: true);
+    if (Platform.isLinux) _repaintAfterShow();
+  }
+
+  /// On Linux a window that was hidden and is shown again comes back as an empty
+  /// transparent rectangle: Flutter has nothing new to draw, so no frame reaches the
+  /// freshly mapped surface and it stays blank until the app is restarted. The window
+  /// is only mapped some time after `show()` (Wayland waits for a configure), so a
+  /// frame is forced right away and again a few times while it maps. A forced frame
+  /// is drawn even while Flutter thinks the app is hidden.
+  void _repaintAfterShow() {
+    final generation = ++_repaintGeneration;
+    for (final delay in _repaintDelays) {
+      Timer(delay, () {
+        if (generation != _repaintGeneration || _closing) return;
+        SchedulerBinding.instance.scheduleForcedFrame();
+      });
+    }
   }
 
   void hide() {

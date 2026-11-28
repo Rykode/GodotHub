@@ -10,6 +10,10 @@
     {
       "category": "add",
       "text": "Settings > Appearance now has a Font dropdown to switch the interface font between Inter and the new Allo. Allo covers Latin and Vietnamese; other scripts fall back to Inter"
+    },
+    {
+      "category": "fix",
+      "text": "Linux: with \"Close application on project open\" on, the GodotHub window no longer comes back as an empty transparent window after the project's editor closes or the tray icon is clicked"
     }
   ]
 }

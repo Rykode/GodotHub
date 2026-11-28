@@ -5,11 +5,11 @@
   "notes": [
     {
       "category": "add",
-      "text": "An occasional, optional survey can now show a \"Help fill a survey\" pill in the sidebar, above the update pill. Click it to answer; answers are sent anonymously with a random ID, the app version and your operating system. Each survey shows once, and the pill's X dismisses it"
+      "text": "Occasional Surveys in App to help gather feedback, they won't disturb you and you can dismiss them completely."
     },
     {
       "category": "add",
-      "text": "Settings > Appearance now has a Font dropdown to switch the interface font between Inter and the new Allo. Allo covers Latin and Vietnamese; other scripts fall back to Inter"
+      "text": "Settings > Appearance now has a Font dropdown to switch the interface font between Inter and the new Allo."
     },
     {
       "category": "fix",
